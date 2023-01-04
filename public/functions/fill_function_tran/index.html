@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en-us" 
+      xmlns:og="http://ogp.me/ns#" 
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.7.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Ted Laderas">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Jessica Tran In this document, I will introduce the fill function and show why it’s useful.
+#load tidyverse up library(tidyverse) ## Warning: package &#39;tidyverse&#39; was built under R version 4.0.3 ## -- Attaching packages --------------------------------------- tidyverse 1.3.0 -- ## v ggplot2 3.3.3 v purrr 0.3.4 ## v tibble 3.0.6 v dplyr 1.0.4 ## v tidyr 1.1.2 v stringr 1.4.0 ## v readr 1.4.0 v forcats 0.5.1 ## Warning: package &#39;ggplot2&#39; was built under R version 4.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://sph-r-programming-2022.netlify.app/functions/fill_function_tran/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#000066">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,400i,700,700i%7COverpass:400,400i,700,700i&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://sph-r-programming-2022.netlify.app/functions/fill_function_tran/">
+
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@datapointier">
+  <meta property="twitter:creator" content="@datapointier">
+  
+  <meta property="og:site_name" content="R Programming">
+  <meta property="og:url" content="https://sph-r-programming-2022.netlify.app/functions/fill_function_tran/">
+  <meta property="og:title" content="tidyr::fill() | R Programming">
+  <meta property="og:description" content="Jessica Tran In this document, I will introduce the fill function and show why it’s useful.
+#load tidyverse up library(tidyverse) ## Warning: package &#39;tidyverse&#39; was built under R version 4.0.3 ## -- Attaching packages --------------------------------------- tidyverse 1.3.0 -- ## v ggplot2 3.3.3 v purrr 0.3.4 ## v tibble 3.0.6 v dplyr 1.0.4 ## v tidyr 1.1.2 v stringr 1.4.0 ## v readr 1.4.0 v forcats 0.5.1 ## Warning: package &#39;ggplot2&#39; was built under R version 4."><meta property="og:image" content="https://sph-r-programming-2022.netlify.app/img/social-image.png">
+  <meta property="twitter:image" content="https://sph-r-programming-2022.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
+  
+    
+    <meta property="article:modified_time" content="2021-12-22T15:56:01-08:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  <link rel="shortcut icon" href="https://sph-r-programming-2022.netlify.app/favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="https://sph-r-programming-2022.netlify.app/img/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="https://sph-r-programming-2022.netlify.app/img/favicon-16x16.png" sizes="16x16" />
+  <meta name="application-name" content="BSTA 504: R Programming" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="https://sph-r-programming-2022.netlify.app/img/mstile-144x144.png" />
+
+
+  <title>tidyr::fill() | R Programming</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70"
+    data-target="#TableOfContents"
+    >
+
+    <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+    
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">R Programming</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">R Programming</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/syllabus/"><span>Syllabus</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/schedule/"><span>Schedule</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/reading/"><span>Readings</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/class/"><span>Classes</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/functions/"><span>Functions</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+    
+
+<div class="container-fluid docs">
+    <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+            
+
+
+
+
+
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/count_ngarimella/">dplyr::count()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/functionoftheweek_bradbury_crossing/">dplyr::crossing()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/slice/">dplyr::slice</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/presentation_slicemax_hopkins_v2/">dplyr::slice_max()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/presentation_selliott/">fct::fct_infreq()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/geom_density_winders/">ggplot2::geom_density()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/presentation_siadat/">ggplot2::geom_jitter()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/fxns-geom_smooth-kramarz/">ggplot2::geom_smooth()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/geomtile_brownl/">ggplot2::geom_tile()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/functions-presentation-rogash/">forcats::fct_relevel</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/marty_arigotti_floor-date/">lubridate::floor_date()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/function_presentation_langford/">purrr::pluck()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/presentation_hawkinson/">purrr::walk()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/patchwork_kempton/">{patchwork} package</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/str_detect_little/">stringr::str_detect()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/breakspretty/">scales::breaks_pretty()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/str_wrap-callis-fixed/">stringr::str_wrap()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/presentation_olyaei/">tidyr::drop_na()</a>
+
+  </div>
+  
+  <div class="docs-toc-item active">
+    <a class="docs-toc-link" href="/functions/fill_function_tran/">tidyr::fill()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/function_farzana/">tidyr::separate_rows()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions/unite_brunton/">tidyr::unite()</a>
+
+  </div>
+  
+  
+</nav>
+
+        </div>
+
+        
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+            <article class="article">
+
+                <div class="docs-article-container">
+                    <h1>tidyr::fill()</h1>
+
+                    
+
+                    
+
+                    
+
+                    <div class="article-style">
+                        
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="jessica-tran" class="section level2">
+<h2>Jessica Tran</h2>
+<p>In this document, I will introduce the fill function and show why it’s useful.</p>
+<pre class="r"><code>#load tidyverse up
+library(tidyverse)</code></pre>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.3.3     v purrr   0.3.4
+## v tibble  3.0.6     v dplyr   1.0.4
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.1</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;forcats&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div id="what-is-it-for" class="section level2">
+<h2>What is it for?</h2>
+<p><strong>The Problem:</strong><br />
+Missing values.</p>
+<p><strong>What Fill does:</strong><br />
+Fills missing values with the previous entry. It’s like putting in values for a "" ditto mark.</p>
+<p><strong>Why would I need this function?</strong><br />
+Fixes redundant info. Sometimes in Excel, people don’t fill in the data if it’s redundant, which needs to be fixed before working the the data in R.</p>
+</div>
+<div id="arguments" class="section level2">
+<h2>Arguments</h2>
+<p><strong>Data:</strong> A data frame<br />
+<strong>Command:</strong> Fill(<em>name of column of interest</em>)<br />
+<strong>.direction</strong>: Direction to fill missing values. “Down” is default. Other options: “up”, “downup” (down, then up), or “updown” (up, then down).<br />
+<em>Use context to identify which direction.</em></p>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<pre class="r"><code>#load the palmerpenguins library
+library(palmerpenguins)</code></pre>
+<pre><code>## Warning: package &#39;palmerpenguins&#39; was built under R version 4.0.3</code></pre>
+<pre class="r"><code>#load the dataset using data()
+data(penguins)
+penguins</code></pre>
+<pre><code>## # A tibble: 344 x 8
+##    species island bill_length_mm bill_depth_mm flipper_length_~ body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torge~           39.1          18.7              181        3750
+##  2 Adelie  Torge~           39.5          17.4              186        3800
+##  3 Adelie  Torge~           40.3          18                195        3250
+##  4 Adelie  Torge~           NA            NA                 NA          NA
+##  5 Adelie  Torge~           36.7          19.3              193        3450
+##  6 Adelie  Torge~           39.3          20.6              190        3650
+##  7 Adelie  Torge~           38.9          17.8              181        3625
+##  8 Adelie  Torge~           39.2          19.6              195        4675
+##  9 Adelie  Torge~           34.1          18.1              193        3475
+## 10 Adelie  Torge~           42            20.2              190        4250
+## # ... with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<pre class="r"><code>summary(penguins)</code></pre>
+<pre><code>##       species          island    bill_length_mm  bill_depth_mm  
+##  Adelie   :152   Biscoe   :168   Min.   :32.10   Min.   :13.10  
+##  Chinstrap: 68   Dream    :124   1st Qu.:39.23   1st Qu.:15.60  
+##  Gentoo   :124   Torgersen: 52   Median :44.45   Median :17.30  
+##                                  Mean   :43.92   Mean   :17.15  
+##                                  3rd Qu.:48.50   3rd Qu.:18.70  
+##                                  Max.   :59.60   Max.   :21.50  
+##                                  NA&#39;s   :2       NA&#39;s   :2      
+##  flipper_length_mm  body_mass_g       sex           year     
+##  Min.   :172.0     Min.   :2700   female:165   Min.   :2007  
+##  1st Qu.:190.0     1st Qu.:3550   male  :168   1st Qu.:2007  
+##  Median :197.0     Median :4050   NA&#39;s  : 11   Median :2008  
+##  Mean   :200.9     Mean   :4202                Mean   :2008  
+##  3rd Qu.:213.0     3rd Qu.:4750                3rd Qu.:2009  
+##  Max.   :231.0     Max.   :6300                Max.   :2009  
+##  NA&#39;s   :2         NA&#39;s   :2</code></pre>
+<p>We will use a different dataset since penguins doesn’t have many missing values.</p>
+<div id="continuous-variables" class="section level4">
+<h4>Continuous Variables</h4>
+<p><em>Note: Tibble is a tidy data frame. It makes data easier to view.</em></p>
+<pre class="r"><code>sales &lt;- tibble::tribble(
+  ~quarter, ~year, ~sales,
+  &quot;Q1&quot;,    2000,    66013,
+  &quot;Q2&quot;,      NA,    69182,
+  &quot;Q3&quot;,      NA,    53175,
+  &quot;Q4&quot;,      NA,    21001,
+  &quot;Q1&quot;,    2001,    46036,
+  &quot;Q2&quot;,      NA,    58842,
+  &quot;Q3&quot;,      NA,    44568,
+  &quot;Q4&quot;,      NA,    50197,
+  &quot;Q1&quot;,    2002,    39113,
+  &quot;Q2&quot;,      NA,    41668,
+  &quot;Q3&quot;,      NA,    30144,
+  &quot;Q4&quot;,      NA,    52897,
+  &quot;Q1&quot;,    2004,    32129,
+  &quot;Q2&quot;,      NA,    67686,
+  &quot;Q3&quot;,      NA,    31768,
+  &quot;Q4&quot;,      NA,    49094
+)</code></pre>
+<p>In the above dataset, the ‘year’ is missing in the subsequent quarters, so we will use the default setting for fill().</p>
+<pre class="r"><code># &#39;fill()&#39; defaults to replacing missing data from top to bottom
+# set the column of interest as the argument 
+sales %&gt;% fill(year)</code></pre>
+<pre><code>## # A tibble: 16 x 3
+##    quarter  year sales
+##    &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+##  1 Q1       2000 66013
+##  2 Q2       2000 69182
+##  3 Q3       2000 53175
+##  4 Q4       2000 21001
+##  5 Q1       2001 46036
+##  6 Q2       2001 58842
+##  7 Q3       2001 44568
+##  8 Q4       2001 50197
+##  9 Q1       2002 39113
+## 10 Q2       2002 41668
+## 11 Q3       2002 30144
+## 12 Q4       2002 52897
+## 13 Q1       2004 32129
+## 14 Q2       2004 67686
+## 15 Q3       2004 31768
+## 16 Q4       2004 49094</code></pre>
+</div>
+<div id="categorical-variables" class="section level4">
+<h4>Categorical Variables</h4>
+<pre class="r"><code># Value (pet_type) is missing above
+tidy_pets &lt;- tibble::tribble(
+  ~rank, ~pet_type, ~breed,
+  1L,        NA,    &quot;Boston Terrier&quot;,
+  2L,        NA,    &quot;Retrievers (Labrador)&quot;,
+  3L,        NA,    &quot;Retrievers (Golden)&quot;,
+  4L,        NA,    &quot;French Bulldogs&quot;,
+  5L,        NA,    &quot;Bulldogs&quot;,
+  6L,     &quot;Dog&quot;,    &quot;Beagles&quot;,
+  1L,        NA,    &quot;Persian&quot;,
+  2L,        NA,    &quot;Maine Coon&quot;,
+  3L,        NA,    &quot;Ragdoll&quot;,
+  4L,        NA,    &quot;Exotic&quot;,
+  5L,        NA,    &quot;Siamese&quot;,
+  6L,     &quot;Cat&quot;,    &quot;American Short&quot;
+)</code></pre>
+<p>In the above dataset, the ‘pet_type’ is missing values. From the values in the ‘breed’ column we see that we must fill from bottom to the top.</p>
+<pre class="r"><code># For values that are missing above you can use `.direction = &quot;up&quot;`
+tidy_pets %&gt;%
+  fill(pet_type, .direction = &quot;up&quot;)</code></pre>
+<pre><code>## # A tibble: 12 x 3
+##     rank pet_type breed                
+##    &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;                
+##  1     1 Dog      Boston Terrier       
+##  2     2 Dog      Retrievers (Labrador)
+##  3     3 Dog      Retrievers (Golden)  
+##  4     4 Dog      French Bulldogs      
+##  5     5 Dog      Bulldogs             
+##  6     6 Dog      Beagles              
+##  7     1 Cat      Persian              
+##  8     2 Cat      Maine Coon           
+##  9     3 Cat      Ragdoll              
+## 10     4 Cat      Exotic               
+## 11     5 Cat      Siamese              
+## 12     6 Cat      American Short</code></pre>
+</div>
+</div>
+<div id="is-it-helpful" class="section level2">
+<h2>Is it helpful?</h2>
+<p>Yes! Addressing missing data is important for cleaning data before analysis. And we don’t want to delete missing data because it leads to information loss and can lower statistical power.</p>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<p><a href="https://rdrr.io/github/tidyverse/tidyr/man/fill.html" class="uri">https://rdrr.io/github/tidyverse/tidyr/man/fill.html</a></p>
+</div>
+
+                    </div>
+
+                    
+
+
+
+                    
+                </div>
+
+                <div class="body-footer">
+                    <p>Last updated on December 22, 2021</p>
+
+                    
+
+
+
+
+
+  
+  
+
+<p class="edit-page">
+  <a href="https://github.com/jminnier/sph_r_programming_site/edit/master/content/functions/fill_function_tran.html">
+    <i class="fas fa-pen pr-2"></i>Edit this page
+  </a>
+</p>
+
+
+
+
+                    
+
+                </div>
+
+            </article>
+
+            <footer>
+    <hr>
+
+    <div class="row course-info">
+        <div class="col-md-7">
+            <p>
+                <strong>BSTA 504: R Programming (Winter 2022)</strong><br>
+
+                <a href="https://www.ohsu.edu" target="_blank" rel="noopener">Oregon Health &amp; Science University / Portland State University</a> &emsp;&emsp;
+                <a href="https://ohsu-psu-sph.org/" target="_blank" rel="noopener">OHSU/PSU School of Public Health</a>
+            </p>
+
+            <p>
+                <a href="http://jessicaminnier.com" target="_blank" rel="noopener"><i class="fas fa-user"></i>
+                    Dr. Jessica Minnier</a> &emsp;&emsp;
+                <a href="mailto:minnier@ohsu.edu"><i class="fas fa-envelope"></i>
+                    minnier@ohsu.edu</a>
+            </p>
+
+            <p>
+                <i class="far fa-calendar-alt"></i> Wednesdays &emsp;&emsp;
+                <i class="far fa-clock"></i> 3:15–6:05 PM <br>
+                <i class="fas fa-university"></i> Online
+            </p>
+        </div>
+
+        <div class="col-md-5 credits">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+            
+            <p>Content <i class="fab fa-creative-commons"></i> 2022 <a href="http://jessicaminnier.com" target="_blank" rel="noopener">ted &amp; jessica</a></p>
+        
+            <p>This site created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> adapted by <a href="https://github.com/laderast/sph_r_programming_site" target="_blank" rel="noopener">Ted Laderas</a> and <a href="https://github.com/andrewheiss/evalsp20.classes.andrewheiss.com" target="_blank" rel="noopener">Andrew Heiss</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
+            
+            <p><a href="https://github.com/jminnier/sph_r_programming_site" target="_blank" rel="noopener"><i class="fab fa-github"></i> View the source at GitHub.</a></p>
+        </div>
+    </div>
+</footer>
+
+
+        </main>
+    </div>
+</div>
+
+        
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academic.min.a1c3596268a997890f5b9089b30365c6.js"></script>
+
+    
+
+
+
+
+
+
+    
+    
+
+    
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

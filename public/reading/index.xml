@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reading policy | R Programming 2022</title>
+    <link>https://sph-r-programming-2022.netlify.app/reading/</link>
+      <atom:link href="https://sph-r-programming-2022.netlify.app/reading/index.xml" rel="self" type="application/rss+xml" />
+    <description>Reading policy</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <image>
+      <url>https://sph-r-programming-2022.netlify.app/img/social-image.png</url>
+      <title>Reading policy</title>
+      <link>https://sph-r-programming-2022.netlify.app/reading/</link>
+    </image>
+    
+    <item>
+      <title>Part 8. Statistical Modeling/More purrr</title>
+      <link>https://sph-r-programming-2022.netlify.app/reading/08-reading/</link>
+      <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/reading/08-reading/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;required&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Required&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/model-basics.html&#34;&gt;Model Basics&lt;/a&gt; from R for Data Science&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/model-building.html&#34;&gt;Model Building&lt;/a&gt; from R for Data Science&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/many-models.html&#34;&gt;Many Models&lt;/a&gt; - from R for Data science. Covers &lt;code&gt;group_by()/nest()&lt;/code&gt; and list-columns&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.hvitfeldt.me/blog/purrr-tips-and-tricks/&#34;&gt;Purrr Tips and Tricks&lt;/a&gt; by Emil Hvitfeldt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 7. purrr</title>
+      <link>https://sph-r-programming-2022.netlify.app/reading/07-reading/</link>
+      <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/reading/07-reading/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;required&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Required&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.rebeccabarter.com/blog/2019-08-19_purrr/&#34;&gt;Learn to purrr&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 4. `dplyr`: `mutate()`, `across()`, ggplot: faceting, scales</title>
+      <link>https://sph-r-programming-2022.netlify.app/reading/04-reading/</link>
+      <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/reading/04-reading/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;required&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Required&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/transform.html&#34;&gt;Data Transformation (5.1-5.5)&lt;/a&gt; from R for Data Science&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ggplot2-book.org/scales-guides.html&#34;&gt;ggplot2: Elegant Graphics for Data Analysis, Scales &amp;amp; Guides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/factors.html&#34;&gt;R for Data Science: Factors&lt;/a&gt; - we will continue to work with factors in the next few classes with &lt;code&gt;forcats&lt;/code&gt; examples like provided here.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;optional&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Optional&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://style.tidyverse.org/index.html&#34;&gt;Tidyverse style guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://adv-r.had.co.nz/Style.html&#34;&gt;Advanced R: style guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This &lt;a href=&#34;https://cran.r-project.org/web/packages/dplyr/vignettes/colwise.html&#34;&gt;column-wise operations vignette&lt;/a&gt; will be useful for the next couple classes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 5. summarize() and group_by(), doing things with multiple tables (left_join() etc), reshaping data (i.e. pivot_longer())</title>
+      <link>https://sph-r-programming-2022.netlify.app/reading/05-reading/</link>
+      <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/reading/05-reading/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;required&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Required&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/transform.html&#34;&gt;Data Transformation (5.6-5.7)&lt;/a&gt; from R for Data Science&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ubc-dsci.github.io/introduction-to-datascience/wrangling.html#aggregating-data-with-summarize-and-map&#34;&gt;Aggregating data with &lt;code&gt;summarize&lt;/code&gt; and &lt;code&gt;map&lt;/code&gt;&lt;/a&gt; - we will cover &lt;code&gt;map()&lt;/code&gt; and &lt;code&gt;rowwise()&lt;/code&gt; later, but &lt;code&gt;summarize&lt;/code&gt; and &lt;code&gt;mutate&lt;/code&gt; with &lt;code&gt;across&lt;/code&gt; are described here. You may want to re-visit this when we get to &lt;code&gt;purrr&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;optional&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Optional&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;This &lt;a href=&#34;https://cran.r-project.org/web/packages/dplyr/vignettes/colwise.html&#34;&gt;column-wise operations vignette&lt;/a&gt; will be useful for the next couple classes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The following resources are optional reading, but quite helpful in your RMarkdown Journey.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf&#34;&gt;RMarkdown Cheatsheet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/rmarkdown-cookbook/&#34;&gt;RMarkdown Cookbook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rmd4sci.njtierney.com/&#34;&gt;RMarkdown for Scientists&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 3: `ggplot2`, factors, boxplots, `dplyr`: subsetting using `filter()`/`select()`</title>
+      <link>https://sph-r-programming-2022.netlify.app/reading/03-reading/</link>
+      <pubDate>Wed, 19 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/reading/03-reading/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;required&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Required&lt;/h2&gt;
+&lt;div id=&#34;ggplot2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;code&gt;ggplot2&lt;/code&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sph-r-programming.netlify.app/ggplot_flipbookr_berd/04_ggplot_slides.html&#34;&gt;ggplot2 BERD workshop slides&lt;/a&gt; - lots more on different &lt;code&gt;geoms&lt;/code&gt; and how to customize plots&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dplyr&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;code&gt;dplyr&lt;/code&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf&#34;&gt;&lt;code&gt;dplyr&lt;/code&gt; cheatsheet&lt;/a&gt; - one of the best references.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ubc-dsci.github.io/introduction-to-datascience/wrangling.html#combining-functions-using-the-pipe-operator&#34;&gt;Combining functions using the pipe operator, %&amp;gt;%&lt;/a&gt; - if you’re confused about &lt;code&gt;%&amp;gt;%&lt;/code&gt;, please read this.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;optional&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Optional&lt;/h2&gt;
+&lt;div id=&#34;customizing-ggplot2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Customizing ggplot2&lt;/h3&gt;
+&lt;p&gt;If you are interested in learning more about ggplot:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rfortherestofus.com/2019/08/themes-to-improve-your-ggplot-figures/&#34;&gt;Themes to improve your ggplot figures&lt;/a&gt; by David Keyes is really helpful for learning how to do more styling.&lt;/li&gt;
+&lt;li&gt;RStudio also publishes a &lt;a href=&#34;https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf&#34;&gt;ggplot cheat sheet&lt;/a&gt; that is really handy!&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3/&#34;&gt;Customizing ggplot2 Cheatsheet&lt;/a&gt; is also handy, because it organizes ggplot2 commands by task.&lt;/li&gt;
+&lt;li&gt;Documentation for all &lt;code&gt;ggplot&lt;/code&gt; features is available &lt;a href=&#34;https://ggplot2.tidyverse.org&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;using-tidyselect-intermediate-level&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Using &lt;code&gt;tidyselect&lt;/code&gt; (Intermediate Level)&lt;/h3&gt;
+&lt;p&gt;Remember, &lt;code&gt;select()&lt;/code&gt; works on columns.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tidyselect&lt;/code&gt; lets you select columns by matching names. In conjunction with the &lt;code&gt;across()&lt;/code&gt; command, you can apply the same operation to multiple columns at once. This is especially handy when you need to produce a summary on all numeric columns.&lt;/p&gt;
+&lt;p&gt;You can run the &lt;code&gt;tidyselect&lt;/code&gt; tutorial by first installing the &lt;a href=&#34;https://github.com/laderast/tidyowl&#34;&gt;&lt;code&gt;tidyowl&lt;/code&gt; package by Ted Laderas&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;install.packages(&amp;quot;remotes&amp;quot;)
+remotes::install_github(&amp;quot;laderast/tidyowl&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and then running this code in your Rstudio console window:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;library(tidyowl)
+learn_tidyselect()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 2: Data Frames/Loading Data/ggplot2</title>
+      <link>https://sph-r-programming-2022.netlify.app/reading/02-reading/</link>
+      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/reading/02-reading/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;required&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Required&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989&#34;&gt;Data Organization in Spreadsheets&lt;/a&gt; by Kara Woo and Karl Broman - if there is one paper that I think is useful for everyone, it’s this one.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ubc-dsci.github.io/introduction-to-datascience/reading.html#absolute-and-relative-file-paths&#34;&gt;Absolute and Relative File Paths&lt;/a&gt; - sometimes understanding file paths can be difficult. This is a great follow up reading. The video is very helpful as well.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://moderndive.com/1-getting-started.html#packages&#34;&gt;What are R packages?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction to R/RStudio/Vectors/For Loops</title>
+      <link>https://sph-r-programming-2022.netlify.app/reading/01-reading/</link>
+      <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/reading/01-reading/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;required&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Required&lt;/h2&gt;
+&lt;p&gt;Remember, this reading is mostly supplemental and will help you if there are concepts that are unclear in class.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ismayc.github.io/rbasics-book/3-rstudiobasics.html&#34;&gt;R and RStudio Basics&lt;/a&gt; - make sure to watch the videos.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ubc-dsci.github.io/introduction-to-datascience/wrangling.html#vectors-and-data-frames&#34;&gt;Vectors and Data Frames&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/workflow-projects.html&#34;&gt;Rstudio projects&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;optional&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Optional&lt;/h2&gt;
+&lt;div id=&#34;markdown-basics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Markdown Basics&lt;/h3&gt;
+&lt;p&gt;This is a short reference on how to do formatting in Markdown. This is optional, but may be a helpful reference as you continue on and work with Markdown and RMarkdown.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://sph-r-programming-2022.netlify.app/reference/markdown.html&#34; class=&#34;uri&#34;&gt;https://sph-r-programming-2022.netlify.app/reference/markdown.html&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;swirl-basics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Swirl Basics&lt;/h3&gt;
+&lt;p&gt;I’m going to highlight another resource for learning basic R concepts: &lt;code&gt;swirl&lt;/code&gt;. This is a software package for R.&lt;/p&gt;
+&lt;p&gt;To start it, run the following code in the console in RStudio Cloud:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(swirl)
+swirl()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You’ll want to take a look at the &lt;code&gt;R Programming&lt;/code&gt; course, especially the following sections:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Basic Building Blocks&lt;/li&gt;
+&lt;li&gt;Sequences of Numbers&lt;/li&gt;
+&lt;li&gt;Vectors&lt;/li&gt;
+&lt;li&gt;Missing values&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 10. Tidymodels/Supervised Learning/Logistic Regression</title>
+      <link>https://sph-r-programming-2022.netlify.app/reading/10-reading/</link>
+      <pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/reading/10-reading/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;required&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Required&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.tmwr.org/recipes.html&#34;&gt;Tidymodels with R: Recipes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.tmwr.org/models.html&#34;&gt;Tidymodels with R: Fitting Models with Parsnip&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.tmwr.org/performance.html&#34;&gt;Tidymodels with R: Judging Model Effectiveness&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 6. Lists and RMarkdown</title>
+      <link>https://sph-r-programming-2022.netlify.app/reading/06-reading/</link>
+      <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/reading/06-reading/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;required&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Required&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://hbctraining.github.io/Intro-to-R-flipped/lessons/03_introR-functions-and-arguments.html&#34;&gt;Introduction to Functions and Arguments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://statseducation.com/Introduction-to-R/modules/getting%20data/lists/&#34;&gt;Introduction to Lists&lt;/a&gt; - be sure to read this before class next week.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sciencificity-blog.netlify.app/posts/2021-01-30-control-your-factors-with-forcats/&#34;&gt;Control your Factors Using Forcats&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;suggested&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Suggested&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;More on joining data in &lt;a href=&#34;https://r4ds.had.co.nz/relational-data.html&#34;&gt;Relational data&lt;/a&gt; from &lt;em&gt;R for Data Science&lt;/em&gt;, especially about &lt;a href=&#34;https://r4ds.had.co.nz/relational-data.html#join-matches&#34;&gt;duplicate keys&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/dates-and-times.html&#34;&gt;Dates and times&lt;/a&gt; in &lt;em&gt;R for Data Science&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 9. Tidymodels/Unsupervised Learning/Logistic Regression</title>
+      <link>https://sph-r-programming-2022.netlify.app/reading/09-reading/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/reading/09-reading/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;required&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Required&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://juliasilge.com/blog/cocktail-recipes-umap/&#34;&gt;UMAP and Cocktail Recipes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.tidymodels.org/learn/statistics/k-means/&#34;&gt;Tidymodels: K-means&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://allisonhorst.github.io/palmerpenguins/articles/articles/pca.html&#34;&gt;PCA and Penguins&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,39 @@
+---
+title: "Part 9 (Class 10-11) More stats, broom, and tables (gt, gtsummary)"
+linktitle: "Part 9 (Class 10-11) More stats, broom, and tables (gt, gtsummary)"
+date: "2020-03-10"
+menu:
+  reading:
+    parent: Readings
+    weight: 10
+type: docs
+---
+
+## Required
+
+- [Introduction to broom](https://cran.r-project.org/web/packages/broom/vignettes/broom.html)
+
+
+## Suggested
+
+- [Programming with dplyr](https://dplyr.tidyverse.org/articles/programming.html) - in case I can't get to tidyeval use for functions with tidyverse
+- [ggplot2 in packages](https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html) - examples how to use ggplot inside functions
+- Resources for learning more statistics:
+  * Modern Dive / Statistical Inference via Data Science by Chester Ismay and Albert Y Kim is a nice place to start: <https://moderndive.com/>
+  * Danielle Navarro's Learning Statistics with R is excellent and talks much more about statistics: <https://learningstatisticswithr.com/>
+- More on using map and nested data with modeling: [R for Data Science: Many Models](https://r4ds.had.co.nz/many-models.html)
+- [broom and dplyr](https://broom.tidymodels.org/articles/broom_and_dplyr.html)
+- Useful vignettes on table output: [gtsummary intro to tbl_summary](https://www.danieldsjoberg.com/gtsummary/articles/tbl_summary.html)
+- Ted Laderas's interactive workbook on learning rowwise and nested data: [learning rowwise](https://tladeras.shinyapps.io/learning_rowwise)
+- We might not get to dates but in case you want to learn more: [Dates and times in R for Data Science](https://r4ds.had.co.nz/dates-and-times.html)
+- If you want to learn about tidymodels: [Introduction to Machine Learning with the Tidyverse](https://education.rstudio.com/blog/2020/02/conf20-intro-ml/)
+- [Joy of Functional programming talk by Hadley Wickham](https://learning.acm.org/techtalks/functionalprogramming) - more on nesting/iteration
+- More on model building and machine learning
+  * [Model Building](https://r4ds.had.co.nz/model-building.html) from R for Data Science
+  * [Many Models](https://r4ds.had.co.nz/many-models.html) - from R for Data science. Covers `group_by()/nest()` and list-columns
+  * [Tidymodels with R: Recipes](https://www.tmwr.org/recipes.html)
+  * [Tidymodels with R: Fitting Models with Parsnip](https://www.tmwr.org/models.html)
+  * [Tidymodels with R: Judging Model Effectiveness](https://www.tmwr.org/performance.html)
+  * [UMAP and Cocktail Recipes](https://juliasilge.com/blog/cocktail-recipes-umap/)
+  * [Tidymodels: K-means](https://www.tidymodels.org/learn/statistics/k-means/)
+  * [PCA and Penguins](https://allisonhorst.github.io/palmerpenguins/articles/articles/pca.html)

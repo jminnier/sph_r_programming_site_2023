@@ -1,0 +1,25 @@
+---
+title: "Part 5. summarize() and group_by(), doing things with multiple tables (left_join() etc), reshaping data (i.e. pivot_longer())"
+linktitle: "Part 5. summarize() and group_by(), doing things with multiple tables (left_join() etc), reshaping data (i.e. pivot_longer())"
+date: "2022-01-26"
+menu:
+  reading:
+    parent: Readings
+    weight: 5
+type: docs
+---
+
+## Required
+
+- [Data Transformation (5.6-5.7)](https://r4ds.had.co.nz/transform.html) from R for Data Science
+- [Aggregating data with `summarize` and `map`](https://ubc-dsci.github.io/introduction-to-datascience/wrangling.html#aggregating-data-with-summarize-and-map) - we will cover `map()` and `rowwise()` later, but `summarize` and `mutate` with `across` are described here. You may want to re-visit this when we get to `purrr`.
+
+## Optional
+
+- This [column-wise operations vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/colwise.html) will be useful for the next couple classes.
+
+The following resources are optional reading, but quite helpful in your RMarkdown Journey.
+
+- [RMarkdown Cheatsheet](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+- [RMarkdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
+- [RMarkdown for Scientists](https://rmd4sci.njtierney.com/)

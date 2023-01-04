@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>BSTA 504 Introduction</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Jessica Minnier" />
+    <meta name="date" content="2021-12-30" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# BSTA 504 Introduction
+## R Programming
+### Jessica Minnier
+### 2021-12-30
+
+---
+
+
+
+
+
+
+
+
+class: center, middle
+
+# Welcome
+
+---
+
+# Jessica Minnier, PhD
+
+- Associate Professor, Biostatistics, OHSU-PSU School of Public Health
+- Knight Cancer Institute Biostatistics Shared Resource
+- Co-instructor of many OCTRI BERD [R Workshops](https://github.com/jminnier/berd_r_courses)
+- Co-founder of [Cascadia-R Conference](https://cascadiarconf.com)
+- I am not a programmer (CS minor does not count, believe me)! I learned R in graduate school in 2007.
+
+---
+# Class Facilitator/TA
+
+- Meet Colin
+- He will be helping me facilitate online sessions
+- Also will be grading and will be available for questions on Slack
+
+---
+# Introduction Overview
+
+- Code of Conduct
+- Introduction to Zoom
+- Learning Objectives
+- Class Logistics
+
+---
+# About this course
+
+- This is a new-ish course
+- Winter 2021 version developed and taught by [Ted Laderas](https://laderast.github.io/)
+- Previous materials (and videos) are available on last year's course website https://sph-r-programming.netlify.app/
+- This course will be very similar
+- Assume new to R, though many of you will not be new to R
+
+
+---
+class:center, middle
+# This is a Safe Space to Ask Questions
+
+---
+# Code of Conduct
+
+This class is governed by the [BioData Club Code of Conduct](https://biodata-club.github.io/code_of_conduct/) and the [OHSU Code of Conduct](https://www.ohsu.edu/integrity-department/code-conduct).
+
+This class is meant to be a psychologically safe space where it's ok to ask questions.
+
+I want to normalize your own curiosity and fuel your desire to learn more.
+
+If you are disruptive to class learning or disparaging to other students, I may mute you for the day.
+
+---
+# Code of Conduct Violations
+
+Please report them to me directly or to Colin if you feel comfortable.
+
+If not, please use the anonymous reporting form here: https://forms.gle/yAAGx7bkZYhgsdqVA
+
+
+---
+# Tour of Zoom
+
+- We'll be using zoom for our classes
+- Let's do a quick guided tour
+
+&lt;center&gt;&lt;img src="image/week1/horst_monster_support.jpg" width="70%" height="75%"&gt;&lt;a href="https://github.com/allisonhorst/stats-illustrations"&gt;&lt;br&gt;Allison Horst&lt;/a&gt;&lt;/center&gt;
+
+---
+# Change your Zoom name, if you wish
+
+This class is being recorded, and will be posted to the public-facing website.
+
+To protect your privacy, you may wish to change your visible zoom name. I will try to call you by this name, and won't use last names. I will try not to show your video in the recording as well.
+
+- [See instructions](https://teaching.nmc.edu/knowledgebase/changing-your-name-in-a-zoom-meeting/)
+- Basically, click on "Participants", then "Rename" next to your name.
+
+---
+# Letting me Know
+
+When we're doing the activity, use the hands up in Zoom to indicate that you're finished.
+
+If you have questions, please ask them in chat.
+
+---
+# Let's Try Out Chat (10 minutes)
+
+Open the chat window (if we are in full screen, press the escape key, and then click on the chat icon)
+
+&lt;img src="image/week1/zoom_chat.jpg" width = 800&gt;
+
+Type in Chat:
+
+- Your Name
+- Your Program
+- What you hope to learn from this course
+
+---
+# Rules for Interaction
+
+During Class
+
+- Post questions in Chat
+    - Our TA will interrupt me to make sure these questions are answered
+- Post answers to questions in chat if you know them
+- You can unmute to ask questions as well
+
+---
+# Rules for Interaction
+
+During Class
+
+- Work with your breakout room buddies if we're working on a lab 
+- Share screens to talk about issues
+
+---
+# Sharing Your Screen
+
+&lt;img src = "image/week1/screen sharing.jpg" width = 800&gt;
+
+
+---
+# Let's try the Breakout Rooms
+
+- Let's try it (3 minutes)
+- Icebreaker: What is your favorite all purpose condiment (such as salsa, ketchup, or chile oil?) and why?
+
+---
+# Zoom Recordings/Attendance
+
+- I will record each session and we will post it as soon it is ready
+- I will pause recording for breakout rooms (that won't be recorded)
+- Remind me to start recording when class starts/restarts
+
+---
+# Learning Objectives
+
+By the end of this course you will be able to:
+
+1. **Understand** and **utilize** **R/RStudio** (hopefully with minimal pain).
+2. **Understand** basic data types and data structures in R.
+3. **Familiarize** and **load** data files (Excel, Comma Separated Value files) into R/Rstudio, with tips on formatting.
+4. **Visualize** datasets using **ggplot2** and understand how to build basic plots using **ggplot2** syntax.
+5. **Filter** and **format** data in R for use with various routines.
+6. **Execute** and **Interpret** some basic statistics in R.
+7. **Automate** repetitive tasks in R, such as loading a folder of files.
+
+*__If time allows (perhaps one or two of these)__*:
+
+We may explore fancy tables in our R markdown reports with `gt`, or Bioconductor Data Structures, or machine learning workflows using `tidymodels`, or basic interactive applications with `shiny`.
+
+
+---
+# Words of Encouragement
+
+Programming *is* for everyone who is motivated to learn, and willing to keep trying.
+
+[You can do it! (It ~~might~~ will be hard and frustrating at times.)](https://sph-r-programming-2022.netlify.app/syllabus/#words-of-encouragement)
+
+
+---
+class: center, middle
+# Class Logistics
+
+---
+class: center, middle
+
+# Let's look at the website:
+## http://sph-r-programming-2022.netlify.com
+
+---
+# Caveat Emptor
+
+- This is *not* a conventional programming course
+- We try to get you doing interesting and useful things from the beginning
+- We use `tidyverse` because it helps you get up and running quickly
+- This is also *not* a full course on statistics or machine learning
+
+---
+# Textbooks
+
+All textbooks are available online and are free to use.
+
+We'll be using the following for reference:
+
+**Getting Used to R, RStudio, and RMarkdown**. Chester Ismay.
+&lt;https://ismayc.github.io/rbasics-book/&gt;
+
+**Introduction to Data Science**. Tiffany Timbers, Trevor Campbell, Melissa Lee. &lt;https://ubc-dsci.github.io/introduction-to-datascience/&gt;
+
+**RMarkdown for Scientists**. Nick Tierney. &lt;https://rmd4sci.njtierney.com/&gt;
+
+**R for Data Science**. Garret Grolemund and Hadley Wickham. &lt;https://r4ds.had.co.nz/&gt;
+
+
+---
+# My Approach to Teaching
+
+(aka Dr. Laderas' approach, also my approach)
+
+I think students learn the best when they're actually looking and thinking about data.
+
+This means we will be looking at lots of data.
+
+---
+# Social Learning Works
+
+I also think that we learn best when we are discussing data together.
+
+We will be using breakout rooms to work on activities with 2-3 people in a room. Please discuss the problem together, and one of you should share your screen to code along together.
+
+The breakout rooms will be randomly assigned each class, to mix things up.
+
+---
+# Format of Class
+
+- Review of muddiest points (10-15 minutes)
+- Function of the Week presentations (20 minutes)
+- Main Learning (2 hours)
+- Wrap Up/Questions (remaining time)
+
+We'll take 5 minute breaks at the top of each hour.
+
+---
+# Syllabus
+
+There is a syllabus on the [website](https://sph-r-programming-2022.netlify.app/syllabus/), as well as on [Sakai](https://sakai.ohsu.edu/portal/site/BSTA-504-1-22151-W22/page/73c051e0-0b37-4956-853a-95ced6138d53). Let me know if you notice discrepancies.
+
+---
+# Grading Breakdown
+
+- Attendance 10%
+- Midterm Project 15%
+- Function of the Week 10%
+- Homework Assignments 45%
+- Final Project 20%
+
+---
+# Class Attendance Policy
+
+Please try to attend class. 
+
+There is a post-class survey that will be posted. Please fill it out, as it counts as attendance.
+
+If you can't attend class, please let me know. If you can't attend, please watch the recording and then fill out the survey.
+
+- Clearest Point: What was the most clear part of the lecture?
+- Muddiest Point: What was the most unclear part of the lecture to you?
+- Anything Else: Is there something you’d like me to know?
+
+https://forms.gle/4tVx1mL7SzQx7MCu5
+
+---
+# Class Assignments
+
+Class Assignments will be done in R Markdown documents. 
+
+Assignments will be submitted through Sakai. 
+
+We will do our best to return it to you within a week.
+
+We will highlight any points of confusion.
+
+---
+# Function of the Week
+
+- Starts in Week 3
+- Learn and share about a lesser known `tidyverse()` function (5 minutes max)
+- Share your experience with the function
+  - Is it useful?
+  - Is it hard to use?
+  - Share an example
+- You will have time to meet with me before you present
+  
+---
+# Midterm / Final Project
+
+- Midterm: Pick a dataset and show that you can explore it, plot it, and transform it to answer a specific question
+  - Schedule a meeting to discuss the data
+- Final: Pick a different dataset and build a model using machine learning or statistics and present it
+  - Schedule a meeting to discuss the dataset
+
+---
+# Class Slack
+
+- Invitation to our Slack channel is on Sakai and emailed to you
+- Use to ask questions
+- If you know the answer, try to help out
+- I will try and review once a day
+- Video channels for working together
+
+---
+# Office Hours
+
+I will be available for office hours/drop in time ~1 hour a week, and additional time with appointment. You're free to sign in to the Zoom Room and work on homework at this time. You also may request individual meetings with me to discuss projects.
+
+When is good link (on Sakai, will add in chat) - highlight all times that work for you (make up a name if you wish)
+
+Calendly link (on Sakai) for additional meetings
+
+
+---
+# Why R?
+
+R is an extremely powerful language for **statistical modeling**, **machine learning**, **data manipulation**, and **visualization**.
+
+It's a *hub* language in that you can access many different kinds of systems (TensorFlow, Databases, Apache Spark) without needing to know other languages.
+
+---
+# R is Not Easy
+
+- Learning R can be a difficult, but rewarding process
+- Be patient with yourself, don't beat yourself up
+- We'll try to make it a fun process for you
+
+---
+# R and RStudio
+
+- Last year this course used [RStudio.cloud](http://rstudio.cloud), but for various reasons we're going to try using our own computers and Rstudio desktop.
+- Or, if you prefer, PSU students have access to a [virtual environment (VLAB)](https://www.pdx.edu/technology/vlab) that has Rstudio on it.
+
+---
+# Other Resources/Events (Optional)
+
+- [OCTRI BERD R Workshops](https://github.com/jminnier/berd_r_courses)
+- [PDX R User Group Meetup](https://www.meetup.com/portland-r-user-group/) (monthly)
+- [BioData Club](https://biodata-club.github.io/)
+- [Cascadia R Conference](https://cascadiarconf.com/) in late May or early June
+
+---
+class: center, middle
+
+# Any Questions?
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

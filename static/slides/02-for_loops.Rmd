@@ -1,0 +1,122 @@
+---
+title: "Class 2 Intro to Working with Data: for loops, Rstudio proj, tidy data, ggplot intro"
+subtitle: "R Programming"
+author: "Jessica Minnier"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r xaringan-themer, include = FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "midnightblue",
+  header_font_google = google_font("Josefin Sans"),
+  link_color = "steelblue",
+  text_font_size = "26px",
+  footnote_font_size = "22px"
+)
+```
+
+```{r xaringanExtra, echo=FALSE}
+xaringanExtra::use_xaringan_extra(c("tile_view", "logo", "tachyons"))
+xaringanExtra::use_panelset()
+xaringanExtra::use_tachyons()
+```
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+# Class 2
+
+- Muddiest/clearest points
+- Some details
+    * Youtube video (on website) vs. zoom video link (in slack)
+- Go back to for loops from Class 1 Rmd
+    * another example
+    * `print()`-ing what's going on
+- Function of the week
+    * Open new project in existing folder
+    * Sign up sheet and details
+- Class 2 Rproj/Rmd
+    * Rstudio projects and file paths
+    * Importing data
+    * Tidy data
+    * Ggplot *__intro__* (advanced stuff later)
+- Assignment 2 due date depends on how far we get today
+    
+
+---
+
+
+class: center, middle
+
+# For Loops
+
+---
+
+<img src = "image/week2/for_loop1.jpg" width = 800>
+
+---
+
+<img src = "image/week2/for_loop2.jpg" width = 800>
+
+---
+
+<img src = "image/week2/for_loop3.jpg" width = 800>
+
+---
+
+<img src = "image/week2/for_loop.jpg" width = 800>
+
+[Image from Allison Horst](https://github.com/allisonhorst/stats-illustrations)
+
+---
+class: center, middle
+
+# Paths and Projects
+
+---
+
+<img src = "image/week2/rstudio_proj_pic.png" width = 900>
+
+---
+class: center, middle
+
+# Tidy Data
+
+---
+
+<img src = "image/week2/tidydata_1.jpg" width = 800>
+
+[Image from Allison Horst](https://github.com/allisonhorst/stats-illustrations)
+---
+
+<img src = "image/week2/tidydata_2.jpg" width = 800>
+
+[Image from Allison Horst](https://github.com/allisonhorst/stats-illustrations)
+
+---
+class: center, middle
+
+# ggplot2 slides
+---
+
+<img src = "image/week2/ggplot2_exploratory.png" width = 600>
+
+[Image from Allison Horst](https://github.com/allisonhorst/stats-illustrations)
+
+---
+
+<img src = "image/week2/khealy_ggplot1_part1.jpg" width = 700>
+
+Image from Kieran Healy

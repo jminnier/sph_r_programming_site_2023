@@ -1,0 +1,41 @@
+---
+title: 'Function of the Week: '
+author: "You"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Submission Instructions
+
+Please sign up for a function here: https://docs.google.com/spreadsheets/d/1ICIv1M51Hqv4j6BJ8fgGw2CJEIaUo9J2qIK7QfQM81g/edit?usp=sharing
+
+For this assignment, please submit both the `.Rmd` and the `.html` files. I will add it to the website.
+
+
+# `Function Name`
+
+In this document, I will introduce the [...] function and show what it's for.
+
+```{r}
+#load tidyverse up
+library(tidyverse)
+#example dataset
+library(palmerpenguins)
+data(penguins)
+```
+
+## What is it for?
+
+> Discuss what the function does. Learn from the examples, but show how to use it using another dataset such as `penguins`.
+
+```{r}
+
+```
+
+## Is it helpful?
+
+> Discuss whether you think this function is useful for you and your work. Is it the best thing since sliced bread, or is it not really relevant to your work?

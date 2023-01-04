@@ -1,0 +1,135 @@
+---
+title: "Part 7 (Class 8): Lists/Functions/Intro to Purrr"
+linktitle: "Part 7 (Class 8): Lists/Functions/Intro to Purrr"
+date: "2022-02-23"
+class_date: "2022-02-23"
+output:
+  blogdown::html_page:
+    toc: true
+menu:
+  class:
+    parent: Class sessions
+    weight: 7
+type: docs
+weight: 7
+# pdf: 
+# thumb: 
+editor_options: 
+  chunk_output_type: console
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#r-project-files">R Project files</a></li>
+<li><a href="#class-video">Class Video</a>
+<ul>
+<li><a href="#post-class">Post-Class</a></li>
+</ul></li>
+<li><a href="#muddiest-points">Muddiest Points</a></li>
+<li><a href="#clearest-points">Clearest Points</a></li>
+<li><a href="#other-messages">Other messages</a></li>
+</ul>
+</div>
+
+<div id="r-project-files" class="section level2">
+<h2>R Project files</h2>
+<p>Please download the part7 sub-folder from <a href="https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0">this dropbox link</a>. Be sure to unzip if necessary. Knit the <code>part7.Rmd</code> to install any required packages.</p>
+</div>
+<div id="class-video" class="section level2">
+<h2>Class Video</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IJYgWOfZa-M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>View last year’s class and materials <a href="https://sph-r-programming.netlify.app/class/08-class/">here</a>.</p>
+<div id="post-class" class="section level3">
+<h3>Post-Class</h3>
+<p>Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.</p>
+<ul>
+<li>Clearest Point: What was the most clear part of the lecture?</li>
+<li>Muddiest Point: What was the most unclear part of the lecture to you?</li>
+<li>Anything Else: Is there something you’d like me to know?</li>
+</ul>
+<p><a href="https://forms.gle/4tVx1mL7SzQx7MCu5" class="uri">https://forms.gle/4tVx1mL7SzQx7MCu5</a></p>
+</div>
+</div>
+<div id="muddiest-points" class="section level2">
+<h2>Muddiest Points</h2>
+<p>The number of responses so far are low, so I will try to update this later.</p>
+<blockquote>
+<p>I am now a bit confused on lists vs. vectors vs. matrices. I’m a little bit unsure about when to use [ ] and when to use [[ ]]</p>
+</blockquote>
+<blockquote>
+<p>I am still a little confused about the indexing of things in lists (single vs double brackets). I think it’s going to take me some trial-and-error practice to see how it works! I remember reading the first couple chapters of the R for data science book last summer and being hopeless confused by indexing, so it’s not your explanations! It’s just…wierd and confusing.</p>
+</blockquote>
+<p>It is extremely weird and confusing! I am hoping homework 7 will help since it requires that you explore a little bit with indexing and what the results are. I will try to keep going over this in class with more examples.</p>
+<blockquote>
+<p>The function portion of the lecture since there are so many parts.</p>
+</blockquote>
+<blockquote>
+<p>complex function example</p>
+</blockquote>
+<p>I hope to have more examples this week for practice.</p>
+<blockquote>
+<p>function. Could we get multiple outcome (different value or type) in one function?</p>
+</blockquote>
+<p>Yes! I meant to show this after we learned about lists. Here is an example of how you would do that, by returning a list (usually we use a named list for clarity)</p>
+<pre class="r"><code># trivial function that returns the mean, length of a vector, as well as the input vector
+my_new_fun &lt;- function(vec) {
+  v_mean &lt;- mean(vec)
+  l_len &lt;- length(vec)
+  return(list(mean = v_mean, length = l_len, input_vec = vec))
+}
+
+# save the output from that function applied to a vector
+myout &lt;- my_new_fun(c(1,4,2,40))
+
+myout</code></pre>
+<pre><code>## $mean
+## [1] 11.75
+## 
+## $length
+## [1] 4
+## 
+## $input_vec
+## [1]  1  4  2 40</code></pre>
+<pre class="r"><code>myout$mean</code></pre>
+<pre><code>## [1] 11.75</code></pre>
+<pre class="r"><code>myout$length</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code>myout$input_vec</code></pre>
+<pre><code>## [1]  1  4  2 40</code></pre>
+<blockquote>
+<p>I am finding it very difficult to figure out how to take even a clean dataset and translate it into something useable. I think I am understanding the logic of what I want to do, but the syntax is very confusing to me.</p>
+</blockquote>
+<p>Do you mean the syntax of lists and functions? Or of data cleaning? Or all the syntax of R? Definitely reach out to me and Colin if you want to talk about anything more specific and in depth. If you are brand new to R before this class, it will definitely take more than the 11*3 hours of learning to get used to the syntax, as I agree it can be extremely confusing! It will take many iterations of practice, struggle, succeed. Eventually it will start to click! But it really takes practice writing your own code over and over.</p>
+</div>
+<div id="clearest-points" class="section level2">
+<h2>Clearest Points</h2>
+<blockquote>
+<p>simple function example</p>
+</blockquote>
+<blockquote>
+<p>function( ){ } - I love this!! I needed help with functions to help streamline my work and this class was so incredibly helpful!</p>
+</blockquote>
+<p>Yay! functions are the most useful thing!</p>
+<blockquote>
+<p>How purrr works –this has NEVER made any sense to me before, no matter what I read, so thank you!!</p>
+</blockquote>
+<p>So glad!</p>
+<blockquote>
+<p>The list section of the lecture</p>
+</blockquote>
+<p>Well that’s good, I hope next class doesn’t make it less clear =)</p>
+</div>
+<div id="other-messages" class="section level2">
+<h2>Other messages</h2>
+<blockquote>
+<p>I need to find I use for vembedr::embed_url( ) because it looks pretty dang cool</p>
+</blockquote>
+<p>All our Rmds should have videos from now on.</p>
+<blockquote>
+<p>I really appreciated the way you walked through making a function out of the loading &amp; cleaning mouse data. I find writing anything but the simplest functions tricky, so seeing how you approach it was really helpful! It makes much more sense to me now that you’d first write code that works in particular instance, then go back and “generic-ize” the inputs, and then troubleshoot. I have a hard time thinking about how to do stuff generically, but it’s much easier to write a specific case and then go back and make it generic! Thank you!!</p>
+</blockquote>
+<p>I like to hear this, because I think this is the most common way we create and use functions in analysis work. You realize you need to do something again and probably again, and so you decide to make a function. Then, you manipulate existing code into a function. Rinse and repeat!</p>
+</div>

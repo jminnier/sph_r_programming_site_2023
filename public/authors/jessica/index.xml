@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R Programming 2022</title>
+    <link>https://sph-r-programming-2022.netlify.app/authors/jessica/</link>
+      <atom:link href="https://sph-r-programming-2022.netlify.app/authors/jessica/index.xml" rel="self" type="application/rss+xml" />
+    <description>R Programming 2022</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <image>
+      <url>https://sph-r-programming-2022.netlify.app/img/social-image.png</url>
+      <title>R Programming 2022</title>
+      <link>https://sph-r-programming-2022.netlify.app/authors/jessica/</link>
+    </image>
+    
+  </channel>
+</rss>

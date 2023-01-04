@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en-us" 
+      xmlns:og="http://ogp.me/ns#" 
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.7.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Ted Laderas">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Install R/Rstudio Class files  R Project files Slides Class Video  Post-Class  Pacing Muddiest Points Clearest Points Other messages  Additional Info  Projects in RStudio Desktop Slack Intro Zoom Intro    Install R/Rstudio Before class, please install R and Rstudio. If it has been a while since you installed R, please re-install R to update to the most recent version (warning: you may lose all your installed packages and will have to reinstall them).">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://sph-r-programming-2022.netlify.app/class/01-class/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#000066">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,400i,700,700i%7COverpass:400,400i,700,700i&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://sph-r-programming-2022.netlify.app/class/01-class/">
+
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@datapointier">
+  <meta property="twitter:creator" content="@datapointier">
+  
+  <meta property="og:site_name" content="R Programming 2022">
+  <meta property="og:url" content="https://sph-r-programming-2022.netlify.app/class/01-class/">
+  <meta property="og:title" content="Part 1: Introduction to R/Rstudio/Vectors/For Loops | R Programming 2022">
+  <meta property="og:description" content="Install R/Rstudio Class files  R Project files Slides Class Video  Post-Class  Pacing Muddiest Points Clearest Points Other messages  Additional Info  Projects in RStudio Desktop Slack Intro Zoom Intro    Install R/Rstudio Before class, please install R and Rstudio. If it has been a while since you installed R, please re-install R to update to the most recent version (warning: you may lose all your installed packages and will have to reinstall them)."><meta property="og:image" content="https://sph-r-programming-2022.netlify.app/img/social-image.png">
+  <meta property="twitter:image" content="https://sph-r-programming-2022.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2022-01-05T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2022-01-17T16:22:46-08:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  <link rel="shortcut icon" href="https://sph-r-programming-2022.netlify.app/favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="https://sph-r-programming-2022.netlify.app/img/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="https://sph-r-programming-2022.netlify.app/img/favicon-16x16.png" sizes="16x16" />
+  <meta name="application-name" content="BSTA 504: R Programming 2022" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="https://sph-r-programming-2022.netlify.app/img/mstile-144x144.png" />
+
+
+  <title>Part 1: Introduction to R/Rstudio/Vectors/For Loops | R Programming 2022</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70"
+    data-target="#TableOfContents"
+    >
+
+    <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+    
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">R Programming 2022</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">R Programming 2022</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/syllabus/"><span>Syllabus</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/schedule/"><span>Schedule</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/reading/"><span>Readings</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/class/"><span>Classes</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/functions/"><span>Functions</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+    
+
+<div class="container-fluid docs">
+    <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+            
+
+
+
+
+
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/class/01-class/">Class sessions</a>
+    <ul class="nav docs-sidenav">
+      
+      <li class="active">
+        <a href="/class/01-class/">Part 1.  Introduction to R/Rstudio/Vectors/For Loops</a>
+      </li>
+      
+      <li >
+        <a href="/class/02-class/">Part 2: Loading Data, data.frames, and ggplot2</a>
+      </li>
+      
+      <li >
+        <a href="/class/03-class/">Part 3: ggplot2, factors, boxplots, dplyr: subsetting</a>
+      </li>
+      
+      <li >
+        <a href="/class/04-class/">Part 4. dplyr: mutate, group_by, summarize, across</a>
+      </li>
+      
+      <li >
+        <a href="/class/05-class/">Part 5: Data summarizing, reshaping, and wrangling with multiple tables</a>
+      </li>
+      
+      <li >
+        <a href="/class/06-class/">Part 5 contd (Class 6): Data summarizing, reshaping, and wrangling with multiple tables (contd)</a>
+      </li>
+      
+      <li >
+        <a href="/class/07-class/">Part 6 (Class 7): More data wrangling and ggplot</a>
+      </li>
+      
+      <li >
+        <a href="/class/08-class/">Part 7 (Class 8): Lists/Functions/Intro to Purrr</a>
+      </li>
+      
+      <li >
+        <a href="/class/09-class/">Part 8 (Class 9). Intro to stats/`broom`/More Purrr</a>
+      </li>
+      
+      <li >
+        <a href="/class/10-class/">Part 9 (Class 10): More Stats Stuff/Summary Tables</a>
+      </li>
+      
+      <li >
+        <a href="/class/11-class/">Class 11: TBD</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+        </div>
+
+        
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+            <article class="article">
+
+                <div class="docs-article-container">
+                    <h1>Part 1: Introduction to R/Rstudio/Vectors/For Loops</h1>
+
+                    
+
+                    
+
+                    
+                    <div class="due-date p-2 mb-3 bg-secondary text-white">
+                        Materials from class on Wednesday, January 5, 2022
+                    </div>
+                    
+
+                    <div class="article-style">
+                        
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#install-rrstudio">Install R/Rstudio</a></li>
+<li><a href="#class-files">Class files</a>
+<ul>
+<li><a href="#r-project-files">R Project files</a></li>
+<li><a href="#slides">Slides</a></li>
+<li><a href="#class-video">Class Video</a></li>
+</ul></li>
+<li><a href="#post-class">Post-Class</a>
+<ul>
+<li><a href="#pacing">Pacing</a></li>
+<li><a href="#muddiest-points">Muddiest Points</a></li>
+<li><a href="#clearest-points">Clearest Points</a></li>
+<li><a href="#other-messages">Other messages</a></li>
+</ul></li>
+<li><a href="#additional-info">Additional Info</a>
+<ul>
+<li><a href="#projects-in-rstudio-desktop">Projects in RStudio Desktop</a></li>
+<li><a href="#slack-intro">Slack Intro</a></li>
+<li><a href="#zoom-intro">Zoom Intro</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="install-rrstudio" class="section level1">
+<h1>Install R/Rstudio</h1>
+<p>Before class, please install R and Rstudio. If it has been a while since you installed R, please re-install R to update to the most recent version (warning: you may lose all your installed packages and will have to reinstall them).</p>
+<p>Installation instructions can be found <a href="https://jminnier-berd-r-courses.netlify.app/00-install-instruct.html">here.</a></p>
+<p>Please also <a href="https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0">download the “part1” folder in this course materials link</a>. Unzip the folder if needed. Open the Rstudio project by double clicking on the .Rproj file (“Rstudio project file”). Run the <code>00-install-packages.R</code> script to install necessary packages. A video on how to do this can be found <a href="https://www.youtube.com/watch?v=GU22sKHn9uc">here.</a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GU22sKHn9uc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="class-files" class="section level1">
+<h1>Class files</h1>
+<div id="r-project-files" class="section level2">
+<h2>R Project files</h2>
+<p>Before each class, I will update <a href="https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0">this folder link</a> with the appropriate “part” folder. Please download the <code>part1</code> folder. Unzip this folder and open in Rstudio by double clicking on the .Rproj file. This folder will have the files for this part and the assignment.</p>
+</div>
+<div id="slides" class="section level2">
+<h2>Slides</h2>
+<p>Open the class introduction slides in a separate window: <a href="https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1" target="_blank">https://sph-r-programming-2022.netlify.app/01-introduction_slides#1</a></p>
+<iframe src="https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1" width="672" height="400px" data-external="1">
+</iframe>
+<p>We will also cover a few of these slides on for loops: <a href="https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1" target="_blank">https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1</a></p>
+<iframe src="https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1" width="672" height="400px" data-external="1">
+</iframe>
+</div>
+<div id="class-video" class="section level2">
+<h2>Class Video</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hYowdr4oyOI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>View last year’s class <a href="https://sph-r-programming.netlify.app/class/01-class/">here</a>.</p>
+</div>
+</div>
+<div id="post-class" class="section level1">
+<h1>Post-Class</h1>
+<p>Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.</p>
+<ul>
+<li>Clearest Point: What was the most clear part of the lecture?</li>
+<li>Muddiest Point: What was the most unclear part of the lecture to you?</li>
+<li>Anything Else: Is there something you’d like me to know?</li>
+</ul>
+<p><a href="https://forms.gle/4tVx1mL7SzQx7MCu5" class="uri">https://forms.gle/4tVx1mL7SzQx7MCu5</a></p>
+<div id="pacing" class="section level2">
+<h2>Pacing</h2>
+<p>I won’t always talk about the pacing feedback but in the beginning I think it’s useful: Mean 2.94, median 3. So on average the pace seemed to be on target, most people chose 3, though I was trying to balance going slowly at first and also adding in a couple challenging topics. So depending on your experience with R this might have gone ok or not. Please ask questions in the chat (or unmute to ask) during class for anything that’s unclear!</p>
+</div>
+<div id="muddiest-points" class="section level2">
+<h2>Muddiest Points</h2>
+<p>Remember, all of this is anonymous.</p>
+<blockquote>
+<p>loops - but i know we are going over it more later</p>
+</blockquote>
+<blockquote>
+<p>For Loop, however sitting down with the .Rmd tonight helped a lot.</p>
+</blockquote>
+<blockquote>
+<p>The for() loops. Mostly in regards to how to apply it to numerical data.</p>
+</blockquote>
+<p>Yes! Most comments were on loops. With 30 minutes in class I weighed the option of just ending early and starting this when we were fresh, or with doing a quick intro and finishing more in depth later (and maybe chose the wrong option ;)). Don’t worry if you’re still confused because I didn’t explain things very thoroughly! Class 2 we will go over it all again.</p>
+<blockquote>
+<p>Loops- not technically, more why we would want to do this in reality</p>
+</blockquote>
+<p>Loops in the very simplistic way we learned them are less useful in practice due to the vectorization of most functions in R, but we will later see how they can be useful with data operations. Also understanding them gives us the building block knowledge to understand more complex iteration tasks we will cover in the future (<code>purrr::map()</code> for example, possibly <code>lapply()</code> and <code>apply()</code> if we have time).</p>
+<blockquote>
+<p>loops without indexing - Does R always end the loop once the end of the vector referenced is reached? Are there ever situations where R gets stuck in a continuous loop?</p>
+</blockquote>
+<p>Great question, I remember learning about for loops in other programming classes and dealing with situations where we got stuck in an infinite loop but I honestly can’t think of an example where I’ve had this happen in real life with R. This can definitely happen, but in real data scenarios I don’t think it’s common because you usually have a finite vector or data frame. More often, R will exit the for loop early due to some error. I will try to show an example of this in class. (I imagine a <code>while()</code> loop could get stuck, but I never ever use that function.) If you ever get stuck with something happening in R, you can press ESC over and over or click top bar “Session” -&gt; “Terminate R” or “Restart R”.</p>
+<blockquote>
+<p>Only one point I was still a bit confused about was for loop, when we make an empty vector to save our work, such as, the example we used in class, all_my_pets, why do we need to add the new variable mypet to the end of the vector all_my_pets instead of only add mypet to all_my_pets by “all_my_pets &lt;- c(mypet)”?</p>
+</blockquote>
+<p>Ah yes, this is a tricky part and I’ll go over this again in class 2. This is the code. I’ve added <code>print(all_my_pets)</code> so you can see how it grows with each iteration:</p>
+<pre class="r"><code>pets &lt;- c(&quot;dog&quot;, &quot;cat&quot;, &quot;mouse&quot;)
+# make an empty vector
+all_my_pets &lt;- c()
+
+for(pet in pets){
+  mypet &lt;- paste(&quot;jessica&#39;s&quot;, pet)
+  
+  # add the new variable mypet to the end of the vector all_my_pets
+  all_my_pets &lt;- c(all_my_pets, mypet)
+  
+  # this prints out what the object all_my_pets is for each iteration
+  print(all_my_pets)
+}</code></pre>
+<pre><code>## [1] &quot;jessica&#39;s dog&quot;
+## [1] &quot;jessica&#39;s dog&quot; &quot;jessica&#39;s cat&quot;
+## [1] &quot;jessica&#39;s dog&quot;   &quot;jessica&#39;s cat&quot;   &quot;jessica&#39;s mouse&quot;</code></pre>
+<p>However, if we had just done <code>all_my_pets &lt;- c(mypet)</code>:</p>
+<pre class="r"><code>pets &lt;- c(&quot;dog&quot;, &quot;cat&quot;, &quot;mouse&quot;)
+# make an empty vector
+all_my_pets &lt;- c()
+
+for(pet in pets){
+  mypet &lt;- paste(&quot;jessica&#39;s&quot;, pet)
+  
+  # add the new variable mypet to the end of the vector all_my_pets
+  all_my_pets &lt;- c(mypet)
+  
+  # this prints out what the object all_my_pets is for each iteration
+  print(all_my_pets)
+}</code></pre>
+<pre><code>## [1] &quot;jessica&#39;s dog&quot;
+## [1] &quot;jessica&#39;s cat&quot;
+## [1] &quot;jessica&#39;s mouse&quot;</code></pre>
+<p>We just replace <code>all_my_pets</code> with <code>mypet</code> each time! It has no memory of what happened before, because we have overwritten that object, essentially. We are not adding <code>mypet</code> to the vector <code>all_my_pets</code>. If we call <code>all_my_pets</code> now, it just shows us the last value of <code>pets</code>, and it’s a vector of length 1:</p>
+<pre class="r"><code>all_my_pets</code></pre>
+<pre><code>## [1] &quot;jessica&#39;s mouse&quot;</code></pre>
+<p>I’ll go over this in class too. Note that these are identical, the <code>c()</code> around <code>mypet</code> does nothing:</p>
+<pre class="r"><code>c(mypet)</code></pre>
+<pre><code>## [1] &quot;jessica&#39;s mouse&quot;</code></pre>
+<pre class="r"><code>mypet</code></pre>
+<pre><code>## [1] &quot;jessica&#39;s mouse&quot;</code></pre>
+<blockquote>
+<p>I think the idea of how and why it is so important to open/save our files in a certain way is unclear to me.</p>
+</blockquote>
+<p>Hopefully this will become more clear a little bit each week. We haven’t gotten enough into data management for it to be clear enough. I’ll spend a little bit of time talking about projects and files again this class, and probably again in future classes. This is a thing that takes practice. Main points:</p>
+<ul>
+<li>Use Rstudio projects to keep everything in the same folder and so you can use file paths relative to the home directory (we will talk about this in class 2)</li>
+<li>Don’t save your R environment upon exiting Rstudio (I had you unclick this box in the global options so this is done automatically) so that you don’t depend on saved objects that may or may not be there. Save your output in files (we will talk about saving output later).</li>
+</ul>
+<blockquote>
+<p>Are there some excellent projects last year recommending to learn?</p>
+</blockquote>
+<p>I think you are asking about the <a href="https://sph-midterm-projects.netlify.app/">midterm projects from last year</a>? They are all excellent! I just picked a couple to highlight things I noticed after skimming them, but I recommend going through them all if you have the time:</p>
+<ul>
+<li><a href="https://sph-midterm-projects.netlify.app/midterm/midterm_project_hawkinson.html">Investigating Moore’s Law</a> there is a lot of useful work in here with functions we will learn later like <code>case_when()</code> and some neat plots with <code>ggplot2</code> that incorporate interesting regression results and the use of an interesting function <code>get_regression_equation()</code>!</li>
+<li><a href="https://sph-midterm-projects.netlify.app/midterm/midterm_project-rogash.html">Understanding C02 Emissions</a> there are some complicated uses of <code>summarize()</code> and <code>mutate()</code> in here that are worth examining, and nice visual conclusions</li>
+<li><a href="https://sph-midterm-projects.netlify.app/midterm/midterm_project_selliot.html">MMR Vaccination Rates in Oregon</a> - nice final summary here and a visualization of how the data can surprise us and change our approaches to data visualization and exploration.</li>
+<li><a href="https://sph-midterm-projects.netlify.app/midterm/midterm_project_hopkins">The Popularity of Sci-Fi Films</a> - beautiful and effective ggplots and nice summaries!</li>
+</ul>
+<blockquote>
+<p>The explanation of what vectors are and all of the points of discussion.</p>
+</blockquote>
+<p>I’ll try to go over this in pieces in the next class, hopefully this will help.</p>
+<blockquote>
+<p>how to do the hw assignments and create the code</p>
+</blockquote>
+<p>Definitely reach out to me if you have questions about generating the homework files, there has been some useful discussion in slack as well on questions about the code. The full set of code will be embedded in your <code>.Rmd</code> document. That is what you are writing/editing. Then, you click the <code>knit</code> button on the top to create an <code>.html</code> file which will “run” the code all at once, and create a combined file that has text and code output. This is the file you will submit on Sakai. Please reach out to me or Colin if you need help!</p>
+</div>
+<div id="clearest-points" class="section level2">
+<h2>Clearest Points</h2>
+<blockquote>
+<p>Everything was clear, this was just the first class :)</p>
+</blockquote>
+<blockquote>
+<p>general set up of R</p>
+</blockquote>
+<blockquote>
+<p>How to change global settings</p>
+</blockquote>
+<blockquote>
+<p>assigning objects</p>
+</blockquote>
+<blockquote>
+<p>code for variable</p>
+</blockquote>
+<blockquote>
+<p>I felt like I knew pretty much everything, but I liked the basic of for loops!</p>
+</blockquote>
+<blockquote>
+<p>I appreciated getting clarification a lot of little things like NA, NULL, what are default settings for functions.</p>
+</blockquote>
+<p>Yay!</p>
+<blockquote>
+<p>What is going on in R! I set up two monitors so I can move along with you in R, and that is so helpful to watch you in R real time.</p>
+</blockquote>
+<p>This is great! I do feel bad for folks who don’t have two monitors, as I know having too many windows up on one screen can make it hard to see what I’m doing. Feel free to log in twice with a tablet or something else if it can make it easier for you, or let me know how I can make it more accessible if you don’t have two screens!</p>
+</div>
+<div id="other-messages" class="section level2">
+<h2>Other messages</h2>
+<p>Remember, all of this is anonymous to me.</p>
+<blockquote>
+<p>I think this class will be very useful for me. While I rated the pace a little slow, I think things will get more challenging so I’m not necessarily wishing you to speed up!</p>
+</blockquote>
+<p>Great to know :)</p>
+<blockquote>
+<p>I’ll definitely be reaching out for help while I go through the assignment, but excited to get started :)</p>
+</blockquote>
+<blockquote>
+<p>I am going to likely request a lot of short one-on-one sessions with you at the beginning, just to gain greater clarity on basic things - since I am brand new to R.</p>
+</blockquote>
+<p>Please do!! I don’t want to leave anyone who is new to R behind, so let’s all get to baseline together in the beginning.</p>
+<blockquote>
+<p>Everything except for loops was review for those of us who were in 551 last quarter</p>
+</blockquote>
+<p>Ah yes that is what I guessed. At first I read this as “Dr. Niederhausen taught us for loops” and I was super impressed she had time for that! But now I’m glad at least one part was new!</p>
+<blockquote>
+<p>Please explain the details of the use of R when describing the tools so that we know how to use the tools to be able to perform the functions within R.</p>
+</blockquote>
+<p>I’m a little confused about what you mean by “tools”, maybe send me an anonymous message again and I will try to do better! Please ask questions during class if anything isn’t clear, I’m happy to repeat or explain things differently in real time.</p>
+<blockquote>
+<p>I wish this class was provided to undergrads or offered before the core BSTA courses I need for my degree</p>
+</blockquote>
+<p>I know…we all wish this, actually. The unfortunate excuse is: it’s too hard to put into the fall term because of the EPI and BSTA sequences required for the MS and MPH take up a lot of space/credits, and we can’t require people to take courses before the fall term which they enroll. The only way I can think of is for this to be a 1 credit course in fall with very limited lessons/time commitment (though watching all the <a href="https://github.com/jminnier/berd_r_courses">OCTRI-BERD R workshops</a> and going through <a href="https://r-bootcamp.netlify.app/">R bootcamp</a> probably would teach the same amount of info), or for BSTA and EPI courses to have “sections” or “labs” with extra learning time (Though none of our classes seem to have this. All of my grad school classes did, and it was so helpful, bur requires large PhD programs for TA support). All of these options are difficult for the program right now, but I will keep bringing it up! We all will keep trying to make this better, and I’m sorry it wasn’t better for your experience!</p>
+</div>
+</div>
+<div id="additional-info" class="section level1">
+<h1>Additional Info</h1>
+<div id="projects-in-rstudio-desktop" class="section level2">
+<h2>Projects in RStudio Desktop</h2>
+<p>See this short video about creating projects in Rstudio desktop if it’s a new concept to you:</p>
+<iframe width="650" height="315" src="https://www.youtube.com/embed/D22THnoPA6w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="slack-intro" class="section level2">
+<h2>Slack Intro</h2>
+<p>Slack invite link is on Sakai, and will be emailed before class.</p>
+<iframe width="800" height="600" src="https://www.youtube.com/embed/m2JuAa6-ors" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="zoom-intro" class="section level2">
+<h2>Zoom Intro</h2>
+<p>We will be using zoom. Here’s a short video on how to use zoom:</p>
+<iframe width="800" height="600" src="https://www.youtube.com/embed/5iap0Ffl5Lg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+</div>
+
+                    </div>
+
+                    
+
+
+
+                    
+                </div>
+
+                <div class="body-footer">
+                    <p>Last updated on January 17, 2022</p>
+
+                    
+
+
+
+
+
+  
+  
+
+<p class="edit-page">
+  <a href="https://github.com/jminnier/sph_r_programming_site/edit/master/content/class/01-class.html">
+    <i class="fas fa-pen pr-2"></i>Edit this page
+  </a>
+</p>
+
+
+
+
+                    
+
+                </div>
+
+            </article>
+
+            <footer>
+    <hr>
+
+    <div class="row course-info">
+        <div class="col-md-7">
+            <p>
+                <strong>BSTA 504: R Programming 2022 (Winter 2022)</strong><br>
+
+                <a href="https://www.ohsu.edu" target="_blank" rel="noopener">Oregon Health &amp; Science University / Portland State University</a> &emsp;&emsp;
+                <a href="https://ohsu-psu-sph.org/" target="_blank" rel="noopener">OHSU/PSU School of Public Health</a>
+            </p>
+
+            <p>
+                <a href="http://jessicaminnier.com" target="_blank" rel="noopener"><i class="fas fa-user"></i>
+                    Dr. Jessica Minnier</a> &emsp;&emsp;
+                <a href="mailto:minnier@ohsu.edu"><i class="fas fa-envelope"></i>
+                    minnier@ohsu.edu</a>
+            </p>
+
+            <p>
+                <i class="far fa-calendar-alt"></i> Wednesdays &emsp;&emsp;
+                <i class="far fa-clock"></i> 3:15–6:05 PM <br>
+                <i class="fas fa-university"></i> Online
+            </p>
+        </div>
+
+        <div class="col-md-5 credits">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+            
+            <p>Content <i class="fab fa-creative-commons"></i> 2022 <a href="http://jessicaminnier.com" target="_blank" rel="noopener">ted &amp; jessica</a></p>
+        
+            <p>This site created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> adapted by <a href="https://github.com/laderast/sph_r_programming_site" target="_blank" rel="noopener">Ted Laderas</a> and <a href="https://github.com/andrewheiss/evalsp20.classes.andrewheiss.com" target="_blank" rel="noopener">Andrew Heiss</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
+            
+            <p><a href="https://github.com/jminnier/sph_r_programming_site" target="_blank" rel="noopener"><i class="fab fa-github"></i> View the source at GitHub.</a></p>
+        </div>
+    </div>
+</footer>
+
+
+        </main>
+    </div>
+</div>
+
+        
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academic.min.a1c3596268a997890f5b9089b30365c6.js"></script>
+
+    
+
+
+
+
+
+
+    
+    
+
+    
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

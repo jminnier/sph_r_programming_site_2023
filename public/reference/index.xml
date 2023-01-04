@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Citations and bibliography | R Programming 2022</title>
+    <link>https://sph-r-programming-2022.netlify.app/reference/</link>
+      <atom:link href="https://sph-r-programming-2022.netlify.app/reference/index.xml" rel="self" type="application/rss+xml" />
+    <description>Citations and bibliography</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <image>
+      <url>https://sph-r-programming-2022.netlify.app/img/social-image.png</url>
+      <title>Citations and bibliography</title>
+      <link>https://sph-r-programming-2022.netlify.app/reference/</link>
+    </image>
+    
+    <item>
+      <title>Using Markdown</title>
+      <link>https://sph-r-programming-2022.netlify.app/reference/markdown/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/reference/markdown/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#basic-markdown-formatting&#34;&gt;Basic Markdown formatting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#math&#34;&gt;Math&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tables&#34;&gt;Tables&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#footnotes&#34;&gt;Footnotes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#front-matter&#34;&gt;Front matter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#citations&#34;&gt;Citations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other-references&#34;&gt;Other references&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://daringfireball.net/projects/markdown/&#34;&gt;Markdown&lt;/a&gt; is a special kind of markup language that lets you format text with simple syntax. You can then use a converter program like &lt;a href=&#34;https://pandoc.org/&#34;&gt;pandoc&lt;/a&gt; to convert Markdown into whatever format you want: HTML, PDF, Word, PowerPoint, etc. (&lt;a href=&#34;https://pandoc.org/MANUAL.html#option--to&#34;&gt;see the full list of output types here&lt;/a&gt;)&lt;/p&gt;
+&lt;div id=&#34;basic-markdown-formatting&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Basic Markdown formatting&lt;/h2&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;40%&#34; /&gt;
+&lt;col width=&#34;21%&#34; /&gt;
+&lt;col width=&#34;38%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;Type…&lt;/th&gt;
+&lt;th&gt;…or…&lt;/th&gt;
+&lt;th&gt;…to get&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;pre&gt;Some text in a paragraph.
+
+More text in the next paragraph. Always
+use empty lines between paragraphs.&lt;/pre&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;Some text in a paragraph.&lt;/p&gt;
+&lt;p&gt;More text in the next paragraph. Always
+use empty lines between paragraphs.&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;code&gt;*Italic*&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;_Italic_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Italic&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;**Bold**&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;__Bold__&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Bold&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;code&gt;# Heading 1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;h1 class=&#34;smaller-h1&#34;&gt;
+Heading 1
+&lt;/h1&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;## Heading 2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;h2 class=&#34;smaller-h2&#34;&gt;
+Heading 2
+&lt;/h2&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;code&gt;### Heading 3&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;h3 class=&#34;smaller-h3&#34;&gt;
+Heading 3
+&lt;/h3&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;(Go up to heading level 6 with &lt;code&gt;######&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;code&gt;[Link text](http://www.example.com)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://www.example.com&#34;&gt;Link text&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;![Image caption](/path/to/image.png)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://sph-r-programming-2022.netlify.app/img/mstile-144x144.png&#34; title=&#34;fig:&#34; alt=&#34;Class logo&#34; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;`&lt;code&gt;Inline code` with backticks&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Inline code&lt;/code&gt; with backticks&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;&amp;gt; Blockquote&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;blockquote&gt;
+&lt;p&gt;Blockquote&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;pre&gt;- Things in
+- an unordered
+- list&lt;/pre&gt;&lt;/td&gt;
+&lt;td&gt;&lt;pre&gt;* Things in
+* an unordered
+* list&lt;/pre&gt;&lt;/td&gt;
+&lt;td&gt;&lt;ul&gt;
+&lt;li&gt;Things in&lt;/li&gt;
+&lt;li&gt;an unordered&lt;/li&gt;
+&lt;li&gt;list&lt;/li&gt;
+&lt;/ul&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;pre&gt;1. Things in
+2. an ordered
+3. list&lt;/pre&gt;&lt;/td&gt;
+&lt;td&gt;&lt;pre&gt;1) Things in
+2) an ordered
+3) list&lt;/pre&gt;&lt;/td&gt;
+&lt;td&gt;&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Things in&lt;/li&gt;
+&lt;li&gt;an ordered&lt;/li&gt;
+&lt;li&gt;list&lt;/li&gt;
+&lt;/ol&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;pre&gt;Horizontal line
+
+---&lt;/pre&gt;&lt;/td&gt;
+&lt;td&gt;&lt;pre&gt;Horizontal line
+
+***&lt;/pre&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;Horizontal line&lt;/p&gt;
+&lt;hr /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;math&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Math&lt;/h2&gt;
+&lt;p&gt;Markdown uses LaTeX to create fancy mathematical equations. There are like a billion little options and features available for math equations—you can find &lt;a href=&#34;http://www.malinc.se/math/latex/basiccodeen.php&#34;&gt;helpful examples of the the most common basic commands here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can use math in two different ways: inline or in a display block. To use math inline, wrap it in single dollar signs, like &lt;code&gt;$y = mx + b$&lt;/code&gt;:&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;52%&#34; /&gt;
+&lt;col width=&#34;47%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;Type…&lt;/th&gt;
+&lt;th&gt;…to get&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;pre&gt;Based on the DAG, the regression model for
+estimating the effect of education on wages
+is $\hat{y} = \beta_0 + \beta_1 x_1 + \epsilon$, or
+$\text{Wages} = \beta_0 + \beta_1 \text{Education} + \epsilon$.&lt;/pre&gt;&lt;/td&gt;
+&lt;td&gt;Based on the DAG, the regression model for
+estimating the effect of education on wages
+is &lt;span class=&#34;math inline&#34;&gt;\(\hat{y} = \beta_0 + \beta_1 x_1 + \epsilon\)&lt;/span&gt;, or
+&lt;span class=&#34;math inline&#34;&gt;\(\text{Wages} = \beta_0 + \beta_1 \text{Education} + \epsilon\)&lt;/span&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;To put an equation on its own line in a display block, wrap it in double dollar signs, like this:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Type…&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;text&#34;&gt;&lt;code&gt;The quadratic equation was an important part of high school math:
+
+$$
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$
+
+But now we just use computers to solve for $x$.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;…to get…&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The quadratic equation was an important part of high school math:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;But now we just use computers to solve for &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;p&gt;Because dollar signs are used to indicate math equations, you can’t just use dollar signs like normal if you’re writing about actual dollars. For instance, if you write &lt;code&gt;This book costs $5.75 and this other costs $40&lt;/code&gt;, Markdown will treat everything that comes between the dollar signs as math, like so: “This book costs $5.75 and this other costs $40”.&lt;/p&gt;
+&lt;p&gt;To get around that, put a backslash (&lt;code&gt;\&lt;/code&gt;) in front of the dollar signs, so that &lt;code&gt;This book costs \$5.75 and this other costs \$40&lt;/code&gt; becomes “This book costs &lt;span&gt;$5.75&lt;/span&gt; and this other costs &lt;span&gt;$40&lt;/span&gt;”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tables&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Tables&lt;/h2&gt;
+&lt;p&gt;There are 4 different ways to hand-create tables in Markdown—I say “hand-create” because it’s normally way easier to use R to generate these things with packages like &lt;a href=&#34;https://rapporter.github.io/pander/&#34;&gt;&lt;strong&gt;pander&lt;/strong&gt;&lt;/a&gt; (use &lt;code&gt;pandoc.table()&lt;/code&gt;) or &lt;strong&gt;knitr&lt;/strong&gt; (use &lt;a href=&#34;https://bookdown.org/yihui/rmarkdown-cookbook/kable.html&#34;&gt;&lt;code&gt;kable()&lt;/code&gt;&lt;/a&gt;). The two most common are simple tables and pipe tables. &lt;a href=&#34;https://pandoc.org/MANUAL.html#tables&#34;&gt;You should look at the full documentation here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;For simple tables, type…&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;text&#34;&gt;&lt;code&gt;  Right     Left     Center     Default
+-------     ------ ----------   -------
+     12     12        12            12
+    123     123       123          123
+      1     1          1             1
+
+Table: Caption goes here&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;…to get…&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;Caption goes here&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;right&#34;&gt;Right&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Left&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Center&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;12&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;12&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;12&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;123&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;123&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;123&lt;/td&gt;
+&lt;td&gt;123&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;For pipe tables, type…&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;text&#34;&gt;&lt;code&gt;| Right | Left | Default | Center |
+|------:|:-----|---------|:------:|
+|   12  |  12  |    12   |    12  |
+|  123  |  123 |   123   |   123  |
+|    1  |    1 |     1   |     1  |
+
+Table: Caption goes here&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;…to get…&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;Caption goes here&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;right&#34;&gt;Right&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Left&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Center&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;12&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;12&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;123&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;123&lt;/td&gt;
+&lt;td&gt;123&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;123&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;footnotes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Footnotes&lt;/h2&gt;
+&lt;p&gt;There are two different ways to add footnotes (&lt;a href=&#34;https://pandoc.org/MANUAL.html#footnotes&#34;&gt;see here for complete documentation&lt;/a&gt;): regular and inline.&lt;/p&gt;
+&lt;p&gt;Regular notes need (1) an identifier and (2) the actual note. The identifier can be whatever you want. Some people like to use numbers like &lt;code&gt;[^1]&lt;/code&gt;, but if you ever rearrange paragraphs or add notes before #1, the numbering will be wrong (in your Markdown file, not in the output; everything will be correct in the output). Because of that, I prefer to use some sort of text label:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Type…&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;text&#34;&gt;&lt;code&gt;Here is a footnote reference[^1] and here is another [^note-on-dags].
+
+[^1]: This is a note.
+
+[^note-on-dags]: DAGs are neat. 
+
+And here&amp;#39;s more of the document.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;…to get…&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Here is a footnote reference&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; and here is another.&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;And here’s more of the document.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;
+&lt;p&gt;
+This is a note.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;
+&lt;p&gt;
+DAGs are neat.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;p&gt;You can also use inline footnotes with &lt;code&gt;^[Text of the note goes here]&lt;/code&gt;, which are often easier because you don’t need to worry about identifiers:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Type…&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;text&#34;&gt;&lt;code&gt;Causal inference is neat.^[But it can be hard too!]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;…to get…&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Causal inference is neat.&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn3&#34;&gt;
+&lt;p&gt;
+But it can be hard too!&lt;a href=&#34;#fnref3&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;front-matter&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Front matter&lt;/h2&gt;
+&lt;p&gt;You can include a special section at the top of a Markdown document that contains metadata (or data about your document) like the title, date, author, etc. This section uses a special simple syntax named &lt;a href=&#34;https://learn.getgrav.org/16/advanced/yaml&#34;&gt;YAML&lt;/a&gt; (or “YAML Ain’t Markup Language”) that follows this basic outline: &lt;code&gt;setting: value for setting&lt;/code&gt;. Here’s an example YAML metadata section. Note that it must start and end with three dashes (&lt;code&gt;---&lt;/code&gt;).&lt;/p&gt;
+&lt;pre class=&#34;yaml&#34;&gt;&lt;code&gt;---
+title: Title of your document
+date: &amp;quot;January 13, 2020&amp;quot;
+author: &amp;quot;Your name&amp;quot;
+---&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can put the values inside quotes (like the date and name in the example above), or you can leave them outside of quotes (like the title in the example above). I typically use quotes just to be safe—if the value you’re using has a colon (&lt;code&gt;:&lt;/code&gt;) in it, it’ll confuse Markdown since it’ll be something like &lt;code&gt;title: My cool title: a subtitle&lt;/code&gt;, which has two colons. It’s better to do this:&lt;/p&gt;
+&lt;pre class=&#34;yaml&#34;&gt;&lt;code&gt;---
+title: &amp;quot;My cool title: a subtitle&amp;quot;
+---&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you want to use quotes inside one of the values (e.g. your document is &lt;code&gt;An evaluation of &#34;scare quotes&#34;&lt;/code&gt;), you can use single quotes instead:&lt;/p&gt;
+&lt;pre class=&#34;yaml&#34;&gt;&lt;code&gt;---
+title: &amp;#39;An evaluation of &amp;quot;scare quotes&amp;quot;&amp;#39;
+---&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;citations&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Citations&lt;/h2&gt;
+&lt;p&gt;One of the most powerful features of Markdown + pandoc is the ability to automatically cite things and generate bibliographies. to use citations, you need to create a &lt;a href=&#34;http://www.bibtex.org/&#34;&gt;BibTeX file&lt;/a&gt; (ends in &lt;code&gt;.bib&lt;/code&gt;) that contains a database of the things you want to cite. You can do this with bibliography managers designed to work with BibTeX directly (like &lt;a href=&#34;https://bibdesk.sourceforge.io/&#34;&gt;BibDesk&lt;/a&gt; on macOS), or you can use &lt;a href=&#34;https://www.zotero.org/&#34;&gt;Zotero&lt;/a&gt; (macOS and Windows) to export a &lt;code&gt;.bib&lt;/code&gt; file. You can &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/reference/&#34;&gt;download an example &lt;code&gt;.bib&lt;/code&gt; file of all the readings from this class here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html&#34;&gt;Complete details for using citations can be found here&lt;/a&gt;. In brief, you need to do three things:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Add a &lt;code&gt;bibliography:&lt;/code&gt; entry to the YAML metadata:&lt;/p&gt;
+&lt;pre class=&#34;yaml&#34;&gt;&lt;code&gt;---
+title: Title of your document
+date: &amp;quot;January 13, 2020&amp;quot;
+author: &amp;quot;Your name&amp;quot;
+bibliography: name_of_file.bib
+---&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Choose a citation style based on a CSL file. The default is Chicago author-date, but you can choose from 2,000+ &lt;a href=&#34;https://github.com/citation-style-language/styles&#34;&gt;at this repository&lt;/a&gt;. Download the CSL file, put it in your project folder, and add an entry to the YAML metadata (or provide a URL to the online version):&lt;/p&gt;
+&lt;pre class=&#34;yaml&#34;&gt;&lt;code&gt;---
+title: Title of your document
+date: &amp;quot;January 13, 2020&amp;quot;
+author: &amp;quot;Your name&amp;quot;
+bibliography: name_of_file.bib
+csl: &amp;quot;https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl&amp;quot;
+---&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Some of the most common CSLs are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-author-date.csl&#34;&gt;Chicago author-date&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-note-bibliography.csl&#34;&gt;Chicago note-bibliography&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-fullnote-bibliography.csl&#34;&gt;Chicago full note-bibliography&lt;/a&gt; (no shortened notes or ibids)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl&#34;&gt;APA 7th edition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/citation-style-language/styles/master/modern-language-association.csl&#34;&gt;MLA 8th edition&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Cite things in your document. &lt;a href=&#34;https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html&#34;&gt;Check the documentation for full details of how to do this&lt;/a&gt;. Essentially, you use &lt;code&gt;@citationkey&lt;/code&gt; inside square brackets (&lt;code&gt;[]&lt;/code&gt;):&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;51%&#34; /&gt;
+&lt;col width=&#34;48%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;Type…&lt;/th&gt;
+&lt;th&gt;…to get…&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;Causal inference is neat [@Rohrer:2018; @AngristPischke:2015].&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Causal inference is neat (Rohrer 2018; Angrist and Pischke 2015).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;code&gt;Causal inference is neat [see @Rohrer:2018, p. 34; also @AngristPischke:2015, chapter 1].&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Causal inference is neat (see Rohrer 2018, 34; also Angrist and Pischke 2015, chap. 1).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;Angrist and Pischke say causal inference is neat [-@AngristPischke:2015; see also @Rohrer:2018].&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Angrist and Pischke say causal inference is neat (2015; see also Rohrer 2018).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;code&gt;@AngristPischke:2015 [chapter 1] say causal inference is neat, and @Rohrer:2018 agrees.&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Angrist and Pischke (2015, chap. 1) say causal inference is neat, and Rohrer (2018) agrees.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;After compiling, you should have a perfectly formatted bibliography added to the end of your document too:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Angrist, Joshua D., and Jörn-Steffen Pischke. 2015. &lt;em&gt;Mastering ’Metrics: The Path from Cause to Effect.&lt;/em&gt; Princeton, NJ: Princeton University Press.&lt;/p&gt;
+&lt;p&gt;Rohrer, Julia M. 2018. “Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data.” &lt;em&gt;Advances in Methods and Practices in Psychological Science&lt;/em&gt; 1 (1): 27–42. &lt;a href=&#34;https://doi.org/10.1177/2515245917745629&#34; class=&#34;uri&#34;&gt;https://doi.org/10.1177/2515245917745629&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-references&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Other references&lt;/h2&gt;
+&lt;p&gt;These websites have additional details and examples and practice tools:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://commonmark.org/help/tutorial/&#34;&gt;&lt;strong&gt;CommonMark’s Markdown tutorial&lt;/strong&gt;&lt;/a&gt;: A quick interactive Markdown tutorial.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.markdowntutorial.com/&#34;&gt;&lt;strong&gt;Markdown tutorial&lt;/strong&gt;&lt;/a&gt;: Another interactive tutorial to practice using Markdown.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://packetlife.net/media/library/16/Markdown.pdf&#34;&gt;&lt;strong&gt;Markdown cheatsheet&lt;/strong&gt;&lt;/a&gt;: Useful one-page reminder of Markdown syntax.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://plain-text.co/&#34;&gt;&lt;strong&gt;The Plain Person’s Guide to Plain Text Social Science&lt;/strong&gt;&lt;/a&gt;: A comprehensive explanation and tutorial about why you should write data-based reports in Markdown.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using R Markdown</title>
+      <link>https://sph-r-programming-2022.netlify.app/reference/rmarkdown/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/reference/rmarkdown/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#key-terms&#34;&gt;Key terms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#add-chunks&#34;&gt;Add chunks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#chunk-names&#34;&gt;Chunk names&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#chunk-options&#34;&gt;Chunk options&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#inline-chunks&#34;&gt;Inline chunks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#output-formats&#34;&gt;Output formats&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;R Markdown&lt;/a&gt; is &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/reference/markdown/&#34;&gt;regular Markdown&lt;/a&gt; with R code and output sprinkled in. You can do everything you can with &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/reference/markdown/&#34;&gt;regular Markdown&lt;/a&gt;, but you can incorporate graphs, tables, and other R output directly in your document. You can create HTML, PDF, and Word documents, PowerPoint and HTML presentations, websites, books, and even &lt;a href=&#34;https://rmarkdown.rstudio.com/flexdashboard/index.html&#34;&gt;interactive dashboards&lt;/a&gt; with R Markdown. This whole course website is created with R Markdown (and &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;a package named &lt;strong&gt;blogdown&lt;/strong&gt;&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;documentation for R Markdown&lt;/a&gt; is extremely comprehensive, and their &lt;a href=&#34;https://rmarkdown.rstudio.com/lesson-1.html&#34;&gt;tutorials&lt;/a&gt; and &lt;a href=&#34;https://rmarkdown.rstudio.com/lesson-15.html&#34;&gt;cheatsheets&lt;/a&gt; are excellent—rely on those.&lt;/p&gt;
+&lt;p&gt;Here are the most important things you’ll need to know about R Markdown in this class:&lt;/p&gt;
+&lt;div id=&#34;key-terms&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Key terms&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Document&lt;/strong&gt;: A Markdown file where you type stuff&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chunk&lt;/strong&gt;: A piece of R code that is included in your document. It looks like this:&lt;/p&gt;
+&lt;pre class=&#34;markdown&#34;&gt;&lt;code&gt;```{r}
+# Code goes here
+```&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There must be an empty line before and after the chunk. The final three backticks must be the only thing on the line—if you add more text, or if you forget to add the backticks, or accidentally delete the backticks, your document will not knit correctly.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Knit&lt;/strong&gt;: When you “knit” a document, R runs each of the chunks sequentially and converts the output of each chunk into Markdown. R then runs the knitted document through &lt;a href=&#34;https://pandoc.org/&#34;&gt;pandoc&lt;/a&gt; to convert it to HTML or PDF or Word (or whatever output you’ve selected).&lt;/p&gt;
+&lt;p&gt;You can knit by clicking on the “Knit” button at the top of the editor window, or by pressing &lt;code&gt;⌘⇧K&lt;/code&gt; on macOS or &lt;code&gt;control + shift + K&lt;/code&gt; on Windows.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2022.netlify.app/img/assignments/knit-button.png&#34; width=&#34;30%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;add-chunks&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Add chunks&lt;/h2&gt;
+&lt;p&gt;There are three ways to insert chunks:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Press &lt;code&gt;⌘⌥I&lt;/code&gt; on macOS or &lt;code&gt;control + alt + I&lt;/code&gt; on Windows&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Click on the “Insert” button at the top of the editor window&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2022.netlify.app/img/reference/insert-chunk.png&#34; width=&#34;30%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Manually type all the backticks and curly braces (don’t do this)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chunk-names&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Chunk names&lt;/h2&gt;
+&lt;p&gt;You can add names to chunks to make it easier to navigate your document. If you click on the little dropdown menu at the bottom of your editor in RStudio, you can see a table of contents that shows all the headings and chunks. If you name chunks, they’ll appear in the list. If you don’t include a name, the chunk will still show up, but you won’t know what it does.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2022.netlify.app/img/reference/chunk-toc.png&#34; width=&#34;40%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;To add a name, include it immediately after the &lt;code&gt;{r&lt;/code&gt; in the first line of the chunk. Names cannot contain spaces, but they can contain underscores and dashes. &lt;strong&gt;All chunk names in your document must be unique.&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;markdown&#34;&gt;&lt;code&gt;```{r name-of-this-chunk}
+# Code goes here
+```&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;chunk-options&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Chunk options&lt;/h2&gt;
+&lt;p&gt;There are a bunch of different options you can set for each chunk. You can see a complete list in the &lt;a href=&#34;https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf&#34;&gt;RMarkdown Reference Guide&lt;/a&gt; or at &lt;a href=&#34;https://yihui.org/knitr/options/&#34;&gt;&lt;strong&gt;knitr&lt;/strong&gt;’s website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Options go inside the &lt;code&gt;{r}&lt;/code&gt; section of the chunk:&lt;/p&gt;
+&lt;pre class=&#34;markdown&#34;&gt;&lt;code&gt;```{r name-of-this-chunk, warning=FALSE, message=FALSE}
+# Code goes here
+```&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The most common chunk options are these:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;fig.width=5&lt;/code&gt; and &lt;code&gt;fig.height=3&lt;/code&gt; (&lt;em&gt;or whatever number you want&lt;/em&gt;): Set the dimensions for figures&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;echo=FALSE&lt;/code&gt;: The code is not shown in the final document, but the results are&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;message=FALSE&lt;/code&gt;: Any messages that R generates (like all the notes that appear after you load a package) are omitted&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;warning=FALSE&lt;/code&gt;: Any warnings that R generates are omitted&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;include=FALSE&lt;/code&gt;: The chunk still runs, but the code and results are not included in the final document&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can also set chunk options by clicking on the little gear icon in the top right corner of any chunk:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2022.netlify.app/img/reference/chunk-options.png&#34; width=&#34;70%&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;inline-chunks&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Inline chunks&lt;/h2&gt;
+&lt;p&gt;You can also include R output directly in your text, which is really helpful if you want to report numbers from your analysis. To do this, use &lt;code&gt;`r r_code_here`&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;It’s generally easiest to calculate numbers in a regular chunk beforehand and then use an inline chunk to display the value in your text. For instance, this document…&lt;/p&gt;
+&lt;pre class=&#34;markdown&#34;&gt;&lt;code&gt;```{r find-avg-mpg, echo=FALSE}
+avg_mpg &amp;lt;- mean(mtcars$mpg)
+```
+
+The average fuel efficiency for cars from 1974 was `r round(avg_mpg, 1)` miles per gallon.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;… would knit into this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The average fuel efficiency for cars from 1974 was 20.1 miles per gallon.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;output-formats&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Output formats&lt;/h2&gt;
+&lt;p&gt;You can specify what kind of document you create when you knit in the &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/reference/markdown/#front-matter&#34;&gt;YAML front matter&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;yaml&#34;&gt;&lt;code&gt;title: &amp;quot;My document&amp;quot;
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can also click on the down arrow on the “Knit” button to choose the output &lt;em&gt;and&lt;/em&gt; generate the appropriate YAML. If you click on the gear icon next to the “Knit” button and choose “Output options”, you change settings for each specific output type, like default figure dimensions or whether or not a table of contents is included.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2022.netlify.app/img/reference/output-options.png&#34; width=&#34;35%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The first output type listed under &lt;code&gt;output:&lt;/code&gt; will be what is generated when you click on the “Knit” button or press the keyboard shortcut (&lt;code&gt;⌘⇧K&lt;/code&gt; on macOS; &lt;code&gt;control + shift + K&lt;/code&gt; on Windows). If you choose a different output with the “Knit” button menu, that output will be moved to the top of the &lt;code&gt;output&lt;/code&gt; section.&lt;/p&gt;
+&lt;p&gt;The indentation of the YAML section matters, especially when you have settings nested under each output type. Here’s what a typical &lt;code&gt;output&lt;/code&gt; section might look like:&lt;/p&gt;
+&lt;pre class=&#34;yaml&#34;&gt;&lt;code&gt;---
+title: &amp;quot;My document&amp;quot;
+author: &amp;quot;My name&amp;quot;
+date: &amp;quot;January 13, 2020&amp;quot;
+output: 
+  html_document: 
+    toc: yes
+    fig_caption: yes
+    fig_height: 8
+    fig_width: 10
+  pdf_document: 
+    latex_engine: xelatex  # More modern PDF typesetting engine
+    toc: yes
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    fig_height: 4
+    fig_width: 5
+---&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Installing R, RStudio, tidyverse, and tinytex</title>
+      <link>https://sph-r-programming-2022.netlify.app/reference/install/</link>
+      <pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/reference/install/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#rstudio.cloud&#34;&gt;RStudio.cloud&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#rstudio-on-your-computer&#34;&gt;RStudio on your computer&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#install-r&#34;&gt;Install R&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-rstudio&#34;&gt;Install RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-tidyverse&#34;&gt;Install &lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-tinytex&#34;&gt;Install &lt;code&gt;tinytex&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt;You will do all of your work&lt;/span&gt; in this class with the open source (and free!) programming language &lt;a href=&#34;https://cran.r-project.org/&#34;&gt;R&lt;/a&gt;. You will use &lt;a href=&#34;https://www.rstudio.com/&#34;&gt;RStudio&lt;/a&gt; as the main program to access R. Think of R as an engine and RStudio as a car dashboard—R handles all the calculations and the actual statistics, while RStudio provides a nice interface for running R code.&lt;/p&gt;
+&lt;div id=&#34;rstudio.cloud&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;RStudio.cloud&lt;/h2&gt;
+&lt;p&gt;R is free, but it can sometimes be a pain to install and configure. To make life easier, you can (and should!) use the free &lt;a href=&#34;http://rstudio.cloud/&#34;&gt;RStudio.cloud&lt;/a&gt; service &lt;em&gt;initially&lt;/em&gt;, which lets you run a full instance of RStudio in your web browser. This means you won’t have to install anything on your computer to get started with R! We will have a shared class workspace in RStudio.cloud that will let you quickly copy templates for labs and problem sets.&lt;/p&gt;
+&lt;p&gt;Go to &lt;a href=&#34;https://rstudio.cloud/&#34; class=&#34;uri&#34;&gt;https://rstudio.cloud/&lt;/a&gt; and create an account. You’ll receive a link to join the shared class workspace separately. If you don’t get this link, let me know and I will invite you.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rstudio-on-your-computer&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;RStudio on your computer&lt;/h2&gt;
+&lt;p&gt;RStudio.cloud is convenient, but it can be slow and it is not designed to be able to handle larger datasets, more complicated analysis, or fancier graphics. Over the course of the semester, you should wean yourself off of RStudio.cloud and install all these things locally. This is also important if you want to customize fonts, since RStudio.cloud has extremely limited support for fonts other than Helvetica.&lt;/p&gt;
+&lt;p&gt;Here’s how you install all these things&lt;/p&gt;
+&lt;div id=&#34;install-r&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Install R&lt;/h3&gt;
+&lt;p&gt;First you need to install R itself (the engine).&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Go to the CRAN (Collective R Archive Network)&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; website: &lt;a href=&#34;https://cran.r-project.org/&#34; class=&#34;uri&#34;&gt;https://cran.r-project.org/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Click on “Download R for &lt;code&gt;XXX&lt;/code&gt;”, where &lt;code&gt;XXX&lt;/code&gt; is either Mac or Windows:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2022.netlify.app/img/install/install-r-links.png&#34; width=&#34;75%&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;If you use macOS, scroll down to the first &lt;code&gt;.pkg&lt;/code&gt; file in the list of files (in this picture, it’s &lt;code&gt;R-3.5.1.pkg&lt;/code&gt;; as of right now, the current version is 3.6.1) and download it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2022.netlify.app/img/install/install-r-mac.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If you use Windows, click “base” (or click on the bolded “install R for the first time” link) and download it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2022.netlify.app/img/install/install-r-windows.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Double click on the downloaded file (check your &lt;code&gt;Downloads&lt;/code&gt; folder). Click yes through all the prompts to install like any other program.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install-rstudio&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Install RStudio&lt;/h3&gt;
+&lt;p&gt;Next, you need to install RStudio, the nicer graphical user interface (GUI) for R (the dashboard). Once R and RStudio are both installed, you can ignore R and only use RStudio. RStudio will use R automatically and you won’t ever have to interact with it directly.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Go to the free download location on RStudio’s website: &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/#download&#34; class=&#34;uri&#34;&gt;https://www.rstudio.com/products/rstudio/download/#download&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Select the installer that corresponds with your computer’s operating system (Windows or macOS):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2022.netlify.app/img/install/install-r-rstudio.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Double click on the downloaded file (again, check your &lt;code&gt;Downloads&lt;/code&gt; folder). Click yes through all the prompts to install like any other program.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Double click on RStudio to run it (check your applications folder or start menu).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install-tidyverse&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Install &lt;code&gt;tidyverse&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;R packages are easy to install with RStudio. Select the packages panel, click on “Install,” type the name of the package you want to install, and press enter.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2022.netlify.app/img/install/install-r-package-panel.png&#34; width=&#34;40%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This can sometimes be tedious when you’re installing lots of packages, though. &lt;a href=&#34;https://www.tidyverse.org/&#34;&gt;The tidyverse&lt;/a&gt;&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; for instance, consists of dozens of packages that all work together. Rather than install each individually, you can install a single magical package and get them all at the same time.&lt;/p&gt;
+&lt;p&gt;Go to the packages panel in RStudio, click on “Install,” type “tidyverse”, and press enter. You’ll see a bunch of output in the RStudio console as all the tidyverse packages are installed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2022.netlify.app/img/install/install-r-tidyverse.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Notice also that RStudio will generate a line of code for you and run it: &lt;code&gt;install.packages(&#34;tidyverse&#34;)&lt;/code&gt;. You can also just paste and run this instead of using the packages panel.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install-tinytex&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Install &lt;code&gt;tinytex&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;When you knit to PDF, R uses a special scientific typesetting program named LaTeX (pronounced “lay-tek” or “lah-tex”; for goofy nerdy reasons, the x is technically the “ch” sound in “Bach”, but most people just say it as “k”—saying “layteks” is frowned on for whatever reason).&lt;/p&gt;
+&lt;p&gt;LaTeX is neat and makes pretty documents, but it’s a huge program—&lt;a href=&#34;https://tug.org/mactex/mactex-download.html&#34;&gt;the macOS version, for instance, is nearly 4 GB&lt;/a&gt;! To make life easier, there’s &lt;a href=&#34;https://yihui.org/tinytex/&#34;&gt;an R package named &lt;strong&gt;tinytex&lt;/strong&gt;&lt;/a&gt; that installs a minimal LaTeX program and that automatically deals with differences between macOS and Windows.&lt;/p&gt;
+&lt;p&gt;Here’s how to install &lt;strong&gt;tinytex&lt;/strong&gt; so you can knit to pretty PDFs:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Use the Packages in panel in RStudio to install &lt;strong&gt;tinytex&lt;/strong&gt; like you did above with &lt;strong&gt;tidyverse&lt;/strong&gt;. Alternatively, run &lt;code&gt;install.packages(&#34;tinytex&#34;)&lt;/code&gt; in the console.&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;tinytex::install_tinytex()&lt;/code&gt; in the console.&lt;/li&gt;
+&lt;li&gt;Wait for a bit while R downloads and installs everything you need.&lt;/li&gt;
+&lt;li&gt;The end! You should now be able to knit to PDF.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;It’s a goofy name, but CRAN is where most R packages—and R itself—lives.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;A universe of packages centered around tidy data, including &lt;code&gt;ggplot2&lt;/code&gt;&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,93 @@
+---
+title: "Part 8 (Class 9). Intro to stats/`broom`/More Purrr"
+linktitle: "Part 8 (Class 9). Intro to stats/`broom`/More Purrr"
+date: "2022-03-02"
+class_date: "2022-03-02"
+output:
+  blogdown::html_page:
+    toc: true
+menu:
+  class:
+    parent: Class sessions
+    weight: 9
+type: docs
+weight: 9
+# pdf: 
+# thumb: 
+editor_options: 
+  chunk_output_type: console
+---
+
+
+## R Project files
+
+Please download the part8 sub-folder from [this dropbox link](https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0). Be sure to unzip if necessary. Knit the `part8.Rmd` to install any required packages.
+
+## Class Video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/X73yjK2zhH4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+View last year's class and materials [here](https://sph-r-programming.netlify.app/class/09-class/).
+
+
+### Post-Class
+
+Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.
+
+- Clearest Point: What was the most clear part of the lecture?
+- Muddiest Point: What was the most unclear part of the lecture to you?
+- Anything Else: Is there something you'd like me to know?
+
+<https://forms.gle/4tVx1mL7SzQx7MCu5>
+
+
+## Muddiest Points
+
+> I am confused on where and how nested data frames are used.
+
+> I'm still a little unclear on how to write functions to use with map on df after group_nest. The explanation was clear, I think I just need to try it myself to get the hang of it! I start to lose track of which column/variable goes where and contains what.
+
+> I think I need a lot more time to process "map" because it feels like a very big and powerful tool...but maybe too big to wrap my head around?
+
+Yeah, `map()` and `nest()` really need more than a couple classes to work through, I think. I believe it's very important to learn tools like this because it using functions and iteration is truly when you start "programming with R (and that's the name of the class!). But I think this will take some practice. I wish we had more time to practice!
+
+Definitely take advantage of all the resources out there to learn more if you are interested.
+
+
+> The function section of the lecture and the use of Purrr
+
+> I have a hard time following along with the functions during class
+
+I'm happy to go over any of the functions again if you would like. Just let me know which are the most confusing and I can go over them again more slowly in the last class!
+
+# Clearest points
+
+> The first half of this class felt great because it was adding onto knowledge I already had re: biostats. So it was easy to understand how to apply that knowledge in R.
+
+> Stats! Clear explanation of regression code
+
+Great, I hope the next couple classes are useful to learn more about statistical modeling in R. It's a wide world out there, so we can only briefly touch on various examples, but I hope it's enough to get you started.
+
+> I like the group_split() function!
+
+> The class-specific versions of map
+
+> creating functions and lists
+
+> The ggplot section.
+
+Super!
+
+# Other messages
+
+> I had never heard of geom_errorbar() but I like it! I have tried to add error bars manually and it was a headache...
+
+> I really appreciate the walk-throughs of how to build a function (start with a specific input, then generalize), how to use map, etc. I also loved that you included the gtsummary and scales::pvalue summary, and the geom_errorbar forest plot! It's all super useful stuff that I've been wishing I knew how to do but didn't really know how to look up!
+
+This is good to hear, because I can't really show you in detail how to build a million and one statistical models, but I can show you the tools that I use the most often. Hopefully it's enough to make statistical analysis a bit easier.
+
+> I really like the cute pun of 'nested' penguins.
+
+=)
+
+

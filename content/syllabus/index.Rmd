@@ -1,0 +1,240 @@
+---
+title: Syllabus
+slug: syllabus
+citeproc: true
+output:
+  blogdown::html_page:
+    toc: true
+    fig_caption: false
+---
+
+```{r load-libraries, message=FALSE, warning=FALSE, include=FALSE}
+```
+
+`r blogdown::shortcode("courseinfo")`
+
+## Course Description
+
+This course is meant to be a gentle introduction to data wrangling and visualization using the `tidyverse` in R. This course focuses on practical data science skills in R (loading data, data wrangling, visualization, automation, machine learning, and running statistical models) that you'll use almost everyday in your work. It is meant for both beginners and students wanting to brush up on their R skills. 
+
+## Credit Hours
+
+3 credit hours. 
+
+## Learning Objectives
+
+1. **Understand** and **utilize** **R/RStudio**.
+2. **Understand** basic data types and data structures in R.
+3. **Familiarize** and **load** data files (Excel, Comma Separated Value files) into R/Rstudio, with tips on formatting.
+4. **Visualize** datasets using **ggplot2** and understand how to build basic plots using **ggplot2** syntax.
+5. **Filter** and **format** data in R for use with various routines.
+6. **Execute** and **Interpret** some basic statistics in R.
+7. **Automate** repetitive tasks in R, such as loading a folder of files.
+
+*__If time allows__*:
+
+8. **Create** fancy tables in our R markdown reports with `gt` and/or `kableExtra`.
+9. **Learn** about Bioconductor Data Structures and conduct simple analysis with these structures.
+10. **Build** basic interactive applications with `shiny`.
+
+## Course Website
+
+All course information will be available here:
+
+https://sph-r-programming-2022.netlify.com/
+
+Information will also be available on the Sakai website.
+
+Course discussions will be done in the class Slack channel. Invites will be sent before class.
+
+Assignments will be due by 11:59pm on the day of the next week's class. They will be done in .Rmd documents and students will submit compiled html files to Sakai.
+
+## Office Hours
+
+Office Hours will be held via Zoom and a link will be sent out that day. Feel free to drop into the office hours and work and ask questions as needed.
+
+## Prerequisites or Concurrent Enrollment Requirements
+
+No Prerequisites
+
+## Faculty Information
+
+### Instructor
+
+[Jessica Minnier, PhD](http://jessicaminnier.com/)  
+minnier@ohsu.edu  
+**Preferred Method of Contact**: Email/Slack  
+**Expected Response Time**: 1 business day 
+
+### Teaching Assistant
+
+Colin H.
+
+## Code of Conduct
+
+This class is governed by the BioData Club Code of Conduct:
+<https://biodata-club.github.io/code_of_conduct/>
+
+And as students of an OHSU course, we must abide by the OHSU Code of Conduct: <https://www.ohsu.edu/integrity-department/code-conduct>
+
+This class is meant to be a psychologically safe space where it's ok to ask questions. We want to normalize your own curiosity and fuel your desire to learn more.
+
+If you are disruptive to class learning or disparaging to other students, I may mute you for the day. I am very serious about this.
+
+## Required Texts or Readings
+
+We will be drawing on the following online textbooks during class and labs. These books are online and free, though you can order them as textbooks if you prefer that format.
+
+**Getting Used to R, RStudio, and RMarkdown**. Chester Ismay.
+<https://ismayc.github.io/rbasics-book/>
+
+**Introduction to Data Science**. Tiffany Timbers, Trevor Campbell, Melissa Lee. <https://ubc-dsci.github.io/introduction-to-datascience/>
+
+**RMarkdown for Scientists**. Nick Tierney. <https://rmd4sci.njtierney.com/>
+
+**R for Data Science**. Garret Grolemund and Hadley Wickham. <https://r4ds.had.co.nz/>
+
+
+## Words of Encouragement
+
+> This was adopted from Andrew Heiss. Thanks!
+
+I *promise* you can succeed in this class.
+
+Learning R can be difficult at first—it's like learning a new language, just like Spanish, French, or Chinese. Hadley Wickham—the chief data scientist at RStudio and the author of some amazing R packages you'll be using like `ggplot2`—[made this wise observation](https://r-posts.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/): 
+
+> It’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.
+
+Even experienced programmers find themselves bashing their heads against seemingly intractable errors. If you're finding yourself taking way too long hitting your head against a wall and not understanding, take a break, talk to classmates, e-mail me, etc. 
+
+```{r echo=FALSE, out.width="60%"}
+# https://twitter.com/allison_horst/status/1213275783675822080
+knitr::include_graphics("/img/syllabus/hosrt_error_tweet.png", error = FALSE)
+```
+
+[![Alison Horst: Gator error](/img/syllabus/gator_error.jpg)](https://twitter.com/allison_horst/status/1213275783675822080)
+
+
+## LeaRning is Social
+
+The students who have a bad time in my workshops and courses are the ones who don't work with each other to learn. We are a learning community, and we should help each other to learn.
+
+If you understand something and someone is struggling with it, try and help them. If you are struggling, take a breath, and try to pinpoint what you are struggling with. 
+
+Our goal is to be better programmers each day, not to be the perfect programmer. There's no such thing as a perfect programmer. I've been learning new things almost every day.
+
+
+## Attendance Requirements
+
+Online attendance is required. Please let me know in advance if you have to miss class, or if you have an emergency. 
+
+Classes will be recorded, but please do not use this as an excuse to miss class. Again, those who are curious and ask questions will learn quite a bit. 
+
+
+## Grading Policy
+
+- Attendance 10%
+- Midterm Project 15%
+- Function of the Week 10%
+- Homework Assignments 45%
+- Final Project 20%
+
+### Late Policy
+
+Students get 1 free assignment to submit late without penalties. Please email us through Sakai that you need more time. If you need accommodation, please email us so we can figure out a way to help you.
+
+## Copyright Information
+
+Every reasonable effort has been made to protect the copyright requirements of materials used in this course. Class participants are warned not to copy, audio, or videotape in violation of copyright laws.
+
+Journal articles will be kept on reserve at the library or online for student access. Copyright law does allow for making one personal copy of each article from the original article. This limit also applies to electronic sources.
+
+To comply with the fair use fair use doctrine of the US copyright law, Sakai course sites close three weeks after grades are posted with the Registrar. Please be sure to download all course material you wish to keep before this time as you will have no further access to your courses.
+
+## School of Public Health Handbook
+
+All students are responsible for following the policies and expectations outlined in the student handbook for their program of study. Students are responsible for their own academic work and are expected to have read and practice principles of academic honesty, as presented in the handbook: https://ohsu-psu-sph.org/graduate/handbooks-policies-forms/
+
+## Syllabus Changes and Retention
+
+This syllabus is not to be considered a contract between the student and the School of Public Health. It is recognized that changes may be made as the need arises. Students are responsible for keeping a copy of the course syllabus for their records.
+
+## Syllabus Statement Regarding Disability Services
+
+OHSU is committed to providing equal access to qualified students who experience a disability in compliance with Section 504 of the Rehabilitation Act of 1973, the Americans with Disabilities Act (ADA) of
+1990, and the ADA Amendments Act (ADA-AA) of 2008. If you have a disability or think you may have a disability (physical, sensory, chronic health, psychological or learning) please contact the Office for Student Access at (503) 494-0082 or <studentaccess@ohsu.edu> to discuss
+eligibility for academic accommodations. Information is also available at [www.ohsu.edu/student-access.](http://www.ohsu.edu/student-access) Because accommodations may take time to implement and cannot be applied retroactively, it is important to have this discussion as soon as
+possible. All information regarding a student's disability is kept in accordance with relevant state and federal laws.
+
+Please see Student Access & Accomodations section for more details on the Sakai version of this Syllabus.
+
+
+## Commitment of Equity and Inclusion
+
+The School of Public Health is committed to providing an environment free of all forms of prohibited discrimination and discriminatory harassment. The School of Public Health students who have questions about an incident related to Title IX are welcome to contact either the OHSU or PSU's Title IX Coordinator and they will direct you to the appropriate resource or office. Title IX pertains to any form of sex/gender discrimination, discriminatory harassment, sexual harassment or sexual violence.
+
+PSU’s Title IX Coordinator is Julie Caron, she may be reached at titleixccordinator@pdx.edu or 503-725-4410. Julie's office is located at 1600 SW 4th Ave, In the Richard and Maureen Neuberger Center RMNC - Suite 830.
+
+The OHSU Title IX Coordinator’s may be reached at 503-494-0258 or titleix@ohsu.edu and is located at 2525 SW 3rd St.
+
+Please note that faculty and the Title IX Coordinators will keep the information you disclose private but are not confidential. If you would like to speak with a confidential advocate, who will not disclose the information to a university official without your written consent, you may contact an advocate at PSU or OHSU.
+
+PSU’s confidential advocates are available in Women’s Resource Center (serving all genders) in Smith Student Memorial Union 479. You may schedule an appointment by (503-725-5672) or schedule on line at https://psuwrc.youcanbook.me. For more information about resources at PSU, please see PSU’s Response to Sexual Misconduct website.
+
+OHSU’s advocates are available through the Confidential Advocacy Program (CAP) at 833-495-CAPS (2277) or by email CAPsupport@ohsu.edu, but please note, email is not a secure form of communication. Also visit www.ohsu.edu/CAP.
+
+At OHSU, if you encounter any harassment, or discrimination based on race, color, religion, age, national origin or ancestry, veteran or military status, sex, marital status, pregnancy or parenting status, sexual orientation, gender identity or expression, disability or any other protected status, please contact the Affirmative Action and Equal Opportunity (AAEO) Department at 503- 494-5148 or aaeo@ohsu.edu.
+
+At PSU, you may contact the Office of Equity and Compliance if you experience any form of discrimination or discriminatory harassment as listed above at equityandcompliance@pdx.edu or by calling 503-725-5919.
+
+## Academic Honesty
+
+Course participants are expected to maintain academic honesty in their course work. Participants should refrain from seeking past published solutions to any assignments. Literature and resources (including
+Internet resources) employed in fulfilling assignments must be cited. See
+[http://www.ohsu.edu/xd/education/library/research-assistance/plagiarism.cfm?WT\_rank=1\#](http://www.ohsu.edu/xd/education/library/research-assistance/plagiarism.cfm?WT_rank=1)
+for information on code of conduct for OHSU and
+
+<http://www.ohsu.edu/xd/education/teaching-and-learning-center/for-students/index.cfm>
+for more information on citing sources and recognizing plagiarism.
+
+*In an effort to uphold the principles and practice of academic honesty,
+faculty members at OHSU may use originality checking systems such as
+Turnitin to compare a student's submitted work against multiple
+sources.*
+
+*To protect student privacy in this process, it will be necessary to
+remove all personal information, i.e. student name, email address,
+student u-number, or any other personal information, from documents
+BEFORE submission.*
+
+## Use of Sakai
+
+This course will have an online component, which can be accessed through
+Sakai, OHSU's online course management system. For any technical
+questions or if you need help logging in, please contact the Sakai Help
+Desk.
+
+Hours: Sakai Help Desk is available Mon -- Fri, 8 am -- 9 pm and
+weekends 12 pm -- 5 pm, Pacific Time.
+
+Contact Information:
+
+(Toll-free) 877-972-5249
+
+(Web) <http://atech.ohsu.edu/help>
+
+(Email) <sakai@ohsu.edu>
+
+## OHSU Proctoring Policy
+
+It is OHSU policy that any exam offered online and worth more than 10%
+of the final course grade must be [virtually proctored.]{.underline} In
+this course, we will be using the services of Examity, a remote
+proctoring services. You will be required to schedule your exam three
+(3) weeks ahead of time. There is no cost to the student. More
+information will be provided to you regarding setup, scheduling, and
+requirements in the Course Materials.
+
+Policy number: 02-70-050
+(<http://www.ohsu.edu/xd/education/student-services/academic-programs-and-assessment/academic-policy/approved-policies/upload/Online-Exam-Proctoring-02-70-050.pdf>)
+

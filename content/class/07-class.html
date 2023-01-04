@@ -1,0 +1,103 @@
+---
+title: "Part 6 (Class 7): More data wrangling and ggplot"
+linktitle: "Part 6 (Class 7): More data wrangling and ggplot"
+date: "2022-02-16"
+class_date: "2022-02-16"
+output:
+  blogdown::html_page:
+    toc: true
+menu:
+  class:
+    parent: Class sessions
+    weight: 7
+type: docs
+weight: 7
+# pdf: 
+# thumb: 
+editor_options: 
+  chunk_output_type: console
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#r-project-files">R Project files</a></li>
+<li><a href="#class-7-video">Class 7 Video</a></li>
+<li><a href="#slides">Slides</a>
+<ul>
+<li><a href="#post-class">Post-Class</a></li>
+</ul></li>
+<li><a href="#muddiest-points-and-messages">Muddiest Points and Messages</a></li>
+</ul>
+</div>
+
+<div id="r-project-files" class="section level2">
+<h2>R Project files</h2>
+<p>Last class we finished up part5 materials. This is class 7, and we will start with part6 now (sorry, we’re going to be off by one from now on). Please download the part6 sub-folder from <a href="https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0">this dropbox link</a>. Be sure to unzip if necessary. Knit the <code>part6.Rmd</code> to install any required packages.</p>
+<p>This section is mainly a practice, with some additional ggplot lessons. There will be lots of time for breakout room challenges so that you can get practice working on these data wrangling and graphing problems together.</p>
+</div>
+<div id="class-7-video" class="section level2">
+<h2>Class 7 Video</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/j-eoXIEGQQg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>View last year’s class and materials <a href="https://sph-r-programming.netlify.app/class/07-class/">here</a>.</p>
+</div>
+<div id="slides" class="section level2">
+<h2>Slides</h2>
+<p>No slides this class. Come ready to interact in breakout sessions!</p>
+<!-- Open the class introduction slides in a separate window: <a href="https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1" target="_blank">https://sph-r-programming-2022.netlify.app/01-introduction_slides#1</a> -->
+<!-- ```{r echo=FALSE} -->
+<!-- knitr::include_url('https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1') -->
+<!-- ``` -->
+<div id="post-class" class="section level3">
+<h3>Post-Class</h3>
+<p>Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.</p>
+<ul>
+<li>Clearest Point: What was the most clear part of the lecture?</li>
+<li>Muddiest Point: What was the most unclear part of the lecture to you?</li>
+<li>Anything Else: Is there something you’d like me to know?</li>
+</ul>
+<p><a href="https://forms.gle/4tVx1mL7SzQx7MCu5" class="uri">https://forms.gle/4tVx1mL7SzQx7MCu5</a></p>
+</div>
+</div>
+<div id="muddiest-points-and-messages" class="section level2">
+<h2>Muddiest Points and Messages</h2>
+<p>There seemed to be an equal split between people saying that pivoting, data cleaning, and ggplots are muddy and people saying they are clear! Well, I expected it all to be muddy so I’m glad at least some people are feeling ok about these things.</p>
+<p>For those of you who are still feeling muddy about pivots, data cleaning examples, and ggplot, know that these things take practice. We just don’t have enough time to spend as much time on them as I would like. I tried to make the homework give you practice with pivoting and ggplot a bit. I will also keep trying to go through examples when I can fit it in. We will leave these topics mostly behind the next couple classes as we tackle functions and iteration over lists and data, but when we talk about statistical modeling I will bring in more about pivoting data before data analysis. I will use ggplot examples when I can as well.</p>
+<blockquote>
+<p>use of “.x”</p>
+</blockquote>
+<p>Another item that was both muddy and clear. I hope this will make more sense when we talk about functions this week!</p>
+<blockquote>
+<p>I tried to duplicate the merging of the mouse data sets by first using pivot_longer on the 3 time point data sets, but I struggled.</p>
+</blockquote>
+<p>Do you mean you were trying to pivot each of the time point data sets first, and then <code>bind_rows()</code> them together? This should work, though because you have different numbers of biomarker columns depending on which time point data you are working with, this will take some extra consideration and double checking. It’s probably a bit easier to get things jumbled up this way. That’s one reason why I pivoted after binding them, so I would only have to pivot once. If you pivoted the exact same way, like this for example, it should work to bind them together:</p>
+<pre class="r"><code>mouse_tp1 &lt;- mouse_tp1 %&gt;%
+  pivot_longer(cols = starts_with(&quot;normalized&quot;),
+              names_to = &quot;biomarker_type&quot;,
+              values_to = &quot;biomarker_value&quot;)
+mouse_tp2 &lt;- mouse_tp2 %&gt;%
+  pivot_longer(cols = starts_with(&quot;normalized&quot;),
+              names_to = &quot;biomarker_type&quot;,
+              values_to = &quot;biomarker_value&quot;)
+mouse_tp3 &lt;- mouse_tp3 %&gt;%
+  pivot_longer(cols = starts_with(&quot;normalized&quot;),
+              names_to = &quot;biomarker_type&quot;,
+              values_to = &quot;biomarker_value&quot;)
+
+colnames(mouse_tp2) &lt;- str_replace(colnames(mouse_tp2), &quot;_ng&quot;, &quot;_pg&quot;)
+
+mouse_tp &lt;- bind_rows(&quot;tp1&quot; = mouse_tp1, 
+                      &quot;tp2&quot; = mouse_tp2,
+                      &quot;tp3&quot; = mouse_tp3,
+                      .id = &quot;time&quot;)</code></pre>
+<blockquote>
+<p>For new tools such as fct_reorder, please provide a written explanation–this helps when reviewing the lecture materials later on.</p>
+</blockquote>
+<p>Thanks I will try to add more comments!</p>
+<blockquote>
+<p>Could we know the requirements about the final project this week?</p>
+</blockquote>
+<p>I’m still thinking about this, so not this week but I will try for next week!</p>
+</div>

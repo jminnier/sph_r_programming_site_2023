@@ -1,0 +1,140 @@
+---
+title: "Part 5 contd (Class 6): Data summarizing, reshaping, and wrangling with multiple tables (contd)"
+linktitle: "Part 5 contd (Class 6): Data summarizing, reshaping, and wrangling with multiple tables (contd)"
+date: "2022-02-09"
+class_date: "2022-02-09"
+output:
+  blogdown::html_page:
+    toc: true
+menu:
+  class:
+    parent: Class sessions
+    weight: 6
+type: docs
+weight: 6
+# pdf: 
+# thumb: 
+editor_options: 
+  chunk_output_type: console
+---
+
+## R Project files
+
+In this class we finished the part5 material from [this folder link](https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0). Please download this folder and be sure to unzip if necessary. Knit the `part5.Rmd` to install any required packages.
+
+## Class Video
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c3ZuPANIEAM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+View last year's class and materials [here](https://sph-r-programming.netlify.app/class/06-class/).
+
+
+
+## Slides
+
+No slides this class.
+
+<!-- Open the class introduction slides in a separate window: <a href="https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1" target="_blank">https://sph-r-programming-2022.netlify.app/01-introduction_slides#1</a> -->
+
+<!-- ```{r echo=FALSE} -->
+<!-- knitr::include_url('https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1') -->
+<!-- ``` -->
+
+### Post-Class
+
+Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.
+
+- Clearest Point: What was the most clear part of the lecture?
+- Muddiest Point: What was the most unclear part of the lecture to you?
+- Anything Else: Is there something you'd like me to know?
+
+<https://forms.gle/4tVx1mL7SzQx7MCu5>
+
+
+## Muddiest Points
+
+> I'm still confused about what makes a list special (I know we're going to talk about it more later). I loved the walk-through of summarize with across but I need some practice with that before it becomes completely clear -- I hope it'll be on the HW! I also have trouble visualizing facet wraps and the necessary pivoting without actually trying it and watching my code break. Maybe that just takes practice!
+
+Yeah, sorry I was trying to avoid talking about lists until we can cover them fully but it turns out they are hard to avoid! We will talk about lists more in class 8, along with functions!
+
+In class 7 (part6) we will have more examples with summarize with across, and also facet wraps and pivoting. Basically, class 7 is a perfect response to this comment, even though I read this comment after I created the materials. Glad to be on the same wavelength =)
+
+> I was confused by the ".fns =" inside "summarize(acros())". I know it specifies the function, but I kept getting confused by how to code after that.
+
+This is hard stuff. I think it will make a bit more sense after we talk about functions in part7 (class 8 probably) and how to use them with `purrr` since it is similar syntax. Stay tuned for a couple more examples with `summarize(across())` in part6 (class 7), and I can't emphasize enough how much I recommend reading the reference on across [here](https://dplyr.tidyverse.org/reference/across.html) and other tidyverse functions that are confusing, but here's a quick explanation in the meantime.
+
+One thing to remember is that when using summarize, the function you are applying must result in *one* value, that is a vector of length one! Otherwise, it's not a summary statistic. This can be variations on `n_distinct()`, `length()`, `sum()`, `min()`, etc.
+
+```{r message = FALSE}
+library(tidyverse)
+library(palmerpenguins)
+library(gt)
+
+penguins %>%
+  summarize(
+    # all the code for the column specification AND the function goes in across()
+    across(
+      # use tidyselect to specify the columns
+      .cols = contains("length"),
+      # we can specify a list() of functions to apply
+      # to add a suffix to column names of result, name the functions
+      # the ~ in front specifies a custom function is next, .x is the argument
+      # or use built in functions
+      .fns = list(mean_cm = ~ mean(.x/10, na.rm = TRUE),
+                  n_miss = ~ sum(is.na(.x)),
+                  min = min,
+                  max = max
+                  ), # end list
+      # add additional argument for min and max
+      na.rm = TRUE,
+      # use "." to separate the col name & the function name
+      .names = "{.col}.{.fn}"
+    ) # end across
+  ) %>% # end mutate
+  gt()
+```
+
+
+> The most difficult part was towards the end when we were working with long data and were graphing it. Are there other examples of geomtile?
+
+> Towards the end when going over some of the ggplot section.
+
+I do have another couple examples of geom_tile() in part6, but at the end so I'm not confident we will get to it. But we will go over `ggplot` with long data a *lot* in part6 (class 7) so I hope that will help.
+
+`geom_tile` works best on summarized data, showing for instance the mean of a numeric value within groups:
+
+
+```{r}
+penguin_means <- penguins %>%
+  group_by(species, island) %>%
+  summarize(mb = mean(bill_length_mm, na.rm = TRUE))
+penguin_means
+
+ggplot(penguin_means) + 
+  aes(x = island,
+      y = species,
+      fill = mb) + 
+  geom_tile()+
+  labs(fill = "Mean bill length (mm)")
+```
+
+# Clearest Points
+
+Lots of `summarize()`, `join`, `pivot`! Thanks, all!
+
+# Other Notes
+
+> The very best part of this class is the strange and useful tidbits that aren't even on the syllabus!
+
+Well that's good to know! I'll try to go on more tangents =)
+
+> I'm interested in doing more with summary tables
+
+Yes, this is useful. It was my plan to get to this when we talk about statistical modeling and summary tables of cohorts/data. I hope we get there, we will do this after we talk about lists/purrr.
+
+> 	I think I'm getting a little turned around as functions are added, used in concert and combined with tips for advanced users. A main, base take-away for primary functions etc. would help me integrate new concepts to previous ones.
+
+Good feedback, thank you! I try to do this with more. I'm hoping part6 will give everyone a chance to practice with what we've learned so far, to solidify these concepts before we move on to the next section of lists, functions, and `purrr` topics.
+
+

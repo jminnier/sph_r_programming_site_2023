@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en-us" 
+      xmlns:og="http://ogp.me/ns#" 
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.7.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Ted Laderas">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="R Project files Readings Slides Class Video  Post-Class  Pacing Muddiest Points Clearest points Other messages   R Project files Please download the part2 and function_of_the_week folders from this dropbox folder link Be sure to unzip if necessary. In advance of class, please open the part2 Rstudio project (double click on the .rproj file), open part2.Rmd and knit (click the Knit button at the top of the file) this file.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://sph-r-programming-2022.netlify.app/class/02-class/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#000066">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,400i,700,700i%7COverpass:400,400i,700,700i&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://sph-r-programming-2022.netlify.app/class/02-class/">
+
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@datapointier">
+  <meta property="twitter:creator" content="@datapointier">
+  
+  <meta property="og:site_name" content="R Programming 2022">
+  <meta property="og:url" content="https://sph-r-programming-2022.netlify.app/class/02-class/">
+  <meta property="og:title" content="Part 2: Loading Data, data.frames, and ggplot2 | R Programming 2022">
+  <meta property="og:description" content="R Project files Readings Slides Class Video  Post-Class  Pacing Muddiest Points Clearest points Other messages   R Project files Please download the part2 and function_of_the_week folders from this dropbox folder link Be sure to unzip if necessary. In advance of class, please open the part2 Rstudio project (double click on the .rproj file), open part2.Rmd and knit (click the Knit button at the top of the file) this file."><meta property="og:image" content="https://sph-r-programming-2022.netlify.app/img/social-image.png">
+  <meta property="twitter:image" content="https://sph-r-programming-2022.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2022-01-12T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2022-01-17T16:43:16-08:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  <link rel="shortcut icon" href="https://sph-r-programming-2022.netlify.app/favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="https://sph-r-programming-2022.netlify.app/img/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="https://sph-r-programming-2022.netlify.app/img/favicon-16x16.png" sizes="16x16" />
+  <meta name="application-name" content="BSTA 504: R Programming 2022" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="https://sph-r-programming-2022.netlify.app/img/mstile-144x144.png" />
+
+
+  <title>Part 2: Loading Data, data.frames, and ggplot2 | R Programming 2022</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70"
+    data-target="#TableOfContents"
+    >
+
+    <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+    
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">R Programming 2022</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">R Programming 2022</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/syllabus/"><span>Syllabus</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/schedule/"><span>Schedule</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/reading/"><span>Readings</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/class/"><span>Classes</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/functions/"><span>Functions</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+    
+
+<div class="container-fluid docs">
+    <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+            
+
+
+
+
+
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/class/01-class/">Class sessions</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/class/01-class/">Part 1.  Introduction to R/Rstudio/Vectors/For Loops</a>
+      </li>
+      
+      <li class="active">
+        <a href="/class/02-class/">Part 2: Loading Data, data.frames, and ggplot2</a>
+      </li>
+      
+      <li >
+        <a href="/class/03-class/">Part 3: ggplot2, factors, boxplots, dplyr: subsetting</a>
+      </li>
+      
+      <li >
+        <a href="/class/04-class/">Part 4. dplyr: mutate, group_by, summarize, across</a>
+      </li>
+      
+      <li >
+        <a href="/class/05-class/">Part 5: Data summarizing, reshaping, and wrangling with multiple tables</a>
+      </li>
+      
+      <li >
+        <a href="/class/06-class/">Part 5 contd (Class 6): Data summarizing, reshaping, and wrangling with multiple tables (contd)</a>
+      </li>
+      
+      <li >
+        <a href="/class/07-class/">Part 6 (Class 7): More data wrangling and ggplot</a>
+      </li>
+      
+      <li >
+        <a href="/class/08-class/">Part 7 (Class 8): Lists/Functions/Intro to Purrr</a>
+      </li>
+      
+      <li >
+        <a href="/class/09-class/">Part 8 (Class 9). Intro to stats/`broom`/More Purrr</a>
+      </li>
+      
+      <li >
+        <a href="/class/10-class/">Part 9 (Class 10): More Stats Stuff/Summary Tables</a>
+      </li>
+      
+      <li >
+        <a href="/class/11-class/">Class 11: TBD</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+        </div>
+
+        
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+            <article class="article">
+
+                <div class="docs-article-container">
+                    <h1>Part 2: Loading Data, data.frames, and ggplot2</h1>
+
+                    
+
+                    
+
+                    
+                    <div class="due-date p-2 mb-3 bg-secondary text-white">
+                        Materials from class on Wednesday, January 12, 2022
+                    </div>
+                    
+
+                    <div class="article-style">
+                        
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#r-project-files">R Project files</a></li>
+<li><a href="#readings">Readings</a></li>
+<li><a href="#slides">Slides</a></li>
+<li><a href="#class-video">Class Video</a>
+<ul>
+<li><a href="#post-class">Post-Class</a></li>
+</ul></li>
+<li><a href="#pacing">Pacing</a></li>
+<li><a href="#muddiest-points">Muddiest Points</a></li>
+<li><a href="#clearest-points">Clearest points</a></li>
+<li><a href="#other-messages">Other messages</a></li>
+</ul>
+</div>
+
+<div id="r-project-files" class="section level2">
+<h2>R Project files</h2>
+<p>Please download the <code>part2</code> and <code>function_of_the_week</code> folders from <a href="https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0">this dropbox folder link</a> Be sure to unzip if necessary. In advance of class, please open the <code>part2</code> Rstudio project (double click on the <code>.rproj</code> file), open <code>part2.Rmd</code> and <code>knit</code> (click the Knit button at the top of the file) this file. This will install packages that you need for the Rmd to run.</p>
+</div>
+<div id="readings" class="section level2">
+<h2>Readings</h2>
+<p>Required and suggested class readings can be found on the Readings tab by class. These readings may be done anytime before or after class, but they will supplement your understanding of the class materials and help make homework and project work easier.</p>
+</div>
+<div id="slides" class="section level2">
+<h2>Slides</h2>
+<p>Open the class introduction slides in a separate window: <a href="https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1" target="_blank">https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1</a></p>
+<iframe src="https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1" width="672" height="400px" data-external="1">
+</iframe>
+</div>
+<div id="class-video" class="section level2">
+<h2>Class Video</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0-_luKuYo_E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>View last year’s class and materials <a href="https://sph-r-programming.netlify.app/class/02-class/">here</a>.</p>
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/yCPcijCj15c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<div id="post-class" class="section level3">
+<h3>Post-Class</h3>
+<p>Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous. The first two questions will count toward your attendance part of the grade.</p>
+<ul>
+<li>Clearest Point: What was the most clear part of the lecture?</li>
+<li>Muddiest Point: What was the most unclear part of the lecture to you?</li>
+<li>Anything Else: Is there something you’d like me to know?</li>
+</ul>
+<p><a href="https://forms.gle/4tVx1mL7SzQx7MCu5" class="uri">https://forms.gle/4tVx1mL7SzQx7MCu5</a></p>
+</div>
+</div>
+<div id="pacing" class="section level2">
+<h2>Pacing</h2>
+<p>The pacing average went up a little bit, so I think that means I should slow down a little. I planned to slow down when we got to the “harder” stuff this week so that’s good. Please stop me if anything is not clear! I am happy to go over things multiple times during class.</p>
+</div>
+<div id="muddiest-points" class="section level2">
+<h2>Muddiest Points</h2>
+<blockquote>
+<p>.rproj and file organization</p>
+</blockquote>
+<p>Fair. This is probably going to be muddy for a while. I will keep going over it.</p>
+<blockquote>
+<p>After we save our plot with the ggsave() feature, how are we able to access it again/where is it saved?</p>
+</blockquote>
+<p>This is saved in your home directory which is where your <code>.rproj</code> file is. You can specify the location to be in a different place, though, i.e. <code>ggsave("plots/myplot.png")</code>. I will go over this in class, as it’s related to file organization.</p>
+<blockquote>
+<p>I feel like we covered SO much, and my head is still trying to process what is unclear. Based on the learning objectives for the class, I would say that points 4 and 5 are still really muddy for me.</p>
+</blockquote>
+<p>Don’t worry, it will take practice. I will go over more visualization examples next week, and also will show more examples of data summarization now that we are getting more into data wrangling.</p>
+<blockquote>
+<p>what is added by vis_dat() vs other exploratory functions</p>
+</blockquote>
+<p>This is useful to see patterns of missingness, for example if a set of variables tend to be missing together. In future classes I’ll use more <code>vis_dat()</code> and other <code>visdat</code> and <code>naniar</code> package functions to illustrate how/why it’s useful to see patterns of missingness.</p>
+<blockquote>
+<p>Uploading excel files, how to separately upload tabs within R.</p>
+</blockquote>
+<p>This was the argument <code>sheet</code> in the function <code>read_excel()</code>. For example, this reads in the first sheet/tab:</p>
+<pre class="r"><code>brca_clinical &lt;- read_excel(&quot;data/tcga_clinical_data.xlsx&quot;,
+                            sheet = 1, 
+                            skip = 1,
+                            na = &quot;NA&quot;
+                            )</code></pre>
+<p>or you could have used the sheet/tab name:</p>
+<pre class="r"><code>brca_clinical &lt;- read_excel(&quot;data/tcga_clinical_data.xlsx&quot;,
+                            sheet = &quot;BRCA&quot;, 
+                            skip = 1,
+                            na = &quot;NA&quot;
+                            )</code></pre>
+<p>If we want to read in the second sheet/tab we can use it’s name or number (2):</p>
+<pre class="r"><code>cesc_clinical &lt;- read_excel(&quot;data/tcga_clinical_data.xlsx&quot;,
+                            sheet = &quot;CESC&quot;, 
+                            skip = 1,
+                            na = &quot;NA&quot;
+                            )</code></pre>
+<p>I highly recommend reading the <a href="https://readxl.tidyverse.org/">introduction/vignette for the <code>readxl</code></a> package and looking at the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-import.pdf">cheatsheet.</a></p>
+<blockquote>
+<p>how to use haven package</p>
+</blockquote>
+<p>Oh yes, I didn’t really cover this since I wasn’t sure of the interest, but I can since there were a couple requests to do that. I’ll go over this more in depth next time.</p>
+</div>
+<div id="clearest-points" class="section level2">
+<h2>Clearest points</h2>
+<p>Mostly: ggplot, summarizing data tools, loading data; a variety of things but I think there were some aspects which we can repeat and develop more in depth in future classes, so this is great.</p>
+</div>
+<div id="other-messages" class="section level2">
+<h2>Other messages</h2>
+<blockquote>
+<p>I loved that you talked about how to use name_repair with janitor:: make_clean_names in read_excel! Sometimes figuring out the documentation of arguments is really hard. I also really appreciated the demonstrations with for loops (both printing with mypets and with the ggplot for loop), and other demonstrations with code that purposefully gives errors/unexpected stuff. Seeing code break in various ways makes it a lot clearer what do to to get what you want.</p>
+</blockquote>
+<p>Yes I really want to do more of this kind of examples of how to figure out how a function works and how to figure out why code is breaking, so thank you for this!</p>
+<blockquote>
+<p>I would like to spend more time in these breakout rooms doing some of the lecture tasks that are built in. Maybe it would be helpful to talk about what codes people used to answer the questions? If people used a different way?</p>
+</blockquote>
+<p>Wonderful, I was hoping to incorporate more breakout room tasks in class 3, so I’m glad it is useful!</p>
+<blockquote>
+<p>Please go slower with how to upload items such as excel files, installing packages, et cetera.</p>
+</blockquote>
+<p>Thank you, will definitely try to do this. If there is ever a time you want me to fully go over a step again, maybe with different explanations, please let me know (ask in chat during class or send message this way) and I am happy to.</p>
+<p>I highly recommend reading the <a href="https://readxl.tidyverse.org/">introduction/vignette for the <code>readxl</code></a> package!</p>
+<p>Thank you for the feedback, everyone, it’s super helpful!</p>
+</div>
+
+                    </div>
+
+                    
+
+
+
+                    
+                </div>
+
+                <div class="body-footer">
+                    <p>Last updated on January 17, 2022</p>
+
+                    
+
+
+
+
+
+  
+  
+
+<p class="edit-page">
+  <a href="https://github.com/jminnier/sph_r_programming_site/edit/master/content/class/02-class.html">
+    <i class="fas fa-pen pr-2"></i>Edit this page
+  </a>
+</p>
+
+
+
+
+                    
+
+                </div>
+
+            </article>
+
+            <footer>
+    <hr>
+
+    <div class="row course-info">
+        <div class="col-md-7">
+            <p>
+                <strong>BSTA 504: R Programming 2022 (Winter 2022)</strong><br>
+
+                <a href="https://www.ohsu.edu" target="_blank" rel="noopener">Oregon Health &amp; Science University / Portland State University</a> &emsp;&emsp;
+                <a href="https://ohsu-psu-sph.org/" target="_blank" rel="noopener">OHSU/PSU School of Public Health</a>
+            </p>
+
+            <p>
+                <a href="http://jessicaminnier.com" target="_blank" rel="noopener"><i class="fas fa-user"></i>
+                    Dr. Jessica Minnier</a> &emsp;&emsp;
+                <a href="mailto:minnier@ohsu.edu"><i class="fas fa-envelope"></i>
+                    minnier@ohsu.edu</a>
+            </p>
+
+            <p>
+                <i class="far fa-calendar-alt"></i> Wednesdays &emsp;&emsp;
+                <i class="far fa-clock"></i> 3:15–6:05 PM <br>
+                <i class="fas fa-university"></i> Online
+            </p>
+        </div>
+
+        <div class="col-md-5 credits">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+            
+            <p>Content <i class="fab fa-creative-commons"></i> 2022 <a href="http://jessicaminnier.com" target="_blank" rel="noopener">ted &amp; jessica</a></p>
+        
+            <p>This site created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> adapted by <a href="https://github.com/laderast/sph_r_programming_site" target="_blank" rel="noopener">Ted Laderas</a> and <a href="https://github.com/andrewheiss/evalsp20.classes.andrewheiss.com" target="_blank" rel="noopener">Andrew Heiss</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
+            
+            <p><a href="https://github.com/jminnier/sph_r_programming_site" target="_blank" rel="noopener"><i class="fab fa-github"></i> View the source at GitHub.</a></p>
+        </div>
+    </div>
+</footer>
+
+
+        </main>
+    </div>
+</div>
+
+        
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academic.min.a1c3596268a997890f5b9089b30365c6.js"></script>
+
+    
+
+
+
+
+
+
+    
+    
+
+    
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

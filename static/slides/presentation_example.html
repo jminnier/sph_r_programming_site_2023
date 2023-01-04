@@ -1,0 +1,64 @@
+---
+title: 'Function of the Week: dplyr::slice'
+author: "Ted Laderas"
+date: "1/13/2021"
+output: html_document
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="dplyrslice" class="section level1">
+<h1><code>dplyr::slice()</code></h1>
+<p>In this document, I will introduce the <code>slice()</code> function and show what it’s for.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.4     v dplyr   1.0.2
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.0</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(palmerpenguins)
+data(penguins)</code></pre>
+<div id="what-is-it-for" class="section level2">
+<h2>What is it for?</h2>
+<p>Say you want the first 7 rows of a table. Well, <code>slice()</code> is an easy way to do that. The <code>slice()</code> function accepts two arguments: The first is the dataset, and the second is the <code>range</code> of values you want to extract.</p>
+<pre class="r"><code>slice(penguins, 1:7)</code></pre>
+<pre><code>## # A tibble: 7 x 8
+##   species island bill_length_mm bill_depth_mm flipper_length_~ body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Adelie  Torge~           39.1          18.7              181        3750 male 
+## 2 Adelie  Torge~           39.5          17.4              186        3800 fema~
+## 3 Adelie  Torge~           40.3          18                195        3250 fema~
+## 4 Adelie  Torge~           NA            NA                 NA          NA &lt;NA&gt; 
+## 5 Adelie  Torge~           36.7          19.3              193        3450 fema~
+## 6 Adelie  Torge~           39.3          20.6              190        3650 male 
+## 7 Adelie  Torge~           38.9          17.8              181        3625 fema~
+## # ... with 1 more variable: year &lt;int&gt;</code></pre>
+<p><code>slice()</code> is much more helpful in a tidy workflow, so you can see the first few rows of the data when you’re processing. This is really helpful when you’re building up a pipeline and need to show intermediate output without showing the entire table.</p>
+<pre class="r"><code>penguins %&gt;%
+  slice(1:7)</code></pre>
+<pre><code>## # A tibble: 7 x 8
+##   species island bill_length_mm bill_depth_mm flipper_length_~ body_mass_g sex  
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt; &lt;fct&gt;
+## 1 Adelie  Torge~           39.1          18.7              181        3750 male 
+## 2 Adelie  Torge~           39.5          17.4              186        3800 fema~
+## 3 Adelie  Torge~           40.3          18                195        3250 fema~
+## 4 Adelie  Torge~           NA            NA                 NA          NA &lt;NA&gt; 
+## 5 Adelie  Torge~           36.7          19.3              193        3450 fema~
+## 6 Adelie  Torge~           39.3          20.6              190        3650 male 
+## 7 Adelie  Torge~           38.9          17.8              181        3625 fema~
+## # ... with 1 more variable: year &lt;int&gt;</code></pre>
+</div>
+<div id="is-it-helpful" class="section level2">
+<h2>Is it helpful?</h2>
+<p>Yes, when you need to just show part of a table as an example, <code>slice()</code> can come in handy. I don’t use it everyday, but it can come in handy.</p>
+</div>
+</div>

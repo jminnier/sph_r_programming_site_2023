@@ -1,0 +1,289 @@
+---
+title: "Part 5"
+subtitle: "R Programming"
+author: "Jessica Minnier"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [css/xaringan-themer.css, css/my-theme.css]
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r xaringan-themer, include = FALSE}
+library(xaringanthemer)
+mono_light(
+  base_color =  "#3A6185", ## OHSU Marquam
+  code_highlight_color = "#cbdded",
+  link_color = "#38BDDE",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "300", "300i","400i","700"),
+  code_font_google   = NULL,
+  text_font_size = "24px",
+  code_font_size = "20px",
+  header_h1_font_size = "45px",
+  header_h2_font_size = "40px",
+  header_h3_font_size = "35px",
+  padding = "0em 2em 1em 2em",
+  outfile = "css/xaringan-themer.css"
+)
+```
+
+```{r xaringanExtra, echo=FALSE}
+xaringanExtra::use_xaringan_extra(c("tile_view", "logo", "tachyons"))
+xaringanExtra::use_panelset()
+xaringanExtra::use_tachyons()
+```
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: center, middle
+
+# Saving objects
+
+---
+
+# Penguins data
+
+```{r, message=FALSE}
+library(tidyverse)
+library(janitor)
+library(palmerpenguins)
+data(penguins)
+glimpse(penguins)
+```
+
+---
+
+# When we filter/clean/mutate the data
+
+- If you're changing the data and you want to use that data later, save your work
+- Save as new object, *or*,
+- Save as the same object if you want to overwrite that data frame within R
+
+
+```{r}
+# save as new data frame penguins_f
+penguins_f <- penguins %>%
+  filter(sex=="female") %>%
+  mutate(bill_ratio = bill_length_mm/bill_depth_mm)
+
+# change the ordering of penguins_f and re-save it
+penguins_f <- penguins_f %>% arrange(bill_ratio)
+
+# print out that data frame, but don't save it
+penguins_f %>% select(sex, contains("bill")) 
+```
+
+---
+
+# Summarizing data (i.e. tabyl, summarize)
+
+- `tabyl()` and `summarize()` create new tibbles/data.frames that have summary info
+- You can save it if you want, but not usually necessary unless you want to use it later!
+- From `?tabyl`, Value = "Returns a data.frame with frequencies and percentages of the tabulated variable(s). A 3-way tabulation returns a list of data.frames."
+
+.pull-left-40[
+```{r}
+penguins_f %>% tabyl(species)
+```
+]
+.pull-right-60[
+```{r}
+# save output as a tibble
+penguins_f_table <- penguins_f %>% tabyl(species)
+
+# we can see this is a tibble!
+glimpse(penguins_f_table) 
+
+class(penguins_f_table)
+```
+]
+
+---
+
+# Using summaries later
+
+
+```{r}
+penguins_f_table %>% arrange(n)
+```
+
+Nice printing:
+
+```{r}
+penguins_f_table %>% gt::gt()
+```
+
+---
+
+# Using summaries later
+
+You can also save your summaries to excel or csv files:
+
+```{r}
+# one long pipe
+penguins_f_table %>% 
+  arrange(n) %>%
+  write_csv(file = "table_of_species_in_females.csv")
+
+# or save as tibble object and then write tibble to csv file
+penguins_f_table <- penguins_f_table %>% arrange(n)
+
+write_csv(penguins_f_table, file = "table_of_species_in_females.csv")
+```
+
+---
+
+# "Printing" or "viewing"
+
+Some things you *__don't__* usually want to save
+
+- `glimpse()` prints a snapshot of your data, not useful to save
+- `head()` or `tail()`, there's almost no reason to save just the first few lines of your data, except for educational purposes!
+- Similarly, you can pipe on `nrow()` or `dim()` or `colnames()` or `class()` and so on, these are pulling out meta-data/information from your data; you can save this as an object but make sure you know what the output is! (probably a vector of information)
+- `skim()` prints a visual summary of your data, you can save it if you want to do fancy things with it
+- `view()`/`View()` pops up a window that shows your data, don't save this and don't keep this code in your Rmd
+
+---
+
+### glimpse
+
+```{r}
+# when you save this, it prints it, and then you could print it again
+glimpse_out <- glimpse(penguins_f)
+```
+
+Print it now (but really, don't do this, there's no point):
+
+```{r}
+glimpse_out
+```
+
+---
+
+### skim
+
+from `?skim`: Value = "A skim_df object, which also inherits the class(es) of the input data. In many ways, the object behaves like a `tibble::tibble()`."
+
+```{r}
+# when you save this, it doesn't print it, but you can print it later
+skim_out <- skimr::skim(penguins_f)
+```
+
+
+Now you can print it (this gets cut off on the slide)
+
+```{r}
+skim_out
+```
+
+
+---
+
+You can `glimpse()` the skim output because it's deep down a tibble!
+
+```{r}
+class(skim_out)
+glimpse(skim_out)
+```
+
+---
+
+See `?skim` for examples on what you can do with `skim()` output, as well as the [skimr vignette](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html)
+
+```{r}
+skim_out %>% filter(n_missing > 0)
+skim_out %>% 
+  filter(skim_type == "numeric") %>%
+  select(skim_variable, numeric.mean)
+```
+
+
+---
+
+### view
+
+- Use `View` or `view()` interactively, don't include this code in your Rmd, and don't save it as an object!
+
+```{r, eval = FALSE}
+View(penguins_f) # this will pop up every time you knit, not necessary
+pview <- penguins_f %>% View() # this is not helpful
+```
+
+```{r include = FALSE}
+# CHEATING =)
+pview = NULL
+```
+
+
+pview is `NULL` because `View()` produces NO output (no value)
+
+```{r}
+pview 
+```
+
+---
+
+# Saving ggplot
+
+- Save a ggplot *as an object* if you want to "call it" later to add more layers, or if you want to save it *as an image file* (i.e .png, .pdf, .tif, etc) on your computer
+- `ggsave()` by default saves the last plot printed to a file, but to be extra careful you can use the object name
+
+```{r, fig.width = 10, fig.height = 3}
+# save as object p_boxplot; will not print out plot
+p_boxplot <- ggplot(penguins, 
+                    aes(x = species,
+                        y = bill_length_mm,
+                        fill = sex)) +
+  geom_boxplot()
+
+# it's a ggplot object
+class(p_boxplot)
+# print the plot in output
+p_boxplot
+```
+
+---
+
+Now we can add additional layers, and/or save it as a png file!
+
+```{r, fig.width = 10, fig.height = 3}
+# save as png (default location is same folder where Rmd is)
+ggsave(p_boxplot, file = "p_boxplot.png", height = 6, width = 5)
+# add layers
+p_boxplot + theme_minimal() + labs(title = "Add layers to my boxplot!", x = "")
+```
+
+---
+
+Want to save that plot?
+
+```{r, fig.width = 10, fig.height = 3}
+p_boxplot <- p_boxplot + theme_minimal() + labs(title = "Add layers to my boxplot!", x = "")
+ggsave(p_boxplot, file = "p_boxplot_minimal.png", height = 6, width = 5)
+
+p_boxplot
+```
+
+---
+
+# Objects
+
+- All of this has to do with classes and objects in R, which is an object-oriented programming language.
+- `class(objectname)` tells us what kind of structure it is and how we can use it
+- Many functions output a unique kind of object
+
+```{r}
+tmpfit <- lm(bill_length_mm ~ species, data = penguins)
+class(tmpfit)
+# see Value section of ?lm
+```
+
+- If you want some bedtime reading on this, start with the [Advanced R textbook's "OO field guide"](http://adv-r.had.co.nz/OO-essentials.html)

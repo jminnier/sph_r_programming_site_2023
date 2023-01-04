@@ -1,0 +1,23 @@
+---
+title: "Part 4. `dplyr`: `mutate()`, `across()`, ggplot: faceting, scales"
+linktitle: "Part 4. dplyr: mutate(), across(), ggplot: faceting, scales"
+date: "2022-01-26"
+menu:
+  reading:
+    parent: Readings
+    weight: 4
+type: docs
+---
+
+## Required
+
+
+- [Data Transformation (5.1-5.5)](https://r4ds.had.co.nz/transform.html) from R for Data Science
+- [ggplot2: Elegant Graphics for Data Analysis, Scales & Guides](https://ggplot2-book.org/scales-guides.html)
+- [R for Data Science: Factors](https://r4ds.had.co.nz/factors.html) - we will continue to work with factors in the next few classes with `forcats` examples like provided here.
+
+## Optional
+
+- [Tidyverse style guide](https://style.tidyverse.org/index.html)
+- [Advanced R: style guide](http://adv-r.had.co.nz/Style.html)
+- This [column-wise operations vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/colwise.html) will be useful for the next couple classes.

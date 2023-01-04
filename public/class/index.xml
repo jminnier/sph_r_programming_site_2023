@@ -1,0 +1,2931 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Class details | R Programming 2022</title>
+    <link>https://sph-r-programming-2022.netlify.app/class/</link>
+      <atom:link href="https://sph-r-programming-2022.netlify.app/class/index.xml" rel="self" type="application/rss+xml" />
+    <description>Class details</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <image>
+      <url>https://sph-r-programming-2022.netlify.app/img/social-image.png</url>
+      <title>Class details</title>
+      <link>https://sph-r-programming-2022.netlify.app/class/</link>
+    </image>
+    
+    <item>
+      <title>Part 1: Introduction to R/Rstudio/Vectors/For Loops</title>
+      <link>https://sph-r-programming-2022.netlify.app/class/01-class/</link>
+      <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/class/01-class/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#install-rrstudio&#34;&gt;Install R/Rstudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#class-files&#34;&gt;Class files&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34;&gt;Post-Class&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#pacing&#34;&gt;Pacing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34;&gt;Muddiest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clearest-points&#34;&gt;Clearest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other-messages&#34;&gt;Other messages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#additional-info&#34;&gt;Additional Info&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#projects-in-rstudio-desktop&#34;&gt;Projects in RStudio Desktop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slack-intro&#34;&gt;Slack Intro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#zoom-intro&#34;&gt;Zoom Intro&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;install-rrstudio&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Install R/Rstudio&lt;/h1&gt;
+&lt;p&gt;Before class, please install R and Rstudio. If it has been a while since you installed R, please re-install R to update to the most recent version (warning: you may lose all your installed packages and will have to reinstall them).&lt;/p&gt;
+&lt;p&gt;Installation instructions can be found &lt;a href=&#34;https://jminnier-berd-r-courses.netlify.app/00-install-instruct.html&#34;&gt;here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Please also &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;download the “part1” folder in this course materials link&lt;/a&gt;. Unzip the folder if needed. Open the Rstudio project by double clicking on the .Rproj file (“Rstudio project file”). Run the &lt;code&gt;00-install-packages.R&lt;/code&gt; script to install necessary packages. A video on how to do this can be found &lt;a href=&#34;https://www.youtube.com/watch?v=GU22sKHn9uc&#34;&gt;here.&lt;/a&gt;&lt;/p&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/GU22sKHn9uc&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div id=&#34;class-files&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Class files&lt;/h1&gt;
+&lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Project files&lt;/h2&gt;
+&lt;p&gt;Before each class, I will update &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this folder link&lt;/a&gt; with the appropriate “part” folder. Please download the &lt;code&gt;part1&lt;/code&gt; folder. Unzip this folder and open in Rstudio by double clicking on the .Rproj file. This folder will have the files for this part and the assignment.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;Open the class introduction slides in a separate window: &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2022.netlify.app/01-introduction_slides#1&lt;/a&gt;&lt;/p&gt;
+&lt;iframe src=&#34;https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1&#34; width=&#34;672&#34; height=&#34;400px&#34; data-external=&#34;1&#34;&gt;
+&lt;/iframe&gt;
+&lt;p&gt;We will also cover a few of these slides on for loops: &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1&lt;/a&gt;&lt;/p&gt;
+&lt;iframe src=&#34;https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1&#34; width=&#34;672&#34; height=&#34;400px&#34; data-external=&#34;1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/hYowdr4oyOI&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;View last year’s class &lt;a href=&#34;https://sph-r-programming.netlify.app/class/01-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Post-Class&lt;/h1&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://forms.gle/4tVx1mL7SzQx7MCu5&#34; class=&#34;uri&#34;&gt;https://forms.gle/4tVx1mL7SzQx7MCu5&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&#34;pacing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pacing&lt;/h2&gt;
+&lt;p&gt;I won’t always talk about the pacing feedback but in the beginning I think it’s useful: Mean 2.94, median 3. So on average the pace seemed to be on target, most people chose 3, though I was trying to balance going slowly at first and also adding in a couple challenging topics. So depending on your experience with R this might have gone ok or not. Please ask questions in the chat (or unmute to ask) during class for anything that’s unclear!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Muddiest Points&lt;/h2&gt;
+&lt;p&gt;Remember, all of this is anonymous.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;loops - but i know we are going over it more later&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For Loop, however sitting down with the .Rmd tonight helped a lot.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The for() loops. Mostly in regards to how to apply it to numerical data.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yes! Most comments were on loops. With 30 minutes in class I weighed the option of just ending early and starting this when we were fresh, or with doing a quick intro and finishing more in depth later (and maybe chose the wrong option ;)). Don’t worry if you’re still confused because I didn’t explain things very thoroughly! Class 2 we will go over it all again.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Loops- not technically, more why we would want to do this in reality&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Loops in the very simplistic way we learned them are less useful in practice due to the vectorization of most functions in R, but we will later see how they can be useful with data operations. Also understanding them gives us the building block knowledge to understand more complex iteration tasks we will cover in the future (&lt;code&gt;purrr::map()&lt;/code&gt; for example, possibly &lt;code&gt;lapply()&lt;/code&gt; and &lt;code&gt;apply()&lt;/code&gt; if we have time).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;loops without indexing - Does R always end the loop once the end of the vector referenced is reached? Are there ever situations where R gets stuck in a continuous loop?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Great question, I remember learning about for loops in other programming classes and dealing with situations where we got stuck in an infinite loop but I honestly can’t think of an example where I’ve had this happen in real life with R. This can definitely happen, but in real data scenarios I don’t think it’s common because you usually have a finite vector or data frame. More often, R will exit the for loop early due to some error. I will try to show an example of this in class. (I imagine a &lt;code&gt;while()&lt;/code&gt; loop could get stuck, but I never ever use that function.) If you ever get stuck with something happening in R, you can press ESC over and over or click top bar “Session” -&amp;gt; “Terminate R” or “Restart R”.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Only one point I was still a bit confused about was for loop, when we make an empty vector to save our work, such as, the example we used in class, all_my_pets, why do we need to add the new variable mypet to the end of the vector all_my_pets instead of only add mypet to all_my_pets by “all_my_pets &amp;lt;- c(mypet)”?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ah yes, this is a tricky part and I’ll go over this again in class 2. This is the code. I’ve added &lt;code&gt;print(all_my_pets)&lt;/code&gt; so you can see how it grows with each iteration:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pets &amp;lt;- c(&amp;quot;dog&amp;quot;, &amp;quot;cat&amp;quot;, &amp;quot;mouse&amp;quot;)
+# make an empty vector
+all_my_pets &amp;lt;- c()
+
+for(pet in pets){
+  mypet &amp;lt;- paste(&amp;quot;jessica&amp;#39;s&amp;quot;, pet)
+  
+  # add the new variable mypet to the end of the vector all_my_pets
+  all_my_pets &amp;lt;- c(all_my_pets, mypet)
+  
+  # this prints out what the object all_my_pets is for each iteration
+  print(all_my_pets)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;jessica&amp;#39;s dog&amp;quot;
+## [1] &amp;quot;jessica&amp;#39;s dog&amp;quot; &amp;quot;jessica&amp;#39;s cat&amp;quot;
+## [1] &amp;quot;jessica&amp;#39;s dog&amp;quot;   &amp;quot;jessica&amp;#39;s cat&amp;quot;   &amp;quot;jessica&amp;#39;s mouse&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, if we had just done &lt;code&gt;all_my_pets &amp;lt;- c(mypet)&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pets &amp;lt;- c(&amp;quot;dog&amp;quot;, &amp;quot;cat&amp;quot;, &amp;quot;mouse&amp;quot;)
+# make an empty vector
+all_my_pets &amp;lt;- c()
+
+for(pet in pets){
+  mypet &amp;lt;- paste(&amp;quot;jessica&amp;#39;s&amp;quot;, pet)
+  
+  # add the new variable mypet to the end of the vector all_my_pets
+  all_my_pets &amp;lt;- c(mypet)
+  
+  # this prints out what the object all_my_pets is for each iteration
+  print(all_my_pets)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;jessica&amp;#39;s dog&amp;quot;
+## [1] &amp;quot;jessica&amp;#39;s cat&amp;quot;
+## [1] &amp;quot;jessica&amp;#39;s mouse&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We just replace &lt;code&gt;all_my_pets&lt;/code&gt; with &lt;code&gt;mypet&lt;/code&gt; each time! It has no memory of what happened before, because we have overwritten that object, essentially. We are not adding &lt;code&gt;mypet&lt;/code&gt; to the vector &lt;code&gt;all_my_pets&lt;/code&gt;. If we call &lt;code&gt;all_my_pets&lt;/code&gt; now, it just shows us the last value of &lt;code&gt;pets&lt;/code&gt;, and it’s a vector of length 1:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;all_my_pets&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;jessica&amp;#39;s mouse&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I’ll go over this in class too. Note that these are identical, the &lt;code&gt;c()&lt;/code&gt; around &lt;code&gt;mypet&lt;/code&gt; does nothing:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;c(mypet)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;jessica&amp;#39;s mouse&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mypet&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;jessica&amp;#39;s mouse&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I think the idea of how and why it is so important to open/save our files in a certain way is unclear to me.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Hopefully this will become more clear a little bit each week. We haven’t gotten enough into data management for it to be clear enough. I’ll spend a little bit of time talking about projects and files again this class, and probably again in future classes. This is a thing that takes practice. Main points:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use Rstudio projects to keep everything in the same folder and so you can use file paths relative to the home directory (we will talk about this in class 2)&lt;/li&gt;
+&lt;li&gt;Don’t save your R environment upon exiting Rstudio (I had you unclick this box in the global options so this is done automatically) so that you don’t depend on saved objects that may or may not be there. Save your output in files (we will talk about saving output later).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Are there some excellent projects last year recommending to learn?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I think you are asking about the &lt;a href=&#34;https://sph-midterm-projects.netlify.app/&#34;&gt;midterm projects from last year&lt;/a&gt;? They are all excellent! I just picked a couple to highlight things I noticed after skimming them, but I recommend going through them all if you have the time:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sph-midterm-projects.netlify.app/midterm/midterm_project_hawkinson.html&#34;&gt;Investigating Moore’s Law&lt;/a&gt; there is a lot of useful work in here with functions we will learn later like &lt;code&gt;case_when()&lt;/code&gt; and some neat plots with &lt;code&gt;ggplot2&lt;/code&gt; that incorporate interesting regression results and the use of an interesting function &lt;code&gt;get_regression_equation()&lt;/code&gt;!&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sph-midterm-projects.netlify.app/midterm/midterm_project-rogash.html&#34;&gt;Understanding C02 Emissions&lt;/a&gt; there are some complicated uses of &lt;code&gt;summarize()&lt;/code&gt; and &lt;code&gt;mutate()&lt;/code&gt; in here that are worth examining, and nice visual conclusions&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sph-midterm-projects.netlify.app/midterm/midterm_project_selliot.html&#34;&gt;MMR Vaccination Rates in Oregon&lt;/a&gt; - nice final summary here and a visualization of how the data can surprise us and change our approaches to data visualization and exploration.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sph-midterm-projects.netlify.app/midterm/midterm_project_hopkins&#34;&gt;The Popularity of Sci-Fi Films&lt;/a&gt; - beautiful and effective ggplots and nice summaries!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The explanation of what vectors are and all of the points of discussion.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I’ll try to go over this in pieces in the next class, hopefully this will help.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;how to do the hw assignments and create the code&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Definitely reach out to me if you have questions about generating the homework files, there has been some useful discussion in slack as well on questions about the code. The full set of code will be embedded in your &lt;code&gt;.Rmd&lt;/code&gt; document. That is what you are writing/editing. Then, you click the &lt;code&gt;knit&lt;/code&gt; button on the top to create an &lt;code&gt;.html&lt;/code&gt; file which will “run” the code all at once, and create a combined file that has text and code output. This is the file you will submit on Sakai. Please reach out to me or Colin if you need help!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clearest-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Clearest Points&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Everything was clear, this was just the first class :)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;general set up of R&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;How to change global settings&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;assigning objects&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;code for variable&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I felt like I knew pretty much everything, but I liked the basic of for loops!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I appreciated getting clarification a lot of little things like NA, NULL, what are default settings for functions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yay!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What is going on in R! I set up two monitors so I can move along with you in R, and that is so helpful to watch you in R real time.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is great! I do feel bad for folks who don’t have two monitors, as I know having too many windows up on one screen can make it hard to see what I’m doing. Feel free to log in twice with a tablet or something else if it can make it easier for you, or let me know how I can make it more accessible if you don’t have two screens!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-messages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Other messages&lt;/h2&gt;
+&lt;p&gt;Remember, all of this is anonymous to me.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I think this class will be very useful for me. While I rated the pace a little slow, I think things will get more challenging so I’m not necessarily wishing you to speed up!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Great to know :)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I’ll definitely be reaching out for help while I go through the assignment, but excited to get started :)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I am going to likely request a lot of short one-on-one sessions with you at the beginning, just to gain greater clarity on basic things - since I am brand new to R.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Please do!! I don’t want to leave anyone who is new to R behind, so let’s all get to baseline together in the beginning.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Everything except for loops was review for those of us who were in 551 last quarter&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ah yes that is what I guessed. At first I read this as “Dr. Niederhausen taught us for loops” and I was super impressed she had time for that! But now I’m glad at least one part was new!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Please explain the details of the use of R when describing the tools so that we know how to use the tools to be able to perform the functions within R.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I’m a little confused about what you mean by “tools”, maybe send me an anonymous message again and I will try to do better! Please ask questions during class if anything isn’t clear, I’m happy to repeat or explain things differently in real time.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I wish this class was provided to undergrads or offered before the core BSTA courses I need for my degree&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I know…we all wish this, actually. The unfortunate excuse is: it’s too hard to put into the fall term because of the EPI and BSTA sequences required for the MS and MPH take up a lot of space/credits, and we can’t require people to take courses before the fall term which they enroll. The only way I can think of is for this to be a 1 credit course in fall with very limited lessons/time commitment (though watching all the &lt;a href=&#34;https://github.com/jminnier/berd_r_courses&#34;&gt;OCTRI-BERD R workshops&lt;/a&gt; and going through &lt;a href=&#34;https://r-bootcamp.netlify.app/&#34;&gt;R bootcamp&lt;/a&gt; probably would teach the same amount of info), or for BSTA and EPI courses to have “sections” or “labs” with extra learning time (Though none of our classes seem to have this. All of my grad school classes did, and it was so helpful, bur requires large PhD programs for TA support). All of these options are difficult for the program right now, but I will keep bringing it up! We all will keep trying to make this better, and I’m sorry it wasn’t better for your experience!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;additional-info&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Additional Info&lt;/h1&gt;
+&lt;div id=&#34;projects-in-rstudio-desktop&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Projects in RStudio Desktop&lt;/h2&gt;
+&lt;p&gt;See this short video about creating projects in Rstudio desktop if it’s a new concept to you:&lt;/p&gt;
+&lt;iframe width=&#34;650&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/D22THnoPA6w&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slack-intro&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slack Intro&lt;/h2&gt;
+&lt;p&gt;Slack invite link is on Sakai, and will be emailed before class.&lt;/p&gt;
+&lt;iframe width=&#34;800&#34; height=&#34;600&#34; src=&#34;https://www.youtube.com/embed/m2JuAa6-ors&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div id=&#34;zoom-intro&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Zoom Intro&lt;/h2&gt;
+&lt;p&gt;We will be using zoom. Here’s a short video on how to use zoom:&lt;/p&gt;
+&lt;iframe width=&#34;800&#34; height=&#34;600&#34; src=&#34;https://www.youtube.com/embed/5iap0Ffl5Lg&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 2: Loading Data, data.frames, and ggplot2</title>
+      <link>https://sph-r-programming-2022.netlify.app/class/02-class/</link>
+      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/class/02-class/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#readings&#34;&gt;Readings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#class-video&#34;&gt;Class Video&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pacing&#34;&gt;Pacing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34;&gt;Muddiest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clearest-points&#34;&gt;Clearest points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other-messages&#34;&gt;Other messages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Project files&lt;/h2&gt;
+&lt;p&gt;Please download the &lt;code&gt;part2&lt;/code&gt; and &lt;code&gt;function_of_the_week&lt;/code&gt; folders from &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this dropbox folder link&lt;/a&gt; Be sure to unzip if necessary. In advance of class, please open the &lt;code&gt;part2&lt;/code&gt; Rstudio project (double click on the &lt;code&gt;.rproj&lt;/code&gt; file), open &lt;code&gt;part2.Rmd&lt;/code&gt; and &lt;code&gt;knit&lt;/code&gt; (click the Knit button at the top of the file) this file. This will install packages that you need for the Rmd to run.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;readings&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Readings&lt;/h2&gt;
+&lt;p&gt;Required and suggested class readings can be found on the Readings tab by class. These readings may be done anytime before or after class, but they will supplement your understanding of the class materials and help make homework and project work easier.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;Open the class introduction slides in a separate window: &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1&lt;/a&gt;&lt;/p&gt;
+&lt;iframe src=&#34;https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1&#34; width=&#34;672&#34; height=&#34;400px&#34; data-external=&#34;1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/0-_luKuYo_E&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming.netlify.app/class/02-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/yCPcijCj15c&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt; --&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Post-Class&lt;/h3&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous. The first two questions will count toward your attendance part of the grade.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://forms.gle/4tVx1mL7SzQx7MCu5&#34; class=&#34;uri&#34;&gt;https://forms.gle/4tVx1mL7SzQx7MCu5&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pacing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pacing&lt;/h2&gt;
+&lt;p&gt;The pacing average went up a little bit, so I think that means I should slow down a little. I planned to slow down when we got to the “harder” stuff this week so that’s good. Please stop me if anything is not clear! I am happy to go over things multiple times during class.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Muddiest Points&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;.rproj and file organization&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Fair. This is probably going to be muddy for a while. I will keep going over it.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;After we save our plot with the ggsave() feature, how are we able to access it again/where is it saved?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is saved in your home directory which is where your &lt;code&gt;.rproj&lt;/code&gt; file is. You can specify the location to be in a different place, though, i.e. &lt;code&gt;ggsave(&#34;plots/myplot.png&#34;)&lt;/code&gt;. I will go over this in class, as it’s related to file organization.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I feel like we covered SO much, and my head is still trying to process what is unclear. Based on the learning objectives for the class, I would say that points 4 and 5 are still really muddy for me.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Don’t worry, it will take practice. I will go over more visualization examples next week, and also will show more examples of data summarization now that we are getting more into data wrangling.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;what is added by vis_dat() vs other exploratory functions&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is useful to see patterns of missingness, for example if a set of variables tend to be missing together. In future classes I’ll use more &lt;code&gt;vis_dat()&lt;/code&gt; and other &lt;code&gt;visdat&lt;/code&gt; and &lt;code&gt;naniar&lt;/code&gt; package functions to illustrate how/why it’s useful to see patterns of missingness.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Uploading excel files, how to separately upload tabs within R.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This was the argument &lt;code&gt;sheet&lt;/code&gt; in the function &lt;code&gt;read_excel()&lt;/code&gt;. For example, this reads in the first sheet/tab:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;brca_clinical &amp;lt;- read_excel(&amp;quot;data/tcga_clinical_data.xlsx&amp;quot;,
+                            sheet = 1, 
+                            skip = 1,
+                            na = &amp;quot;NA&amp;quot;
+                            )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;or you could have used the sheet/tab name:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;brca_clinical &amp;lt;- read_excel(&amp;quot;data/tcga_clinical_data.xlsx&amp;quot;,
+                            sheet = &amp;quot;BRCA&amp;quot;, 
+                            skip = 1,
+                            na = &amp;quot;NA&amp;quot;
+                            )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If we want to read in the second sheet/tab we can use it’s name or number (2):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cesc_clinical &amp;lt;- read_excel(&amp;quot;data/tcga_clinical_data.xlsx&amp;quot;,
+                            sheet = &amp;quot;CESC&amp;quot;, 
+                            skip = 1,
+                            na = &amp;quot;NA&amp;quot;
+                            )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I highly recommend reading the &lt;a href=&#34;https://readxl.tidyverse.org/&#34;&gt;introduction/vignette for the &lt;code&gt;readxl&lt;/code&gt;&lt;/a&gt; package and looking at the &lt;a href=&#34;https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-import.pdf&#34;&gt;cheatsheet.&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;how to use haven package&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Oh yes, I didn’t really cover this since I wasn’t sure of the interest, but I can since there were a couple requests to do that. I’ll go over this more in depth next time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clearest-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Clearest points&lt;/h2&gt;
+&lt;p&gt;Mostly: ggplot, summarizing data tools, loading data; a variety of things but I think there were some aspects which we can repeat and develop more in depth in future classes, so this is great.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-messages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Other messages&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I loved that you talked about how to use name_repair with janitor:: make_clean_names in read_excel! Sometimes figuring out the documentation of arguments is really hard. I also really appreciated the demonstrations with for loops (both printing with mypets and with the ggplot for loop), and other demonstrations with code that purposefully gives errors/unexpected stuff. Seeing code break in various ways makes it a lot clearer what do to to get what you want.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yes I really want to do more of this kind of examples of how to figure out how a function works and how to figure out why code is breaking, so thank you for this!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I would like to spend more time in these breakout rooms doing some of the lecture tasks that are built in. Maybe it would be helpful to talk about what codes people used to answer the questions? If people used a different way?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Wonderful, I was hoping to incorporate more breakout room tasks in class 3, so I’m glad it is useful!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Please go slower with how to upload items such as excel files, installing packages, et cetera.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Thank you, will definitely try to do this. If there is ever a time you want me to fully go over a step again, maybe with different explanations, please let me know (ask in chat during class or send message this way) and I am happy to.&lt;/p&gt;
+&lt;p&gt;I highly recommend reading the &lt;a href=&#34;https://readxl.tidyverse.org/&#34;&gt;introduction/vignette for the &lt;code&gt;readxl&lt;/code&gt;&lt;/a&gt; package!&lt;/p&gt;
+&lt;p&gt;Thank you for the feedback, everyone, it’s super helpful!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 3: ggplot2, factors, boxplots, dplyr: subsetting</title>
+      <link>https://sph-r-programming-2022.netlify.app/class/03-class/</link>
+      <pubDate>Wed, 19 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/class/03-class/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#readings&#34;&gt;Readings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34;&gt;Muddiest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clearest-points&#34;&gt;Clearest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#messages-to-me&#34;&gt;Messages to me&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#related-to-homework&#34;&gt;Related to homework&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Project files&lt;/h2&gt;
+&lt;p&gt;Please download the &lt;a href=&#34;https://www.dropbox.com/sh/6071l3w2c7janda/AACbC_iGdedvuOfBA9Jy25Soa?dl=0&#34;&gt;part3&lt;/a&gt; folder for class materials. Use the grey “download” button to download the whole folder, please keep the file structure and folder organization exactly the same as we need this for class. Be sure to unzip if necessary. You may move the folder &lt;code&gt;part3&lt;/code&gt; wherever you like on your computer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;readings&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Readings&lt;/h2&gt;
+&lt;p&gt;Required and suggested class readings can be found on the Readings tab by class. These readings may be done anytime before or after class, but they will supplement your understanding of the class materials and help make homework and project work easier.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;p&gt;The class video is here, but I forgot to video tape the part about &lt;code&gt;here::here()&lt;/code&gt;. If I have a chance I will re-record myself talking about it, but in the meantime, &lt;a href=&#34;https://youtu.be/7KZWcICwF54?t=1463&#34;&gt;click here for Ted’s video from last year&lt;/a&gt;, which explains similar ideas.&lt;/p&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/gLTl_9AAMjo&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming.netlify.app/class/01-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/yCPcijCj15c&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt; --&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;Open the class introduction slides in a separate window: &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/03-ggplot2-dplyr-part1#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2022.netlify.app/slides/03-ggplot2-dplyr-part1s#1&lt;/a&gt;&lt;/p&gt;
+&lt;iframe src=&#34;https://sph-r-programming-2022.netlify.app/slides/03-ggplot2-dplyr-part1#1&#34; width=&#34;672&#34; height=&#34;400px&#34; data-external=&#34;1&#34;&gt;
+&lt;/iframe&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Post-Class&lt;/h3&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous. The first two questions will count toward your attendance part of the grade.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://forms.gle/4tVx1mL7SzQx7MCu5&#34; class=&#34;uri&#34;&gt;https://forms.gle/4tVx1mL7SzQx7MCu5&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Muddiest Points&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I didn’t get fill to work, need to try again&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yes this was a curve ball (assuming you mean &lt;code&gt;fill()&lt;/code&gt; from the challenge), I expected it to be trickier since I didn’t give you any idea how to use it =) Keep practicing and let me know if it still doesn’t work for you! It’s a similar idea to in Excel where you can you “fill down” (Edit -&amp;gt; Fill -&amp;gt; Down in Excel) which fills the same value down rows in the same column. You can see some examples in &lt;code&gt;?tidyr::fill&lt;/code&gt; and here is the solution (also in the &lt;code&gt;smoke_messy.Rmd&lt;/code&gt; file in “part3” folder on dropbox)&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;smoke_messy &amp;lt;- read_excel(&amp;quot;data/smoke_complete.xlsx&amp;quot;,
+                          sheet = &amp;quot;smoke_messy&amp;quot;,
+                          skip = 5,
+                          na = c(&amp;quot;missing&amp;quot;, &amp;quot;Missing&amp;quot;,&amp;quot;&amp;quot;, &amp;quot;NA&amp;quot;))
+
+smoke_clean &amp;lt;- smoke_messy %&amp;gt;% 
+  janitor::clean_names() %&amp;gt;% 
+  janitor::remove_empty(which=c(&amp;quot;rows&amp;quot;, &amp;quot;cols&amp;quot;)) %&amp;gt;% 
+  tidyr::fill(tumor_stage, .direction = &amp;quot;down&amp;quot;) %&amp;gt;% # fill the empty tumor_stage variable down
+  select(-notes)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Finding all of the problems in data files&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ah yes this will take practice. In future classes I will try to show more examples of looking for problems in data files. Class 4 will use a relatively clean data file again, but I will try to make things trickier in the future, for practice.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Read excel and how to select for tabs within the file&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Please see the explanation in Class 2 page for the answer to a similar question under Muddiest Points, and re-watch the loading data review from last class. I think the key here is that “tab” is called “sheet” in excel and in the &lt;code&gt;read_excel()&lt;/code&gt; function. So &lt;code&gt;read_excel(&#34;filename.xlsx&#34;, sheet = 1)&lt;/code&gt; is the first tab/sheet. If it’s still troublesome please set up a 1:1 with me or Colin for more help. I may be misunderstanding the question!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“here” function. I wonder how the here function to indicate the specific data folder. Since each part folder has a data folder.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;here()&lt;/code&gt; is relative to your project folder. Since each part has it’s own Rstudio project associated with it (there is a .Rproj file in each part folder) it only looks in the “data/” folder that is inside that root folder (defined as where the .Rproj file lives). See &lt;a href=&#34;https://youtu.be/7KZWcICwF54?t=1463&#34;&gt;the excerpt on here from Ted’s video, as well.&lt;/a&gt; I will keep using here examples as well to get more practice.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I keep getting confused on which variables are independent/dependent, which ones go on x-axis and y-axis. It’s so simple, this is not a reflection of your teaching, but in all of my classes throughout the years my brain struggles with knowing how to figure it out&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This actually is not always clear, so don’t feel bad for being confused! Honestly I don’t think people take much care in thinking about this when plotting. Remember that independent/dependent variables are important in a statistical model, not always in a graph. Those terms might not make sense in the context of what we are graphing. If there is an independent and dependent variable and we want to make a scatterplot, we can technically graph it either way. Though &lt;em&gt;usually&lt;/em&gt; if we have a dependent variable (our outcome) and an independent variable (our predictor, or covariate), we plot the outcome as Y (on Y axis) and the predictor as X (on X axis). This is because as we learned back in algebra a billion years ago,&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(Y = f(X)\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;“Y is a function of X.”&lt;/p&gt;
+&lt;p&gt;I wouldn’t worry that much about it in graphing, though. You might just be plotting two “related” variables against each other, not making assumptions about any causal pathways.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I was a little unclear about how the data wrangling and the ggplots connected to one another. Are they two separate ideas?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Excellent point, I haven’t really merged those ideas together yet. Often, data wrangling is needed first to do what you want to do in ggplot, but so far we’ve covered relatively simple actions in both and haven’t put them together. We start to put them together a bit in part 4, and when we talk about merging/joining data and reshaping data next week we will see data wrangling and ggplot fit together more.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What makes tidyselect stuff different from normal select? The ability to select names based on partial matches? (eg “ends in s”)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yeah this is confusing for sure, and honestly I am still somewhat confused as it’s a newish concept to tidyverse. &lt;code&gt;tidyselect&lt;/code&gt; we can think of as a language (or a backend), it is used in multiple functions, including &lt;code&gt;select()&lt;/code&gt; but also &lt;code&gt;across()&lt;/code&gt; as we will see in class 4, &lt;code&gt;pivot_longer()&lt;/code&gt;, &lt;code&gt;rename_with()&lt;/code&gt;, and many more. However, it also has to do with the tidyverse’s use of “unquoted” variable names in all the functions, and how to deal with that when making your own functions. There are some examples in &lt;a href=&#34;https://tidyselect.r-lib.org/articles/syntax.html&#34;&gt;this vignette&lt;/a&gt; that involve &lt;code&gt;enquo()&lt;/code&gt;, &lt;code&gt;expr()&lt;/code&gt;, etc (but I don’t recommend going down that rabbit hole just yet). For now, I would just get familiar with all of the selection helpers listed in this &lt;a href=&#34;https://tidyselect.r-lib.org/reference/language.html&#34;&gt;vignette.&lt;/a&gt; They do show how you would select names based on partial matches or other characteristics.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clearest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Clearest Points&lt;/h1&gt;
+&lt;p&gt;Thanks everyone for answering these, it helps me see what is wokring!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nice review of loading data&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The functions such as select and filter&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;data manipulation using&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I felt like I understand basic data wrangling in R now.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Using the pipe&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;the pipe!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I really like how you laid out the formatting for piping and for ggplot code structuring&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;here, filter &amp;amp; select&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Everything covered in class was very clear for me.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;messages-to-me&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Messages to me&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Please explain the aspects of how to remove columns.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I’ll show more examples in class, but the simple way is with the &lt;code&gt;-&lt;/code&gt; negative sign before the column name, such as:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;smoke_complete %&amp;gt;% select(-tumor_stage)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But you can also use the more sophisticated tidyselect methods here. Say we wanted to remove all columns with column names that contain the word “day”:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;smoke_complete %&amp;gt;% select(-contains(&amp;quot;day&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Class is going well!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Thank you! This class is always so interesting and useful!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yay!!&lt;/p&gt;
+&lt;div id=&#34;related-to-homework&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Related to homework&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I’m glad we have homework this week - the practice really helps :)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Great! I agree, and that’s why I changed my mind, but sorry if it caused confusion! I’ll try not to do that though it’s hard to predict how far we get, which means I’ll need to update the homework sometimes. When I do that I’ll be sure to email/slack blast the class.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Do you release a key for the homework?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I will share the keys, sorry I wasn’t on the same page with our TA that I didn’t expect we’d have them available, but I can make some. Right now they aren’t commented/explained well so I’ll work on that and post them to the dropbox folders.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I have a suggestion about homework. I personally, find the homework to be the best way to learn how to code. I think having to figure things out and type them out ourselves helps tremendously. This is why I think it would be more helpful if the homework did not involve “helper” code. For example, in the latest homework for ggplot, there was a place to fill out some of the ggplot code. I personally think it would be more helpful for learning for that code not to be there at all, so we would be forced to either remember, or look it up ourselves. I also think the homework could be longer. This may be because we are still learning the fundamentals, but I do think homework is the way I learn best, and the only way I’m really able to learn code is by practicing. So having the homeworks be longer would help me practice how to do certain things. Thank you.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I love this comment =) I told myself I’d try to be super easy on you all for classes 1-3 and this comment reminded me I wanted to step it up for class 4. So the homework this week will not have hardly any code scaffolding (helper code). Please reach out to me or Colin if you need help! I encourage you to work on homework together, and post discussions about it on slack!&lt;/p&gt;
+&lt;p&gt;I agree it is so helpful to struggle with this code on your own. That is definitely how we learn. But it can also lead to some anxiety if the rest of the homework problems depend on the one you are stuck on, so again, reach out if you are struggling too long! Start this week’s homework early, it’s much harder than last weeks ;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 4. dplyr: mutate, group_by, summarize, across</title>
+      <link>https://sph-r-programming-2022.netlify.app/class/04-class/</link>
+      <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/class/04-class/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34;&gt;Muddiest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clearest-points&#34;&gt;Clearest points&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Project files&lt;/h2&gt;
+&lt;p&gt;Please download the part4 subfolder in &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this folder link&lt;/a&gt; Be sure to unzip if necessary. “Knit” the part4.Rmd file to install packages and make sure everything is working with data loading.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/GGBlm21dyBE&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming.netlify.app/class/04-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/yCPcijCj15c&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt; --&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;No slides this week.&lt;/p&gt;
+&lt;!-- Open the class introduction slides in a separate window: &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2022.netlify.app/01-introduction_slides#1&lt;/a&gt; --&gt;
+&lt;!-- ```{r echo=FALSE} --&gt;
+&lt;!-- knitr::include_url(&#39;https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1&#39;) --&gt;
+&lt;!-- ``` --&gt;
+&lt;/div&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Post-Class&lt;/h2&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous. The first two questions will count toward your attendance part of the grade.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://forms.gle/4tVx1mL7SzQx7MCu5&#34; class=&#34;uri&#34;&gt;https://forms.gle/4tVx1mL7SzQx7MCu5&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Muddiest Points&lt;/h2&gt;
+&lt;p&gt;There were a few lingering muddiest points from previous classes that popped up so I will address them here as well.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The read_excel function options&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I will keep going over this, but I highly recommend reading the &lt;code&gt;readxl&lt;/code&gt; vignette &lt;a href=&#34;https://readxl.tidyverse.org/&#34;&gt;here&lt;/a&gt; and looking at the examples where they use each argument in turn.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;saving my plot. If I have multiple plots, how do I specify the plot I want to save?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;By default, &lt;code&gt;ggsave()&lt;/code&gt; saves the last plot printed. However if you have multiple plots, you can save them as objects then call those objects in &lt;code&gt;ggsave&lt;/code&gt; like so:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(ggplot2)
+# save each ggplot with an object name
+p_scatter &amp;lt;- ggplot(mtcars, aes(x=mpg, y=disp)) + geom_point()
+p_boxplot &amp;lt;- ggplot(mtcars, aes(x=cyl, y=disp)) + geom_boxplot()
+# to print/show the plot, you now need to call it by the object name
+p_scatter&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2022.netlify.app/class/04-class_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;192&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# save each named plot
+ggsave(plot = p_scatter, filename = &amp;quot;myscatterplot.png&amp;quot;)
+ggsave(plot = p_boxplot, filename = &amp;quot;myboxplot.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Continuous x aesthetic -- did you forget aes(group=...)?&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We now have two plots saved. Note that only one plot was printed in the Rmd output because I only called the name of the scatterplot.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;across()&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I think I need to practice a bit with across() before I really understand it. I’m still kind of digesting when you’d use across() vs just mutating a column at a time, the syntax, etc.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The use of across. I am a little confused with across with where or .fns.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;case when and across, I think they just take practice, you explained it well&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yes, &lt;code&gt;across()&lt;/code&gt; is difficult! We will use &lt;code&gt;across()&lt;/code&gt; in class 5 when we talk about &lt;code&gt;summarize()&lt;/code&gt;. I purposefully separated out these two usages because I wanted to introduce it, and then have you see it again once you had time to let it sink in. It will be a while until you will have homework practice with this but I encourage you to try it in your midterm project if you are brave!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Some of the Mutate portion since there are so many applications for Mutate&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;mutate is still a little blurry for me - but I am sure I will get it with more practice!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;There are &lt;em&gt;so&lt;/em&gt; many ways to use &lt;code&gt;mutate()&lt;/code&gt;! I could probably show 3 hours worth of &lt;code&gt;mutate&lt;/code&gt; examples. We will keep using it throughout the class because it’s probably the most useful &lt;code&gt;tidyverse&lt;/code&gt; function, honestly.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;smoke_new &amp;lt;- smoke_complete %&amp;gt;% mutate( alive = (vital_status == &#34;alive&#34;), alive1 = 1*(vital_status == &#34;alive&#34;) )&lt;/code&gt; Not 100% clear what R is doing to create the T/F then 0/1 binary variables.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Let’s break this down in parts, showing what’s happening with just vectors, not a data.frame:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# here is a character vector, a subset of vital_status
+myvec &amp;lt;- c(&amp;quot;dead&amp;quot;,&amp;quot;alive&amp;quot;, &amp;quot;dead&amp;quot;, &amp;quot;alive&amp;quot;, &amp;quot;alive&amp;quot;)
+# R will tell us this is a character vector:
+class(myvec)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Now let&amp;#39;s run that first code &amp;quot;test&amp;quot; which is a boolean statement using a logical operator ==
+myvec == &amp;quot;alive&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE  TRUE FALSE  TRUE  TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# we see that this gives TRUE, FALSE, TRUE
+# this is actually a vector, let&amp;#39;s save it as such
+myvec_boolean &amp;lt;- myvec == &amp;quot;alive&amp;quot;
+myvec_boolean&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE  TRUE FALSE  TRUE  TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# R will tell us this is a logical (= boolean, which means true/false) vector:
+class(myvec_boolean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;logical&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# now let&amp;#39;s multiply it by 1
+1*myvec_boolean&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0 1 0 1 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# do you see how it turns into 0s and 1s? TRUEs become 1s, FALSEs because 0s
+# Let&amp;#39;s save it as a vector
+myvec_numeric &amp;lt;- 1*myvec_boolean
+# now we&amp;#39;ve turned myvec from a character vector into a binary numeric vector
+class(myvec_numeric)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;myvec_numeric&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0 1 0 1 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# We could have done this all at once:
+1*(myvec==&amp;quot;alive&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0 1 0 1 1&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;booleans. When are they more useful?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Hopefully the example above gives some insight into how they can be useful. I will say as a data type, I don’t use them much, other than to create new variables as above. We also use boolean statements in our filtering and in &lt;code&gt;case_when()&lt;/code&gt;, for instance&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars %&amp;gt;% filter(cyl==4) # cyl==4 is a TRUE/FALSE value
+mtcars %&amp;gt;% select(where(is.numeric)) # is.numeric is TRUE/FALSE
+mtcars %&amp;gt;% mutate(
+  cyl_cat = case_when(
+    cyl &amp;lt; 6 ~ &amp;quot;low&amp;quot;, # cyl &amp;lt; 6 is TRUE/FALSE
+    cyl &amp;gt;=6 ~ &amp;quot;high&amp;quot; # cyl &amp;gt;= 6 is TRUE/FALSE
+  )
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NA&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I’m not sure if this means “not applicable” or, if &lt;code&gt;NA&lt;/code&gt; missing values are muddy! I’ll keep trying to go over how we deal with missing data, we’ll see some challenges with &lt;code&gt;NA&lt;/code&gt; in class 5.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Bonus muddy point that I’ve noticed confusion on. What is our output from piping code vs what are we saving and why?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Remember that when you manipulate your data, you need to save it as a new data frame (&lt;code&gt;tibble&lt;/code&gt;) but be careful about what you are saving.&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries&#34;&gt;these slides&lt;/a&gt; for more info.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clearest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Clearest points&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I love all the examples in this class and I really appreciate that you take time to answer all our questions about syntax and how you would use these functions! R has so much documentation but it can be really dense and hard to understand, at least for non-programmer me. Having questions answered is just priceless!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This time I watched the lecture the day after, while I do enjoy the social aspect of class, I did find it very helpful to pause, go back to my code, rewind if needed, etc.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I like the pairing of these comments because both are excellent points about the benefits of a class like this! It almost seems too luxurious to spend 11 weeks and tuition dollars on a class just about R, especially when there are approximately 12 million resources online teaching the same thing. But when else would we have a chance to do this in our busy lives, outside of school? The community of learners and having someone to bounce questions and ideas off of is indeed priceless. It’s also great to have the course recorded in such a way that it’s accessible after class. If we were having this class in person, that would be a lot more difficult.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Please add more tricks for displaying data (i.e. ncol and other commands) that help with displaying multiple datapoints.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Will do! I want to get through some advanced data wrangling first, but then we will come back to some more ggplot examples.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Thanks for excellent teaching! It’s very useful for me to learn the foundation of R systematically. Is there possible to add some example of actual project data processing in class?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yes! I have a a couple data sets in mind for this and will try to implement it in the next couple weeks.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ggplot section&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;assigning levels of a factor and ggplot&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ggplots are becoming a lot more clear to me - they confused me last quarter, so thank you !&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Great news, I’m so glad!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 5: Data summarizing, reshaping, and wrangling with multiple tables</title>
+      <link>https://sph-r-programming-2022.netlify.app/class/05-class/</link>
+      <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/class/05-class/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#another-useful-video&#34;&gt;Another useful video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34;&gt;Muddiest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clearest-points&#34;&gt;Clearest points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#messages-to-me&#34;&gt;Messages to me&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Project files&lt;/h2&gt;
+&lt;p&gt;Please download the part5 subfolder in &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this folder link&lt;/a&gt; Be sure to unzip if necessary. “Knit” the &lt;code&gt;code/part5.Rmd&lt;/code&gt; file to install packages and make sure everything is working with data loading.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/_V7cKw39Fzc&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming.netlify.app/class/05-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;During “Muddiest Parts” review, we will go over &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries&#34;&gt;these slides&lt;/a&gt;&lt;/p&gt;
+&lt;iframe src=&#34;https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries#1&#34; width=&#34;672&#34; height=&#34;400px&#34; data-external=&#34;1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div id=&#34;another-useful-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Another useful video&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4&#34;&gt;Dr. Kelly Bodwin’s Reshaping Data Video&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For a short version, watch the &lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4?t=365&#34;&gt;pivot_longer excerpt&lt;/a&gt; about “working backwards” from a plot. Then watch the &lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4?t=620&#34;&gt;pivot_wider excerpt&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Post-Class&lt;/h2&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://forms.gle/4tVx1mL7SzQx7MCu5&#34; class=&#34;uri&#34;&gt;https://forms.gle/4tVx1mL7SzQx7MCu5&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Muddiest Points&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;fct_other() and fct_collapse: I actually think I understand the point of each of these separately, but somehow using them together like in the example totally confused me. I’ll have to go look at it again later.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The data cleaning section where we used forcats since it was confusing as to how to use it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;when to use fct_collapse vs case when and when you would want to turn a character into a vector&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Thanks for this, I went through this too quickly it seems. First, I should say that the two ways of creating the &lt;code&gt;cigarettes10&lt;/code&gt; categorical vector – using &lt;code&gt;case_when()&lt;/code&gt; or using &lt;code&gt;forcats&lt;/code&gt; factor function – are both equally good options. You can always turn a character vector into a factor after using case_when. I will show some benefits of a factor vector in part 6 and also when we talk about statistical modeling. Here is a visual explanation of what I was doing with &lt;code&gt;fct_other()&lt;/code&gt; + &lt;code&gt;fct_collapse()&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src = &#34;/img/cigarettes10_forcats.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Also the challenge question to change the logical “ever_been_bullied” into a character vector with ifelse() … I have never used ifelse() and that made zero sense to me. Will have to play with it to understand.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Good point, I showed this mainly because it’s another option (and one I default to using sometimes) but didn’t carefully go through it, sorry about that. You can always just use &lt;code&gt;case_when()&lt;/code&gt;, but if you want to learn more about the base R function &lt;code&gt;ifelse()&lt;/code&gt;, it is basically a simpler &lt;code&gt;case_when&lt;/code&gt; with only one condition, and two possible values. The way we use it is like&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ifelse(BOOLEAN_TEST_CONDITION, value_if_test_is_TRUE, value_if_test_is_FALSE)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;For instance:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+
+# simple test
+1==2 # this is a boolean test&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ifelse(1==2, &amp;quot;math is wrong&amp;quot;, &amp;quot;math is right&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;math is right&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ifelse(1==1, &amp;quot;math is wrong&amp;quot;, &amp;quot;math is right&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;math is wrong&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ifelse() is vectorized
+myvec &amp;lt;- c(1,2,NA)
+
+ifelse(is.na(myvec), &amp;quot;missing&amp;quot;, &amp;quot;not missing&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;not missing&amp;quot; &amp;quot;not missing&amp;quot; &amp;quot;missing&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ifelse(myvec==2, &amp;quot;two&amp;quot;, &amp;quot;not two&amp;quot;) # NAs are preserved&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;not two&amp;quot; &amp;quot;two&amp;quot;     NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# we can save the resulting vector
+newvec &amp;lt;- ifelse(myvec==2, &amp;quot;two&amp;quot;, &amp;quot;not two&amp;quot;) 
+newvec&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;not two&amp;quot; &amp;quot;two&amp;quot;     NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# we can use it in mutate as well
+# make a small data set
+mydata &amp;lt;- head(mtcars[,1:4])
+mydata&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                    mpg cyl disp  hp
+## Mazda RX4         21.0   6  160 110
+## Mazda RX4 Wag     21.0   6  160 110
+## Datsun 710        22.8   4  108  93
+## Hornet 4 Drive    21.4   6  258 110
+## Hornet Sportabout 18.7   8  360 175
+## Valiant           18.1   6  225 105&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata %&amp;gt;% mutate(
+  cyl6 = ifelse(cyl==6, &amp;quot;cyl is 6!!!&amp;quot;, &amp;quot;cyl is not 6&amp;quot;)
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                    mpg cyl disp  hp         cyl6
+## Mazda RX4         21.0   6  160 110  cyl is 6!!!
+## Mazda RX4 Wag     21.0   6  160 110  cyl is 6!!!
+## Datsun 710        22.8   4  108  93 cyl is not 6
+## Hornet 4 Drive    21.4   6  258 110  cyl is 6!!!
+## Hornet Sportabout 18.7   8  360 175 cyl is not 6
+## Valiant           18.1   6  225 105  cyl is 6!!!&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;adorn_percentages: On the species/sex tabyl example, percentages were calculated across rows for sex. Is there a way to change percentages to calculate down columns for species?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yes!! When I talk more about tables, statistical modeling, etc I was planning to go more in depth with janitor tabyls. But it’s so useful I can’t help but keep showing you tabyl functions along the way. So here’s some more tips:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(janitor)
+library(palmerpenguins)
+library(gt)
+
+# simple cross table with counts
+penguins %&amp;gt;% 
+  tabyl(species, sex) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    species female male NA_
+##     Adelie     73   73   6
+##  Chinstrap     34   34   0
+##     Gentoo     58   61   5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# simple cross table with percents (denominator is row by default)
+penguins %&amp;gt;% 
+  tabyl(species, sex) %&amp;gt;%
+  adorn_percentages()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    species    female      male        NA_
+##     Adelie 0.4802632 0.4802632 0.03947368
+##  Chinstrap 0.5000000 0.5000000 0.00000000
+##     Gentoo 0.4677419 0.4919355 0.04032258&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% 
+  tabyl(species, sex) %&amp;gt;%
+  # instead of counts, show percentages, the default denominator is row
+  adorn_percentages(denominator = &amp;quot;col&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    species    female      male       NA_
+##     Adelie 0.4424242 0.4345238 0.5454545
+##  Chinstrap 0.2060606 0.2023810 0.0000000
+##     Gentoo 0.3515152 0.3630952 0.4545455&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% 
+  tabyl(species, sex) %&amp;gt;%
+  adorn_percentages(denominator = &amp;quot;col&amp;quot;) %&amp;gt;%
+  # add row and column totals, the default is to show just column totals in &amp;quot;row&amp;quot;
+  # this makes for a strange row total, though, as we get 300%
+  adorn_totals(where = c(&amp;quot;row&amp;quot;, &amp;quot;col&amp;quot;)) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    species    female      male       NA_     Total
+##     Adelie 0.4424242 0.4345238 0.5454545 1.4224026
+##  Chinstrap 0.2060606 0.2023810 0.0000000 0.4084416
+##     Gentoo 0.3515152 0.3630952 0.4545455 1.1691558
+##      Total 1.0000000 1.0000000 1.0000000 3.0000000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% 
+  tabyl(species, sex) %&amp;gt;%
+  adorn_percentages(denominator = &amp;quot;col&amp;quot;) %&amp;gt;%
+  adorn_totals(where = c(&amp;quot;row&amp;quot;, &amp;quot;col&amp;quot;)) %&amp;gt;%
+  # need to have adorn_totals BEFORE adding pct formatting, otherwise error
+  adorn_pct_formatting()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    species female   male    NA_  Total
+##     Adelie  44.2%  43.5%  54.5% 142.2%
+##  Chinstrap  20.6%  20.2%   0.0%  40.8%
+##     Gentoo  35.2%  36.3%  45.5% 116.9%
+##      Total 100.0% 100.0% 100.0% 300.0%&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% 
+  tabyl(species, sex) %&amp;gt;%
+  adorn_percentages(denominator = &amp;quot;col&amp;quot;) %&amp;gt;%
+  adorn_totals(where = c(&amp;quot;row&amp;quot;, &amp;quot;col&amp;quot;)) %&amp;gt;%
+  adorn_pct_formatting() %&amp;gt;%
+  # add back in counts in ()
+  # need to have adorn_ns AFTER adding pct formatting, otherwise error
+  adorn_ns()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    species       female         male         NA_        Total
+##     Adelie  44.2%  (73)  43.5%  (73)  54.5%  (6) 142.2% (152)
+##  Chinstrap  20.6%  (34)  20.2%  (34)   0.0%  (0)  40.8%  (68)
+##     Gentoo  35.2%  (58)  36.3%  (61)  45.5%  (5) 116.9% (124)
+##      Total 100.0% (165) 100.0% (168) 100.0% (11) 300.0% (344)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% 
+  tabyl(species, sex) %&amp;gt;%
+  # percent of total (denominator is the total sum)
+  adorn_percentages(denominator = &amp;quot;all&amp;quot;) %&amp;gt;%
+  # now it makes more sense to have totals in both row and column
+  adorn_totals(where = c(&amp;quot;row&amp;quot;, &amp;quot;col&amp;quot;)) %&amp;gt;%
+  adorn_pct_formatting() %&amp;gt;%
+  adorn_ns()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    species      female        male       NA_        Total
+##     Adelie 21.2%  (73) 21.2%  (73) 1.7%  (6)  44.2% (152)
+##  Chinstrap  9.9%  (34)  9.9%  (34) 0.0%  (0)  19.8%  (68)
+##     Gentoo 16.9%  (58) 17.7%  (61) 1.5%  (5)  36.0% (124)
+##      Total 48.0% (165) 48.8% (168) 3.2% (11) 100.0% (344)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% 
+  tabyl(species, sex) %&amp;gt;%
+  adorn_percentages(denominator = &amp;quot;all&amp;quot;) %&amp;gt;%
+  adorn_totals(where = c(&amp;quot;row&amp;quot;, &amp;quot;col&amp;quot;)) %&amp;gt;%
+  adorn_pct_formatting() %&amp;gt;%
+  adorn_ns() %&amp;gt;%
+  # add title, need placement = &amp;quot;combined&amp;quot; for gt to work
+  adorn_title(placement = &amp;quot;combined&amp;quot;) %&amp;gt;%
+  # make it fancy html
+  gt()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;ezlowiephz&#34; style=&#34;overflow-x:auto;overflow-y:auto;width:auto;height:auto;&#34;&gt;
+&lt;style&gt;html {
+  font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif;
+}
+
+#ezlowiephz .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ezlowiephz .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ezlowiephz .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ezlowiephz .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ezlowiephz .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ezlowiephz .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ezlowiephz .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ezlowiephz .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ezlowiephz .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ezlowiephz .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ezlowiephz .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ezlowiephz .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ezlowiephz .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ezlowiephz .gt_from_md &gt; :first-child {
+  margin-top: 0;
+}
+
+#ezlowiephz .gt_from_md &gt; :last-child {
+  margin-bottom: 0;
+}
+
+#ezlowiephz .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ezlowiephz .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#ezlowiephz .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ezlowiephz .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#ezlowiephz .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ezlowiephz .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ezlowiephz .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ezlowiephz .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ezlowiephz .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ezlowiephz .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#ezlowiephz .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ezlowiephz .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#ezlowiephz .gt_left {
+  text-align: left;
+}
+
+#ezlowiephz .gt_center {
+  text-align: center;
+}
+
+#ezlowiephz .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ezlowiephz .gt_font_normal {
+  font-weight: normal;
+}
+
+#ezlowiephz .gt_font_bold {
+  font-weight: bold;
+}
+
+#ezlowiephz .gt_font_italic {
+  font-style: italic;
+}
+
+#ezlowiephz .gt_super {
+  font-size: 65%;
+}
+
+#ezlowiephz .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+&lt;/style&gt;
+&lt;table class=&#34;gt_table&#34;&gt;
+  
+  &lt;thead class=&#34;gt_col_headings&#34;&gt;
+    &lt;tr&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_left&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;species/sex&lt;/th&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_left&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;female&lt;/th&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_left&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;male&lt;/th&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_left&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;NA_&lt;/th&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_left&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;Total&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class=&#34;gt_table_body&#34;&gt;
+    &lt;tr&gt;&lt;td class=&#34;gt_row gt_left&#34;&gt;Adelie&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;21.2%  (73)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;21.2%  (73)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;1.7%  (6)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;44.2% (152)&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td class=&#34;gt_row gt_left&#34;&gt;Chinstrap&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;9.9%  (34)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;9.9%  (34)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;0.0%  (0)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;19.8%  (68)&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td class=&#34;gt_row gt_left&#34;&gt;Gentoo&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;16.9%  (58)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;17.7%  (61)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;1.5%  (5)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;36.0% (124)&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td class=&#34;gt_row gt_left&#34;&gt;Total&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;48.0% (165)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;48.8% (168)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;3.2% (11)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;100.0% (344)&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  
+  
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% 
+  tabyl(species, sex) %&amp;gt;%
+  adorn_percentages(denominator = &amp;quot;all&amp;quot;) %&amp;gt;%
+  adorn_totals(where = c(&amp;quot;row&amp;quot;, &amp;quot;col&amp;quot;)) %&amp;gt;%
+  adorn_pct_formatting() %&amp;gt;%
+  adorn_ns() %&amp;gt;%
+  # make it fancy html
+  # specify that species denotes the name of the rows (removes that column label)
+  # adds line between row names and rest of table
+  gt::gt(rowname_col = &amp;quot;species&amp;quot;) %&amp;gt;%
+  # adds back in Species above rows
+  gt::tab_stubhead(
+    label = &amp;quot;Species&amp;quot;
+  ) %&amp;gt;%
+  # adds header
+  gt::tab_header(
+    title = &amp;quot;Species by sex percentages (counts)&amp;quot;,
+    subtitle = &amp;quot;Palmer penguin data&amp;quot;
+  ) %&amp;gt;%
+  # adds sex label across multiple columns
+  gt::tab_spanner(
+    label = &amp;quot;Sex&amp;quot;,
+    columns = c(female, male, `NA_`)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;ntujrirayo&#34; style=&#34;overflow-x:auto;overflow-y:auto;width:auto;height:auto;&#34;&gt;
+&lt;style&gt;html {
+  font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif;
+}
+
+#ntujrirayo .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ntujrirayo .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ntujrirayo .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ntujrirayo .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ntujrirayo .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ntujrirayo .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ntujrirayo .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ntujrirayo .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ntujrirayo .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ntujrirayo .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ntujrirayo .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ntujrirayo .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ntujrirayo .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ntujrirayo .gt_from_md &gt; :first-child {
+  margin-top: 0;
+}
+
+#ntujrirayo .gt_from_md &gt; :last-child {
+  margin-bottom: 0;
+}
+
+#ntujrirayo .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ntujrirayo .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#ntujrirayo .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ntujrirayo .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#ntujrirayo .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ntujrirayo .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ntujrirayo .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ntujrirayo .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ntujrirayo .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ntujrirayo .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#ntujrirayo .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ntujrirayo .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#ntujrirayo .gt_left {
+  text-align: left;
+}
+
+#ntujrirayo .gt_center {
+  text-align: center;
+}
+
+#ntujrirayo .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ntujrirayo .gt_font_normal {
+  font-weight: normal;
+}
+
+#ntujrirayo .gt_font_bold {
+  font-weight: bold;
+}
+
+#ntujrirayo .gt_font_italic {
+  font-style: italic;
+}
+
+#ntujrirayo .gt_super {
+  font-size: 65%;
+}
+
+#ntujrirayo .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+&lt;/style&gt;
+&lt;table class=&#34;gt_table&#34;&gt;
+  &lt;thead class=&#34;gt_header&#34;&gt;
+    &lt;tr&gt;
+      &lt;th colspan=&#34;5&#34; class=&#34;gt_heading gt_title gt_font_normal&#34; style&gt;Species by sex percentages (counts)&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th colspan=&#34;5&#34; class=&#34;gt_heading gt_subtitle gt_font_normal gt_bottom_border&#34; style&gt;Palmer penguin data&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;thead class=&#34;gt_col_headings&#34;&gt;
+    &lt;tr&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_left&#34; rowspan=&#34;2&#34; colspan=&#34;1&#34;&gt;Species&lt;/th&gt;
+      &lt;th class=&#34;gt_center gt_columns_top_border gt_column_spanner_outer&#34; rowspan=&#34;1&#34; colspan=&#34;3&#34;&gt;
+        &lt;span class=&#34;gt_column_spanner&#34;&gt;Sex&lt;/span&gt;
+      &lt;/th&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_left&#34; rowspan=&#34;2&#34; colspan=&#34;1&#34;&gt;Total&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_left&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;female&lt;/th&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_left&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;male&lt;/th&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_left&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;NA_&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class=&#34;gt_table_body&#34;&gt;
+    &lt;tr&gt;&lt;td class=&#34;gt_row gt_left gt_stub&#34;&gt;Adelie&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;21.2%  (73)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;21.2%  (73)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;1.7%  (6)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;44.2% (152)&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td class=&#34;gt_row gt_left gt_stub&#34;&gt;Chinstrap&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;9.9%  (34)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;9.9%  (34)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;0.0%  (0)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;19.8%  (68)&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td class=&#34;gt_row gt_left gt_stub&#34;&gt;Gentoo&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;16.9%  (58)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;17.7%  (61)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;1.5%  (5)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;36.0% (124)&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td class=&#34;gt_row gt_left gt_stub&#34;&gt;Total&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;48.0% (165)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;48.8% (168)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;3.2% (11)&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_left&#34;&gt;100.0% (344)&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  
+  
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;See the &lt;a href=&#34;https://gt.rstudio.com/articles/intro-creating-gt-tables.html&#34;&gt;intro to gt package for more examples like this&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sort and deduplicate prior to joining tables: Would you mind sharing an example of how to do this to avoid the multiple key warning when merging tables?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yes, I will first say that sometimes you &lt;em&gt;want&lt;/em&gt; duplicate keys in your end result, which we will see in part 6 example. For instance, if you are joining a study cohort data set with longitudinal lab values in tidy “long” format.&lt;/p&gt;
+&lt;p&gt;But you do want to avoid having duplicate keys in both the left and right table, as this will cause chaos and extreme duplication of rows.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;example_cohort &amp;lt;- tibble(
+  name = c(&amp;quot;jane&amp;quot;, &amp;quot;juan&amp;quot;, &amp;quot;jessica&amp;quot;, &amp;quot;jessica&amp;quot;),
+  value = c(&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;, &amp;quot;c&amp;quot;),
+)
+
+example_other &amp;lt;- tibble(
+  name = c(&amp;quot;juan&amp;quot;, &amp;quot;juan&amp;quot;,&amp;quot;jessica&amp;quot;),
+  y = c(3, 1, 4)
+)
+
+example_cohort&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 × 2
+##   name    value
+##   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;
+## 1 jane    a    
+## 2 juan    b    
+## 3 jessica c    
+## 4 jessica c&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;example_other&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 2
+##   name        y
+##   &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt;
+## 1 juan        3
+## 2 juan        1
+## 3 jessica     4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# with duplicate rows in the left and right data, 
+# we end up with duplicated rows in the full data
+left_join(example_cohort, 
+          example_other)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Joining, by = &amp;quot;name&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 5 × 3
+##   name    value     y
+##   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 jane    a        NA
+## 2 juan    b         3
+## 3 juan    b         1
+## 4 jessica c         4
+## 5 jessica c         4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# these do the same thing, since only one matching key with the same &amp;quot;name&amp;quot;
+left_join(example_cohort, 
+          example_other,
+          by = &amp;quot;name&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 5 × 3
+##   name    value     y
+##   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 jane    a        NA
+## 2 juan    b         3
+## 3 juan    b         1
+## 4 jessica c         4
+## 5 jessica c         4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;left_join(example_cohort, 
+          example_other,
+          by = c(&amp;quot;name&amp;quot; = &amp;quot;name&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 5 × 3
+##   name    value     y
+##   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 jane    a        NA
+## 2 juan    b         3
+## 3 juan    b         1
+## 4 jessica c         4
+## 5 jessica c         4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# perhaps the example_cohort was a mistake, 
+# and we want to remove those duplicated rows first:
+example_cohort %&amp;gt;% distinct()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 2
+##   name    value
+##   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;
+## 1 jane    a    
+## 2 juan    b    
+## 3 jessica c&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;left_join(
+  example_cohort %&amp;gt;% distinct(),
+  example_other
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Joining, by = &amp;quot;name&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 × 3
+##   name    value     y
+##   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 jane    a        NA
+## 2 juan    b         3
+## 3 juan    b         1
+## 4 jessica c         4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# the above assumes that juan had two y values on purpose
+
+# what if we didn&amp;#39;t want two juan values in the &amp;quot;example_other&amp;quot; tibble
+# let&amp;#39;s assume we want only the lowest y value in example_other for each name
+example_other %&amp;gt;%
+  group_by(name) %&amp;gt;%
+  slice_min(y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2 × 2
+## # Groups:   name [2]
+##   name        y
+##   &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt;
+## 1 jessica     4
+## 2 juan        1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;left_join(
+  example_cohort %&amp;gt;% distinct(),
+  example_other %&amp;gt;% group_by(name) %&amp;gt;% slice_min(y)
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Joining, by = &amp;quot;name&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 3
+##   name    value     y
+##   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 jane    a        NA
+## 2 juan    b         1
+## 3 jessica c         4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Here&amp;#39;s a reminder about what inner join and full join would do in the original situation:
+
+# same as left join in this case, takes all data from both tables
+full_join(example_cohort, 
+          example_other)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Joining, by = &amp;quot;name&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 5 × 3
+##   name    value     y
+##   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 jane    a        NA
+## 2 juan    b         3
+## 3 juan    b         1
+## 4 jessica c         4
+## 5 jessica c         4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# only uses names (the joining key) from both tables
+inner_join(example_cohort, 
+          example_other)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Joining, by = &amp;quot;name&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 × 3
+##   name    value     y
+##   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 juan    b         3
+## 2 juan    b         1
+## 3 jessica c         4
+## 4 jessica c         4&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Do we need to save all of our graphics that we make in our homework? like using ggsave() and a png file? Same with our glimpse/skim/summary bits that we code?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You don’t need to unless I specifically state “save as a file” (i.e. with &lt;code&gt;ggsave()&lt;/code&gt; or &lt;code&gt;write_csv()&lt;/code&gt;) or “save as an object” (i.e. with &lt;code&gt;myplot &amp;lt;- ggplot(.....&lt;/code&gt; or &lt;code&gt;mysummary &amp;lt;- summary(mydata)&lt;/code&gt;) depending on the setting.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Thank you for getting into “messy” data. I still would like more information about primary data.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I have to admit I am not sure what you mean by “primary” data, because to me, this could mean an infinite number of things. It depends on the type of data and who is entering the data: is it coming from a person or a machine? Is it an export from Redcap, an EHR query, or an excel sheet where a person has entered the data by hand?&lt;/p&gt;
+&lt;p&gt;I would love to hear more about what kind of “primary” data people are interested in. Please send another survey message or comment on my question on slack!&lt;/p&gt;
+&lt;p&gt;In part 6 I have used a “real” data example, basically this is the most common type of primary data that I receive as a statistician – an excel sheet where someone in a lab has input data, copied some omics data from another excel sheet into that table, and sent it to me via email. This type of data can lend itself to lots of strange formatting issues, and also lots of data input error. It is not ideal, but this is where we’re at in science (see again &lt;a href=&#34;https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989&#34;&gt;Broman &amp;amp; Woo 2017, Data Organization in Spreadsheets&lt;/a&gt; or &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7518408/&#34;&gt;Ellis &amp;amp; Leek 2018, How to share data for collaboration&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;I also need to teach you the basic tools for cleaning and manipulating data before I can get you started with “real” data in super messy format, because otherwise it might be overwhelming doing a series of steps! But I think you’re almost ready! You’ll see how the data cleaning steps can really pile on today during the modestly messy example. Most of my “data cleaning” or “importing” or “wrangling” tasks as a statistician involve dealing with weird spreadsheet formats, typos, missing values, and then creating new variables that I need for analyses or graphing. I think you’ve learned most of those tasks by now in this class. In part 6 we will practice these more. In future classes we will learn more about how to handle dates/times, more about string manipulation, reshaping data, and additional ways to deal with missing data.&lt;/p&gt;
+&lt;p&gt;If anyone has primary data they would like me to go over in class (and can share it), please send it to me! Or describe the data you have in mind.&lt;/p&gt;
+&lt;p&gt;There was a helpful suggestion to show data with the kind of demographic or survey variables that are somewhat difficult to keep cleanly categorized, but that are very important, such as sexual identity, race/ethnicitiy, disability, etc. I perused some of the publicly available data out there but haven’t found a good enough example yet; I will keep looking, but if you know of one send it my way, please!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If we have 100 cvs to import, how to import data quickly?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The best way is to use lists and &lt;code&gt;purrr&lt;/code&gt;! We will hopefully get to lists by class 7 and &lt;code&gt;purrr&lt;/code&gt; probably class 8. It also depends on whether these 100 csv files are in the same format and what you want to do with them after you import them. Are they able to be stacked, so you can use &lt;code&gt;bind_rows()&lt;/code&gt;? If so, it would be something like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# have all the csvs in one place
+folder_where_csvs_are &amp;lt;- here::here(&amp;quot;static/data&amp;quot;)
+# we can list all their names
+list.files(folder_where_csvs_are, pattern = &amp;quot;.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;injury.csv&amp;quot;                &amp;quot;math_camp.csv&amp;quot;            
+## [3] &amp;quot;math_survey.csv&amp;quot;           &amp;quot;village_randomized.csv&amp;quot;   
+## [5] &amp;quot;village_self_selected.csv&amp;quot; &amp;quot;world_happiness.csv&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# list all their names will full file path
+all_csv_files &amp;lt;- list.files(here::here(&amp;quot;static/data&amp;quot;), pattern = &amp;quot;.csv&amp;quot;, full.names = TRUE)
+# use purrr map to load them in
+list_of_data &amp;lt;- purrr::map(all_csv_files, ~read_csv(.))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 7150 Columns: 30
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &amp;quot;,&amp;quot;
+## dbl (30): durat, afchnge, highearn, male, married, hosp, indust, injtype, ag...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 2000 Columns: 8
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &amp;quot;,&amp;quot;
+## chr (1): math_camp
+## dbl (7): id, final_grade, math_camp_num, undergrad_gpa, gre_quant, gre_verba...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 216 Columns: 11
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &amp;quot;,&amp;quot;
+## chr (9): timestamp, teacher, treatment, math_feeling, good_at_math, math_eas...
+## dbl (2): wave, id_in_class
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 1000 Columns: 8
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &amp;quot;,&amp;quot;
+## chr (2): sex, program
+## dbl (6): id, age, pre_income, post_income, sex_num, program_num
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 1000 Columns: 6
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &amp;quot;,&amp;quot;
+## dbl (6): id, sex, age, pre_income, program, post_income
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Rows: 217 Columns: 11
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &amp;quot;,&amp;quot;
+## chr (4): iso2c, country, region, income
+## dbl (7): happiness_score, happiness_se, year, school_enrollment, life_expect...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# list of data frames
+class(list_of_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;list&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# length of list
+length(list_of_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 6&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# see the structure of the data
+# str(list_of_data) # this is long output
+# first element
+glimpse(list_of_data[[1]])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 7,150
+## Columns: 30
+## $ durat    &amp;lt;dbl&amp;gt; 1, 1, 84, 4, 1, 1, 7, 2, 175, 60, 29, 30, 100, 4, 2, 1, 1, 2,…
+## $ afchnge  &amp;lt;dbl&amp;gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ highearn &amp;lt;dbl&amp;gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ male     &amp;lt;dbl&amp;gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1…
+## $ married  &amp;lt;dbl&amp;gt; 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1…
+## $ hosp     &amp;lt;dbl&amp;gt; 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0…
+## $ indust   &amp;lt;dbl&amp;gt; 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1…
+## $ injtype  &amp;lt;dbl&amp;gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ age      &amp;lt;dbl&amp;gt; 26, 31, 37, 31, 23, 34, 35, 45, 41, 33, 35, 25, 39, 27, 24, 2…
+## $ prewage  &amp;lt;dbl&amp;gt; 404.9500, 643.8250, 398.1250, 527.8000, 528.9375, 614.2500, 5…
+## $ totmed   &amp;lt;dbl&amp;gt; 1187.57324, 361.07855, 8963.65723, 1099.64832, 372.80188, 211…
+## $ injdes   &amp;lt;dbl&amp;gt; 1010, 1404, 1032, 1940, 1940, 1425, 1110, 1207, 1425, 1010, 1…
+## $ benefit  &amp;lt;dbl&amp;gt; 246.8375, 246.8375, 246.8375, 246.8375, 211.5750, 176.3125, 2…
+## $ ky       &amp;lt;dbl&amp;gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ mi       &amp;lt;dbl&amp;gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ ldurat   &amp;lt;dbl&amp;gt; 0.0000000, 0.0000000, 4.4308167, 1.3862944, 0.0000000, 0.0000…
+## $ afhigh   &amp;lt;dbl&amp;gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ lprewage &amp;lt;dbl&amp;gt; 6.003764, 6.467427, 5.986766, 6.268717, 6.270870, 6.420402, 6…
+## $ lage     &amp;lt;dbl&amp;gt; 3.258096, 3.433987, 3.610918, 3.433987, 3.135494, 3.526361, 3…
+## $ ltotmed  &amp;lt;dbl&amp;gt; 7.079667, 5.889095, 9.100934, 7.002746, 5.921047, 5.351953, 4…
+## $ head     &amp;lt;dbl&amp;gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ neck     &amp;lt;dbl&amp;gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ upextr   &amp;lt;dbl&amp;gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ trunk    &amp;lt;dbl&amp;gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ lowback  &amp;lt;dbl&amp;gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ lowextr  &amp;lt;dbl&amp;gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ occdis   &amp;lt;dbl&amp;gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ manuf    &amp;lt;dbl&amp;gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1…
+## $ construc &amp;lt;dbl&amp;gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ highlpre &amp;lt;dbl&amp;gt; 6.003764, 6.467427, 5.986766, 6.268717, 6.270870, 6.420402, 6…&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# if they were all the same columns and able to stack, we could do this
+# big_data_frame &amp;lt;- bind_rows(list_of_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clearest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Clearest points&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;joining data, summarize &amp;amp; group_by (we used these a lot in BSTA511)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;good to know, I like hearing about what you have already learned in BSTA511, so keep that comin’&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;here () was a lot more clear on re-visiting.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;so glad!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The summarize section was pretty understandable&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Glad to hear it, I was worried I rushed that. We will go over it again in class 6 anyway with &lt;code&gt;across()&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I appreciated the overall discussion on muddy points from previous session. This definitely helped.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Good! We’re doing another long muddy review today too =)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;messages-to-me&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Messages to me&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I feel like it would be really helpful (to me anyway) to hear about some stupid-but-useful R tidbits like: how you filter to get any row that doesn’t have an NA. Or how you filter to have any row that doesn’t have an NA in a particular column. I’m sure there’s tons more I haven’t thought of – those are just ones that I’ve wanted and struggled to come up with on my own in the past.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yes! I keep meaning to show you more with missing data. I have a couple more examples during class 6 using &lt;code&gt;drop_na()&lt;/code&gt; to do all these things. Also those are very useful tidbits, sorry I haven’t gotten to them yet!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The challenges are so helpful - great to try out what you are showing!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Great to hear, class 6/part 6 has a toooon of challenges, maybe too many challenges. We will see how it goes =)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I hope to spend some time on summary tables&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Thank you, we will definitely do this, starting with redo-ing the end of part 5 today, which we didn’t finish.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Is it possible to have a list of all the packages we need for each assignment? I did get marked down for adding too many libraries since I keep getting them all jumbled between homework, practices, and out-of-class practice as well&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is a good point, though I don’t think you’re getting marked down for having too many packages (if I’m wrong let me know!), I think Colin is just giving comments that you should try to avoid it. I didn’t think about this when writing homeworks but I will start giving you the packages I think you need. It’s hard to keep track of all the different ones when you are just starting out.&lt;/p&gt;
+&lt;p&gt;Honestly, I don’t do a very good job myself of only loading the minimal list of packages in each Rmd. In theory, it doesn’t matter too much—it may add some extra time to load the extra packages, but often I am copying my YAML and setup code from other Rmds and forget to take out the packages I don’t need.&lt;/p&gt;
+&lt;p&gt;One issue with loading too many packages is that function names can overlap between packages and cause errors or confusion. For instance, the function &lt;code&gt;select()&lt;/code&gt; is in both the &lt;code&gt;tidyverse&lt;/code&gt; or &lt;code&gt;dplyr&lt;/code&gt; package and the &lt;code&gt;AnnotationDBI&lt;/code&gt; Bioconductor package which I sometimes use. If I load the &lt;code&gt;AnnotationDbi&lt;/code&gt; package after I load &lt;code&gt;dplyr&lt;/code&gt;, R thinks I am trying to use &lt;code&gt;AnnotationDBI::select&lt;/code&gt; instead of &lt;code&gt;dplyr::select&lt;/code&gt;. There are ways around it, such as making sure you load &lt;code&gt;library(dplyr)&lt;/code&gt; last, or when using &lt;code&gt;select&lt;/code&gt; use &lt;code&gt;dplyr::select&lt;/code&gt; explicitly in your code instead, or, redefining select this way:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)
+library(AnnotationDbi)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: stats4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: BiocGenerics&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: parallel&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;BiocGenerics&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:parallel&amp;#39;:
+## 
+##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+##     clusterExport, clusterMap, parApply, parCapply, parLapply,
+##     parLapplyLB, parRapply, parSapply, parSapplyLB&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:dplyr&amp;#39;:
+## 
+##     combine, intersect, setdiff, union&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     IQR, mad, sd, var, xtabs&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     anyDuplicated, append, as.data.frame, basename, cbind, colnames,
+##     dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
+##     grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
+##     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+##     rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
+##     union, unique, unsplit, which.max, which.min&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: Biobase&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Welcome to Bioconductor
+## 
+##     Vignettes contain introductory material; view with
+##     &amp;#39;browseVignettes()&amp;#39;. To cite Bioconductor, see
+##     &amp;#39;citation(&amp;quot;Biobase&amp;quot;)&amp;#39;, and for packages &amp;#39;citation(&amp;quot;pkgname&amp;quot;)&amp;#39;.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: IRanges&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: S4Vectors&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;S4Vectors&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:dplyr&amp;#39;:
+## 
+##     first, rename&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:tidyr&amp;#39;:
+## 
+##     expand&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     expand.grid, I, unname&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;IRanges&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:dplyr&amp;#39;:
+## 
+##     collapse, desc, slice&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:purrr&amp;#39;:
+## 
+##     reduce&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;AnnotationDbi&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:dplyr&amp;#39;:
+## 
+##     select&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;select&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## standardGeneric for &amp;quot;select&amp;quot; defined from package &amp;quot;AnnotationDbi&amp;quot;
+## 
+## function (x, keys, columns, keytype, ...) 
+## standardGeneric(&amp;quot;select&amp;quot;)
+## &amp;lt;bytecode: 0x7f8bd29ba840&amp;gt;
+## &amp;lt;environment: 0x7f8bd12374f0&amp;gt;
+## Methods may be defined for arguments: x
+## Use  showMethods(select)  for currently available ones.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;select &amp;lt;- dplyr::select
+
+select&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## function (.data, ...) 
+## {
+##     UseMethod(&amp;quot;select&amp;quot;)
+## }
+## &amp;lt;bytecode: 0x7f8be6633f40&amp;gt;
+## &amp;lt;environment: namespace:dplyr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 5 contd (Class 6): Data summarizing, reshaping, and wrangling with multiple tables (contd)</title>
+      <link>https://sph-r-programming-2022.netlify.app/class/06-class/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/class/06-class/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34;&gt;Muddiest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clearest-points&#34;&gt;Clearest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other-notes&#34;&gt;Other Notes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Project files&lt;/h2&gt;
+&lt;p&gt;In this class we finished the part5 material from &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this folder link&lt;/a&gt;. Please download this folder and be sure to unzip if necessary. Knit the &lt;code&gt;part5.Rmd&lt;/code&gt; to install any required packages.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/c3ZuPANIEAM&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming.netlify.app/class/06-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;No slides this class.&lt;/p&gt;
+&lt;!-- Open the class introduction slides in a separate window: &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2022.netlify.app/01-introduction_slides#1&lt;/a&gt; --&gt;
+&lt;!-- ```{r echo=FALSE} --&gt;
+&lt;!-- knitr::include_url(&#39;https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1&#39;) --&gt;
+&lt;!-- ``` --&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Post-Class&lt;/h3&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://forms.gle/4tVx1mL7SzQx7MCu5&#34; class=&#34;uri&#34;&gt;https://forms.gle/4tVx1mL7SzQx7MCu5&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Muddiest Points&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I’m still confused about what makes a list special (I know we’re going to talk about it more later). I loved the walk-through of summarize with across but I need some practice with that before it becomes completely clear – I hope it’ll be on the HW! I also have trouble visualizing facet wraps and the necessary pivoting without actually trying it and watching my code break. Maybe that just takes practice!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yeah, sorry I was trying to avoid talking about lists until we can cover them fully but it turns out they are hard to avoid! We will talk about lists more in class 8, along with functions!&lt;/p&gt;
+&lt;p&gt;In class 7 (part6) we will have more examples with summarize with across, and also facet wraps and pivoting. Basically, class 7 is a perfect response to this comment, even though I read this comment after I created the materials. Glad to be on the same wavelength =)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I was confused by the “.fns =” inside “summarize(acros())”. I know it specifies the function, but I kept getting confused by how to code after that.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is hard stuff. I think it will make a bit more sense after we talk about functions in part7 (class 8 probably) and how to use them with &lt;code&gt;purrr&lt;/code&gt; since it is similar syntax. Stay tuned for a couple more examples with &lt;code&gt;summarize(across())&lt;/code&gt; in part6 (class 7), and I can’t emphasize enough how much I recommend reading the reference on across &lt;a href=&#34;https://dplyr.tidyverse.org/reference/across.html&#34;&gt;here&lt;/a&gt; and other tidyverse functions that are confusing, but here’s a quick explanation in the meantime.&lt;/p&gt;
+&lt;p&gt;One thing to remember is that when using summarize, the function you are applying must result in &lt;em&gt;one&lt;/em&gt; value, that is a vector of length one! Otherwise, it’s not a summary statistic. This can be variations on &lt;code&gt;n_distinct()&lt;/code&gt;, &lt;code&gt;length()&lt;/code&gt;, &lt;code&gt;sum()&lt;/code&gt;, &lt;code&gt;min()&lt;/code&gt;, etc.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(palmerpenguins)
+library(gt)
+
+penguins %&amp;gt;%
+  summarize(
+    # all the code for the column specification AND the function goes in across()
+    across(
+      # use tidyselect to specify the columns
+      .cols = contains(&amp;quot;length&amp;quot;),
+      # we can specify a list() of functions to apply
+      # to add a suffix to column names of result, name the functions
+      # the ~ in front specifies a custom function is next, .x is the argument
+      # or use built in functions
+      .fns = list(mean_cm = ~ mean(.x/10, na.rm = TRUE),
+                  n_miss = ~ sum(is.na(.x)),
+                  min = min,
+                  max = max
+                  ), # end list
+      # add additional argument for min and max
+      na.rm = TRUE,
+      # use &amp;quot;.&amp;quot; to separate the col name &amp;amp; the function name
+      .names = &amp;quot;{.col}.{.fn}&amp;quot;
+    ) # end across
+  ) %&amp;gt;% # end mutate
+  gt()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;uuzfiiadbx&#34; style=&#34;overflow-x:auto;overflow-y:auto;width:auto;height:auto;&#34;&gt;
+&lt;style&gt;html {
+  font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, &#39;Fira Sans&#39;, &#39;Droid Sans&#39;, Arial, sans-serif;
+}
+
+#uuzfiiadbx .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#uuzfiiadbx .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#uuzfiiadbx .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#uuzfiiadbx .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#uuzfiiadbx .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#uuzfiiadbx .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#uuzfiiadbx .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#uuzfiiadbx .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#uuzfiiadbx .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#uuzfiiadbx .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#uuzfiiadbx .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#uuzfiiadbx .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#uuzfiiadbx .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#uuzfiiadbx .gt_from_md &gt; :first-child {
+  margin-top: 0;
+}
+
+#uuzfiiadbx .gt_from_md &gt; :last-child {
+  margin-bottom: 0;
+}
+
+#uuzfiiadbx .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#uuzfiiadbx .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#uuzfiiadbx .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uuzfiiadbx .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#uuzfiiadbx .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uuzfiiadbx .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#uuzfiiadbx .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#uuzfiiadbx .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#uuzfiiadbx .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#uuzfiiadbx .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#uuzfiiadbx .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#uuzfiiadbx .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#uuzfiiadbx .gt_left {
+  text-align: left;
+}
+
+#uuzfiiadbx .gt_center {
+  text-align: center;
+}
+
+#uuzfiiadbx .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#uuzfiiadbx .gt_font_normal {
+  font-weight: normal;
+}
+
+#uuzfiiadbx .gt_font_bold {
+  font-weight: bold;
+}
+
+#uuzfiiadbx .gt_font_italic {
+  font-style: italic;
+}
+
+#uuzfiiadbx .gt_super {
+  font-size: 65%;
+}
+
+#uuzfiiadbx .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+&lt;/style&gt;
+&lt;table class=&#34;gt_table&#34;&gt;
+  
+  &lt;thead class=&#34;gt_col_headings&#34;&gt;
+    &lt;tr&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_right&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;bill_length_mm.mean_cm&lt;/th&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_right&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;bill_length_mm.n_miss&lt;/th&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_right&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;bill_length_mm.min&lt;/th&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_right&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;bill_length_mm.max&lt;/th&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_right&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;flipper_length_mm.mean_cm&lt;/th&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_right&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;flipper_length_mm.n_miss&lt;/th&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_right&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;flipper_length_mm.min&lt;/th&gt;
+      &lt;th class=&#34;gt_col_heading gt_columns_bottom_border gt_right&#34; rowspan=&#34;1&#34; colspan=&#34;1&#34;&gt;flipper_length_mm.max&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class=&#34;gt_table_body&#34;&gt;
+    &lt;tr&gt;&lt;td class=&#34;gt_row gt_right&#34;&gt;4.392193&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_right&#34;&gt;2&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_right&#34;&gt;32.1&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_right&#34;&gt;59.6&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_right&#34;&gt;20.09152&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_right&#34;&gt;2&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_right&#34;&gt;172&lt;/td&gt;
+&lt;td class=&#34;gt_row gt_right&#34;&gt;231&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  
+  
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The most difficult part was towards the end when we were working with long data and were graphing it. Are there other examples of geomtile?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Towards the end when going over some of the ggplot section.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I do have another couple examples of geom_tile() in part6, but at the end so I’m not confident we will get to it. But we will go over &lt;code&gt;ggplot&lt;/code&gt; with long data a &lt;em&gt;lot&lt;/em&gt; in part6 (class 7) so I hope that will help.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;geom_tile&lt;/code&gt; works best on summarized data, showing for instance the mean of a numeric value within groups:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguin_means &amp;lt;- penguins %&amp;gt;%
+  group_by(species, island) %&amp;gt;%
+  summarize(mb = mean(bill_length_mm, na.rm = TRUE))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `summarise()` has grouped output by &amp;#39;species&amp;#39;. You can override using the
+## `.groups` argument.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguin_means&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 5 × 3
+## # Groups:   species [3]
+##   species   island       mb
+##   &amp;lt;fct&amp;gt;     &amp;lt;fct&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1 Adelie    Biscoe     39.0
+## 2 Adelie    Dream      38.5
+## 3 Adelie    Torgersen  39.0
+## 4 Chinstrap Dream      48.8
+## 5 Gentoo    Biscoe     47.5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(penguin_means) + 
+  aes(x = island,
+      y = species,
+      fill = mb) + 
+  geom_tile()+
+  labs(fill = &amp;quot;Mean bill length (mm)&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2022.netlify.app/class/06-class_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clearest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Clearest Points&lt;/h1&gt;
+&lt;p&gt;Lots of &lt;code&gt;summarize()&lt;/code&gt;, &lt;code&gt;join&lt;/code&gt;, &lt;code&gt;pivot&lt;/code&gt;! Thanks, all!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-notes&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Other Notes&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The very best part of this class is the strange and useful tidbits that aren’t even on the syllabus!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Well that’s good to know! I’ll try to go on more tangents =)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I’m interested in doing more with summary tables&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yes, this is useful. It was my plan to get to this when we talk about statistical modeling and summary tables of cohorts/data. I hope we get there, we will do this after we talk about lists/purrr.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I think I’m getting a little turned around as functions are added, used in concert and combined with tips for advanced users. A main, base take-away for primary functions etc. would help me integrate new concepts to previous ones.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Good feedback, thank you! I try to do this with more. I’m hoping part6 will give everyone a chance to practice with what we’ve learned so far, to solidify these concepts before we move on to the next section of lists, functions, and &lt;code&gt;purrr&lt;/code&gt; topics.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 7 (Class 8): Lists/Functions/Intro to Purrr</title>
+      <link>https://sph-r-programming-2022.netlify.app/class/08-class/</link>
+      <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/class/08-class/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-pointsclearest-points&#34;&gt;Muddiest Points/Clearest Points&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Project files&lt;/h2&gt;
+&lt;p&gt;Before each class, I will update &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this folder link&lt;/a&gt; with the appropriate “part” folder. Please download this sub-folder for class materials. Be sure to unzip if necessary.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;p&gt;The video will be uploaded after class.&lt;/p&gt;
+&lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming.netlify.app/class/08-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/yCPcijCj15c&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt; --&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;To be posted.&lt;/p&gt;
+&lt;!-- Open the class introduction slides in a separate window: &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2022.netlify.app/01-introduction_slides#1&lt;/a&gt; --&gt;
+&lt;!-- ```{r echo=FALSE} --&gt;
+&lt;!-- knitr::include_url(&#39;https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1&#39;) --&gt;
+&lt;!-- ``` --&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Post-Class&lt;/h3&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://forms.gle/4tVx1mL7SzQx7MCu5&#34; class=&#34;uri&#34;&gt;https://forms.gle/4tVx1mL7SzQx7MCu5&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-pointsclearest-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Muddiest Points/Clearest Points&lt;/h2&gt;
+&lt;p&gt;I will add the muddiest/clearest points from the survey after the first class.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 6 (Class 7): More data wrangling and ggplot</title>
+      <link>https://sph-r-programming-2022.netlify.app/class/07-class/</link>
+      <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/class/07-class/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-pointsclearest-points&#34;&gt;Muddiest Points/Clearest Points&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Project files&lt;/h2&gt;
+&lt;p&gt;Last class we finished up part5 materials. This is class 7, and we will start with part6 now (sorry, we’re going to be off by one from now on). Please download the part6 sub-folder from &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this dropbox link&lt;/a&gt;. Be sure to unzip if necessary. Knit the &lt;code&gt;part6.Rmd&lt;/code&gt; to install any required packages.&lt;/p&gt;
+&lt;p&gt;This section is mainly a practice, with some additional ggplot lessons. There will be lots of time for breakout room challenges so that you can get practice working on these data wrangling and graphing problems together.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;p&gt;The video will be uploaded after class.&lt;/p&gt;
+&lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming.netlify.app/class/07-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/yCPcijCj15c&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt; --&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;No slides this class. Come ready to interact in breakout sessions!&lt;/p&gt;
+&lt;!-- Open the class introduction slides in a separate window: &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2022.netlify.app/01-introduction_slides#1&lt;/a&gt; --&gt;
+&lt;!-- ```{r echo=FALSE} --&gt;
+&lt;!-- knitr::include_url(&#39;https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1&#39;) --&gt;
+&lt;!-- ``` --&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Post-Class&lt;/h3&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://forms.gle/4tVx1mL7SzQx7MCu5&#34; class=&#34;uri&#34;&gt;https://forms.gle/4tVx1mL7SzQx7MCu5&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-pointsclearest-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Muddiest Points/Clearest Points&lt;/h2&gt;
+&lt;p&gt;I will add the muddiest/clearest points from the survey after the first class.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 8 (Class 9). Intro to stats/`broom`/More Purrr</title>
+      <link>https://sph-r-programming-2022.netlify.app/class/09-class/</link>
+      <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/class/09-class/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-pointsclearest-points&#34;&gt;Muddiest Points/Clearest Points&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Project files&lt;/h2&gt;
+&lt;p&gt;Before each class, I will update &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this folder link&lt;/a&gt; with the appropriate “part” folder. Please download this sub-folder for class materials. Be sure to unzip if necessary.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;p&gt;The video will be uploaded after class.&lt;/p&gt;
+&lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming.netlify.app/class/09-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/yCPcijCj15c&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt; --&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;To be posted.&lt;/p&gt;
+&lt;!-- Open the class introduction slides in a separate window: &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2022.netlify.app/01-introduction_slides#1&lt;/a&gt; --&gt;
+&lt;!-- ```{r echo=FALSE} --&gt;
+&lt;!-- knitr::include_url(&#39;https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1&#39;) --&gt;
+&lt;!-- ``` --&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Post-Class&lt;/h3&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://forms.gle/4tVx1mL7SzQx7MCu5&#34; class=&#34;uri&#34;&gt;https://forms.gle/4tVx1mL7SzQx7MCu5&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-pointsclearest-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Muddiest Points/Clearest Points&lt;/h2&gt;
+&lt;p&gt;I will add the muddiest/clearest points from the survey after the first class.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Part 9 (Class 10): More Stats Stuff/Summary Tables</title>
+      <link>https://sph-r-programming-2022.netlify.app/class/10-class/</link>
+      <pubDate>Wed, 09 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/class/10-class/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-pointsclearest-points&#34;&gt;Muddiest Points/Clearest Points&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Project files&lt;/h2&gt;
+&lt;p&gt;Before each class, I will update &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this folder link&lt;/a&gt; with the appropriate “part” folder. Please download this sub-folder for class materials. Be sure to unzip if necessary.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;p&gt;The video will be uploaded after class.&lt;/p&gt;
+&lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming.netlify.app/class/10-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/yCPcijCj15c&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt; --&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;To be posted.&lt;/p&gt;
+&lt;!-- Open the class introduction slides in a separate window: &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2022.netlify.app/01-introduction_slides#1&lt;/a&gt; --&gt;
+&lt;!-- ```{r echo=FALSE} --&gt;
+&lt;!-- knitr::include_url(&#39;https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1&#39;) --&gt;
+&lt;!-- ``` --&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Post-Class&lt;/h3&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://forms.gle/4tVx1mL7SzQx7MCu5&#34; class=&#34;uri&#34;&gt;https://forms.gle/4tVx1mL7SzQx7MCu5&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-pointsclearest-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Muddiest Points/Clearest Points&lt;/h2&gt;
+&lt;p&gt;I will add the muddiest/clearest points from the survey after the first class.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Class 11: TBD</title>
+      <link>https://sph-r-programming-2022.netlify.app/class/11-class/</link>
+      <pubDate>Wed, 16 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/class/11-class/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-pointsclearest-points&#34;&gt;Muddiest Points/Clearest Points&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Project files&lt;/h2&gt;
+&lt;p&gt;Before each class, I will update &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this folder link&lt;/a&gt; with the appropriate “part” folder. Please download this sub-folder for class materials. Be sure to unzip if necessary.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;p&gt;The video will be uploaded after class.&lt;/p&gt;
+&lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming.netlify.app/class/11-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/yCPcijCj15c&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt; --&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;To be posted.&lt;/p&gt;
+&lt;!-- Open the class introduction slides in a separate window: &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2022.netlify.app/01-introduction_slides#1&lt;/a&gt; --&gt;
+&lt;!-- ```{r echo=FALSE} --&gt;
+&lt;!-- knitr::include_url(&#39;https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1&#39;) --&gt;
+&lt;!-- ``` --&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Post-Class&lt;/h3&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://forms.gle/4tVx1mL7SzQx7MCu5&#34; class=&#34;uri&#34;&gt;https://forms.gle/4tVx1mL7SzQx7MCu5&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-pointsclearest-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Muddiest Points/Clearest Points&lt;/h2&gt;
+&lt;p&gt;I will add the muddiest/clearest points from the survey after the first class.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>tmp</title>
+      <link>https://sph-r-programming-2022.netlify.app/class/00-class-template/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://sph-r-programming-2022.netlify.app/class/00-class-template/</guid>
+      <description>
+&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Project files&lt;/h2&gt;
+&lt;p&gt;Before each class, I will load an R project on github, and provide the download link here. Unzip this folder and open in Rstudio by double clicking on the .Rproj file. This folder will have the files for this part and the assignment.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;p&gt;The video will be uploaded after class.&lt;/p&gt;
+&lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming.netlify.app/class/01-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/yCPcijCj15c&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt; --&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;To be posted.&lt;/p&gt;
+&lt;!-- Open the class introduction slides in a separate window: &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2022.netlify.app/01-introduction_slides#1&lt;/a&gt; --&gt;
+&lt;!-- ```{r echo=FALSE} --&gt;
+&lt;!-- knitr::include_url(&#39;https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1&#39;) --&gt;
+&lt;!-- ``` --&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Post-Class&lt;/h3&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://forms.gle/4tVx1mL7SzQx7MCu5&#34; class=&#34;uri&#34;&gt;https://forms.gle/4tVx1mL7SzQx7MCu5&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-pointsclearest-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Muddiest Points/Clearest Points&lt;/h2&gt;
+&lt;p&gt;I will add the muddiest/clearest points from the survey after the first class.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

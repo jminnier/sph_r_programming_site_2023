@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en-us" 
+      xmlns:og="http://ogp.me/ns#" 
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.7.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Ted Laderas">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Lindsay Brown In this document, I will introduce the geom_tile() function and show what it is for.
+#load libraries library(ggplot2) ## Warning: package &#39;ggplot2&#39; was built under R version 4.0.3 library(tidyverse) ## Warning: package &#39;tidyverse&#39; was built under R version 4.0.3 ## -- Attaching packages --------------------------------------- tidyverse 1.3.0 -- ## v tibble 3.0.6 v dplyr 1.0.4 ## v tidyr 1.1.2 v stringr 1.4.0 ## v readr 1.4.0 v forcats 0.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://sph-r-programming-2022.netlify.app/functions_2021/geomtile_brownl/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#000066">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,400i,700,700i%7COverpass:400,400i,700,700i&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://sph-r-programming-2022.netlify.app/functions_2021/geomtile_brownl/">
+
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@datapointier">
+  <meta property="twitter:creator" content="@datapointier">
+  
+  <meta property="og:site_name" content="R Programming">
+  <meta property="og:url" content="https://sph-r-programming-2022.netlify.app/functions_2021/geomtile_brownl/">
+  <meta property="og:title" content="ggplot2::geom_tile() | R Programming">
+  <meta property="og:description" content="Lindsay Brown In this document, I will introduce the geom_tile() function and show what it is for.
+#load libraries library(ggplot2) ## Warning: package &#39;ggplot2&#39; was built under R version 4.0.3 library(tidyverse) ## Warning: package &#39;tidyverse&#39; was built under R version 4.0.3 ## -- Attaching packages --------------------------------------- tidyverse 1.3.0 -- ## v tibble 3.0.6 v dplyr 1.0.4 ## v tidyr 1.1.2 v stringr 1.4.0 ## v readr 1.4.0 v forcats 0."><meta property="og:image" content="https://sph-r-programming-2022.netlify.app/img/social-image.png">
+  <meta property="twitter:image" content="https://sph-r-programming-2022.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
+  
+    
+    <meta property="article:modified_time" content="2021-12-22T15:56:01-08:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  <link rel="shortcut icon" href="https://sph-r-programming-2022.netlify.app/favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="https://sph-r-programming-2022.netlify.app/img/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="https://sph-r-programming-2022.netlify.app/img/favicon-16x16.png" sizes="16x16" />
+  <meta name="application-name" content="BSTA 504: R Programming" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="https://sph-r-programming-2022.netlify.app/img/mstile-144x144.png" />
+
+
+  <title>ggplot2::geom_tile() | R Programming</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70"
+    data-target="#TableOfContents"
+    >
+
+    <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+    
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">R Programming</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">R Programming</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/syllabus/"><span>Syllabus</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/schedule/"><span>Schedule</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/reading/"><span>Readings</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/class/"><span>Classes</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/functions/"><span>Functions</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+    
+
+<div class="container-fluid docs">
+    <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+            
+
+
+
+
+
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/count_ngarimella/">dplyr::count()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/functionoftheweek_bradbury_crossing/">dplyr::crossing()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/slice/">dplyr::slice</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/presentation_slicemax_hopkins_v2/">dplyr::slice_max()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/presentation_selliott/">fct::fct_infreq()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/geom_density_winders/">ggplot2::geom_density()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/presentation_siadat/">ggplot2::geom_jitter()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/fxns-geom_smooth-kramarz/">ggplot2::geom_smooth()</a>
+
+  </div>
+  
+  <div class="docs-toc-item active">
+    <a class="docs-toc-link" href="/functions_2021/geomtile_brownl/">ggplot2::geom_tile()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/functions-presentation-rogash/">forcats::fct_relevel</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/marty_arigotti_floor-date/">lubridate::floor_date()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/function_presentation_langford/">purrr::pluck()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/presentation_hawkinson/">purrr::walk()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/patchwork_kempton/">{patchwork} package</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/str_detect_little/">stringr::str_detect()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/breakspretty/">scales::breaks_pretty()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/str_wrap-callis-fixed/">stringr::str_wrap()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/presentation_olyaei/">tidyr::drop_na()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/fill_function_tran/">tidyr::fill()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/function_farzana/">tidyr::separate_rows()</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/functions_2021/unite_brunton/">tidyr::unite()</a>
+
+  </div>
+  
+  
+</nav>
+
+        </div>
+
+        
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+            <article class="article">
+
+                <div class="docs-article-container">
+                    <h1>ggplot2::geom_tile()</h1>
+
+                    
+
+                    
+
+                    
+
+                    <div class="article-style">
+                        
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="lindsay-brown" class="section level2">
+<h2>Lindsay Brown</h2>
+<p>In this document, I will introduce the <code>geom_tile()</code> function and show what it is for.</p>
+<pre class="r"><code>#load libraries 
+library(ggplot2)</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.0.3</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v tibble  3.0.6     v dplyr   1.0.4
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.1
+## v purrr   0.3.4</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Warning: package &#39;forcats&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<p>I used the dataset "Food Consumption and CO2 emissions from the Tidy Tuesday website year 2020. This dataset is rather large, so first we had to create a smaller subset of data for the plot.</p>
+<pre class="r"><code>#example dataset found from TidyTuesday page. 
+
+food_consumption &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-18/food_consumption.csv&#39;)</code></pre>
+<pre><code>## 
+## -- Column specification --------------------------------------------------------
+## cols(
+##   country = col_character(),
+##   food_category = col_character(),
+##   consumption = col_double(),
+##   co2_emmission = col_double()
+## )</code></pre>
+<pre class="r"><code>food_consumption %&gt;% pull(country) %&gt;% unique()</code></pre>
+<pre><code>##   [1] &quot;Argentina&quot;              &quot;Australia&quot;              &quot;Albania&quot;               
+##   [4] &quot;Iceland&quot;                &quot;New Zealand&quot;            &quot;USA&quot;                   
+##   [7] &quot;Uruguay&quot;                &quot;Luxembourg&quot;             &quot;Brazil&quot;                
+##  [10] &quot;Kazakhstan&quot;             &quot;Sweden&quot;                 &quot;Bermuda&quot;               
+##  [13] &quot;Denmark&quot;                &quot;Finland&quot;                &quot;Ireland&quot;               
+##  [16] &quot;Greece&quot;                 &quot;France&quot;                 &quot;Canada&quot;                
+##  [19] &quot;Norway&quot;                 &quot;Hong Kong SAR. China&quot;   &quot;French Polynesia&quot;      
+##  [22] &quot;Israel&quot;                 &quot;Switzerland&quot;            &quot;Netherlands&quot;           
+##  [25] &quot;Kuwait&quot;                 &quot;United Kingdom&quot;         &quot;Austria&quot;               
+##  [28] &quot;Oman&quot;                   &quot;Italy&quot;                  &quot;Bahamas&quot;               
+##  [31] &quot;Portugal&quot;               &quot;Malta&quot;                  &quot;Armenia&quot;               
+##  [34] &quot;Slovenia&quot;               &quot;Chile&quot;                  &quot;Venezuela&quot;             
+##  [37] &quot;Belgium&quot;                &quot;Germany&quot;                &quot;Russia&quot;                
+##  [40] &quot;Croatia&quot;                &quot;Belarus&quot;                &quot;Spain&quot;                 
+##  [43] &quot;Paraguay&quot;               &quot;New Caledonia&quot;          &quot;South Africa&quot;          
+##  [46] &quot;Barbados&quot;               &quot;Lithuania&quot;              &quot;Turkey&quot;                
+##  [49] &quot;Estonia&quot;                &quot;Mexico&quot;                 &quot;Costa Rica&quot;            
+##  [52] &quot;Bolivia&quot;                &quot;Ecuador&quot;                &quot;Panama&quot;                
+##  [55] &quot;Czech Republic&quot;         &quot;Romania&quot;                &quot;Colombia&quot;              
+##  [58] &quot;Maldives&quot;               &quot;Cyprus&quot;                 &quot;Serbia&quot;                
+##  [61] &quot;United Arab Emirates&quot;   &quot;Algeria&quot;                &quot;Ukraine&quot;               
+##  [64] &quot;Pakistan&quot;               &quot;Swaziland&quot;              &quot;Latvia&quot;                
+##  [67] &quot;Bosnia and Herzegovina&quot; &quot;Fiji&quot;                   &quot;South Korea&quot;           
+##  [70] &quot;Poland&quot;                 &quot;Saudi Arabia&quot;           &quot;Botswana&quot;              
+##  [73] &quot;Macedonia&quot;              &quot;Hungary&quot;                &quot;Trinidad and Tobago&quot;   
+##  [76] &quot;Tunisia&quot;                &quot;Egypt&quot;                  &quot;Mauritius&quot;             
+##  [79] &quot;Bulgaria&quot;               &quot;Morocco&quot;                &quot;Slovakia&quot;              
+##  [82] &quot;Niger&quot;                  &quot;Kenya&quot;                  &quot;Jordan&quot;                
+##  [85] &quot;Japan&quot;                  &quot;Georgia&quot;                &quot;Grenada&quot;               
+##  [88] &quot;El Salvador&quot;            &quot;Cuba&quot;                   &quot;China&quot;                 
+##  [91] &quot;Honduras&quot;               &quot;Taiwan. ROC&quot;            &quot;Angola&quot;                
+##  [94] &quot;Jamaica&quot;                &quot;Namibia&quot;                &quot;Belize&quot;                
+##  [97] &quot;Malaysia&quot;               &quot;Zimbabwe&quot;               &quot;Guatemala&quot;             
+## [100] &quot;Uganda&quot;                 &quot;Nepal&quot;                  &quot;Iran&quot;                  
+## [103] &quot;Tanzania&quot;               &quot;Senegal&quot;                &quot;Peru&quot;                  
+## [106] &quot;Nicaragua&quot;              &quot;Vietnam&quot;                &quot;Ethiopia&quot;              
+## [109] &quot;Myanmar&quot;                &quot;Congo&quot;                  &quot;Zambia&quot;                
+## [112] &quot;Cameroon&quot;               &quot;Madagascar&quot;             &quot;Malawi&quot;                
+## [115] &quot;Guinea&quot;                 &quot;Nigeria&quot;                &quot;Rwanda&quot;                
+## [118] &quot;Philippines&quot;            &quot;Ghana&quot;                  &quot;Togo&quot;                  
+## [121] &quot;Gambia&quot;                 &quot;India&quot;                  &quot;Thailand&quot;              
+## [124] &quot;Mozambique&quot;             &quot;Cambodia&quot;               &quot;Sierra Leone&quot;          
+## [127] &quot;Sri Lanka&quot;              &quot;Indonesia&quot;              &quot;Liberia&quot;               
+## [130] &quot;Bangladesh&quot;</code></pre>
+<pre class="r"><code>glimpse (food_consumption)</code></pre>
+<pre><code>## Rows: 1,430
+## Columns: 4
+## $ country       &lt;chr&gt; &quot;Argentina&quot;, &quot;Argentina&quot;, &quot;Argentina&quot;, &quot;Argentina&quot;, &quot;...
+## $ food_category &lt;chr&gt; &quot;Pork&quot;, &quot;Poultry&quot;, &quot;Beef&quot;, &quot;Lamb &amp; Goat&quot;, &quot;Fish&quot;, &quot;Eg...
+## $ consumption   &lt;dbl&gt; 10.51, 38.66, 55.48, 1.56, 4.36, 11.39, 195.08, 103.1...
+## $ co2_emmission &lt;dbl&gt; 37.20, 41.53, 1712.00, 54.63, 6.96, 10.46, 277.87, 19...</code></pre>
+<pre class="r"><code>subset_countries &lt;- c(&quot;Argentina&quot;, &quot;Kazakhstan&quot;, &quot;Sweden&quot;, &quot;Ireland&quot;, &quot;Venezuela&quot;, &quot;Egypt&quot;, &quot;Indonesia&quot;)
+
+food_consumption &lt;- food_consumption %&gt;%
+  filter(country %in% subset_countries)</code></pre>
+</div>
+<div id="what-is-it-for" class="section level3">
+<h3>What is it for?</h3>
+<p><code>geom_tile</code> is part of the <code>ggplot2</code> package that can create heatmaps, a way of looking at 3 dimensional data in 2 dimensions.</p>
+<p>for this heatmap we are going to look at the smaller subset of data created above. our axis will be as follows:</p>
+<p><em>x = country</em><br />
+<em>y = food_category</em><br />
+<em>z (“fill”) = consumption</em></p>
+<p>in <code>geom_tile</code> the argument <code>show.legend</code> defaults <code>NA</code> to show a legend if aesthetics such as (x = __ y = __ ) are mapped, however you can set this to <code>FALSE</code> if you do not want a legend, or <code>TRUE</code> if you always want a legend.</p>
+<pre class="r"><code>ggplot(food_consumption) +
+  aes(x=country, y=food_category, fill=consumption) +
+  geom_tile() +
+  labs(title=&quot;consumption of food by category and country&quot;) +
+  xlab(&quot;Country&quot;) +
+  ylab(&quot;Food Category&quot;)</code></pre>
+<p><img src="/functions/GeomTile_BrownL_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="color" class="section level3">
+<h3>Color</h3>
+<p>You can use <code>scale_fill_gradient</code> arguments (low = ____ high=____) to customize your color scheme. The default for <code>geom_tile()</code> is the blue that we saw above.</p>
+<pre class="r"><code>ggplot(food_consumption) +
+  aes(x=country, y=food_category, fill=consumption) +
+  geom_tile() +
+  scale_fill_gradient(
+                      low = &quot;#005e49&quot;,
+                      high = &quot;#91ffe6&quot;) +
+  labs(title=&quot;consumption of food by category and country&quot;) +
+  xlab(&quot;Country&quot;) +
+  ylab(&quot;Food Category&quot;)</code></pre>
+<p><img src="/functions/GeomTile_BrownL_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="is-it-helpful" class="section level3">
+<h3>Is It Helpful??</h3>
+<p>Yes! for the right type of data, this is a helpful visual representation, and is well suited for looking at possible patterns within the data. For example we can see that the category “Milk -inc. cheese” is a highly consumed category for most of our countries represented.</p>
+</div>
+</div>
+
+                    </div>
+
+                    
+
+
+
+                    
+                </div>
+
+                <div class="body-footer">
+                    <p>Last updated on December 22, 2021</p>
+
+                    
+
+
+
+
+
+  
+  
+
+<p class="edit-page">
+  <a href="https://github.com/jminnier/sph_r_programming_site/edit/master/content/functions_2021/GeomTile_BrownL.html">
+    <i class="fas fa-pen pr-2"></i>Edit this page
+  </a>
+</p>
+
+
+
+
+                    
+
+                </div>
+
+            </article>
+
+            <footer>
+    <hr>
+
+    <div class="row course-info">
+        <div class="col-md-7">
+            <p>
+                <strong>BSTA 504: R Programming (Winter 2022)</strong><br>
+
+                <a href="https://www.ohsu.edu" target="_blank" rel="noopener">Oregon Health &amp; Science University / Portland State University</a> &emsp;&emsp;
+                <a href="https://ohsu-psu-sph.org/" target="_blank" rel="noopener">OHSU/PSU School of Public Health</a>
+            </p>
+
+            <p>
+                <a href="http://jessicaminnier.com" target="_blank" rel="noopener"><i class="fas fa-user"></i>
+                    Dr. Jessica Minnier</a> &emsp;&emsp;
+                <a href="mailto:minnier@ohsu.edu"><i class="fas fa-envelope"></i>
+                    minnier@ohsu.edu</a>
+            </p>
+
+            <p>
+                <i class="far fa-calendar-alt"></i> Wednesdays &emsp;&emsp;
+                <i class="far fa-clock"></i> 3:15–6:05 PM <br>
+                <i class="fas fa-university"></i> Online
+            </p>
+        </div>
+
+        <div class="col-md-5 credits">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+            
+            <p>Content <i class="fab fa-creative-commons"></i> 2022 <a href="http://jessicaminnier.com" target="_blank" rel="noopener">ted &amp; jessica</a></p>
+        
+            <p>This site created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> adapted by <a href="https://github.com/laderast/sph_r_programming_site" target="_blank" rel="noopener">Ted Laderas</a> and <a href="https://github.com/andrewheiss/evalsp20.classes.andrewheiss.com" target="_blank" rel="noopener">Andrew Heiss</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
+            
+            <p><a href="https://github.com/jminnier/sph_r_programming_site" target="_blank" rel="noopener"><i class="fab fa-github"></i> View the source at GitHub.</a></p>
+        </div>
+    </div>
+</footer>
+
+
+        </main>
+    </div>
+</div>
+
+        
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academic.min.a1c3596268a997890f5b9089b30365c6.js"></script>
+
+    
+
+
+
+
+
+
+    
+    
+
+    
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

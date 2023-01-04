@@ -1,0 +1,105 @@
+---
+title: "Part 6 (Class 7): More data wrangling and ggplot"
+linktitle: "Part 6 (Class 7): More data wrangling and ggplot"
+date: "2022-02-16"
+class_date: "2022-02-16"
+output:
+  blogdown::html_page:
+    toc: true
+menu:
+  class:
+    parent: Class sessions
+    weight: 7
+type: docs
+weight: 7
+# pdf: 
+# thumb: 
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+## R Project files
+
+Last class we finished up part5 materials. This is class 7, and we will start with part6 now (sorry, we're going to be off by one from now on). Please download the part6 sub-folder from [this dropbox link](https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0). Be sure to unzip if necessary. Knit the `part6.Rmd` to install any required packages.
+
+This section is mainly a practice, with some additional ggplot lessons. There will be lots of time for breakout room challenges so that you can get practice working on these data wrangling and graphing problems together.
+
+
+## Class 7 Video
+
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/j-eoXIEGQQg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+View last year's class and materials [here](https://sph-r-programming.netlify.app/class/07-class/).
+
+## Slides
+
+No slides this class. Come ready to interact in breakout sessions!
+
+<!-- Open the class introduction slides in a separate window: <a href="https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1" target="_blank">https://sph-r-programming-2022.netlify.app/01-introduction_slides#1</a> -->
+
+<!-- ```{r echo=FALSE} -->
+<!-- knitr::include_url('https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1') -->
+<!-- ``` -->
+
+### Post-Class
+
+Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.
+
+- Clearest Point: What was the most clear part of the lecture?
+- Muddiest Point: What was the most unclear part of the lecture to you?
+- Anything Else: Is there something you'd like me to know?
+
+<https://forms.gle/4tVx1mL7SzQx7MCu5>
+
+
+## Muddiest Points and Messages
+
+There seemed to be an equal split between people saying that pivoting, data cleaning, and ggplots are muddy and people saying they are clear! Well, I expected it all to be muddy so I'm glad at least some people are feeling ok about these things.
+
+For those of you who are still feeling muddy about pivots, data cleaning examples, and ggplot, know that these things take practice. We just don't have enough time to spend as much time on them as I would like. I tried to make the homework give you practice with pivoting and ggplot a bit. I will also keep trying to go through examples when I can fit it in. We will leave these topics mostly behind the next couple classes as we tackle functions and iteration over lists and data, but when we talk about statistical modeling I will bring in more about pivoting data before data analysis. I will use ggplot examples when I can as well.
+
+> use of ".x"
+
+Another item that was both muddy and clear. I hope this will make more sense when we talk about functions this week!
+
+> I tried to duplicate the merging of the mouse data sets by first using pivot_longer on the 3 time point data sets, but I struggled.
+
+Do you mean you were trying to pivot each of the time point data sets first, and then `bind_rows()` them together? This should work, though because you have different numbers of biomarker columns depending on which time point data you are working with, this will take some extra consideration and double checking. It's probably a bit easier to get things jumbled up this way. That's one reason why I pivoted after binding them, so I would only have to pivot once. If you pivoted the exact same way, like this for example, it should work to bind them together:
+
+```{r eval=FALSE}
+
+mouse_tp1 <- mouse_tp1 %>%
+  pivot_longer(cols = starts_with("normalized"),
+              names_to = "biomarker_type",
+              values_to = "biomarker_value")
+mouse_tp2 <- mouse_tp2 %>%
+  pivot_longer(cols = starts_with("normalized"),
+              names_to = "biomarker_type",
+              values_to = "biomarker_value")
+mouse_tp3 <- mouse_tp3 %>%
+  pivot_longer(cols = starts_with("normalized"),
+              names_to = "biomarker_type",
+              values_to = "biomarker_value")
+
+colnames(mouse_tp2) <- str_replace(colnames(mouse_tp2), "_ng", "_pg")
+
+mouse_tp <- bind_rows("tp1" = mouse_tp1, 
+                      "tp2" = mouse_tp2,
+                      "tp3" = mouse_tp3,
+                      .id = "time")
+```
+
+
+
+> For new tools such as fct_reorder, please provide a written explanation--this helps when reviewing the lecture materials later on.
+
+Thanks I will try to add more comments!
+
+> Could we know the requirements about the final project this week?
+
+I'm still thinking about this, so not this week but I will try for next week!

@@ -1,0 +1,36 @@
+---
+title: "Part 8 (Class 9). Intro to stats/broom/More Purrr"
+linktitle: "Part 8 (Class 9). Intro to stats/broom/More Purrr"
+date: "2020-03-03"
+menu:
+  reading:
+    parent: Readings
+    weight: 9
+type: docs
+---
+
+## Required
+
+- [Introduction to map()](https://jennybc.github.io/purrr-tutorial/ls01_map-name-position-shortcuts.html) - Jenny Bryan
+- [Purrr Tips and Tricks](https://www.emilhvitfeldt.com/post/2018-01-08-purrr-tips-and-tricks/) by Emil Hvitfeldt.
+
+
+## Suggested
+
+- More on using map and nested data with modeling: [R for Data Science: Many Models](https://r4ds.had.co.nz/many-models.html)
+- [broom and dplyr](https://broom.tidymodels.org/articles/broom_and_dplyr.html)
+- [Joy of Functional programming talk by Hadley Wickham](https://learning.acm.org/techtalks/functionalprogramming) - more on nesting/iteration
+
+For learning more about statistics with R:
+
+- Modern Dive / Statistical Inference via Data Science by Chester Ismay and Albert Y Kim is a nice place to start: <https://moderndive.com/>
+- Danielle Navarro's Learning Statistics with R is excellent and talks much more about statistics: <https://learningstatisticswithr.com/>
+- [Model Basics](https://r4ds.had.co.nz/model-basics.html) from R for Data Science
+- More on survival analysis in R
+  * [Survival Analysis in R Tutorial by Dr. Emily C Zabor](https://www.emilyzabor.com/tutorials/survival_analysis_in_r_tutorial.html)
+  * [Survminer survival plot vignette](https://cran.r-project.org/web/packages/survminer/vignettes/Informative_Survival_Plots.html)
+  * [UVA's Survival Workshop materials](https://bioconnector.github.io/workshops/r-survival.html)
+  * [Rview's Survival Analysis](https://rviews.rstudio.com/2017/09/25/survival-analysis-with-r/)
+
+
+

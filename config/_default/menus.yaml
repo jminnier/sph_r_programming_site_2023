@@ -1,0 +1,27 @@
+main:
+  - name: Syllabus
+    url: /syllabus/
+    weight: 1
+  - name: Schedule
+    url: /schedule/
+    weight: 2
+  - name: Readings
+    url: /reading/
+    weight: 3
+  - name: Classes
+    url: /class/
+    weight: 4
+  - name: Functions
+    url: /functions/
+    weight: 5
+  - name: Midterm Projects
+    url: https://sph-r-programming-2022-midterms.netlify.app/
+    weight: 6
+  - name: Course Reviews
+    url: /reviews/
+    weight: 7
+#assignment:
+#  - name: Assignments
+#    weight: 1
+#  - name: Problem sets
+#    weight: 2

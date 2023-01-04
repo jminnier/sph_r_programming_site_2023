@@ -1,0 +1,127 @@
+---
+title: "Part 9 (Class 10): More Stats Stuff/Summary Tables"
+linktitle: "Part 9 (Class 10): More Stats Stuff/Summary Tables"
+date: "2022-03-09"
+class_date: "2022-03-09"
+output:
+  blogdown::html_page:
+    toc: true
+menu:
+  class:
+    parent: Class sessions
+    weight: 10
+type: docs
+weight: 10
+# pdf: 
+# thumb: 
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+## R Project files
+
+Please download the part9 sub-folder from [this dropbox link](https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0). Be sure to unzip if necessary. Knit the `part9.Rmd` to install any required packages.
+
+## Class Video
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2d-oAKAkkfI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+View last year's class and materials [here](https://sph-r-programming.netlify.app/class/10-class/).
+
+
+
+
+### Post-Class
+
+Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.
+
+- Clearest Point: What was the most clear part of the lecture?
+- Muddiest Point: What was the most unclear part of the lecture to you?
+- Anything Else: Is there something you'd like me to know?
+
+<https://forms.gle/4tVx1mL7SzQx7MCu5>
+
+
+## Muddiest Points
+
+### ANOVA
+
+> I'm still a bit confused on anova() versus aov()
+
+When looking at both `Anova` and `aov` functions, my point was that they do the same thing, but `cars::Anova()` lets you choose which type of sums of squares are used, and therefore impacts the interpretation of the p-values for each factor. In one factor anova it does not matter, but once you start adding in multiple factors or interaction terms, this makes a big difference. The answer in this [stackexchange](https://stats.stackexchange.com/questions/20452/how-to-interpret-type-i-type-ii-and-type-iii-anova-and-manova) question actually explains it pretty well:.
+
+I wanted to show `aov()` because I believe that's what some biostats courses tend to use. I tend to use `cars::Anova()` because it lets me pick type III SS if I want it. Also [this post](https://towardsdatascience.com/anovas-three-types-of-estimating-sums-of-squares-don-t-make-the-wrong-choice-91107c77a27a) is pretty useful too. But what you really want is OHSU's BSTA 523 Experimental Design class taught by Dr. Byung Park next spring =)
+
+### ROC Curves
+
+This is a topic that is not easily explained in less than 3 hours, much less 10 minutes! To truly grasp ROC curves and prediction accuracy, you should learn about prediction modeling and classification. I would definitely recommend reading “The Statistical Evaluation of Medical Tests for Classification and Prediction” textbook by Margaret Pepe if you’re interested in learning more about prediction in general.
+
+I did find this (pretty corny) video that explains ROC curves with logistic regression pretty well in 17 minutes.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4jRBRDbJemM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Someone asked about selecting a cutoff value for a prediction/classification rule based on an ROC curve. There are many many ways to think about this, but I do think a common approach is to select a target sensitivity or specificity that the study team is comfortable with, and use that point on the curve.
+
+For instance, a long time ago I worked on classification rules based on electronic medical records data to classify someone based on hand written/typed notes whether they had a certain psychological phenotype, and we wanted to make sure that we identified a cohort of people who were very likely to have that phenotype so that we could invite them to join a future genetic study of that phenotype. For that reason we placed high value on correctly removing non-cases from our “predicted positives/cases” and therefore required a specificity of 95% and chose the cut off that way. 
+
+One of those studies is [here](https://ajp.psychiatryonline.org/doi/full/10.1176/appi.ajp.2014.14030423) 
+
+> “For the algorithm using natural language processing, performance of the logistic regression model was assessed by using receiver operating curve (ROC) analysis for models in which specificity was set at the desired threshold of 95%. The overall performance of this algorithm, referred to as 95-NLP, was summarized by using the area under the ROC curve (AUC). Performance of the case and control classification compared with the in-person validation study was assessed by using the PPV for the algorithm classification relative to the SCID classification.
+
+But there are other ways, such as optimizing both sensitivity and specificity which would give you the highest point off the diagonal. There are also many other ways to evaluate prediction accuracy (see again Pepe’s book, and others).
+
+### Rmd vs html
+
+> I would still like to talk a little more about differences between html output and rmd coding. Since I won't be sharing my code necessarily, I want to make sure that what I provide is viewed in the way I want it (if that makes sense).
+
+This really depends on what your output looks like. My one tip if you are sharing an Rmd is to *never print out regular R output*, and always format it in some way. This means:
+
+- Use nice html tables such as `gt()` or `kable()` for any kind of data frame/tibble output
+- Don't print out `summary(glm_fit)` or any kind of default R modeling output, but use tools like `tidy::broom()` with `gt()` to clean up a table, or make a plot from the results, or use built in summary tools like `gtsummary()` or `finalfit()`.
+- If you have large tables you hope to show, try using `DT::datatable()`.
+
+```{r}
+DT::datatable(mtcars)
+```
+
+I often hide the code using [code folding.](https://bookdown.org/yihui/rmarkdown/html-document.html#code-folding) so that my collaborators don't see the code automatically, but it is still in the document for reproducibility.
+
+I would also read up on all the R Markdown options and advanced uses in
+
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+- [Advanced R Markdown Workshop](https://arm.rbind.io/)
+
+### Machine Learning
+
+There was a request for resources to learn more about machine learning and more advanced statistical modeling. I so wish we had more time for this, because this is the truly fun part!
+
+In last year's version of this class, Dr. Ted Laderas covered `tidymodels` and some machine learning topics, so I highly recommend watching those videos in [class 9](https://sph-r-programming.netlify.app/class/09-class/) and [class 10](https://sph-r-programming.netlify.app/class/10-class/).
+
+There are more resources on the [class readings page](https://sph-r-programming-2022.netlify.app/reading/10-reading/), but good places to start are 
+
+- [R for Data Science](https://r4ds.had.co.nz/model-intro.html) chapters on modeling
+- [Tidy Modeling with R](https://www.tmwr.org/) book by Max Kuhn and Julia Silge.
+- Julia Silge's #TidyTuesday prediction screencasts for a quick overview of fitting models and evaluating them, for example [this one on chocolate ratings.](https://juliasilge.com/blog/chocolate-ratings/)
+- The learning materials on [tidymodels.org](https://www.tidymodels.org/learn/)
+- And here's a nice explanation of an unsupervised learning method [PCA](https://allisonhorst.github.io/palmerpenguins/articles/articles/pca.html) by Drs. Alison Horst, Allison Hill (formerly of OHSU, now at Rstudio), and Kristen Gorman.
+
+
+## Clearest Points
+
+Missing data, data summary with regression tables and table 1 packages, saving excel files, biostats tie in.
+
+I'm glad this rapid fire stats session wasn't too confusing for most!
+
+## Other
+
+Thank you so much for all the nice messages about how this class has been very useful. I hope this provides a foundation to go out and learn more R on your own. Once you get past the initial "steep learning curve" it's really not hard to get to a point where you are an R master!
+
+Thank you to our TA Colin for his careful and detailed feedback in grading!
+
+I know there's a risk of feedback fatigue with all these surveys but it has been so helpful to hear how the class is going for everyone and what worked and what didn't. OHSU/PSU SPH doesn't see these surveys, so I would also appreciate if you fill out the end of quarter official survey to let them know this class is useful and should be a permanent fixture on the schedule, or any other positive or negative feedback that you might have.
+
+
+

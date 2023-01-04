@@ -1,0 +1,22 @@
+---
+title: "Part 6. Lists and RMarkdown"
+linktitle: "Part 6. Lists and RMarkdown"
+date: "2020-02-10"
+menu:
+  reading:
+    parent: Readings
+    weight: 6
+type: docs
+---
+
+## Required
+
+- [Introduction to Functions and Arguments](https://hbctraining.github.io/Intro-to-R-flipped/lessons/03_introR-functions-and-arguments.html)
+- [Introduction to Lists](http://statseducation.com/Introduction-to-R/modules/getting%20data/lists/) - be sure to read this before class next week.
+- [Control your Factors Using Forcats](https://sciencificity-blog.netlify.app/posts/2021-01-30-control-your-factors-with-forcats/)
+
+## Suggested
+
+- More on joining data in [Relational data](https://r4ds.had.co.nz/relational-data.html) from *R for Data Science*, especially about [duplicate keys](https://r4ds.had.co.nz/relational-data.html#join-matches)
+- [Dates and times](https://r4ds.had.co.nz/dates-and-times.html) in *R for Data Science*
+
