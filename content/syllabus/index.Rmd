@@ -41,7 +41,7 @@ This course is meant to be a gentle introduction to data wrangling and visualiza
 
 All course information will be available here:
 
-https://sph-r-programming-2022.netlify.com/
+https://sph-r-programming-2023.netlify.com/
 
 Information will also be available on the Sakai website.
 
@@ -68,7 +68,7 @@ minnier@ohsu.edu
 
 ### Teaching Assistant
 
-Colin H.
+Brad H.
 
 ## Code of Conduct
 
@@ -85,15 +85,18 @@ If you are disruptive to class learning or disparaging to other students, I may 
 
 We will be drawing on the following online textbooks during class and labs. These books are online and free, though you can order them as textbooks if you prefer that format.
 
+**R for Data Science**. Garret Grolemund and Hadley Wickham. <https://r4ds.had.co.nz/>
+
 **Getting Used to R, RStudio, and RMarkdown**. Chester Ismay.
 <https://ismayc.github.io/rbasics-book/>
 
-**Introduction to Data Science**. Tiffany Timbers, Trevor Campbell, Melissa Lee. <https://ubc-dsci.github.io/introduction-to-datascience/>
+**Data Science: A First Introduction**. Tiffany Timbers, Trevor Campbell, Melissa Lee. <https://datasciencebook.ca/>
 
 **RMarkdown for Scientists**. Nick Tierney. <https://rmd4sci.njtierney.com/>
 
-**R for Data Science**. Garret Grolemund and Hadley Wickham. <https://r4ds.had.co.nz/>
+**Statistical Inference via Data Science: A ModernDive into R and the Tidyverse*. Chester Ismay and Albert Y. Kim. <https://moderndive.com/>
 
+**Advanced R**. Hadley Wickham. <https://adv-r.hadley.nz/>
 
 ## Words of Encouragement
 
@@ -126,22 +129,24 @@ Our goal is to be better programmers each day, not to be the perfect programmer.
 
 ## Attendance Requirements
 
-Online attendance is required. Please let me know in advance if you have to miss class, or if you have an emergency. 
+Please try to attend class, but I understand that sometimes it's easier or necessary to log in virtually or watch a recording. Attendance is part of the grade but I only require that you fill out 5 post-class surveys (out of 11) as a way of telling me that you watched the recordings or came to class and learned the available material for that week. However, if you fill out all 11 surveys, your attendance score will be 11/5 so you have some easy extra credit available there as well.
 
-Classes will be recorded, but please do not use this as an excuse to miss class. Again, those who are curious and ask questions will learn quite a bit. 
+Classes will be recorded, but I cannot guarantee the in person format will lend itself to effective recordings. Again, those who are curious and ask questions will learn quite a bit. You can go through all of last year's materials on your own, but you signed up for a live in person course so definitely make the most of having people around to answer your questions!
 
 
 ## Grading Policy
 
-- Attendance 10%
-- Midterm Project 15%
+- Attendance 5%
+- Midterm Project 20%
 - Function of the Week 10%
 - Homework Assignments 45%
 - Final Project 20%
 
+The homework with the lowest score will be dropped from the calculation. Some homeworks may have extra credit, so it's possible to obtain > 100% on the homework portion.
+
 ### Late Policy
 
-Students get 1 free assignment to submit late without penalties. Please email us through Sakai that you need more time. If you need accommodation, please email us so we can figure out a way to help you.
+Students get 1 free assignment to submit late without penalties. Please email the instructor and the TA through Sakai that you need more time. If you need accommodation, please email us so we can figure out a way to help you.
 
 ## Copyright Information
 

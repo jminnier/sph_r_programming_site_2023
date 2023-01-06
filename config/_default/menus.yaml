@@ -14,9 +14,9 @@ main:
   - name: Functions
     url: /functions/
     weight: 5
-  - name: Midterm Projects
-    url: https://sph-r-programming-2022-midterms.netlify.app/
-    weight: 6
+  # - name: Midterm Projects
+  #   url: https://sph-r-programming-2022-midterms.netlify.app/
+  #   weight: 6
   - name: Course Reviews
     url: /reviews/
     weight: 7
