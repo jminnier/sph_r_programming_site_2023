@@ -3,71 +3,71 @@ lessons:
     header: True
 
   - title: '**Part 1: Introduction to course/expectations, Intro to R/RStudio, Functions, Vectors, Data Types**'
-    date: "January 5"
+    date: "January 11"
     reading: "01-reading"
     class: "01-class" 
 
   - title: '**Part 2: Loading Data, `data.frame`s, and `ggplot2`**'
-    date: "January 12"
+    date: "January 18"
     reading: "02-reading"
     class: "02-class"
 
-  - title: "**Part 3: `dplyr`: subsetting using `filter()`/`select()`**"
-    date: "January 19"
+  - title: "**[NO CLASS, ASYNCHRONOUS VIDEOS] Part 3: `dplyr`: subsetting using `filter()`/`select()`**"
+    date: "January 25 "
     reading: "03-reading"
     class: "03-class"
 
   - title: '**Part 4. `dplyr`: `mutate()`,`across()`, `case_when()`, factors, `ggplot2` boxplots, facets, scales**'
-    date: "January 26"
+    date: "February 1"
     reading: "04-reading"
     class: "04-class"
 
   - title: '**Part 5. `summarize()` and `group_by()`, doing things with multiple tables (`left_join()` etc), reshaping data (i.e. `pivot_longer()`)**'
-    date: "February 2"
+    date: "February 8"
     class: "05-class"
     reading: "05-reading"
     
   - title: '**Take Home Midterm Assigned**'
-    date: "February 2"
+    date: "TBD"
 
   - title: '<span class="fake-header-table">Part 2: Intermediate Topics</span>'
     header: True
 
   - title: '**Part 6. Intro to functions, working with lists**'
-    date: "February 9"
+    date: "February 12"
     class: "06-class"
     reading: "06-reading"
 
   - title: 'Take home midterm due'
-    date: "February 13"
+    date: "February 15"
 
   - title: "**Part 7: Functions/batch processing/`purrr`**"
-    date: "February 16"
+    date: "February 22"
     class: "07-class"
     reading: "07-reading"
 
   - title: "**Part 8. More with factors, dates, strings.**"
-    date: "February 23"
+    date: "March 1"
     class: "08-class"
     reading: "08-reading"
     
   - title: "**Part 9. Intro to stats/formulas/`broom`/More Purrr**"
-    date: "March 3"
+    date: "March 8"
     class: "09-class"
     reading: "09-reading"
     
   - title: "**Final Project Assigned**"
-    date: "March 4"
+    date: "TBD"
 
   - title: "**Part 10. More Stats Stuff/Summary Tables**"
-    date: "March 9"
+    date: "March 15"
     class: "10-class"
     reading: "10-reading"
 
   - title: "**Part 11. Advanced Functions and Loose Ends**"
-    date: "March 16"
+    date: "March 22"
     class: "11-class"
 
   - title: "Final Project Due"
-    date: "March 18"
+    date: "TBD"
 
