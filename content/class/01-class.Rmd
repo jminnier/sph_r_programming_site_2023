@@ -1,8 +1,8 @@
 ---
-title: "Part 1: Introduction to R/Rstudio/Vectors/For Loops"
-linktitle: "Part 1.  Introduction to R/Rstudio/Vectors/For Loops"
-date: "2022-01-05"
-class_date: "2022-01-05"
+title: "Class 1: Introduction to R/Rstudio/Vectors/For Loops"
+linktitle: "Class 1.  Introduction to R/Rstudio/Vectors/For Loops"
+date: "2023-01-11"
+class_date: "2023-01-11"
 output:
   blogdown::html_page:
     toc: true
@@ -20,9 +20,9 @@ editor_options:
 
 # Install R/Rstudio
 
-Before class, please install R and Rstudio. If it has been a while since you installed R, please re-install R to update to the most recent version (warning: you may lose all your installed packages and will have to reinstall them).
+Before class, please install R and Rstudio. If it has been a while since you installed R, please re-install R to update to the most recent version (warning: you may lose all your installed packages and will have to re-install them).
 
-Installation instructions can be found [here.](https://jminnier-berd-r-courses.netlify.app/00-install-instruct.html)
+Installation instructions can be found [here.](https://jminnier-berd-r-courses.netlify.app/00-install-instruct-bsta504.html)
 
 Please also [download the "part1" folder in this course materials link](https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0). Unzip the folder if needed. Open the Rstudio project by double clicking on the .Rproj file ("Rstudio project file"). Run the `00-install-packages.R` script to install necessary packages. A video on how to do this can be found [here.](https://www.youtube.com/watch?v=GU22sKHn9uc)
 

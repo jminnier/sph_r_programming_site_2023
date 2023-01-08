@@ -33,9 +33,8 @@ This course is meant to be a gentle introduction to data wrangling and visualiza
 
 *__If time allows__*:
 
-8. **Create** fancy tables in our R markdown reports with `gt` and/or `kableExtra`.
-9. **Learn** about Bioconductor Data Structures and conduct simple analysis with these structures.
-10. **Build** basic interactive applications with `shiny`.
+8. **Create** nice tables in our R markdown reports with `gt` and/or `kableExtra`.
+9. **Build** basic interactive applications with `shiny`.
 
 ## Course Website
 
@@ -47,28 +46,64 @@ Information will also be available on the Sakai website.
 
 Course discussions will be done in the class Slack channel. Invites will be sent before class.
 
-Assignments will be due by 11:59pm on the day of the next week's class. They will be done in .Rmd documents and students will submit compiled html files to Sakai.
-
 ## Office Hours
 
-Office Hours will be held via Zoom and a link will be sent out that day. Feel free to drop into the office hours and work and ask questions as needed.
+Office Hours will be held by request via Zoom using the class zoom link (see Sakai, or, outlook invite). Use the office hours request form (see Sakai for link) to request a 30 minute individual or small group meeting with me.
 
 ## Prerequisites or Concurrent Enrollment Requirements
 
-No Prerequisites
+One course in statistics.
 
 ## Faculty Information
 
 ### Instructor
 
 [Jessica Minnier, PhD](http://jessicaminnier.com/)  
-minnier@ohsu.edu  
+
 **Preferred Method of Contact**: Email/Slack  
 **Expected Response Time**: 1 business day 
 
 ### Teaching Assistant
 
 Brad H.
+
+## Attendance Requirements
+
+Please try to attend class, but I understand that sometimes it's easier or necessary to log in virtually or watch a recording. Attendance is part of the grade but I only require that you fill out 5 post-class surveys (out of 11) as a way of telling me that you watched the recordings or came to class and learned the available material for that week. However, if you fill out all 11 surveys, your attendance score will be 11/5 so you have some easy extra credit available there as well.
+
+Classes will be recorded, but I cannot guarantee the in person format will lend itself to effective recordings. Again, those who are curious and ask questions will learn quite a bit. You can go through all of last year's materials on your own, but you signed up for a live in person course so definitely make the most of having people around to answer your questions!
+
+## Homework
+
+There will be homework assigned weekly using R markdown. It will be due via Sakai upload at 11:55pm the night of the following week's class (unless otherwise noted). Please turn in both your .Rmd and knitted .html file.
+
+The homework with the lowest score will be dropped from the calculation. Some homeworks may have extra credit, so it's possible to obtain > 100% on the homework portion.
+
+## Function of the week
+
+Please choose a function from the function of the week sign up sheet (see Sakai homepage for link). In the dropbox folder there is a template for format of the week R markdown and presentation. You may choose a week to present your function to the class. The presentation should be short, around 5 minutes. If presenting to the class feels prohibitive, you may submit a 5-10 minute screen recording with your voice narrating the presentation, and this will be distributed to the class. Function of the week presentations will start in week 4.
+
+## Midterm and Final
+
+Midterm and final projects/tests will be take home. The midterm will be a project based on a data set. The final will likely be based on a data set that I assign. Previous years' midterms can be found on the class websites:
+
+- https://sph-r-programming-2022-midterms.netlify.app/
+- https://sph-midterm-projects.netlify.app/ (2021)
+
+I will create a similar website for this year's midterm projects. If you do not wish your project to be on the public facing website, just let me know. Or, it can be posted anonymously.
+
+## Grading Policy
+
+- Attendance 5%
+- Midterm Project 20%
+- Function of the Week 10%
+- Homework Assignments 45%
+- Final Project 20%
+
+### Late Policy
+
+Students get 1 free assignment to submit late without penalties. Please email the instructor and the TA through Sakai that you need more time. If you need accommodation, please email us so we can figure out a way to help you.
+
 
 ## Code of Conduct
 
@@ -94,7 +129,7 @@ We will be drawing on the following online textbooks during class and labs. Thes
 
 **RMarkdown for Scientists**. Nick Tierney. <https://rmd4sci.njtierney.com/>
 
-**Statistical Inference via Data Science: A ModernDive into R and the Tidyverse*. Chester Ismay and Albert Y. Kim. <https://moderndive.com/>
+**Statistical Inference via Data Science: A ModernDive into R and the Tidyverse**. Chester Ismay and Albert Y. Kim. <https://moderndive.com/>
 
 **Advanced R**. Hadley Wickham. <https://adv-r.hadley.nz/>
 
@@ -127,27 +162,6 @@ If you understand something and someone is struggling with it, try and help them
 Our goal is to be better programmers each day, not to be the perfect programmer. There's no such thing as a perfect programmer. I've been learning new things almost every day.
 
 
-## Attendance Requirements
-
-Please try to attend class, but I understand that sometimes it's easier or necessary to log in virtually or watch a recording. Attendance is part of the grade but I only require that you fill out 5 post-class surveys (out of 11) as a way of telling me that you watched the recordings or came to class and learned the available material for that week. However, if you fill out all 11 surveys, your attendance score will be 11/5 so you have some easy extra credit available there as well.
-
-Classes will be recorded, but I cannot guarantee the in person format will lend itself to effective recordings. Again, those who are curious and ask questions will learn quite a bit. You can go through all of last year's materials on your own, but you signed up for a live in person course so definitely make the most of having people around to answer your questions!
-
-
-## Grading Policy
-
-- Attendance 5%
-- Midterm Project 20%
-- Function of the Week 10%
-- Homework Assignments 45%
-- Final Project 20%
-
-The homework with the lowest score will be dropped from the calculation. Some homeworks may have extra credit, so it's possible to obtain > 100% on the homework portion.
-
-### Late Policy
-
-Students get 1 free assignment to submit late without penalties. Please email the instructor and the TA through Sakai that you need more time. If you need accommodation, please email us so we can figure out a way to help you.
-
 ## Copyright Information
 
 Every reasonable effort has been made to protect the copyright requirements of materials used in this course. Class participants are warned not to copy, audio, or videotape in violation of copyright laws.
@@ -158,11 +172,14 @@ To comply with the fair use fair use doctrine of the US copyright law, Sakai cou
 
 ## School of Public Health Handbook
 
-All students are responsible for following the policies and expectations outlined in the student handbook for their program of study. Students are responsible for their own academic work and are expected to have read and practice principles of academic honesty, as presented in the handbook: https://ohsu-psu-sph.org/graduate/handbooks-policies-forms/
+All students are responsible for following the policies and expectations outlined in the student handbook for their program of study. Students are responsible for their own academic work and are expected to have read and practice principles of academic honesty, as presented in the handbook: https://ohsu-psu-sph.org/graduate-students-policies-and-procedures-2/
 
 ## Syllabus Changes and Retention
 
 This syllabus is not to be considered a contract between the student and the School of Public Health. It is recognized that changes may be made as the need arises. Students are responsible for keeping a copy of the course syllabus for their records.
+
+Syllabi are considered to be a learning agreement between students and the faculty of record. Information contained in syllabi, other than the minimum requirements, may be subject to change as deemed appropriate by the faculty of record in concurrence with the academic program and the Office of the Provost. Refer to the [Course Syllabi Policy, 02-50-050](https://o2.ohsu.edu/policies-and-compliance/ohsu-policy-manual/chapter-2-student-affairs/ohsu-policy-02-50-050.cfm).
+
 
 ## Syllabus Statement Regarding Disability Services
 
@@ -229,17 +246,3 @@ Contact Information:
 (Web) <http://atech.ohsu.edu/help>
 
 (Email) <sakai@ohsu.edu>
-
-## OHSU Proctoring Policy
-
-It is OHSU policy that any exam offered online and worth more than 10%
-of the final course grade must be [virtually proctored.]{.underline} In
-this course, we will be using the services of Examity, a remote
-proctoring services. You will be required to schedule your exam three
-(3) weeks ahead of time. There is no cost to the student. More
-information will be provided to you regarding setup, scheduling, and
-requirements in the Course Materials.
-
-Policy number: 02-70-050
-(<http://www.ohsu.edu/xd/education/student-services/academic-programs-and-assessment/academic-policy/approved-policies/upload/Online-Exam-Proctoring-02-70-050.pdf>)
-
