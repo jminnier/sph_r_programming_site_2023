@@ -28,18 +28,11 @@
 &lt;li&gt;&lt;a href=&#34;#slides&#34; id=&#34;toc-slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#last-years-class-video&#34; id=&#34;toc-last-years-class-video&#34;&gt;Last Year’s Class Video&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#pacing&#34; id=&#34;toc-pacing&#34;&gt;Pacing&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34; id=&#34;toc-muddiest-points&#34;&gt;Muddiest Points&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#clearest-points&#34; id=&#34;toc-clearest-points&#34;&gt;Clearest Points&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#other-messages&#34; id=&#34;toc-other-messages&#34;&gt;Other messages&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#additional-info&#34; id=&#34;toc-additional-info&#34;&gt;Additional Info&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#projects-in-rstudio-desktop&#34; id=&#34;toc-projects-in-rstudio-desktop&#34;&gt;Projects in RStudio Desktop&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#slack-intro&#34; id=&#34;toc-slack-intro&#34;&gt;Slack Intro&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#zoom-intro&#34; id=&#34;toc-zoom-intro&#34;&gt;Zoom Intro&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -61,10 +54,7 @@
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
 &lt;p&gt;Open the class introduction slides in a separate window: &lt;a href=&#34;https://sph-r-programming-2023.netlify.app/slides/01-introduction_slides#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2023.netlify.app/01-introduction_slides#1&lt;/a&gt;&lt;/p&gt;
-&lt;iframe src=&#34;https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1&#34; width=&#34;672&#34; height=&#34;400px&#34; data-external=&#34;1&#34;&gt;
-&lt;/iframe&gt;
-&lt;p&gt;We will also cover a few of these slides on for loops: &lt;a href=&#34;https://sph-r-programming-2023.netlify.app/slides/02-for_loops#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2023.netlify.app/slides/02-for_loops#1&lt;/a&gt;&lt;/p&gt;
-&lt;iframe src=&#34;https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1&#34; width=&#34;672&#34; height=&#34;400px&#34; data-external=&#34;1&#34;&gt;
+&lt;iframe src=&#34;https://sph-r-programming-2023.netlify.com/slides/01-introduction_slides#1&#34; width=&#34;672&#34; height=&#34;400px&#34; data-external=&#34;1&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;div id=&#34;last-years-class-video&#34; class=&#34;section level2&#34;&gt;
@@ -82,141 +72,7 @@
 &lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
 &lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://forms.gle/PA1CH7gTgrKWkmzw6&#34; class=&#34;uri&#34;&gt;https://forms.gle/PA1CH7gTgrKWkmzw6&lt;/a&gt;&lt;/p&gt;
-&lt;div id=&#34;pacing&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Pacing&lt;/h2&gt;
-&lt;/div&gt;
-&lt;div id=&#34;muddiest-points&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Muddiest Points&lt;/h2&gt;
-&lt;p&gt;Remember, all of this is anonymous.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Only one point I was still a bit confused about was for loop, when we make an empty vector to save our work, such as, the example we used in class, all_my_pets, why do we need to add the new variable mypet to the end of the vector all_my_pets instead of only add mypet to all_my_pets by “all_my_pets &amp;lt;- c(mypet)”?&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Ah yes, this is a tricky part and I’ll go over this again in class 2. This is the code. I’ve added &lt;code&gt;print(all_my_pets)&lt;/code&gt; so you can see how it grows with each iteration:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pets &amp;lt;- c(&amp;quot;dog&amp;quot;, &amp;quot;cat&amp;quot;, &amp;quot;mouse&amp;quot;)
-# make an empty vector
-all_my_pets &amp;lt;- c()
-
-for(pet in pets){
-  mypet &amp;lt;- paste(&amp;quot;jessica&amp;#39;s&amp;quot;, pet)
-  
-  # add the new variable mypet to the end of the vector all_my_pets
-  all_my_pets &amp;lt;- c(all_my_pets, mypet)
-  
-  # this prints out what the object all_my_pets is for each iteration
-  print(all_my_pets)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;jessica&amp;#39;s dog&amp;quot;
-## [1] &amp;quot;jessica&amp;#39;s dog&amp;quot; &amp;quot;jessica&amp;#39;s cat&amp;quot;
-## [1] &amp;quot;jessica&amp;#39;s dog&amp;quot;   &amp;quot;jessica&amp;#39;s cat&amp;quot;   &amp;quot;jessica&amp;#39;s mouse&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;However, if we had just done &lt;code&gt;all_my_pets &amp;lt;- c(mypet)&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pets &amp;lt;- c(&amp;quot;dog&amp;quot;, &amp;quot;cat&amp;quot;, &amp;quot;mouse&amp;quot;)
-# make an empty vector
-all_my_pets &amp;lt;- c()
-
-for(pet in pets){
-  mypet &amp;lt;- paste(&amp;quot;jessica&amp;#39;s&amp;quot;, pet)
-  
-  # add the new variable mypet to the end of the vector all_my_pets
-  all_my_pets &amp;lt;- c(mypet)
-  
-  # this prints out what the object all_my_pets is for each iteration
-  print(all_my_pets)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;jessica&amp;#39;s dog&amp;quot;
-## [1] &amp;quot;jessica&amp;#39;s cat&amp;quot;
-## [1] &amp;quot;jessica&amp;#39;s mouse&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We just replace &lt;code&gt;all_my_pets&lt;/code&gt; with &lt;code&gt;mypet&lt;/code&gt; each time! It has no memory of what happened before, because we have overwritten that object, essentially. We are not adding &lt;code&gt;mypet&lt;/code&gt; to the vector &lt;code&gt;all_my_pets&lt;/code&gt;. If we call &lt;code&gt;all_my_pets&lt;/code&gt; now, it just shows us the last value of &lt;code&gt;pets&lt;/code&gt;, and it’s a vector of length 1:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;all_my_pets&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;jessica&amp;#39;s mouse&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;I’ll go over this in class too. Note that these are identical, the &lt;code&gt;c()&lt;/code&gt; around &lt;code&gt;mypet&lt;/code&gt; does nothing:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;c(mypet)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;jessica&amp;#39;s mouse&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mypet&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;jessica&amp;#39;s mouse&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;I think the idea of how and why it is so important to open/save our files in a certain way is unclear to me.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Hopefully this will become more clear a little bit each week. We haven’t gotten enough into data management for it to be clear enough. I’ll spend a little bit of time talking about projects and files again this class, and probably again in future classes. This is a thing that takes practice. Main points:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Use Rstudio projects to keep everything in the same folder and so you can use file paths relative to the home directory (we will talk about this in class 2)&lt;/li&gt;
-&lt;li&gt;Don’t save your R environment upon exiting Rstudio (I had you unclick this box in the global options so this is done automatically) so that you don’t depend on saved objects that may or may not be there. Save your output in files (we will talk about saving output later).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Are there some excellent projects last year recommending to learn?&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;I think you are asking about the &lt;a href=&#34;https://sph-midterm-projects.netlify.app/&#34;&gt;midterm projects from last year&lt;/a&gt;? They are all excellent! I just picked a couple to highlight things I noticed after skimming them, but I recommend going through them all if you have the time:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://sph-midterm-projects.netlify.app/midterm/midterm_project_hawkinson.html&#34;&gt;Investigating Moore’s Law&lt;/a&gt; there is a lot of useful work in here with functions we will learn later like &lt;code&gt;case_when()&lt;/code&gt; and some neat plots with &lt;code&gt;ggplot2&lt;/code&gt; that incorporate interesting regression results and the use of an interesting function &lt;code&gt;get_regression_equation()&lt;/code&gt;!&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://sph-midterm-projects.netlify.app/midterm/midterm_project-rogash.html&#34;&gt;Understanding C02 Emissions&lt;/a&gt; there are some complicated uses of &lt;code&gt;summarize()&lt;/code&gt; and &lt;code&gt;mutate()&lt;/code&gt; in here that are worth examining, and nice visual conclusions&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://sph-midterm-projects.netlify.app/midterm/midterm_project_selliot.html&#34;&gt;MMR Vaccination Rates in Oregon&lt;/a&gt; - nice final summary here and a visualization of how the data can surprise us and change our approaches to data visualization and exploration.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://sph-midterm-projects.netlify.app/midterm/midterm_project_hopkins&#34;&gt;The Popularity of Sci-Fi Films&lt;/a&gt; - beautiful and effective ggplots and nice summaries!&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The explanation of what vectors are and all of the points of discussion.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;I’ll try to go over this in pieces in the next class, hopefully this will help.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;how to do the hw assignments and create the code&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Definitely reach out to me if you have questions about generating the homework files, there has been some useful discussion in slack as well on questions about the code. The full set of code will be embedded in your &lt;code&gt;.Rmd&lt;/code&gt; document. That is what you are writing/editing. Then, you click the &lt;code&gt;knit&lt;/code&gt; button on the top to create an &lt;code&gt;.html&lt;/code&gt; file which will “run” the code all at once, and create a combined file that has text and code output. This is the file you will submit on Sakai. Please reach out to me or Colin if you need help!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;clearest-points&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Clearest Points&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Everything was clear, this was just the first class :)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;general set up of R&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;How to change global settings&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;assigning objects&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;code for variable&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;I felt like I knew pretty much everything, but I liked the basic of for loops!&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;I appreciated getting clarification a lot of little things like NA, NULL, what are default settings for functions.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Yay!&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;What is going on in R! I set up two monitors so I can move along with you in R, and that is so helpful to watch you in R real time.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;This is great! I do feel bad for folks who don’t have two monitors, as I know having too many windows up on one screen can make it hard to see what I’m doing. Feel free to log in twice with a tablet or something else if it can make it easier for you, or let me know how I can make it more accessible if you don’t have two screens!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;other-messages&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Other messages&lt;/h2&gt;
-&lt;p&gt;Remember, all of this is anonymous to me.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;I think this class will be very useful for me. While I rated the pace a little slow, I think things will get more challenging so I’m not necessarily wishing you to speed up!&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Great to know :)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;I’ll definitely be reaching out for help while I go through the assignment, but excited to get started :)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;I am going to likely request a lot of short one-on-one sessions with you at the beginning, just to gain greater clarity on basic things - since I am brand new to R.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Please do!! I don’t want to leave anyone who is new to R behind, so let’s all get to baseline together in the beginning.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Everything except for loops was review for those of us who were in 551 last quarter&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Ah yes that is what I guessed. At first I read this as “Dr. Niederhausen taught us for loops” and I was super impressed she had time for that! But now I’m glad at least one part was new!&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Please explain the details of the use of R when describing the tools so that we know how to use the tools to be able to perform the functions within R.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;I’m a little confused about what you mean by “tools”, maybe send me an anonymous message again and I will try to do better! Please ask questions during class if anything isn’t clear, I’m happy to repeat or explain things differently in real time.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;I wish this class was provided to undergrads or offered before the core BSTA courses I need for my degree&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;I know…we all wish this, actually. The unfortunate excuse is: it’s too hard to put into the fall term because of the EPI and BSTA sequences required for the MS and MPH take up a lot of space/credits, and we can’t require people to take courses before the fall term which they enroll. The only way I can think of is for this to be a 1 credit course in fall with very limited lessons/time commitment (though watching all the &lt;a href=&#34;https://github.com/jminnier/berd_r_courses&#34;&gt;OCTRI-BERD R workshops&lt;/a&gt; and going through &lt;a href=&#34;https://r-bootcamp.netlify.app/&#34;&gt;R bootcamp&lt;/a&gt; probably would teach the same amount of info), or for BSTA and EPI courses to have “sections” or “labs” with extra learning time (Though none of our classes seem to have this. All of my grad school classes did, and it was so helpful, bur requires large PhD programs for TA support). All of these options are difficult for the program right now, but I will keep bringing it up! We all will keep trying to make this better, and I’m sorry it wasn’t better for your experience!&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;additional-info&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Additional Info&lt;/h1&gt;
@@ -230,12 +86,6 @@ for(pet in pets){
 &lt;h2&gt;Slack Intro&lt;/h2&gt;
 &lt;p&gt;Slack invite link is on Sakai, and will be emailed before class.&lt;/p&gt;
 &lt;iframe width=&#34;800&#34; height=&#34;600&#34; src=&#34;https://www.youtube.com/embed/m2JuAa6-ors&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;div id=&#34;zoom-intro&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Zoom Intro&lt;/h2&gt;
-&lt;p&gt;We will be using zoom. Here’s a short video on how to use zoom:&lt;/p&gt;
-&lt;iframe width=&#34;800&#34; height=&#34;600&#34; src=&#34;https://www.youtube.com/embed/5iap0Ffl5Lg&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
