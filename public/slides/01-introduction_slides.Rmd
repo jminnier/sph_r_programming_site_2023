@@ -52,8 +52,8 @@ class: center, middle
 ---
 # Class Facilitator/TA
 
-- Meet Colin
-- He will be helping me facilitate online sessions
+- Meet Brad
+- He will be helping during class answer questions and troubleshoot
 - Also will be grading and will be available for questions on Slack
 
 ---
@@ -69,10 +69,45 @@ class: center, middle
 
 - This is a new-ish course
 - Winter 2021 version developed and taught by [Ted Laderas](https://laderast.github.io/)
-- Previous materials (and videos) are available on last year's course website https://sph-r-programming.netlify.app/
-- This course will be very similar
-- Assume new to R, though many of you will not be new to R
+- I taught virtually 2022
+- Previous materials (and videos) are available on last year's course website https://sph-r-programming.netlify-2022.app/
 
+Previous experience survey results:
+- ~10% of you have never used R, ~60% have used R in a previous class
+
+---
+class:center, middle
+# Class Format
+
+
+
+---
+
+# Survey results
+
+<img src = "image/week1/format_acceptable-1.png" width = 700>
+
+---
+
+# Survey results
+
+<img src = "image/week1/format_rank-1.png" width = 700>
+
+---
+
+# Conclusion
+
+We will try 2 hours in class instruction and ~1 hour recorded videos (assigned by Thursday to be watched before the next class Wednesday).
+
+I already had a hard time fitting in everything in 3 hours virtual class last year, so we will try this out for a while. Feedback welcome on the post-class survey.
+
+---
+# Zoom Recordings/Attendance
+
+- Class is in person, likely about 2 hours of in person time (instruction and exercises on your own) with 1 hour video recordings to watch outside of class
+- I will try to record each session and will post it as soon it is ready
+- You can log into zoom live, if you wish. You might need to unmute yourself to get my attention to ask questions.
+- Zoom link is on sakai and outlook invite
 
 ---
 class:center, middle
@@ -92,87 +127,11 @@ If you are disruptive to class learning or disparaging to other students, I may 
 ---
 # Code of Conduct Violations
 
-Please report them to me directly or to Colin if you feel comfortable.
+Please report them to me directly or to our TA if you feel comfortable.
 
 If not, please use the anonymous reporting form here: https://forms.gle/yAAGx7bkZYhgsdqVA
 
 
----
-# Tour of Zoom
-
-- We'll be using zoom for our classes
-- Let's do a quick guided tour
-
-<center><img src="image/week1/horst_monster_support.jpg" width="70%" height="75%"><a href="https://github.com/allisonhorst/stats-illustrations"><br>Allison Horst</a></center>
-
----
-# Change your Zoom name, if you wish
-
-This class is being recorded, and will be posted to the public-facing website.
-
-To protect your privacy, you may wish to change your visible zoom name. I will try to call you by this name, and won't use last names. I will try not to show your video in the recording as well.
-
-- [See instructions](https://teaching.nmc.edu/knowledgebase/changing-your-name-in-a-zoom-meeting/)
-- Basically, click on "Participants", then "Rename" next to your name.
-
----
-# Letting me Know
-
-When we're doing the activity, use the hands up in Zoom to indicate that you're finished.
-
-If you have questions, please ask them in chat.
-
----
-# Let's Try Out Chat (10 minutes)
-
-Open the chat window (if we are in full screen, press the escape key, and then click on the chat icon)
-
-<img src="image/week1/zoom_chat.jpg" width = 800>
-
-Type in Chat:
-
-- Your Name
-- Your Program
-- What you hope to learn from this course
-
----
-# Rules for Interaction
-
-During Class
-
-- Post questions in Chat
-    - Our TA will interrupt me to make sure these questions are answered
-- Post answers to questions in chat if you know them
-- You can unmute to ask questions as well
-
----
-# Rules for Interaction
-
-During Class
-
-- Work with your breakout room buddies if we're working on a lab 
-- Share screens to talk about issues
-
----
-# Sharing Your Screen
-
-<img src = "image/week1/screen sharing.jpg" width = 800>
-
-
----
-# Let's try the Breakout Rooms
-
-- Let's try it (3 minutes)
-- Icebreaker: What is your favorite all purpose condiment (such as salsa, ketchup, or chile oil?) and why?
-
----
-# Zoom Recordings/Attendance
-
-- I will record each session and we will post it as soon it is ready
-- I will pause recording for breakout rooms (that won't be recorded)
-- Remind me to start recording when class starts/restarts
-
----
 # Learning Objectives
 
 By the end of this course you will be able to:
@@ -195,7 +154,7 @@ We may explore fancy tables in our R markdown reports with `gt`, or Bioconductor
 
 Programming *is* for everyone who is motivated to learn, and willing to keep trying.
 
-[You can do it! (It ~~might~~ will be hard and frustrating at times.)](https://sph-r-programming-2022.netlify.app/syllabus/#words-of-encouragement)
+[You can do it! (It ~~might~~ will be hard and frustrating at times.)](https://sph-r-programming-2023.netlify.app/syllabus/#words-of-encouragement)
 
 
 ---
@@ -206,7 +165,8 @@ class: center, middle
 class: center, middle
 
 # Let's look at the website:
-## http://sph-r-programming-2022.netlify.com
+
+## http://sph-r-programming-2023.netlify.com
 
 ---
 # Caveat Emptor
@@ -223,14 +183,18 @@ All textbooks are available online and are free to use.
 
 We'll be using the following for reference:
 
+**R for Data Science**. Garret Grolemund and Hadley Wickham. <https://r4ds.had.co.nz/>
+
 **Getting Used to R, RStudio, and RMarkdown**. Chester Ismay.
 <https://ismayc.github.io/rbasics-book/>
 
-**Introduction to Data Science**. Tiffany Timbers, Trevor Campbell, Melissa Lee. <https://ubc-dsci.github.io/introduction-to-datascience/>
+**Data Science: A First Introduction**. Tiffany Timbers, Trevor Campbell, Melissa Lee. <https://datasciencebook.ca/>
 
 **RMarkdown for Scientists**. Nick Tierney. <https://rmd4sci.njtierney.com/>
 
-**R for Data Science**. Garret Grolemund and Hadley Wickham. <https://r4ds.had.co.nz/>
+**Statistical Inference via Data Science: A ModernDive into R and the Tidyverse*. Chester Ismay and Albert Y. Kim. <https://moderndive.com/>
+
+**Advanced R**. Hadley Wickham. <https://adv-r.hadley.nz/>
 
 
 ---
@@ -247,9 +211,7 @@ This means we will be looking at lots of data.
 
 I also think that we learn best when we are discussing data together.
 
-We will be using breakout rooms to work on activities with 2-3 people in a room. Please discuss the problem together, and one of you should share your screen to code along together.
-
-The breakout rooms will be randomly assigned each class, to mix things up.
+We will be working on activities in class. Please discuss the problem together, look at each other's code, explain it to each other. 
 
 ---
 # Format of Class
@@ -264,31 +226,31 @@ We'll take 5 minute breaks at the top of each hour.
 ---
 # Syllabus
 
-There is a syllabus on the [website](https://sph-r-programming-2022.netlify.app/syllabus/), as well as on [Sakai](https://sakai.ohsu.edu/portal/site/BSTA-504-1-22151-W22/page/73c051e0-0b37-4956-853a-95ced6138d53). Let me know if you notice discrepancies.
+There is a syllabus on the [website](https://sph-r-programming-2023.netlify.app/syllabus/), as well as on [Sakai](https://sakai.ohsu.edu/portal/site/BSTA-504-1-22151-W22/page/73c051e0-0b37-4956-853a-95ced6138d53). Let me know if you notice discrepancies.
 
 ---
 # Grading Breakdown
 
-- Attendance 10%
-- Midterm Project 15%
-- Function of the Week 10%
+- Attendance 5% (see next slide)
+- Midterm Project 20%
+- Function of the Week 10% (Rmd/html + 5 min. presentation)
 - Homework Assignments 45%
 - Final Project 20%
 
 ---
-# Class Attendance Policy
+# Class Attendance Policy & Post-class Survey
 
 Please try to attend class. 
 
-There is a post-class survey that will be posted. Please fill it out, as it counts as attendance.
+There is a post-class survey that will be posted. Please fill it out, as it counts as attendance. You only need to fill out 5 out of 11 of the surveys. Any more than that will be counted as extra credit. Mostly this helps me know how the class is going.
 
-If you can't attend class, please let me know. If you can't attend, please watch the recording and then fill out the survey.
+If you can't attend, please log in to zoom or watch the recordings and then fill out the survey.
 
 - Clearest Point: What was the most clear part of the lecture?
 - Muddiest Point: What was the most unclear part of the lecture to you?
 - Anything Else: Is there something you’d like me to know?
 
-https://forms.gle/4tVx1mL7SzQx7MCu5
+https://forms.gle/PA1CH7gTgrKWkmzw6
 
 ---
 # Class Assignments
@@ -304,26 +266,24 @@ We will highlight any points of confusion.
 ---
 # Function of the Week
 
-- Starts in Week 3
-- Learn and share about a lesser known `tidyverse()` function (5 minutes max)
+- Starts in Week 4
+- Learn and share about a lesser known `tidyverse()` function (5 minute presentation)
 - Share your experience with the function
   - Is it useful?
   - Is it hard to use?
   - Share an example
-- You will have time to meet with me before you present
   
 ---
 # Midterm / Final Project
 
 - Midterm: Pick a dataset and show that you can explore it, plot it, and transform it to answer a specific question
   - Schedule a meeting to discuss the data
-- Final: Pick a different dataset and build a model using machine learning or statistics and present it
-  - Schedule a meeting to discuss the dataset
+- Final: I will choose a data set and assign tasks related to what we have learned.
 
 ---
 # Class Slack
 
-- Invitation to our Slack channel is on Sakai and emailed to you
+- Invitation to our Slack channel is on Sakai
 - Use to ask questions
 - If you know the answer, try to help out
 - I will try and review once a day
@@ -332,11 +292,7 @@ We will highlight any points of confusion.
 ---
 # Office Hours
 
-I will be available for office hours/drop in time ~1 hour a week, and additional time with appointment. You're free to sign in to the Zoom Room and work on homework at this time. You also may request individual meetings with me to discuss projects.
-
-When is good link (on Sakai, will add in chat) - highlight all times that work for you (make up a name if you wish)
-
-Calendly link (on Sakai) for additional meetings
+I will be available for office hours by appointment. Use the calendly link on sakai to request a meeting with me (I will try to keep availability updated, but sometimes I make mistakes).
 
 
 ---

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Assignment details | R Programming 2022</title>
-    <link>https://sph-r-programming-2022.netlify.app/assignment/</link>
-      <atom:link href="https://sph-r-programming-2022.netlify.app/assignment/index.xml" rel="self" type="application/rss+xml" />
+    <title>Assignment details | R Programming 2023</title>
+    <link>https://sph-r-programming-2023.netlify.app/assignment/</link>
+      <atom:link href="https://sph-r-programming-2023.netlify.app/assignment/index.xml" rel="self" type="application/rss+xml" />
     <description>Assignment details</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <image>
-      <url>https://sph-r-programming-2022.netlify.app/img/social-image.png</url>
+      <url>https://sph-r-programming-2023.netlify.app/img/social-image.png</url>
       <title>Assignment details</title>
-      <link>https://sph-r-programming-2022.netlify.app/assignment/</link>
+      <link>https://sph-r-programming-2023.netlify.app/assignment/</link>
     </image>
     
     <item>
       <title>Problem set 1</title>
-      <link>https://sph-r-programming-2022.netlify.app/assignment/01-problem-set/</link>
+      <link>https://sph-r-programming-2023.netlify.app/assignment/01-problem-set/</link>
       <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>https://sph-r-programming-2022.netlify.app/assignment/01-problem-set/</guid>
+      <guid>https://sph-r-programming-2023.netlify.app/assignment/01-problem-set/</guid>
       <description>
-&lt;script src=&#34;https://sph-r-programming-2022.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://sph-r-programming-2023.netlify.app/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;

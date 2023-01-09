@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R/RStudio/Vectors/For Loops"
 linktitle: "Part 1: Introduction to R/RStudio/Vectors/"
-date: "2022-01-05"
+date: "2023-01-11"
 menu:
   reading:
     parent: Readings
@@ -24,7 +24,7 @@ Remember, this reading is mostly supplemental and will help you if there are con
 
 This is a short reference on how to do formatting in Markdown. This is optional, but may be a helpful reference as you continue on and work with Markdown and RMarkdown. 
 
-https://sph-r-programming-2022.netlify.app/reference/markdown.html
+https://sph-r-programming-2023.netlify.app/reference/markdown.html
 
 
 ### Swirl Basics

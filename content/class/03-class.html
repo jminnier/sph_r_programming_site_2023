@@ -18,23 +18,13 @@ editor_options:
   chunk_output_type: console
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#r-project-files">R Project files</a></li>
-<li><a href="#readings">Readings</a></li>
-<li><a href="#class-video">Class Video</a></li>
-<li><a href="#slides">Slides</a>
-<ul>
-<li><a href="#post-class">Post-Class</a></li>
-</ul></li>
-<li><a href="#muddiest-points">Muddiest Points</a></li>
-<li><a href="#clearest-points">Clearest Points</a></li>
-<li><a href="#messages-to-me">Messages to me</a>
-<ul>
-<li><a href="#related-to-homework">Related to homework</a></li>
-</ul></li>
+<li><a href="#r-project-files" id="toc-r-project-files">R Project files</a></li>
+<li><a href="#readings" id="toc-readings">Readings</a></li>
+<li><a href="#class-video" id="toc-class-video">Class Video</a></li>
+<li><a href="#post-class" id="toc-post-class">Post-Class</a></li>
 </ul>
 </div>
 
@@ -51,130 +41,15 @@ editor_options:
 <p>The class video is here, but I forgot to video tape the part about <code>here::here()</code>. If I have a chance I will re-record myself talking about it, but in the meantime, <a href="https://youtu.be/7KZWcICwF54?t=1463">click here for Ted’s video from last year</a>, which explains similar ideas.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gLTl_9AAMjo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
-<p>View last year’s class and materials <a href="https://sph-r-programming.netlify.app/class/01-class/">here</a>.</p>
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/yCPcijCj15c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<p>View last year’s class and materials <a href="https://sph-r-programming-2022.netlify.app/class/03-class/">here</a>.</p>
 </div>
-<div id="slides" class="section level2">
-<h2>Slides</h2>
-<p>Open the class introduction slides in a separate window: <a href="https://sph-r-programming-2022.netlify.app/slides/03-ggplot2-dplyr-part1#1" target="_blank">https://sph-r-programming-2022.netlify.app/slides/03-ggplot2-dplyr-part1s#1</a></p>
-<iframe src="https://sph-r-programming-2022.netlify.app/slides/03-ggplot2-dplyr-part1#1" width="672" height="400px" data-external="1">
-</iframe>
-<div id="post-class" class="section level3">
-<h3>Post-Class</h3>
-<p>Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous. The first two questions will count toward your attendance part of the grade.</p>
+<div id="post-class" class="section level1">
+<h1>Post-Class</h1>
+<p>Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.</p>
 <ul>
 <li>Clearest Point: What was the most clear part of the lecture?</li>
 <li>Muddiest Point: What was the most unclear part of the lecture to you?</li>
 <li>Anything Else: Is there something you’d like me to know?</li>
 </ul>
-<p><a href="https://forms.gle/4tVx1mL7SzQx7MCu5" class="uri">https://forms.gle/4tVx1mL7SzQx7MCu5</a></p>
-</div>
-</div>
-<div id="muddiest-points" class="section level2">
-<h2>Muddiest Points</h2>
-<blockquote>
-<p>I didn’t get fill to work, need to try again</p>
-</blockquote>
-<p>Yes this was a curve ball (assuming you mean <code>fill()</code> from the challenge), I expected it to be trickier since I didn’t give you any idea how to use it =) Keep practicing and let me know if it still doesn’t work for you! It’s a similar idea to in Excel where you can you “fill down” (Edit -&gt; Fill -&gt; Down in Excel) which fills the same value down rows in the same column. You can see some examples in <code>?tidyr::fill</code> and here is the solution (also in the <code>smoke_messy.Rmd</code> file in “part3” folder on dropbox)</p>
-<pre class="r"><code>smoke_messy &lt;- read_excel(&quot;data/smoke_complete.xlsx&quot;,
-                          sheet = &quot;smoke_messy&quot;,
-                          skip = 5,
-                          na = c(&quot;missing&quot;, &quot;Missing&quot;,&quot;&quot;, &quot;NA&quot;))
-
-smoke_clean &lt;- smoke_messy %&gt;% 
-  janitor::clean_names() %&gt;% 
-  janitor::remove_empty(which=c(&quot;rows&quot;, &quot;cols&quot;)) %&gt;% 
-  tidyr::fill(tumor_stage, .direction = &quot;down&quot;) %&gt;% # fill the empty tumor_stage variable down
-  select(-notes)</code></pre>
-<blockquote>
-<p>Finding all of the problems in data files</p>
-</blockquote>
-<p>Ah yes this will take practice. In future classes I will try to show more examples of looking for problems in data files. Class 4 will use a relatively clean data file again, but I will try to make things trickier in the future, for practice.</p>
-<blockquote>
-<p>Read excel and how to select for tabs within the file</p>
-</blockquote>
-<p>Please see the explanation in Class 2 page for the answer to a similar question under Muddiest Points, and re-watch the loading data review from last class. I think the key here is that “tab” is called “sheet” in excel and in the <code>read_excel()</code> function. So <code>read_excel("filename.xlsx", sheet = 1)</code> is the first tab/sheet. If it’s still troublesome please set up a 1:1 with me or Colin for more help. I may be misunderstanding the question!</p>
-<blockquote>
-<p>“here” function. I wonder how the here function to indicate the specific data folder. Since each part folder has a data folder.</p>
-</blockquote>
-<p><code>here()</code> is relative to your project folder. Since each part has it’s own Rstudio project associated with it (there is a .Rproj file in each part folder) it only looks in the “data/” folder that is inside that root folder (defined as where the .Rproj file lives). See <a href="https://youtu.be/7KZWcICwF54?t=1463">the excerpt on here from Ted’s video, as well.</a> I will keep using here examples as well to get more practice.</p>
-<blockquote>
-<p>I keep getting confused on which variables are independent/dependent, which ones go on x-axis and y-axis. It’s so simple, this is not a reflection of your teaching, but in all of my classes throughout the years my brain struggles with knowing how to figure it out</p>
-</blockquote>
-<p>This actually is not always clear, so don’t feel bad for being confused! Honestly I don’t think people take much care in thinking about this when plotting. Remember that independent/dependent variables are important in a statistical model, not always in a graph. Those terms might not make sense in the context of what we are graphing. If there is an independent and dependent variable and we want to make a scatterplot, we can technically graph it either way. Though <em>usually</em> if we have a dependent variable (our outcome) and an independent variable (our predictor, or covariate), we plot the outcome as Y (on Y axis) and the predictor as X (on X axis). This is because as we learned back in algebra a billion years ago,</p>
-<p><span class="math inline">\(Y = f(X)\)</span></p>
-<p>“Y is a function of X.”</p>
-<p>I wouldn’t worry that much about it in graphing, though. You might just be plotting two “related” variables against each other, not making assumptions about any causal pathways.</p>
-<blockquote>
-<p>I was a little unclear about how the data wrangling and the ggplots connected to one another. Are they two separate ideas?</p>
-</blockquote>
-<p>Excellent point, I haven’t really merged those ideas together yet. Often, data wrangling is needed first to do what you want to do in ggplot, but so far we’ve covered relatively simple actions in both and haven’t put them together. We start to put them together a bit in part 4, and when we talk about merging/joining data and reshaping data next week we will see data wrangling and ggplot fit together more.</p>
-<blockquote>
-<p>What makes tidyselect stuff different from normal select? The ability to select names based on partial matches? (eg “ends in s”)</p>
-</blockquote>
-<p>Yeah this is confusing for sure, and honestly I am still somewhat confused as it’s a newish concept to tidyverse. <code>tidyselect</code> we can think of as a language (or a backend), it is used in multiple functions, including <code>select()</code> but also <code>across()</code> as we will see in class 4, <code>pivot_longer()</code>, <code>rename_with()</code>, and many more. However, it also has to do with the tidyverse’s use of “unquoted” variable names in all the functions, and how to deal with that when making your own functions. There are some examples in <a href="https://tidyselect.r-lib.org/articles/syntax.html">this vignette</a> that involve <code>enquo()</code>, <code>expr()</code>, etc (but I don’t recommend going down that rabbit hole just yet). For now, I would just get familiar with all of the selection helpers listed in this <a href="https://tidyselect.r-lib.org/reference/language.html">vignette.</a> They do show how you would select names based on partial matches or other characteristics.</p>
-</div>
-<div id="clearest-points" class="section level1">
-<h1>Clearest Points</h1>
-<p>Thanks everyone for answering these, it helps me see what is wokring!</p>
-<blockquote>
-<p>Nice review of loading data</p>
-</blockquote>
-<blockquote>
-<p>The functions such as select and filter</p>
-</blockquote>
-<blockquote>
-<p>data manipulation using</p>
-</blockquote>
-<blockquote>
-<p>I felt like I understand basic data wrangling in R now.</p>
-</blockquote>
-<blockquote>
-<p>Using the pipe</p>
-</blockquote>
-<blockquote>
-<p>the pipe!</p>
-</blockquote>
-<blockquote>
-<p>I really like how you laid out the formatting for piping and for ggplot code structuring</p>
-</blockquote>
-<blockquote>
-<p>here, filter &amp; select</p>
-</blockquote>
-<blockquote>
-<p>Everything covered in class was very clear for me.</p>
-</blockquote>
-</div>
-<div id="messages-to-me" class="section level1">
-<h1>Messages to me</h1>
-<blockquote>
-<p>Please explain the aspects of how to remove columns.</p>
-</blockquote>
-<p>I’ll show more examples in class, but the simple way is with the <code>-</code> negative sign before the column name, such as:</p>
-<pre class="r"><code>smoke_complete %&gt;% select(-tumor_stage)</code></pre>
-<p>But you can also use the more sophisticated tidyselect methods here. Say we wanted to remove all columns with column names that contain the word “day”:</p>
-<pre class="r"><code>smoke_complete %&gt;% select(-contains(&quot;day&quot;))</code></pre>
-<blockquote>
-<p>Class is going well!</p>
-</blockquote>
-<blockquote>
-<p>Thank you! This class is always so interesting and useful!</p>
-</blockquote>
-<p>Yay!!</p>
-<div id="related-to-homework" class="section level2">
-<h2>Related to homework</h2>
-<blockquote>
-<p>I’m glad we have homework this week - the practice really helps :)</p>
-</blockquote>
-<p>Great! I agree, and that’s why I changed my mind, but sorry if it caused confusion! I’ll try not to do that though it’s hard to predict how far we get, which means I’ll need to update the homework sometimes. When I do that I’ll be sure to email/slack blast the class.</p>
-<blockquote>
-<p>Do you release a key for the homework?</p>
-</blockquote>
-<p>I will share the keys, sorry I wasn’t on the same page with our TA that I didn’t expect we’d have them available, but I can make some. Right now they aren’t commented/explained well so I’ll work on that and post them to the dropbox folders.</p>
-<blockquote>
-<p>I have a suggestion about homework. I personally, find the homework to be the best way to learn how to code. I think having to figure things out and type them out ourselves helps tremendously. This is why I think it would be more helpful if the homework did not involve “helper” code. For example, in the latest homework for ggplot, there was a place to fill out some of the ggplot code. I personally think it would be more helpful for learning for that code not to be there at all, so we would be forced to either remember, or look it up ourselves. I also think the homework could be longer. This may be because we are still learning the fundamentals, but I do think homework is the way I learn best, and the only way I’m really able to learn code is by practicing. So having the homeworks be longer would help me practice how to do certain things. Thank you.</p>
-</blockquote>
-<p>I love this comment =) I told myself I’d try to be super easy on you all for classes 1-3 and this comment reminded me I wanted to step it up for class 4. So the homework this week will not have hardly any code scaffolding (helper code). Please reach out to me or Colin if you need help! I encourage you to work on homework together, and post discussions about it on slack!</p>
-<p>I agree it is so helpful to struggle with this code on your own. That is definitely how we learn. But it can also lead to some anxiety if the rest of the homework problems depend on the one you are stuck on, so again, reach out if you are struggling too long! Start this week’s homework early, it’s much harder than last weeks ;)</p>
-</div>
+<p><a href="https://forms.gle/PA1CH7gTgrKWkmzw6" class="uri">https://forms.gle/PA1CH7gTgrKWkmzw6</a></p>
 </div>

@@ -30,10 +30,10 @@
   
     
   
-  <meta name="description" content="R Project files Readings Slides Class Video  Post-Class  Pacing Muddiest Points Clearest points Other messages   R Project files Please download the part2 and function_of_the_week folders from this dropbox folder link Be sure to unzip if necessary. In advance of class, please open the part2 Rstudio project (double click on the .rproj file), open part2.Rmd and knit (click the Knit button at the top of the file) this file.">
+  <meta name="description" content="R Project files Readings Slides Class Video  Post-Class    R Project files Please download the part2 and function_of_the_week folders from this dropbox folder link Be sure to unzip if necessary. In advance of class, please open the part2 Rstudio project (double click on the .rproj file), open part2.Rmd and knit (click the Knit button at the top of the file) this file. This will install packages that you need for the Rmd to run.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://sph-r-programming-2022.netlify.app/class/02-class/">
+  <link rel="alternate" hreflang="en-us" href="https://sph-r-programming-2023.netlify.app/class/02-class/">
 
   
 
@@ -218,7 +218,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_3.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png">
 
-  <link rel="canonical" href="https://sph-r-programming-2022.netlify.app/class/02-class/">
+  <link rel="canonical" href="https://sph-r-programming-2023.netlify.app/class/02-class/">
 
   
   
@@ -233,16 +233,16 @@
   <meta property="twitter:site" content="@datapointier">
   <meta property="twitter:creator" content="@datapointier">
   
-  <meta property="og:site_name" content="R Programming 2022">
-  <meta property="og:url" content="https://sph-r-programming-2022.netlify.app/class/02-class/">
-  <meta property="og:title" content="Part 2: Loading Data, data.frames, and ggplot2 | R Programming 2022">
-  <meta property="og:description" content="R Project files Readings Slides Class Video  Post-Class  Pacing Muddiest Points Clearest points Other messages   R Project files Please download the part2 and function_of_the_week folders from this dropbox folder link Be sure to unzip if necessary. In advance of class, please open the part2 Rstudio project (double click on the .rproj file), open part2.Rmd and knit (click the Knit button at the top of the file) this file."><meta property="og:image" content="https://sph-r-programming-2022.netlify.app/img/social-image.png">
-  <meta property="twitter:image" content="https://sph-r-programming-2022.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
+  <meta property="og:site_name" content="R Programming 2023">
+  <meta property="og:url" content="https://sph-r-programming-2023.netlify.app/class/02-class/">
+  <meta property="og:title" content="Part 2: Loading Data, data.frames, and ggplot2 | R Programming 2023">
+  <meta property="og:description" content="R Project files Readings Slides Class Video  Post-Class    R Project files Please download the part2 and function_of_the_week folders from this dropbox folder link Be sure to unzip if necessary. In advance of class, please open the part2 Rstudio project (double click on the .rproj file), open part2.Rmd and knit (click the Knit button at the top of the file) this file. This will install packages that you need for the Rmd to run."><meta property="og:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png">
+  <meta property="twitter:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2022-01-12T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2022-01-17T16:43:16-08:00">
+    <meta property="article:modified_time" content="2023-01-04T15:13:14-08:00">
   
 
   
@@ -255,21 +255,21 @@
   
 
 
-  <link rel="shortcut icon" href="https://sph-r-programming-2022.netlify.app/favicon.ico" />
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-57x57.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-114x114.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-72x72.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-144x144.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-120x120.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-152x152.png" />
-  <link rel="icon" type="image/png" href="https://sph-r-programming-2022.netlify.app/img/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="https://sph-r-programming-2022.netlify.app/img/favicon-16x16.png" sizes="16x16" />
-  <meta name="application-name" content="BSTA 504: R Programming 2022" />
+  <link rel="shortcut icon" href="https://sph-r-programming-2023.netlify.app/favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://sph-r-programming-2023.netlify.app/img/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://sph-r-programming-2023.netlify.app/img/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://sph-r-programming-2023.netlify.app/img/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://sph-r-programming-2023.netlify.app/img/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://sph-r-programming-2023.netlify.app/img/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://sph-r-programming-2023.netlify.app/img/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="https://sph-r-programming-2023.netlify.app/img/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="https://sph-r-programming-2023.netlify.app/img/favicon-16x16.png" sizes="16x16" />
+  <meta name="application-name" content="BSTA 504: R Programming 2023" />
   <meta name="msapplication-TileColor" content="#FFFFFF" />
-  <meta name="msapplication-TileImage" content="https://sph-r-programming-2022.netlify.app/img/mstile-144x144.png" />
+  <meta name="msapplication-TileImage" content="https://sph-r-programming-2023.netlify.app/img/mstile-144x144.png" />
 
 
-  <title>Part 2: Loading Data, data.frames, and ggplot2 | R Programming 2022</title>
+  <title>Part 2: Loading Data, data.frames, and ggplot2 | R Programming 2023</title>
 
 </head>
 
@@ -322,7 +322,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">R Programming 2022</a>
+      <a class="navbar-brand" href="/">R Programming 2023</a>
     </div>
     
 
@@ -335,7 +335,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">R Programming 2022</a>
+      <a class="navbar-brand" href="/">R Programming 2023</a>
     </div>
     
 
@@ -457,6 +457,28 @@
         
         
 
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/reviews/"><span>Course Reviews</span></a>
+        </li>
+
+        
+        
+
       
 
         
@@ -512,7 +534,7 @@
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/class/01-class/">Part 1.  Introduction to R/Rstudio/Vectors/For Loops</a>
+        <a href="/class/01-class/">Class 1.  Introduction to R/Rstudio/Vectors/For Loops</a>
       </li>
       
       <li class="active">
@@ -552,7 +574,7 @@
       </li>
       
       <li >
-        <a href="/class/11-class/">Class 11: TBD</a>
+        <a href="/class/11-class/">Class 11: Finish Part 9 &#43; Part 10: Advanced Functions and Loose Ends</a>
       </li>
       
     </ul>
@@ -586,21 +608,16 @@
 
                     <div class="article-style">
                         
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#r-project-files">R Project files</a></li>
-<li><a href="#readings">Readings</a></li>
-<li><a href="#slides">Slides</a></li>
-<li><a href="#class-video">Class Video</a>
+<li><a href="#r-project-files" id="toc-r-project-files">R Project files</a></li>
+<li><a href="#readings" id="toc-readings">Readings</a></li>
+<li><a href="#slides" id="toc-slides">Slides</a></li>
+<li><a href="#class-video" id="toc-class-video">Class Video</a>
 <ul>
-<li><a href="#post-class">Post-Class</a></li>
+<li><a href="#post-class" id="toc-post-class">Post-Class</a></li>
 </ul></li>
-<li><a href="#pacing">Pacing</a></li>
-<li><a href="#muddiest-points">Muddiest Points</a></li>
-<li><a href="#clearest-points">Clearest points</a></li>
-<li><a href="#other-messages">Other messages</a></li>
 </ul>
 </div>
 
@@ -622,8 +639,7 @@
 <h2>Class Video</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0-_luKuYo_E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
-<p>View last year’s class and materials <a href="https://sph-r-programming.netlify.app/class/02-class/">here</a>.</p>
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/yCPcijCj15c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<p>View last year’s class and materials <a href="https://sph-r-programming-2022.netlify.app/class/02-class/">here</a>.</p>
 <div id="post-class" class="section level3">
 <h3>Post-Class</h3>
 <p>Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous. The first two questions will count toward your attendance part of the grade.</p>
@@ -632,78 +648,8 @@
 <li>Muddiest Point: What was the most unclear part of the lecture to you?</li>
 <li>Anything Else: Is there something you’d like me to know?</li>
 </ul>
-<p><a href="https://forms.gle/4tVx1mL7SzQx7MCu5" class="uri">https://forms.gle/4tVx1mL7SzQx7MCu5</a></p>
+<p><a href="https://forms.gle/PA1CH7gTgrKWkmzw6" class="uri">https://forms.gle/PA1CH7gTgrKWkmzw6</a></p>
 </div>
-</div>
-<div id="pacing" class="section level2">
-<h2>Pacing</h2>
-<p>The pacing average went up a little bit, so I think that means I should slow down a little. I planned to slow down when we got to the “harder” stuff this week so that’s good. Please stop me if anything is not clear! I am happy to go over things multiple times during class.</p>
-</div>
-<div id="muddiest-points" class="section level2">
-<h2>Muddiest Points</h2>
-<blockquote>
-<p>.rproj and file organization</p>
-</blockquote>
-<p>Fair. This is probably going to be muddy for a while. I will keep going over it.</p>
-<blockquote>
-<p>After we save our plot with the ggsave() feature, how are we able to access it again/where is it saved?</p>
-</blockquote>
-<p>This is saved in your home directory which is where your <code>.rproj</code> file is. You can specify the location to be in a different place, though, i.e. <code>ggsave("plots/myplot.png")</code>. I will go over this in class, as it’s related to file organization.</p>
-<blockquote>
-<p>I feel like we covered SO much, and my head is still trying to process what is unclear. Based on the learning objectives for the class, I would say that points 4 and 5 are still really muddy for me.</p>
-</blockquote>
-<p>Don’t worry, it will take practice. I will go over more visualization examples next week, and also will show more examples of data summarization now that we are getting more into data wrangling.</p>
-<blockquote>
-<p>what is added by vis_dat() vs other exploratory functions</p>
-</blockquote>
-<p>This is useful to see patterns of missingness, for example if a set of variables tend to be missing together. In future classes I’ll use more <code>vis_dat()</code> and other <code>visdat</code> and <code>naniar</code> package functions to illustrate how/why it’s useful to see patterns of missingness.</p>
-<blockquote>
-<p>Uploading excel files, how to separately upload tabs within R.</p>
-</blockquote>
-<p>This was the argument <code>sheet</code> in the function <code>read_excel()</code>. For example, this reads in the first sheet/tab:</p>
-<pre class="r"><code>brca_clinical &lt;- read_excel(&quot;data/tcga_clinical_data.xlsx&quot;,
-                            sheet = 1, 
-                            skip = 1,
-                            na = &quot;NA&quot;
-                            )</code></pre>
-<p>or you could have used the sheet/tab name:</p>
-<pre class="r"><code>brca_clinical &lt;- read_excel(&quot;data/tcga_clinical_data.xlsx&quot;,
-                            sheet = &quot;BRCA&quot;, 
-                            skip = 1,
-                            na = &quot;NA&quot;
-                            )</code></pre>
-<p>If we want to read in the second sheet/tab we can use it’s name or number (2):</p>
-<pre class="r"><code>cesc_clinical &lt;- read_excel(&quot;data/tcga_clinical_data.xlsx&quot;,
-                            sheet = &quot;CESC&quot;, 
-                            skip = 1,
-                            na = &quot;NA&quot;
-                            )</code></pre>
-<p>I highly recommend reading the <a href="https://readxl.tidyverse.org/">introduction/vignette for the <code>readxl</code></a> package and looking at the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-import.pdf">cheatsheet.</a></p>
-<blockquote>
-<p>how to use haven package</p>
-</blockquote>
-<p>Oh yes, I didn’t really cover this since I wasn’t sure of the interest, but I can since there were a couple requests to do that. I’ll go over this more in depth next time.</p>
-</div>
-<div id="clearest-points" class="section level2">
-<h2>Clearest points</h2>
-<p>Mostly: ggplot, summarizing data tools, loading data; a variety of things but I think there were some aspects which we can repeat and develop more in depth in future classes, so this is great.</p>
-</div>
-<div id="other-messages" class="section level2">
-<h2>Other messages</h2>
-<blockquote>
-<p>I loved that you talked about how to use name_repair with janitor:: make_clean_names in read_excel! Sometimes figuring out the documentation of arguments is really hard. I also really appreciated the demonstrations with for loops (both printing with mypets and with the ggplot for loop), and other demonstrations with code that purposefully gives errors/unexpected stuff. Seeing code break in various ways makes it a lot clearer what do to to get what you want.</p>
-</blockquote>
-<p>Yes I really want to do more of this kind of examples of how to figure out how a function works and how to figure out why code is breaking, so thank you for this!</p>
-<blockquote>
-<p>I would like to spend more time in these breakout rooms doing some of the lecture tasks that are built in. Maybe it would be helpful to talk about what codes people used to answer the questions? If people used a different way?</p>
-</blockquote>
-<p>Wonderful, I was hoping to incorporate more breakout room tasks in class 3, so I’m glad it is useful!</p>
-<blockquote>
-<p>Please go slower with how to upload items such as excel files, installing packages, et cetera.</p>
-</blockquote>
-<p>Thank you, will definitely try to do this. If there is ever a time you want me to fully go over a step again, maybe with different explanations, please let me know (ask in chat during class or send message this way) and I am happy to.</p>
-<p>I highly recommend reading the <a href="https://readxl.tidyverse.org/">introduction/vignette for the <code>readxl</code></a> package!</p>
-<p>Thank you for the feedback, everyone, it’s super helpful!</p>
 </div>
 
                     </div>
@@ -716,7 +662,7 @@
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on January 17, 2022</p>
+                    <p>Last updated on January 4, 2023</p>
 
                     
 
@@ -748,7 +694,7 @@
     <div class="row course-info">
         <div class="col-md-7">
             <p>
-                <strong>BSTA 504: R Programming 2022 (Winter 2022)</strong><br>
+                <strong>BSTA 504: R Programming 2023 (Winter 2023)</strong><br>
 
                 <a href="https://www.ohsu.edu" target="_blank" rel="noopener">Oregon Health &amp; Science University / Portland State University</a> &emsp;&emsp;
                 <a href="https://ohsu-psu-sph.org/" target="_blank" rel="noopener">OHSU/PSU School of Public Health</a>
@@ -764,14 +710,14 @@
             <p>
                 <i class="far fa-calendar-alt"></i> Wednesdays &emsp;&emsp;
                 <i class="far fa-clock"></i> 3:15–6:05 PM <br>
-                <i class="fas fa-university"></i> Online
+                <i class="fas fa-university"></i> See Sakai
             </p>
         </div>
 
         <div class="col-md-5 credits">
             <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
             
-            <p>Content <i class="fab fa-creative-commons"></i> 2022 <a href="http://jessicaminnier.com" target="_blank" rel="noopener">ted &amp; jessica</a></p>
+            <p>Content <i class="fab fa-creative-commons"></i> 2023 <a href="http://jessicaminnier.com" target="_blank" rel="noopener">ted &amp; jessica</a></p>
         
             <p>This site created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> adapted by <a href="https://github.com/laderast/sph_r_programming_site" target="_blank" rel="noopener">Ted Laderas</a> and <a href="https://github.com/andrewheiss/evalsp20.classes.andrewheiss.com" target="_blank" rel="noopener">Andrew Heiss</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
             

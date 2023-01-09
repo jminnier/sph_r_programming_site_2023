@@ -18,21 +18,16 @@ editor_options:
   chunk_output_type: console
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#r-project-files">R Project files</a></li>
-<li><a href="#readings">Readings</a></li>
-<li><a href="#slides">Slides</a></li>
-<li><a href="#class-video">Class Video</a>
+<li><a href="#r-project-files" id="toc-r-project-files">R Project files</a></li>
+<li><a href="#readings" id="toc-readings">Readings</a></li>
+<li><a href="#slides" id="toc-slides">Slides</a></li>
+<li><a href="#class-video" id="toc-class-video">Class Video</a>
 <ul>
-<li><a href="#post-class">Post-Class</a></li>
+<li><a href="#post-class" id="toc-post-class">Post-Class</a></li>
 </ul></li>
-<li><a href="#pacing">Pacing</a></li>
-<li><a href="#muddiest-points">Muddiest Points</a></li>
-<li><a href="#clearest-points">Clearest points</a></li>
-<li><a href="#other-messages">Other messages</a></li>
 </ul>
 </div>
 
@@ -54,8 +49,7 @@ editor_options:
 <h2>Class Video</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0-_luKuYo_E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
-<p>View last year’s class and materials <a href="https://sph-r-programming.netlify.app/class/02-class/">here</a>.</p>
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/yCPcijCj15c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<p>View last year’s class and materials <a href="https://sph-r-programming-2022.netlify.app/class/02-class/">here</a>.</p>
 <div id="post-class" class="section level3">
 <h3>Post-Class</h3>
 <p>Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous. The first two questions will count toward your attendance part of the grade.</p>
@@ -64,76 +58,6 @@ editor_options:
 <li>Muddiest Point: What was the most unclear part of the lecture to you?</li>
 <li>Anything Else: Is there something you’d like me to know?</li>
 </ul>
-<p><a href="https://forms.gle/4tVx1mL7SzQx7MCu5" class="uri">https://forms.gle/4tVx1mL7SzQx7MCu5</a></p>
+<p><a href="https://forms.gle/PA1CH7gTgrKWkmzw6" class="uri">https://forms.gle/PA1CH7gTgrKWkmzw6</a></p>
 </div>
-</div>
-<div id="pacing" class="section level2">
-<h2>Pacing</h2>
-<p>The pacing average went up a little bit, so I think that means I should slow down a little. I planned to slow down when we got to the “harder” stuff this week so that’s good. Please stop me if anything is not clear! I am happy to go over things multiple times during class.</p>
-</div>
-<div id="muddiest-points" class="section level2">
-<h2>Muddiest Points</h2>
-<blockquote>
-<p>.rproj and file organization</p>
-</blockquote>
-<p>Fair. This is probably going to be muddy for a while. I will keep going over it.</p>
-<blockquote>
-<p>After we save our plot with the ggsave() feature, how are we able to access it again/where is it saved?</p>
-</blockquote>
-<p>This is saved in your home directory which is where your <code>.rproj</code> file is. You can specify the location to be in a different place, though, i.e. <code>ggsave("plots/myplot.png")</code>. I will go over this in class, as it’s related to file organization.</p>
-<blockquote>
-<p>I feel like we covered SO much, and my head is still trying to process what is unclear. Based on the learning objectives for the class, I would say that points 4 and 5 are still really muddy for me.</p>
-</blockquote>
-<p>Don’t worry, it will take practice. I will go over more visualization examples next week, and also will show more examples of data summarization now that we are getting more into data wrangling.</p>
-<blockquote>
-<p>what is added by vis_dat() vs other exploratory functions</p>
-</blockquote>
-<p>This is useful to see patterns of missingness, for example if a set of variables tend to be missing together. In future classes I’ll use more <code>vis_dat()</code> and other <code>visdat</code> and <code>naniar</code> package functions to illustrate how/why it’s useful to see patterns of missingness.</p>
-<blockquote>
-<p>Uploading excel files, how to separately upload tabs within R.</p>
-</blockquote>
-<p>This was the argument <code>sheet</code> in the function <code>read_excel()</code>. For example, this reads in the first sheet/tab:</p>
-<pre class="r"><code>brca_clinical &lt;- read_excel(&quot;data/tcga_clinical_data.xlsx&quot;,
-                            sheet = 1, 
-                            skip = 1,
-                            na = &quot;NA&quot;
-                            )</code></pre>
-<p>or you could have used the sheet/tab name:</p>
-<pre class="r"><code>brca_clinical &lt;- read_excel(&quot;data/tcga_clinical_data.xlsx&quot;,
-                            sheet = &quot;BRCA&quot;, 
-                            skip = 1,
-                            na = &quot;NA&quot;
-                            )</code></pre>
-<p>If we want to read in the second sheet/tab we can use it’s name or number (2):</p>
-<pre class="r"><code>cesc_clinical &lt;- read_excel(&quot;data/tcga_clinical_data.xlsx&quot;,
-                            sheet = &quot;CESC&quot;, 
-                            skip = 1,
-                            na = &quot;NA&quot;
-                            )</code></pre>
-<p>I highly recommend reading the <a href="https://readxl.tidyverse.org/">introduction/vignette for the <code>readxl</code></a> package and looking at the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-import.pdf">cheatsheet.</a></p>
-<blockquote>
-<p>how to use haven package</p>
-</blockquote>
-<p>Oh yes, I didn’t really cover this since I wasn’t sure of the interest, but I can since there were a couple requests to do that. I’ll go over this more in depth next time.</p>
-</div>
-<div id="clearest-points" class="section level2">
-<h2>Clearest points</h2>
-<p>Mostly: ggplot, summarizing data tools, loading data; a variety of things but I think there were some aspects which we can repeat and develop more in depth in future classes, so this is great.</p>
-</div>
-<div id="other-messages" class="section level2">
-<h2>Other messages</h2>
-<blockquote>
-<p>I loved that you talked about how to use name_repair with janitor:: make_clean_names in read_excel! Sometimes figuring out the documentation of arguments is really hard. I also really appreciated the demonstrations with for loops (both printing with mypets and with the ggplot for loop), and other demonstrations with code that purposefully gives errors/unexpected stuff. Seeing code break in various ways makes it a lot clearer what do to to get what you want.</p>
-</blockquote>
-<p>Yes I really want to do more of this kind of examples of how to figure out how a function works and how to figure out why code is breaking, so thank you for this!</p>
-<blockquote>
-<p>I would like to spend more time in these breakout rooms doing some of the lecture tasks that are built in. Maybe it would be helpful to talk about what codes people used to answer the questions? If people used a different way?</p>
-</blockquote>
-<p>Wonderful, I was hoping to incorporate more breakout room tasks in class 3, so I’m glad it is useful!</p>
-<blockquote>
-<p>Please go slower with how to upload items such as excel files, installing packages, et cetera.</p>
-</blockquote>
-<p>Thank you, will definitely try to do this. If there is ever a time you want me to fully go over a step again, maybe with different explanations, please let me know (ask in chat during class or send message this way) and I am happy to.</p>
-<p>I highly recommend reading the <a href="https://readxl.tidyverse.org/">introduction/vignette for the <code>readxl</code></a> package!</p>
-<p>Thank you for the feedback, everyone, it’s super helpful!</p>
 </div>

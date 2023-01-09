@@ -30,13 +30,12 @@
   
     
   
-  <meta name="description" content="R Project files Class Video Slides  Post-Class  Muddiest Points/Clearest Points   R Project files Before each class, I will update this folder link with the appropriate “part” folder. Please download this sub-folder for class materials. Be sure to unzip if necessary.
- Class Video The video will be uploaded after class.
-View last year’s class and materials here.
- --  Slides To be posted.">
+  <meta name="description" content="  R Project files Class Video   R Project files Please download the part7 sub-folder from this dropbox link. Be sure to unzip if necessary. Knit the part7.Rmd to install any required packages.
+ Class Video  View last year’s class and materials here.
+ ">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://sph-r-programming-2022.netlify.app/class/08-class/">
+  <link rel="alternate" hreflang="en-us" href="https://sph-r-programming-2023.netlify.app/class/08-class/">
 
   
 
@@ -221,7 +220,7 @@ View last year’s class and materials here.
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_3.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png">
 
-  <link rel="canonical" href="https://sph-r-programming-2022.netlify.app/class/08-class/">
+  <link rel="canonical" href="https://sph-r-programming-2023.netlify.app/class/08-class/">
 
   
   
@@ -236,19 +235,18 @@ View last year’s class and materials here.
   <meta property="twitter:site" content="@datapointier">
   <meta property="twitter:creator" content="@datapointier">
   
-  <meta property="og:site_name" content="R Programming 2022">
-  <meta property="og:url" content="https://sph-r-programming-2022.netlify.app/class/08-class/">
-  <meta property="og:title" content="Part 7 (Class 8): Lists/Functions/Intro to Purrr | R Programming 2022">
-  <meta property="og:description" content="R Project files Class Video Slides  Post-Class  Muddiest Points/Clearest Points   R Project files Before each class, I will update this folder link with the appropriate “part” folder. Please download this sub-folder for class materials. Be sure to unzip if necessary.
- Class Video The video will be uploaded after class.
-View last year’s class and materials here.
- --  Slides To be posted."><meta property="og:image" content="https://sph-r-programming-2022.netlify.app/img/social-image.png">
-  <meta property="twitter:image" content="https://sph-r-programming-2022.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
+  <meta property="og:site_name" content="R Programming 2023">
+  <meta property="og:url" content="https://sph-r-programming-2023.netlify.app/class/08-class/">
+  <meta property="og:title" content="Part 7 (Class 8): Lists/Functions/Intro to Purrr | R Programming 2023">
+  <meta property="og:description" content="  R Project files Class Video   R Project files Please download the part7 sub-folder from this dropbox link. Be sure to unzip if necessary. Knit the part7.Rmd to install any required packages.
+ Class Video  View last year’s class and materials here.
+ "><meta property="og:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png">
+  <meta property="twitter:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2022-02-23T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2022-02-15T15:29:47-08:00">
+    <meta property="article:modified_time" content="2023-01-04T15:13:14-08:00">
   
 
   
@@ -261,21 +259,21 @@ View last year’s class and materials here.
   
 
 
-  <link rel="shortcut icon" href="https://sph-r-programming-2022.netlify.app/favicon.ico" />
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-57x57.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-114x114.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-72x72.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-144x144.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-120x120.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://sph-r-programming-2022.netlify.app/img/apple-touch-icon-152x152.png" />
-  <link rel="icon" type="image/png" href="https://sph-r-programming-2022.netlify.app/img/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="https://sph-r-programming-2022.netlify.app/img/favicon-16x16.png" sizes="16x16" />
-  <meta name="application-name" content="BSTA 504: R Programming 2022" />
+  <link rel="shortcut icon" href="https://sph-r-programming-2023.netlify.app/favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://sph-r-programming-2023.netlify.app/img/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://sph-r-programming-2023.netlify.app/img/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://sph-r-programming-2023.netlify.app/img/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://sph-r-programming-2023.netlify.app/img/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://sph-r-programming-2023.netlify.app/img/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://sph-r-programming-2023.netlify.app/img/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="https://sph-r-programming-2023.netlify.app/img/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="https://sph-r-programming-2023.netlify.app/img/favicon-16x16.png" sizes="16x16" />
+  <meta name="application-name" content="BSTA 504: R Programming 2023" />
   <meta name="msapplication-TileColor" content="#FFFFFF" />
-  <meta name="msapplication-TileImage" content="https://sph-r-programming-2022.netlify.app/img/mstile-144x144.png" />
+  <meta name="msapplication-TileImage" content="https://sph-r-programming-2023.netlify.app/img/mstile-144x144.png" />
 
 
-  <title>Part 7 (Class 8): Lists/Functions/Intro to Purrr | R Programming 2022</title>
+  <title>Part 7 (Class 8): Lists/Functions/Intro to Purrr | R Programming 2023</title>
 
 </head>
 
@@ -328,7 +326,7 @@ View last year’s class and materials here.
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">R Programming 2022</a>
+      <a class="navbar-brand" href="/">R Programming 2023</a>
     </div>
     
 
@@ -341,7 +339,7 @@ View last year’s class and materials here.
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">R Programming 2022</a>
+      <a class="navbar-brand" href="/">R Programming 2023</a>
     </div>
     
 
@@ -463,6 +461,28 @@ View last year’s class and materials here.
         
         
 
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/reviews/"><span>Course Reviews</span></a>
+        </li>
+
+        
+        
+
       
 
         
@@ -518,7 +538,7 @@ View last year’s class and materials here.
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/class/01-class/">Part 1.  Introduction to R/Rstudio/Vectors/For Loops</a>
+        <a href="/class/01-class/">Class 1.  Introduction to R/Rstudio/Vectors/For Loops</a>
       </li>
       
       <li >
@@ -558,7 +578,7 @@ View last year’s class and materials here.
       </li>
       
       <li >
-        <a href="/class/11-class/">Class 11: TBD</a>
+        <a href="/class/11-class/">Class 11: Finish Part 9 &#43; Part 10: Advanced Functions and Loose Ends</a>
       </li>
       
     </ul>
@@ -592,51 +612,23 @@ View last year’s class and materials here.
 
                     <div class="article-style">
                         
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#r-project-files">R Project files</a></li>
-<li><a href="#class-video">Class Video</a></li>
-<li><a href="#slides">Slides</a>
-<ul>
-<li><a href="#post-class">Post-Class</a></li>
-</ul></li>
-<li><a href="#muddiest-pointsclearest-points">Muddiest Points/Clearest Points</a></li>
+<li><a href="#r-project-files" id="toc-r-project-files">R Project files</a></li>
+<li><a href="#class-video" id="toc-class-video">Class Video</a></li>
 </ul>
 </div>
 
 <div id="r-project-files" class="section level2">
 <h2>R Project files</h2>
-<p>Before each class, I will update <a href="https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0">this folder link</a> with the appropriate “part” folder. Please download this sub-folder for class materials. Be sure to unzip if necessary.</p>
+<p>Please download the part7 sub-folder from <a href="https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0">this dropbox link</a>. Be sure to unzip if necessary. Knit the <code>part7.Rmd</code> to install any required packages.</p>
 </div>
 <div id="class-video" class="section level2">
 <h2>Class Video</h2>
-<p>The video will be uploaded after class.</p>
-<p>View last year’s class and materials <a href="https://sph-r-programming.netlify.app/class/08-class/">here</a>.</p>
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/yCPcijCj15c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-</div>
-<div id="slides" class="section level2">
-<h2>Slides</h2>
-<p>To be posted.</p>
-<!-- Open the class introduction slides in a separate window: <a href="https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1" target="_blank">https://sph-r-programming-2022.netlify.app/01-introduction_slides#1</a> -->
-<!-- ```{r echo=FALSE} -->
-<!-- knitr::include_url('https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1') -->
-<!-- ``` -->
-<div id="post-class" class="section level3">
-<h3>Post-Class</h3>
-<p>Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.</p>
-<ul>
-<li>Clearest Point: What was the most clear part of the lecture?</li>
-<li>Muddiest Point: What was the most unclear part of the lecture to you?</li>
-<li>Anything Else: Is there something you’d like me to know?</li>
-</ul>
-<p><a href="https://forms.gle/4tVx1mL7SzQx7MCu5" class="uri">https://forms.gle/4tVx1mL7SzQx7MCu5</a></p>
-</div>
-</div>
-<div id="muddiest-pointsclearest-points" class="section level2">
-<h2>Muddiest Points/Clearest Points</h2>
-<p>I will add the muddiest/clearest points from the survey after the first class.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IJYgWOfZa-M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>View last year’s class and materials <a href="https://sph-r-programming-2022.netlify.app/class/08-class/">here</a>.</p>
 </div>
 
                     </div>
@@ -649,7 +641,7 @@ View last year’s class and materials here.
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on February 15, 2022</p>
+                    <p>Last updated on January 4, 2023</p>
 
                     
 
@@ -681,7 +673,7 @@ View last year’s class and materials here.
     <div class="row course-info">
         <div class="col-md-7">
             <p>
-                <strong>BSTA 504: R Programming 2022 (Winter 2022)</strong><br>
+                <strong>BSTA 504: R Programming 2023 (Winter 2023)</strong><br>
 
                 <a href="https://www.ohsu.edu" target="_blank" rel="noopener">Oregon Health &amp; Science University / Portland State University</a> &emsp;&emsp;
                 <a href="https://ohsu-psu-sph.org/" target="_blank" rel="noopener">OHSU/PSU School of Public Health</a>
@@ -697,14 +689,14 @@ View last year’s class and materials here.
             <p>
                 <i class="far fa-calendar-alt"></i> Wednesdays &emsp;&emsp;
                 <i class="far fa-clock"></i> 3:15–6:05 PM <br>
-                <i class="fas fa-university"></i> Online
+                <i class="fas fa-university"></i> See Sakai
             </p>
         </div>
 
         <div class="col-md-5 credits">
             <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
             
-            <p>Content <i class="fab fa-creative-commons"></i> 2022 <a href="http://jessicaminnier.com" target="_blank" rel="noopener">ted &amp; jessica</a></p>
+            <p>Content <i class="fab fa-creative-commons"></i> 2023 <a href="http://jessicaminnier.com" target="_blank" rel="noopener">ted &amp; jessica</a></p>
         
             <p>This site created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> adapted by <a href="https://github.com/laderast/sph_r_programming_site" target="_blank" rel="noopener">Ted Laderas</a> and <a href="https://github.com/andrewheiss/evalsp20.classes.andrewheiss.com" target="_blank" rel="noopener">Andrew Heiss</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
             

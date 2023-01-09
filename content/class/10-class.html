@@ -18,33 +18,11 @@ editor_options:
   chunk_output_type: console
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
-<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/datatables-binding/datatables.js"></script>
-<script src="/rmarkdown-libs/jquery/jquery-3.6.0.min.js"></script>
-<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="/rmarkdown-libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#r-project-files">R Project files</a></li>
-<li><a href="#class-video">Class Video</a>
-<ul>
-<li><a href="#post-class">Post-Class</a></li>
-</ul></li>
-<li><a href="#muddiest-points">Muddiest Points</a>
-<ul>
-<li><a href="#anova">ANOVA</a></li>
-<li><a href="#roc-curves">ROC Curves</a></li>
-<li><a href="#rmd-vs-html">Rmd vs html</a></li>
-<li><a href="#machine-learning">Machine Learning</a></li>
-</ul></li>
-<li><a href="#clearest-points">Clearest Points</a></li>
-<li><a href="#other">Other</a></li>
+<li><a href="#r-project-files" id="toc-r-project-files">R Project files</a></li>
+<li><a href="#class-video" id="toc-class-video">Class Video</a></li>
 </ul>
 </div>
 
@@ -56,85 +34,5 @@ editor_options:
 <h2>Class Video</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2d-oAKAkkfI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
-<p>View last year’s class and materials <a href="https://sph-r-programming.netlify.app/class/10-class/">here</a>.</p>
-<div id="post-class" class="section level3">
-<h3>Post-Class</h3>
-<p>Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.</p>
-<ul>
-<li>Clearest Point: What was the most clear part of the lecture?</li>
-<li>Muddiest Point: What was the most unclear part of the lecture to you?</li>
-<li>Anything Else: Is there something you’d like me to know?</li>
-</ul>
-<p><a href="https://forms.gle/4tVx1mL7SzQx7MCu5" class="uri">https://forms.gle/4tVx1mL7SzQx7MCu5</a></p>
-</div>
-</div>
-<div id="muddiest-points" class="section level2">
-<h2>Muddiest Points</h2>
-<div id="anova" class="section level3">
-<h3>ANOVA</h3>
-<blockquote>
-<p>I’m still a bit confused on anova() versus aov()</p>
-</blockquote>
-<p>When looking at both <code>Anova</code> and <code>aov</code> functions, my point was that they do the same thing, but <code>cars::Anova()</code> lets you choose which type of sums of squares are used, and therefore impacts the interpretation of the p-values for each factor. In one factor anova it does not matter, but once you start adding in multiple factors or interaction terms, this makes a big difference. The answer in this <a href="https://stats.stackexchange.com/questions/20452/how-to-interpret-type-i-type-ii-and-type-iii-anova-and-manova">stackexchange</a> question actually explains it pretty well:.</p>
-<p>I wanted to show <code>aov()</code> because I believe that’s what some biostats courses tend to use. I tend to use <code>cars::Anova()</code> because it lets me pick type III SS if I want it. Also <a href="https://towardsdatascience.com/anovas-three-types-of-estimating-sums-of-squares-don-t-make-the-wrong-choice-91107c77a27a">this post</a> is pretty useful too. But what you really want is OHSU’s BSTA 523 Experimental Design class taught by Dr. Byung Park next spring =)</p>
-</div>
-<div id="roc-curves" class="section level3">
-<h3>ROC Curves</h3>
-<p>This is a topic that is not easily explained in less than 3 hours, much less 10 minutes! To truly grasp ROC curves and prediction accuracy, you should learn about prediction modeling and classification. I would definitely recommend reading “The Statistical Evaluation of Medical Tests for Classification and Prediction” textbook by Margaret Pepe if you’re interested in learning more about prediction in general.</p>
-<p>I did find this (pretty corny) video that explains ROC curves with logistic regression pretty well in 17 minutes.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4jRBRDbJemM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<p>Someone asked about selecting a cutoff value for a prediction/classification rule based on an ROC curve. There are many many ways to think about this, but I do think a common approach is to select a target sensitivity or specificity that the study team is comfortable with, and use that point on the curve.</p>
-<p>For instance, a long time ago I worked on classification rules based on electronic medical records data to classify someone based on hand written/typed notes whether they had a certain psychological phenotype, and we wanted to make sure that we identified a cohort of people who were very likely to have that phenotype so that we could invite them to join a future genetic study of that phenotype. For that reason we placed high value on correctly removing non-cases from our “predicted positives/cases” and therefore required a specificity of 95% and chose the cut off that way.</p>
-<p>One of those studies is <a href="https://ajp.psychiatryonline.org/doi/full/10.1176/appi.ajp.2014.14030423">here</a></p>
-<blockquote>
-<p>“For the algorithm using natural language processing, performance of the logistic regression model was assessed by using receiver operating curve (ROC) analysis for models in which specificity was set at the desired threshold of 95%. The overall performance of this algorithm, referred to as 95-NLP, was summarized by using the area under the ROC curve (AUC). Performance of the case and control classification compared with the in-person validation study was assessed by using the PPV for the algorithm classification relative to the SCID classification.</p>
-</blockquote>
-<p>But there are other ways, such as optimizing both sensitivity and specificity which would give you the highest point off the diagonal. There are also many other ways to evaluate prediction accuracy (see again Pepe’s book, and others).</p>
-</div>
-<div id="rmd-vs-html" class="section level3">
-<h3>Rmd vs html</h3>
-<blockquote>
-<p>I would still like to talk a little more about differences between html output and rmd coding. Since I won’t be sharing my code necessarily, I want to make sure that what I provide is viewed in the way I want it (if that makes sense).</p>
-</blockquote>
-<p>This really depends on what your output looks like. My one tip if you are sharing an Rmd is to <em>never print out regular R output</em>, and always format it in some way. This means:</p>
-<ul>
-<li>Use nice html tables such as <code>gt()</code> or <code>kable()</code> for any kind of data frame/tibble output</li>
-<li>Don’t print out <code>summary(glm_fit)</code> or any kind of default R modeling output, but use tools like <code>tidy::broom()</code> with <code>gt()</code> to clean up a table, or make a plot from the results, or use built in summary tools like <code>gtsummary()</code> or <code>finalfit()</code>.</li>
-<li>If you have large tables you hope to show, try using <code>DT::datatable()</code>.</li>
-</ul>
-<pre class="r"><code>DT::datatable(mtcars)</code></pre>
-<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","vertical":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant","Duster 360","Merc 240D","Merc 230","Merc 280","Merc 280C","Merc 450SE","Merc 450SL","Merc 450SLC","Cadillac Fleetwood","Lincoln Continental","Chrysler Imperial","Fiat 128","Honda Civic","Toyota Corolla","Toyota Corona","Dodge Challenger","AMC Javelin","Camaro Z28","Pontiac Firebird","Fiat X1-9","Porsche 914-2","Lotus Europa","Ford Pantera L","Ferrari Dino","Maserati Bora","Volvo 142E"],[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8,8,8,4,4,4,4,8,8,8,8,4,4,4,8,6,8,4],[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472,460,440,78.7,75.7,71.1,120.1,318,304,350,400,79,120.3,95.1,351,145,301,121],[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92,3.92,3.07,3.07,3.07,2.93,3,3.23,4.08,4.93,4.22,3.7,2.76,3.15,3.73,3.08,4.08,4.43,3.77,4.22,3.62,3.54,4.11],[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],[0,0,1,1,0,1,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,1,0,0,0,1],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1],[4,4,4,3,3,3,3,4,4,4,4,3,3,3,3,3,3,4,4,4,3,3,3,3,3,4,5,5,5,5,5,4],[4,4,1,1,2,1,4,2,2,4,4,3,3,3,4,4,4,1,2,1,1,2,2,4,2,1,2,2,4,6,8,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-<p>I often hide the code using <a href="https://bookdown.org/yihui/rmarkdown/html-document.html#code-folding">code folding.</a> so that my collaborators don’t see the code automatically, but it is still in the document for reproducibility.</p>
-<p>I would also read up on all the R Markdown options and advanced uses in</p>
-<ul>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a></li>
-<li><a href="https://arm.rbind.io/">Advanced R Markdown Workshop</a></li>
-</ul>
-</div>
-<div id="machine-learning" class="section level3">
-<h3>Machine Learning</h3>
-<p>There was a request for resources to learn more about machine learning and more advanced statistical modeling. I so wish we had more time for this, because this is the truly fun part!</p>
-<p>In last year’s version of this class, Dr. Ted Laderas covered <code>tidymodels</code> and some machine learning topics, so I highly recommend watching those videos in <a href="https://sph-r-programming.netlify.app/class/09-class/">class 9</a> and <a href="https://sph-r-programming.netlify.app/class/10-class/">class 10</a>.</p>
-<p>There are more resources on the <a href="https://sph-r-programming-2022.netlify.app/reading/10-reading/">class readings page</a>, but good places to start are</p>
-<ul>
-<li><a href="https://r4ds.had.co.nz/model-intro.html">R for Data Science</a> chapters on modeling</li>
-<li><a href="https://www.tmwr.org/">Tidy Modeling with R</a> book by Max Kuhn and Julia Silge.</li>
-<li>Julia Silge’s #TidyTuesday prediction screencasts for a quick overview of fitting models and evaluating them, for example <a href="https://juliasilge.com/blog/chocolate-ratings/">this one on chocolate ratings.</a></li>
-<li>The learning materials on <a href="https://www.tidymodels.org/learn/">tidymodels.org</a></li>
-<li>And here’s a nice explanation of an unsupervised learning method <a href="https://allisonhorst.github.io/palmerpenguins/articles/articles/pca.html">PCA</a> by Drs. Alison Horst, Allison Hill (formerly of OHSU, now at Rstudio), and Kristen Gorman.</li>
-</ul>
-</div>
-</div>
-<div id="clearest-points" class="section level2">
-<h2>Clearest Points</h2>
-<p>Missing data, data summary with regression tables and table 1 packages, saving excel files, biostats tie in.</p>
-<p>I’m glad this rapid fire stats session wasn’t too confusing for most!</p>
-</div>
-<div id="other" class="section level2">
-<h2>Other</h2>
-<p>Thank you so much for all the nice messages about how this class has been very useful. I hope this provides a foundation to go out and learn more R on your own. Once you get past the initial “steep learning curve” it’s really not hard to get to a point where you are an R master!</p>
-<p>Thank you to our TA Colin for his careful and detailed feedback in grading!</p>
-<p>I know there’s a risk of feedback fatigue with all these surveys but it has been so helpful to hear how the class is going for everyone and what worked and what didn’t. OHSU/PSU SPH doesn’t see these surveys, so I would also appreciate if you fill out the end of quarter official survey to let them know this class is useful and should be a permanent fixture on the schedule, or any other positive or negative feedback that you might have.</p>
+<p>View last year’s class and materials <a href="https://sph-r-programming-2022.netlify.app/class/10-class/">here</a>.</p>
 </div>

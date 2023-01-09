@@ -39,9 +39,7 @@ knitr::include_url('https://sph-r-programming-2022.netlify.app/slides/02-for_loo
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0-_luKuYo_E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-View last year's class and materials [here](https://sph-r-programming.netlify.app/class/02-class/).
-
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/yCPcijCj15c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+View last year's class and materials [here](https://sph-r-programming-2022.netlify.app/class/02-class/).
 
 ### Post-Class
 
@@ -51,87 +49,5 @@ Please fill out the following survey and we will discuss the results during the 
 - Muddiest Point: What was the most unclear part of the lecture to you?
 - Anything Else: Is there something you'd like me to know?
 
-<https://forms.gle/4tVx1mL7SzQx7MCu5>
+<https://forms.gle/PA1CH7gTgrKWkmzw6>
 
-
-## Pacing
-
-The pacing average went up a little bit, so I think that means I should slow down a little. I planned to slow down when we got to the "harder" stuff this week so that's good. Please stop me if anything is not clear! I am happy to go over things multiple times during class.
-
-## Muddiest Points
-
-> .rproj and file organization
-
-Fair. This is probably going to be muddy for a while. I will keep going over it.
-
-> After we save our plot with the ggsave() feature, how are we able to access it again/where is it saved?
-
-This is saved in your home directory which is where your `.rproj` file is. You can specify the location to be in a different place, though, i.e. `ggsave("plots/myplot.png")`. I will go over this in class, as it's related to file organization.
-
-> I feel like we covered SO much, and my head is still trying to process what is unclear. Based on the learning objectives for the class, I would say that points 4 and 5 are still really muddy for me.
-
-Don't worry, it will take practice. I will go over more visualization examples next week, and also will show more examples of data summarization now that we are getting more into data wrangling.
-
-> what is added by vis_dat() vs other exploratory functions
-
-This is useful to see patterns of missingness, for example if a set of variables tend to be missing together. In future classes I'll use more `vis_dat()` and other `visdat` and `naniar` package functions to illustrate how/why it's useful to see patterns of missingness.
-
-> Uploading excel files, how to separately upload tabs within R.
-
-This was the argument `sheet` in the function `read_excel()`. For example, this reads in the first sheet/tab:
-
-```{r eval=FALSE}
-brca_clinical <- read_excel("data/tcga_clinical_data.xlsx",
-                            sheet = 1, 
-                            skip = 1,
-                            na = "NA"
-                            )
-```
-
-or you could have used the sheet/tab name:
-
-```{r eval=FALSE}
-brca_clinical <- read_excel("data/tcga_clinical_data.xlsx",
-                            sheet = "BRCA", 
-                            skip = 1,
-                            na = "NA"
-                            )
-```
-
-If we want to read in the second sheet/tab we can use it's name or number (2):
-
-```{r eval=FALSE}
-cesc_clinical <- read_excel("data/tcga_clinical_data.xlsx",
-                            sheet = "CESC", 
-                            skip = 1,
-                            na = "NA"
-                            )
-```
-
-I highly recommend reading the [introduction/vignette for the `readxl`](https://readxl.tidyverse.org/) package and looking at the [cheatsheet.](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-import.pdf)
-
-> how to use haven package
-
-Oh yes, I didn't really cover this since I wasn't sure of the interest, but I can since there were a couple requests to do that. I'll go over this more in depth next time.
-
-## Clearest points
-
-Mostly: ggplot, summarizing data tools, loading data; a variety of things but I think there were some aspects which we can repeat and develop more in depth in future classes, so this is great.
-
-## Other messages
-
-> I loved that you talked about how to use name_repair with janitor:: make_clean_names in read_excel! Sometimes figuring out the documentation of arguments is really hard. I also really appreciated the demonstrations with for loops (both printing with mypets and with the ggplot for loop), and other demonstrations with code that purposefully gives errors/unexpected stuff. Seeing code break in various ways makes it a lot clearer what do to to get what you want.
-
-Yes I really want to do more of this kind of examples of how to figure out how a function works and how to figure out why code is breaking, so thank you for this!
-
-> I would like to spend more time in these breakout rooms doing some of the lecture tasks that are built in. Maybe it would be helpful to talk about what codes people used to answer the questions? If people used a different way?
-
-Wonderful, I was hoping to incorporate more breakout room tasks in class 3, so I'm glad it is useful!
-
-> Please go slower with how to upload items such as excel files, installing packages, et cetera.
-
-Thank you, will definitely try to do this. If there is ever a time you want me to fully go over a step again, maybe with different explanations, please let me know (ask in chat during class or send message this way) and I am happy to. 
-
-I highly recommend reading the [introduction/vignette for the `readxl`](https://readxl.tidyverse.org/) package!
-
-Thank you for the feedback, everyone, it's super helpful!

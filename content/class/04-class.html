@@ -18,16 +18,12 @@ editor_options:
   chunk_output_type: console
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#r-project-files">R Project files</a></li>
-<li><a href="#class-video">Class Video</a></li>
-<li><a href="#slides">Slides</a></li>
-<li><a href="#post-class">Post-Class</a></li>
-<li><a href="#muddiest-points">Muddiest Points</a></li>
-<li><a href="#clearest-points">Clearest points</a></li>
+<li><a href="#r-project-files" id="toc-r-project-files">R Project files</a></li>
+<li><a href="#class-video" id="toc-class-video">Class Video</a></li>
+<li><a href="#post-class" id="toc-post-class">Post-Class</a></li>
 </ul>
 </div>
 
@@ -39,152 +35,15 @@ editor_options:
 <h2>Class Video</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GGBlm21dyBE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
-<p>View last year’s class and materials <a href="https://sph-r-programming.netlify.app/class/04-class/">here</a>.</p>
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/yCPcijCj15c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<p>View last year’s class and materials <a href="https://sph-r-programming-2022.netlify.app/class/04-class/">here</a>.</p>
 </div>
-<div id="slides" class="section level2">
-<h2>Slides</h2>
-<p>No slides this week.</p>
-<!-- Open the class introduction slides in a separate window: <a href="https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1" target="_blank">https://sph-r-programming-2022.netlify.app/01-introduction_slides#1</a> -->
-<!-- ```{r echo=FALSE} -->
-<!-- knitr::include_url('https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1') -->
-<!-- ``` -->
-</div>
-<div id="post-class" class="section level2">
-<h2>Post-Class</h2>
-<p>Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous. The first two questions will count toward your attendance part of the grade.</p>
+<div id="post-class" class="section level1">
+<h1>Post-Class</h1>
+<p>Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.</p>
 <ul>
 <li>Clearest Point: What was the most clear part of the lecture?</li>
 <li>Muddiest Point: What was the most unclear part of the lecture to you?</li>
 <li>Anything Else: Is there something you’d like me to know?</li>
 </ul>
-<p><a href="https://forms.gle/4tVx1mL7SzQx7MCu5" class="uri">https://forms.gle/4tVx1mL7SzQx7MCu5</a></p>
-</div>
-<div id="muddiest-points" class="section level2">
-<h2>Muddiest Points</h2>
-<p>There were a few lingering muddiest points from previous classes that popped up so I will address them here as well.</p>
-<blockquote>
-<p>The read_excel function options</p>
-</blockquote>
-<p>I will keep going over this, but I highly recommend reading the <code>readxl</code> vignette <a href="https://readxl.tidyverse.org/">here</a> and looking at the examples where they use each argument in turn.</p>
-<blockquote>
-<p>saving my plot. If I have multiple plots, how do I specify the plot I want to save?</p>
-</blockquote>
-<p>By default, <code>ggsave()</code> saves the last plot printed. However if you have multiple plots, you can save them as objects then call those objects in <code>ggsave</code> like so:</p>
-<pre class="r"><code>library(tidyverse)
-library(ggplot2)
-# save each ggplot with an object name
-p_scatter &lt;- ggplot(mtcars, aes(x=mpg, y=disp)) + geom_point()
-p_boxplot &lt;- ggplot(mtcars, aes(x=cyl, y=disp)) + geom_boxplot()
-# to print/show the plot, you now need to call it by the object name
-p_scatter</code></pre>
-<p><img src="/class/04-class_files/figure-html/unnamed-chunk-1-1.png" width="192" /></p>
-<pre class="r"><code># save each named plot
-ggsave(plot = p_scatter, filename = &quot;myscatterplot.png&quot;)
-ggsave(plot = p_boxplot, filename = &quot;myboxplot.png&quot;)</code></pre>
-<pre><code>## Warning: Continuous x aesthetic -- did you forget aes(group=...)?</code></pre>
-<p>We now have two plots saved. Note that only one plot was printed in the Rmd output because I only called the name of the scatterplot.</p>
-<blockquote>
-<p>across()</p>
-</blockquote>
-<blockquote>
-<p>I think I need to practice a bit with across() before I really understand it. I’m still kind of digesting when you’d use across() vs just mutating a column at a time, the syntax, etc.</p>
-</blockquote>
-<blockquote>
-<p>The use of across. I am a little confused with across with where or .fns.</p>
-</blockquote>
-<blockquote>
-<p>case when and across, I think they just take practice, you explained it well</p>
-</blockquote>
-<p>Yes, <code>across()</code> is difficult! We will use <code>across()</code> in class 5 when we talk about <code>summarize()</code>. I purposefully separated out these two usages because I wanted to introduce it, and then have you see it again once you had time to let it sink in. It will be a while until you will have homework practice with this but I encourage you to try it in your midterm project if you are brave!</p>
-<blockquote>
-<p>Some of the Mutate portion since there are so many applications for Mutate</p>
-</blockquote>
-<blockquote>
-<p>mutate is still a little blurry for me - but I am sure I will get it with more practice!</p>
-</blockquote>
-<p>There are <em>so</em> many ways to use <code>mutate()</code>! I could probably show 3 hours worth of <code>mutate</code> examples. We will keep using it throughout the class because it’s probably the most useful <code>tidyverse</code> function, honestly.</p>
-<blockquote>
-<p><code>smoke_new &lt;- smoke_complete %&gt;% mutate( alive = (vital_status == "alive"), alive1 = 1*(vital_status == "alive") )</code> Not 100% clear what R is doing to create the T/F then 0/1 binary variables.</p>
-</blockquote>
-<p>Let’s break this down in parts, showing what’s happening with just vectors, not a data.frame:</p>
-<pre class="r"><code># here is a character vector, a subset of vital_status
-myvec &lt;- c(&quot;dead&quot;,&quot;alive&quot;, &quot;dead&quot;, &quot;alive&quot;, &quot;alive&quot;)
-# R will tell us this is a character vector:
-class(myvec)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code># Now let&#39;s run that first code &quot;test&quot; which is a boolean statement using a logical operator ==
-myvec == &quot;alive&quot;</code></pre>
-<pre><code>## [1] FALSE  TRUE FALSE  TRUE  TRUE</code></pre>
-<pre class="r"><code># we see that this gives TRUE, FALSE, TRUE
-# this is actually a vector, let&#39;s save it as such
-myvec_boolean &lt;- myvec == &quot;alive&quot;
-myvec_boolean</code></pre>
-<pre><code>## [1] FALSE  TRUE FALSE  TRUE  TRUE</code></pre>
-<pre class="r"><code># R will tell us this is a logical (= boolean, which means true/false) vector:
-class(myvec_boolean)</code></pre>
-<pre><code>## [1] &quot;logical&quot;</code></pre>
-<pre class="r"><code># now let&#39;s multiply it by 1
-1*myvec_boolean</code></pre>
-<pre><code>## [1] 0 1 0 1 1</code></pre>
-<pre class="r"><code># do you see how it turns into 0s and 1s? TRUEs become 1s, FALSEs because 0s
-# Let&#39;s save it as a vector
-myvec_numeric &lt;- 1*myvec_boolean
-# now we&#39;ve turned myvec from a character vector into a binary numeric vector
-class(myvec_numeric)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>myvec_numeric</code></pre>
-<pre><code>## [1] 0 1 0 1 1</code></pre>
-<pre class="r"><code># We could have done this all at once:
-1*(myvec==&quot;alive&quot;)</code></pre>
-<pre><code>## [1] 0 1 0 1 1</code></pre>
-<blockquote>
-<p>booleans. When are they more useful?</p>
-</blockquote>
-<p>Hopefully the example above gives some insight into how they can be useful. I will say as a data type, I don’t use them much, other than to create new variables as above. We also use boolean statements in our filtering and in <code>case_when()</code>, for instance</p>
-<pre class="r"><code>mtcars %&gt;% filter(cyl==4) # cyl==4 is a TRUE/FALSE value
-mtcars %&gt;% select(where(is.numeric)) # is.numeric is TRUE/FALSE
-mtcars %&gt;% mutate(
-  cyl_cat = case_when(
-    cyl &lt; 6 ~ &quot;low&quot;, # cyl &lt; 6 is TRUE/FALSE
-    cyl &gt;=6 ~ &quot;high&quot; # cyl &gt;= 6 is TRUE/FALSE
-  )
-)</code></pre>
-<blockquote>
-<p>NA</p>
-</blockquote>
-<p>I’m not sure if this means “not applicable” or, if <code>NA</code> missing values are muddy! I’ll keep trying to go over how we deal with missing data, we’ll see some challenges with <code>NA</code> in class 5.</p>
-<blockquote>
-<p>Bonus muddy point that I’ve noticed confusion on. What is our output from piping code vs what are we saving and why?</p>
-</blockquote>
-<p>Remember that when you manipulate your data, you need to save it as a new data frame (<code>tibble</code>) but be careful about what you are saving.</p>
-<p>See <a href="https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries">these slides</a> for more info.</p>
-</div>
-<div id="clearest-points" class="section level1">
-<h1>Clearest points</h1>
-<blockquote>
-<p>I love all the examples in this class and I really appreciate that you take time to answer all our questions about syntax and how you would use these functions! R has so much documentation but it can be really dense and hard to understand, at least for non-programmer me. Having questions answered is just priceless!</p>
-</blockquote>
-<blockquote>
-<p>This time I watched the lecture the day after, while I do enjoy the social aspect of class, I did find it very helpful to pause, go back to my code, rewind if needed, etc.</p>
-</blockquote>
-<p>I like the pairing of these comments because both are excellent points about the benefits of a class like this! It almost seems too luxurious to spend 11 weeks and tuition dollars on a class just about R, especially when there are approximately 12 million resources online teaching the same thing. But when else would we have a chance to do this in our busy lives, outside of school? The community of learners and having someone to bounce questions and ideas off of is indeed priceless. It’s also great to have the course recorded in such a way that it’s accessible after class. If we were having this class in person, that would be a lot more difficult.</p>
-<blockquote>
-<p>Please add more tricks for displaying data (i.e. ncol and other commands) that help with displaying multiple datapoints.</p>
-</blockquote>
-<p>Will do! I want to get through some advanced data wrangling first, but then we will come back to some more ggplot examples.</p>
-<blockquote>
-<p>Thanks for excellent teaching! It’s very useful for me to learn the foundation of R systematically. Is there possible to add some example of actual project data processing in class?</p>
-</blockquote>
-<p>Yes! I have a a couple data sets in mind for this and will try to implement it in the next couple weeks.</p>
-<blockquote>
-<p>ggplot section</p>
-</blockquote>
-<blockquote>
-<p>assigning levels of a factor and ggplot</p>
-</blockquote>
-<blockquote>
-<p>ggplots are becoming a lot more clear to me - they confused me last quarter, so thank you !</p>
-</blockquote>
-<p>Great news, I’m so glad!</p>
+<p><a href="https://forms.gle/PA1CH7gTgrKWkmzw6" class="uri">https://forms.gle/PA1CH7gTgrKWkmzw6</a></p>
 </div>

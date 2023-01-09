@@ -24,7 +24,7 @@ Before class, please install R and Rstudio. If it has been a while since you ins
 
 Installation instructions can be found [here.](https://jminnier-berd-r-courses.netlify.app/00-install-instruct-bsta504.html)
 
-Please also [download the "part1" folder in this course materials link](https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0). Unzip the folder if needed. Open the Rstudio project by double clicking on the .Rproj file ("Rstudio project file"). Run the `00-install-packages.R` script to install necessary packages. A video on how to do this can be found [here.](https://www.youtube.com/watch?v=GU22sKHn9uc)
+Please also [download the "part1" folder in this course materials link](https://bit.ly/bsta504_dropbox_2023). Unzip the folder if needed. Open the Rstudio project by double clicking on the .Rproj file ("Rstudio project file"). Run the `00-install-packages.R` script to install necessary packages. A video on how to do this can be found [here.](https://www.youtube.com/watch?v=GU22sKHn9uc)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GU22sKHn9uc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
@@ -32,28 +32,27 @@ Please also [download the "part1" folder in this course materials link](https://
 
 ## R Project files
 
-Before each class, I will update [this folder link](https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0) with the appropriate "part" folder. Please download the `part1` folder. Unzip this folder and open in Rstudio by double clicking on the .Rproj file. This folder will have the files for this part and the assignment.
+Before each class, I will update [this folder link](https://bit.ly/bsta504_dropbox_2023) with the appropriate "part" folder. Please download the `part1` folder. Unzip this folder and open in Rstudio by double clicking on the .Rproj file. This folder will have the files for this part and the assignment.
 
 ## Slides
 
-Open the class introduction slides in a separate window: <a href="https://sph-r-programming-2022.netlify.app/slides/01-introduction_slides#1" target="_blank">https://sph-r-programming-2022.netlify.app/01-introduction_slides#1</a>
+Open the class introduction slides in a separate window: <a href="https://sph-r-programming-2023.netlify.app/slides/01-introduction_slides#1" target="_blank">https://sph-r-programming-2023.netlify.app/01-introduction_slides#1</a>
 
 ```{r echo=FALSE}
 knitr::include_url('https://sph-r-programming-2022.netlify.com/slides/01-introduction_slides#1')
 ```
 
-We will also cover a few of these slides on for loops: <a href="https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1" target="_blank">https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1</a>
+We will also cover a few of these slides on for loops: <a href="https://sph-r-programming-2023.netlify.app/slides/02-for_loops#1" target="_blank">https://sph-r-programming-2023.netlify.app/slides/02-for_loops#1</a>
 
 ```{r echo=FALSE}
 knitr::include_url('https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1')
 ```
 
-## Class Video
+## Last Year's Class Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hYowdr4oyOI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-View last year's class [here](https://sph-r-programming.netlify.app/class/01-class/).
-
+View last year's class and materials [here](https://sph-r-programming-2022.netlify.app/class/01-class/).
 
 
 # Post-Class
@@ -64,31 +63,15 @@ Please fill out the following survey and we will discuss the results during the 
 - Muddiest Point: What was the most unclear part of the lecture to you?
 - Anything Else: Is there something you'd like me to know?
 
-<https://forms.gle/4tVx1mL7SzQx7MCu5>
+<https://forms.gle/PA1CH7gTgrKWkmzw6>
 
 ## Pacing
 
-I won't always talk about the pacing feedback but in the beginning I think it's useful: Mean 2.94, median 3. So on average the pace seemed to be on target, most people chose 3, though I was trying to balance going slowly at first and also adding in a couple challenging topics. So depending on your experience with R this might have gone ok or not. Please ask questions in the chat (or unmute to ask) during class for anything that's unclear!
+
 
 ## Muddiest Points
 
 Remember, all of this is anonymous.
-
-> loops - but i know we are going over it more later
-
-> For Loop, however sitting down with the .Rmd tonight helped a lot.
-
-> The for() loops. Mostly in regards to how to apply it to numerical data.
-
-Yes! Most comments were on loops. With 30 minutes in class I weighed the option of just ending early and starting this when we were fresh, or with doing a quick intro and finishing more in depth later (and maybe chose the wrong option ;)). Don't worry if you're still confused because I didn't explain things very thoroughly! Class 2 we will go over it all again.
-
-> Loops- not technically, more why we would want to do this in reality
-
-Loops in the very simplistic way we learned them are less useful in practice due to the vectorization of most functions in R, but we will later see how they can be useful with data operations. Also understanding them gives us the building block knowledge to understand more complex iteration tasks we will cover in the future (`purrr::map()` for example, possibly `lapply()` and  `apply()` if we have time).
-
-> loops without indexing - Does R always end the loop once the end of the vector referenced is reached? Are there ever situations where R gets stuck in a continuous loop?
-
-Great question, I remember learning about for loops in other programming classes and dealing with situations where we got stuck in an infinite loop but I honestly can't think of an example where I've had this happen in real life with R. This can definitely happen, but in real data scenarios I don't think it's common because you usually have a finite vector or data frame. More often, R will exit the for loop early due to some error. I will try to show an example of this in class. (I imagine a `while()` loop could get stuck, but I never ever use that function.) If you ever get stuck with something happening in R, you can press ESC over and over or click top bar "Session" -> "Terminate R" or "Restart R".
 
 > Only one point I was still a bit confused about was for loop, when we make an empty vector to save our work, such as, the example we used in class, all_my_pets, why do we need to add the new variable mypet to the end of the vector all_my_pets instead of only add mypet to all_my_pets by "all_my_pets <- c(mypet)"?
 
