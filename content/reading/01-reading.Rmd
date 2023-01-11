@@ -1,6 +1,6 @@
 ---
-title: "Introduction to R/RStudio/Vectors/For Loops"
-linktitle: "Part 1: Introduction to R/RStudio/Vectors/"
+title: "Introduction to R/RStudio/Vectors"
+linktitle: "Part 1: Introduction to R/RStudio/Vectors"
 date: "2023-01-11"
 menu:
   reading:

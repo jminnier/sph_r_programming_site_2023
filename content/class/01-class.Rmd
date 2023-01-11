@@ -1,6 +1,6 @@
 ---
-title: "Class 1: Introduction to R/Rstudio/Vectors/For Loops"
-linktitle: "Class 1.  Introduction to R/Rstudio/Vectors/For Loops"
+title: "Class 1: Introduction to R/Rstudio/Vectors"
+linktitle: "Class 1.  Introduction to R/Rstudio/Vectors"
 date: "2023-01-11"
 class_date: "2023-01-11"
 output:
