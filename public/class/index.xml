@@ -26,9 +26,14 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#slides&#34; id=&#34;toc-slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#this-years-class-video&#34; id=&#34;toc-this-years-class-video&#34;&gt;This year’s class video&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#last-years-class-video&#34; id=&#34;toc-last-years-class-video&#34;&gt;Last Year’s Class Video&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pacing&#34; id=&#34;toc-pacing&#34;&gt;Pacing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34; id=&#34;toc-muddiest-points&#34;&gt;Muddiest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clearest-points&#34; id=&#34;toc-clearest-points&#34;&gt;Clearest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other-messages-just-a-selection&#34; id=&#34;toc-other-messages-just-a-selection&#34;&gt;Other messages, just a selection&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#additional-info&#34; id=&#34;toc-additional-info&#34;&gt;Additional Info&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#projects-in-rstudio-desktop&#34; id=&#34;toc-projects-in-rstudio-desktop&#34;&gt;Projects in RStudio Desktop&lt;/a&gt;&lt;/li&gt;
@@ -57,6 +62,10 @@
 &lt;iframe src=&#34;https://sph-r-programming-2023.netlify.com/slides/01-introduction_slides#1&#34; width=&#34;672&#34; height=&#34;400px&#34; data-external=&#34;1&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
+&lt;div id=&#34;this-years-class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;This year’s class video&lt;/h2&gt;
+&lt;p&gt;See Slack for the zoom recording link&lt;/p&gt;
+&lt;/div&gt;
 &lt;div id=&#34;last-years-class-video&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Last Year’s Class Video&lt;/h2&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/hYowdr4oyOI&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
@@ -73,6 +82,112 @@
 &lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Thank you to everyone who responded to the survey the first week!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pacing&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Pacing&lt;/h1&gt;
+&lt;p&gt;Mean 3.18, IQR [3,3] so, that’s a good sign, though there was one comment it went a little fast. I admittedly was trying to cram in a lot of basics all at once, so I’ll try to go a touch slower with the hard things.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Muddiest Points&lt;/h1&gt;
+&lt;p&gt;Remember, all of this is anonymous. I don’t post everything everyone says on here, but I do read them all and think about how to improve the class based on what everyone says.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Boolean data, until you explained it&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We will talk more about boolean data in class 2, I kind of rushed the intro to that but we’ll definitely see more examples!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;default arguments&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I added this one, I want to make sure to show you the help in R and how we know what the “default” arguments are, that we don’t need to specify.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;removing missing values&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yes this is a confusing thing in R, one point to remember is the difference between a function like &lt;code&gt;na.omit()&lt;/code&gt; and an argument like &lt;code&gt;na.rm = TRUE&lt;/code&gt; which sets the missing data behavior within a specific function like &lt;code&gt;mean()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;myvec &amp;lt;- c(1, NA, 3)
+# removes missing values, does not save your work!
+na.omit(myvec)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1 3
+## attr(,&amp;quot;na.action&amp;quot;)
+## [1] 2
+## attr(,&amp;quot;class&amp;quot;)
+## [1] &amp;quot;omit&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# removes missing values, overwrites the object/variable myvec after removing them
+myvec &amp;lt;- na.omit(myvec)
+
+
+myvec &amp;lt;- c(1, NA, 3)
+# default behavior is to include NA in the computation
+mean(myvec)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# specifies that we want to get rid of NA first
+mean(myvec, na.rm = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# different functions have different arguments to handle missing data
+# see ?cor for help and the explanation of the use argument
+vec1 &amp;lt;- c(1, NA, 2, 3)
+vec2 &amp;lt;- c(2, 3, NA, 4)
+cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(vec1, vec2, use = &amp;quot;pairwise.complete.obs&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# cor(vec1, vec2, use = &amp;quot;all.obs&amp;quot;) # this throws an error, why?&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Data types and vectors. It was clear, however, when I watched the class recording.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We will go over this again in class 2 when we talk about data!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;While I was reading the materials about vectors and variables, I’m still not very clear on the differences between vectors and variables. For instance, when we concatenate a list of regions (example from book) and create a vector named “region.” It sounds similar to how we assign values or characters to create a variable&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is a great point, and I tend to be a little lax with the definitions of some of these terms so apologies if it is confusing.&lt;/p&gt;
+&lt;p&gt;I would say a variable is the same as an object in R. It is the name of something that we save and that we can see in our environment tab. That means it could be a vector, a data set, a list, a unique object type – all data types we will talk about in the coming classes.&lt;/p&gt;
+&lt;p&gt;I also use the word “variable” when talking about columns of a data set or data frame, though. Therefore, it’s not a precise word and I’m sorry I use it so much!&lt;/p&gt;
+&lt;p&gt;A vector is a specific type of object in R. It has a length and a class/type. It does not have a “width” like a data frame does (we will talk about these in class 2). We will also talk about types or classes of vectors (character, numeric, boolean) a bit more in these classes.&lt;/p&gt;
+&lt;p&gt;For a more thorough introduction, read R for Data Science &lt;a href=&#34;https://r4ds.had.co.nz/vectors.html&#34;&gt;Vector&lt;/a&gt;. If you want a rather advanced treatment of data types, see &lt;a href=&#34;https://adv-r.hadley.nz/vectors-chap.html&#34;&gt;Advanced R&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As far as naming vectors or data, we often call them something that we can easily remember or make sense of. I think that also can cause confusion though, in the regions example.&lt;/p&gt;
+&lt;p&gt;This all make more sense once we talk about data frames, which contain vectors as columns!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;packages - why did my R crash?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ugh I’m so sorry and I don’t have a clear idea. My best guess is that there were older packages installed and for some reason &lt;code&gt;pacman::p_load&lt;/code&gt; tried to install packages without installing their dependencies first &lt;a href=&#34;https://stackoverflow.com/questions/31717850/error-package-or-namespace-load-failed-for-ggplot2-and-for-data-table&#34;&gt;packages that the installed package relies on to work, and often need at least a certain version&lt;/a&gt;. Perhaps if you don’t update your packages all that often, &lt;code&gt;install.packages()&lt;/code&gt; is the safer option?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The options for code blocks in r markdown&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I didn’t talk about this much yet, but I will keep showing examples of this. In the meantime, here are some good references, that I often have to go back to because I forget most of them most of the time:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://yihui.org/knitr/options/&#34;&gt;Chunk options long list&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html&#34;&gt;R markdown book, chunk options chapter&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I will also try to mention global options in class 2 as well.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;how to also have an output below my code chuck as well&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I’ll talk about this again/more as well. This is a YAML option, and can be set using the “gear” icon next to the “Knit” button at the top of an Rmd (Chunk Output Inline vs Chunk Output Console). I think we can’t have it both ways. Also note that table output will look different from interactive R markdown and knitted R markdown sometimes. That can be a point of confusion. You can also change how that looks in “Output Options” from that gear dropdown menu (General -&amp;gt; print data frames as:)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;R markdown in general, also R studio projects&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Understandable, I threw a lot of new stuff at most of you, and I’ll focus more on these things in class 2! I haven’t shown you the full benefits of using Rstudio projects yet because we haven’t started working with data. But hopefully class 2 and 3 it will become a bit more clear.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clearest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Clearest Points&lt;/h1&gt;
+&lt;p&gt;Lots of things here I’m not including, but, thank you for all of it!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Concatenate! I have never known what c() stood for!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It’s a weird one, for sure!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;First time real exposure to R, so I REALLY was amazed by knitting the Rmd and how the class content was all “interactively” set in the Rmd.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It’s one of the main reasons why I just start using Rmd right away, because it’s pretty neat. It might cause more headaches later because it takes time getting used to, but it’s worth it to me.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-messages-just-a-selection&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Other messages, just a selection&lt;/h1&gt;
+&lt;p&gt;Lots of you liked having challenges. Sometimes I get carried away adding too much instruction because there is so much I want to show you, so I hope I provide enough time for challenges this year.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;i’ve had R experience but it’s difficult for me to quickly learn and adapt to it. I understand how to use it but have difficulty creating things like tables or organizing data. I’m hoping by the end of this course, i’ll be able to gain more knowledge to allow me to do those types of task.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You are my perfect audience, these are my goals, too!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;After 2 years of just sort of flinging myself at R willy-nilly, the first class showed me a lot of tips for using R that have already made my life easier.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So happy to hear it!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;additional-info&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Additional Info&lt;/h1&gt;
@@ -103,43 +218,39 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#readings&#34; id=&#34;toc-readings&#34;&gt;Readings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#slides&#34; id=&#34;toc-slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#class-video&#34; id=&#34;toc-class-video&#34;&gt;Class Video&lt;/a&gt;
-&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#class-video&#34; id=&#34;toc-class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#last-years-class-video&#34; id=&#34;toc-last-years-class-video&#34;&gt;Last Year’s Class Video&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
 &lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Project files&lt;/h2&gt;
-&lt;p&gt;Please download the &lt;code&gt;part2&lt;/code&gt; and &lt;code&gt;function_of_the_week&lt;/code&gt; folders from &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this dropbox folder link&lt;/a&gt; Be sure to unzip if necessary. In advance of class, please open the &lt;code&gt;part2&lt;/code&gt; Rstudio project (double click on the &lt;code&gt;.rproj&lt;/code&gt; file), open &lt;code&gt;part2.Rmd&lt;/code&gt; and &lt;code&gt;knit&lt;/code&gt; (click the Knit button at the top of the file) this file. This will install packages that you need for the Rmd to run.&lt;/p&gt;
+&lt;p&gt;Please download the &lt;code&gt;part2&lt;/code&gt; and &lt;code&gt;function_of_the_week&lt;/code&gt; folders from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this dropbox folder link&lt;/a&gt; Be sure to unzip if necessary. In advance of class, please open the &lt;code&gt;part2&lt;/code&gt; Rstudio project (double click on the &lt;code&gt;.rproj&lt;/code&gt; file), open &lt;code&gt;part2.Rmd&lt;/code&gt; and &lt;code&gt;knit&lt;/code&gt; (click the Knit button at the top of the file) this file. This will install packages that you need for the Rmd to run.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;readings&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Readings&lt;/h2&gt;
 &lt;p&gt;Required and suggested class readings can be found on the Readings tab by class. These readings may be done anytime before or after class, but they will supplement your understanding of the class materials and help make homework and project work easier.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Slides&lt;/h2&gt;
-&lt;p&gt;Open the class introduction slides in a separate window: &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1&#34; target=&#34;_blank&#34;&gt;https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1&lt;/a&gt;&lt;/p&gt;
-&lt;iframe src=&#34;https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1&#34; width=&#34;672&#34; height=&#34;400px&#34; data-external=&#34;1&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
 &lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;p&gt;Class video recording will be posted on Slack.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;last-years-class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Last Year’s Class Video&lt;/h2&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/0-_luKuYo_E&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/class/02-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;div id=&#34;post-class&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Post-Class&lt;/h3&gt;
-&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous. The first two questions will count toward your attendance part of the grade.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Post-Class&lt;/h1&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
 &lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
 &lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://forms.gle/PA1CH7gTgrKWkmzw6&#34; class=&#34;uri&#34;&gt;https://forms.gle/PA1CH7gTgrKWkmzw6&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

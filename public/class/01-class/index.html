@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Install R/Rstudio Class files  R Project files Slides Last Year’s Class Video  Post-Class Additional Info  Projects in RStudio Desktop Slack Intro    Install R/Rstudio Before class, please install R and Rstudio. If it has been a while since you installed R, please re-install R to update to the most recent version (warning: you may lose all your installed packages and will have to re-install them).">
+  <meta name="description" content="Install R/Rstudio Class files  R Project files Slides This year’s class video Last Year’s Class Video  Post-Class Pacing Muddiest Points Clearest Points Other messages, just a selection Additional Info  Projects in RStudio Desktop Slack Intro    Install R/Rstudio Before class, please install R and Rstudio. If it has been a while since you installed R, please re-install R to update to the most recent version (warning: you may lose all your installed packages and will have to re-install them).">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sph-r-programming-2023.netlify.app/class/01-class/">
@@ -236,13 +236,13 @@
   <meta property="og:site_name" content="R Programming 2023">
   <meta property="og:url" content="https://sph-r-programming-2023.netlify.app/class/01-class/">
   <meta property="og:title" content="Class 1: Introduction to R/Rstudio/Vectors | R Programming 2023">
-  <meta property="og:description" content="Install R/Rstudio Class files  R Project files Slides Last Year’s Class Video  Post-Class Additional Info  Projects in RStudio Desktop Slack Intro    Install R/Rstudio Before class, please install R and Rstudio. If it has been a while since you installed R, please re-install R to update to the most recent version (warning: you may lose all your installed packages and will have to re-install them)."><meta property="og:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Install R/Rstudio Class files  R Project files Slides This year’s class video Last Year’s Class Video  Post-Class Pacing Muddiest Points Clearest Points Other messages, just a selection Additional Info  Projects in RStudio Desktop Slack Intro    Install R/Rstudio Before class, please install R and Rstudio. If it has been a while since you installed R, please re-install R to update to the most recent version (warning: you may lose all your installed packages and will have to re-install them)."><meta property="og:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2023-01-11T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2023-01-08T16:41:42-08:00">
+    <meta property="article:modified_time" content="2023-01-10T16:26:20-08:00">
   
 
   
@@ -616,9 +616,14 @@
 <ul>
 <li><a href="#r-project-files" id="toc-r-project-files">R Project files</a></li>
 <li><a href="#slides" id="toc-slides">Slides</a></li>
+<li><a href="#this-years-class-video" id="toc-this-years-class-video">This year’s class video</a></li>
 <li><a href="#last-years-class-video" id="toc-last-years-class-video">Last Year’s Class Video</a></li>
 </ul></li>
 <li><a href="#post-class" id="toc-post-class">Post-Class</a></li>
+<li><a href="#pacing" id="toc-pacing">Pacing</a></li>
+<li><a href="#muddiest-points" id="toc-muddiest-points">Muddiest Points</a></li>
+<li><a href="#clearest-points" id="toc-clearest-points">Clearest Points</a></li>
+<li><a href="#other-messages-just-a-selection" id="toc-other-messages-just-a-selection">Other messages, just a selection</a></li>
 <li><a href="#additional-info" id="toc-additional-info">Additional Info</a>
 <ul>
 <li><a href="#projects-in-rstudio-desktop" id="toc-projects-in-rstudio-desktop">Projects in RStudio Desktop</a></li>
@@ -647,6 +652,10 @@
 <iframe src="https://sph-r-programming-2023.netlify.com/slides/01-introduction_slides#1" width="672" height="400px" data-external="1">
 </iframe>
 </div>
+<div id="this-years-class-video" class="section level2">
+<h2>This year’s class video</h2>
+<p>See Slack for the zoom recording link</p>
+</div>
 <div id="last-years-class-video" class="section level2">
 <h2>Last Year’s Class Video</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hYowdr4oyOI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
@@ -663,6 +672,112 @@
 <li>Anything Else: Is there something you’d like me to know?</li>
 </ul>
 <p><a href="https://bit.ly/bsta504_postclass_survey" class="uri">https://bit.ly/bsta504_postclass_survey</a></p>
+<p>Thank you to everyone who responded to the survey the first week!</p>
+</div>
+<div id="pacing" class="section level1">
+<h1>Pacing</h1>
+<p>Mean 3.18, IQR [3,3] so, that’s a good sign, though there was one comment it went a little fast. I admittedly was trying to cram in a lot of basics all at once, so I’ll try to go a touch slower with the hard things.</p>
+</div>
+<div id="muddiest-points" class="section level1">
+<h1>Muddiest Points</h1>
+<p>Remember, all of this is anonymous. I don’t post everything everyone says on here, but I do read them all and think about how to improve the class based on what everyone says.</p>
+<blockquote>
+<p>Boolean data, until you explained it</p>
+</blockquote>
+<p>We will talk more about boolean data in class 2, I kind of rushed the intro to that but we’ll definitely see more examples!</p>
+<blockquote>
+<p>default arguments</p>
+</blockquote>
+<p>I added this one, I want to make sure to show you the help in R and how we know what the “default” arguments are, that we don’t need to specify.</p>
+<blockquote>
+<p>removing missing values</p>
+</blockquote>
+<p>Yes this is a confusing thing in R, one point to remember is the difference between a function like <code>na.omit()</code> and an argument like <code>na.rm = TRUE</code> which sets the missing data behavior within a specific function like <code>mean()</code>.</p>
+<pre class="r"><code>myvec &lt;- c(1, NA, 3)
+# removes missing values, does not save your work!
+na.omit(myvec)</code></pre>
+<pre><code>## [1] 1 3
+## attr(,&quot;na.action&quot;)
+## [1] 2
+## attr(,&quot;class&quot;)
+## [1] &quot;omit&quot;</code></pre>
+<pre class="r"><code># removes missing values, overwrites the object/variable myvec after removing them
+myvec &lt;- na.omit(myvec)
+
+
+myvec &lt;- c(1, NA, 3)
+# default behavior is to include NA in the computation
+mean(myvec)</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code># specifies that we want to get rid of NA first
+mean(myvec, na.rm = TRUE)</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code># different functions have different arguments to handle missing data
+# see ?cor for help and the explanation of the use argument
+vec1 &lt;- c(1, NA, 2, 3)
+vec2 &lt;- c(2, 3, NA, 4)
+cor(vec1, vec2)</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>cor(vec1, vec2, use = &quot;pairwise.complete.obs&quot;)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code># cor(vec1, vec2, use = &quot;all.obs&quot;) # this throws an error, why?</code></pre>
+<blockquote>
+<p>Data types and vectors. It was clear, however, when I watched the class recording.</p>
+</blockquote>
+<p>We will go over this again in class 2 when we talk about data!</p>
+<blockquote>
+<p>While I was reading the materials about vectors and variables, I’m still not very clear on the differences between vectors and variables. For instance, when we concatenate a list of regions (example from book) and create a vector named “region.” It sounds similar to how we assign values or characters to create a variable</p>
+</blockquote>
+<p>This is a great point, and I tend to be a little lax with the definitions of some of these terms so apologies if it is confusing.</p>
+<p>I would say a variable is the same as an object in R. It is the name of something that we save and that we can see in our environment tab. That means it could be a vector, a data set, a list, a unique object type – all data types we will talk about in the coming classes.</p>
+<p>I also use the word “variable” when talking about columns of a data set or data frame, though. Therefore, it’s not a precise word and I’m sorry I use it so much!</p>
+<p>A vector is a specific type of object in R. It has a length and a class/type. It does not have a “width” like a data frame does (we will talk about these in class 2). We will also talk about types or classes of vectors (character, numeric, boolean) a bit more in these classes.</p>
+<p>For a more thorough introduction, read R for Data Science <a href="https://r4ds.had.co.nz/vectors.html">Vector</a>. If you want a rather advanced treatment of data types, see <a href="https://adv-r.hadley.nz/vectors-chap.html">Advanced R</a>.</p>
+<p>As far as naming vectors or data, we often call them something that we can easily remember or make sense of. I think that also can cause confusion though, in the regions example.</p>
+<p>This all make more sense once we talk about data frames, which contain vectors as columns!</p>
+<blockquote>
+<p>packages - why did my R crash?</p>
+</blockquote>
+<p>Ugh I’m so sorry and I don’t have a clear idea. My best guess is that there were older packages installed and for some reason <code>pacman::p_load</code> tried to install packages without installing their dependencies first <a href="https://stackoverflow.com/questions/31717850/error-package-or-namespace-load-failed-for-ggplot2-and-for-data-table">packages that the installed package relies on to work, and often need at least a certain version</a>. Perhaps if you don’t update your packages all that often, <code>install.packages()</code> is the safer option?</p>
+<blockquote>
+<p>The options for code blocks in r markdown</p>
+</blockquote>
+<p>I didn’t talk about this much yet, but I will keep showing examples of this. In the meantime, here are some good references, that I often have to go back to because I forget most of them most of the time:</p>
+<p><a href="https://yihui.org/knitr/options/">Chunk options long list</a></p>
+<p><a href="https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html">R markdown book, chunk options chapter</a></p>
+<p>I will also try to mention global options in class 2 as well.</p>
+<blockquote>
+<p>how to also have an output below my code chuck as well</p>
+</blockquote>
+<p>I’ll talk about this again/more as well. This is a YAML option, and can be set using the “gear” icon next to the “Knit” button at the top of an Rmd (Chunk Output Inline vs Chunk Output Console). I think we can’t have it both ways. Also note that table output will look different from interactive R markdown and knitted R markdown sometimes. That can be a point of confusion. You can also change how that looks in “Output Options” from that gear dropdown menu (General -&gt; print data frames as:)</p>
+<blockquote>
+<p>R markdown in general, also R studio projects</p>
+</blockquote>
+<p>Understandable, I threw a lot of new stuff at most of you, and I’ll focus more on these things in class 2! I haven’t shown you the full benefits of using Rstudio projects yet because we haven’t started working with data. But hopefully class 2 and 3 it will become a bit more clear.</p>
+</div>
+<div id="clearest-points" class="section level1">
+<h1>Clearest Points</h1>
+<p>Lots of things here I’m not including, but, thank you for all of it!</p>
+<blockquote>
+<p>Concatenate! I have never known what c() stood for!</p>
+</blockquote>
+<p>It’s a weird one, for sure!</p>
+<blockquote>
+<p>First time real exposure to R, so I REALLY was amazed by knitting the Rmd and how the class content was all “interactively” set in the Rmd.</p>
+</blockquote>
+<p>It’s one of the main reasons why I just start using Rmd right away, because it’s pretty neat. It might cause more headaches later because it takes time getting used to, but it’s worth it to me.</p>
+</div>
+<div id="other-messages-just-a-selection" class="section level1">
+<h1>Other messages, just a selection</h1>
+<p>Lots of you liked having challenges. Sometimes I get carried away adding too much instruction because there is so much I want to show you, so I hope I provide enough time for challenges this year.</p>
+<blockquote>
+<p>i’ve had R experience but it’s difficult for me to quickly learn and adapt to it. I understand how to use it but have difficulty creating things like tables or organizing data. I’m hoping by the end of this course, i’ll be able to gain more knowledge to allow me to do those types of task.</p>
+</blockquote>
+<p>You are my perfect audience, these are my goals, too!</p>
+<blockquote>
+<p>After 2 years of just sort of flinging myself at R willy-nilly, the first class showed me a lot of tips for using R that have already made my life easier.</p>
+</blockquote>
+<p>So happy to hear it!</p>
 </div>
 <div id="additional-info" class="section level1">
 <h1>Additional Info</h1>
@@ -690,7 +805,7 @@
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on January 8, 2023</p>
+                    <p>Last updated on January 10, 2023</p>
 
                     
 

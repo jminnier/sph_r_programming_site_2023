@@ -20,34 +20,29 @@ editor_options:
 
 ## R Project files
 
-Please download the `part2` and `function_of_the_week` folders from [this dropbox folder link](https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0) Be sure to unzip if necessary. In advance of class, please open the `part2` Rstudio project (double click on the `.rproj` file), open `part2.Rmd` and `knit` (click the Knit button at the top of the file) this file. This will install packages that you need for the Rmd to run.
+Please download the `part2` and `function_of_the_week` folders from [this dropbox folder link](https://bit.ly/bsta504_dropbox_2023) Be sure to unzip if necessary. In advance of class, please open the `part2` Rstudio project (double click on the `.rproj` file), open `part2.Rmd` and `knit` (click the Knit button at the top of the file) this file. This will install packages that you need for the Rmd to run.
 
 ## Readings
 
 Required and suggested class readings can be found on the Readings tab by class. These readings may be done anytime before or after class, but they will supplement your understanding of the class materials and help make homework and project work easier.
 
-
-## Slides
-
-Open the class introduction slides in a separate window: <a href="https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1" target="_blank">https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1</a>
-
-```{r echo=FALSE}
-knitr::include_url('https://sph-r-programming-2022.netlify.app/slides/02-for_loops#1')
-```
-
 ## Class Video
+
+Class video recording will be posted on Slack.
+
+## Last Year's Class Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0-_luKuYo_E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 View last year's class and materials [here](https://sph-r-programming-2022.netlify.app/class/02-class/).
 
-### Post-Class
+# Post-Class
 
-Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous. The first two questions will count toward your attendance part of the grade.
+Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.
 
 - Clearest Point: What was the most clear part of the lecture?
 - Muddiest Point: What was the most unclear part of the lecture to you?
 - Anything Else: Is there something you'd like me to know?
 
-<https://forms.gle/PA1CH7gTgrKWkmzw6>
+<https://bit.ly/bsta504_postclass_survey>
 

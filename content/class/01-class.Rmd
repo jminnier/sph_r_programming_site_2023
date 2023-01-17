@@ -43,6 +43,10 @@ knitr::include_url('https://sph-r-programming-2023.netlify.com/slides/01-introdu
 ```
 
 
+## This year's class video
+
+See Slack for the zoom recording link
+
 ## Last Year's Class Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hYowdr4oyOI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -61,6 +65,118 @@ Please fill out the following survey and we will discuss the results during the 
 <https://bit.ly/bsta504_postclass_survey>
 
 
+Thank you to everyone who responded to the survey the first week! 
+
+# Pacing
+
+Mean 3.18, IQR [3,3] so, that's a good sign, though there was one comment it went a little fast. I admittedly was trying to cram in a lot of basics all at once, so I'll try to go a touch slower with the hard things.
+
+# Muddiest Points
+
+Remember, all of this is anonymous. I don't post everything everyone says on here, but I do read them all and think about how to improve the class based on what everyone says.
+
+> Boolean data, until you explained it
+
+We will talk more about boolean data in class 2, I kind of rushed the intro to that but we'll definitely see more examples!
+
+> default arguments
+
+I added this one, I want to make sure to show you the help in R and how we know what the "default" arguments are, that we don't need to specify.
+
+> removing missing values
+
+Yes this is a confusing thing in R, one point to remember is the difference between a function like `na.omit()` and an argument like `na.rm = TRUE` which sets the missing data behavior within a specific function like `mean()`.
+
+```{r}
+myvec <- c(1, NA, 3)
+# removes missing values, does not save your work!
+na.omit(myvec)
+# removes missing values, overwrites the object/variable myvec after removing them
+myvec <- na.omit(myvec)
+
+
+myvec <- c(1, NA, 3)
+# default behavior is to include NA in the computation
+mean(myvec)
+# specifies that we want to get rid of NA first
+mean(myvec, na.rm = TRUE)
+
+# different functions have different arguments to handle missing data
+# see ?cor for help and the explanation of the use argument
+vec1 <- c(1, NA, 2, 3)
+vec2 <- c(2, 3, NA, 4)
+cor(vec1, vec2)
+cor(vec1, vec2, use = "pairwise.complete.obs")
+# cor(vec1, vec2, use = "all.obs") # this throws an error, why?
+
+```
+
+> Data types and vectors. It was clear, however, when I watched the class recording.
+
+We will go over this again in class 2 when we talk about data!
+
+> While I was reading the materials about vectors and variables, I'm still not very clear on the differences between vectors and variables. For instance, when we concatenate a list of regions (example from book) and create a vector named "region." It sounds similar to how we assign values or characters to create a variable
+
+This is a great point, and I tend to be a little lax with the definitions of some of these terms so apologies if it is confusing. 
+
+I would say a variable is the same as an object in R. It is the name of something that we save and that we can see in our environment tab. That means it could be a vector, a data set, a list, a unique object type -- all data types we will talk about in the coming classes.
+
+I also use the word "variable" when talking about columns of a data set or data frame, though. Therefore, it's not a precise word and I'm sorry I use it so much!
+
+A vector is a specific type of object in R. It has a length and a class/type. It does not have a "width" like a data frame does (we will talk about these in class 2). We will also talk about types or classes of vectors (character, numeric, boolean) a bit more in these classes.
+
+For a more thorough introduction, read R for Data Science [Vector](https://r4ds.had.co.nz/vectors.html). If you want a rather advanced treatment of data types, see [Advanced R](https://adv-r.hadley.nz/vectors-chap.html).
+
+As far as naming vectors or data, we often call them something that we can easily remember or make sense of. I think that also can cause confusion though, in the regions example.
+
+This all make more sense once we talk about data frames, which contain vectors as columns!
+
+> packages - why did my R crash?
+
+Ugh I'm so sorry and I don't have a clear idea. My best guess is that there were older packages installed and for some reason `pacman::p_load` tried to install packages without installing their dependencies first [packages that the installed package relies on to work, and often need at least a certain version](https://stackoverflow.com/questions/31717850/error-package-or-namespace-load-failed-for-ggplot2-and-for-data-table). Perhaps if you don't update your packages all that often, `install.packages()` is the safer option?
+
+> The options for code blocks in r markdown
+
+I didn't talk about this much yet, but I will keep showing examples of this. In the meantime, here are some good references, that I often have to go back to because I forget most of them most of the time:
+
+[Chunk options long list](https://yihui.org/knitr/options/)
+
+[R markdown book, chunk options chapter](https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html)
+
+I will also try to mention global options in class 2 as well.
+
+> how to also have an output below my code chuck as well
+
+I'll talk about this again/more as well. This is a YAML option, and can be set using the "gear" icon next to the "Knit" button at the top of an Rmd (Chunk Output Inline vs Chunk Output Console). I think we can't have it both ways. Also note that table output will look different from interactive R markdown and knitted R markdown sometimes. That can be a point of confusion. You can also change how that looks in "Output Options" from that gear dropdown menu (General -> print data frames as:)
+
+> R markdown in general, also R studio projects
+
+Understandable, I threw a lot of new stuff at most of you, and I'll focus more on these things in class 2! I haven't shown you the full benefits of using Rstudio projects yet because we haven't started working with data. But hopefully class 2 and 3 it will become a bit more clear.
+
+# Clearest Points
+
+Lots of things here I'm not including, but, thank you for all of it!
+
+> Concatenate! I have never known what c() stood for!
+
+It's a weird one, for sure!
+
+> First time real exposure to R, so I REALLY was amazed by knitting the Rmd and how the class content was all "interactively" set in the Rmd.
+
+It's one of the main reasons why I just start using Rmd right away, because it's pretty neat. It might cause more headaches later because it takes time getting used to, but it's worth it to me.
+
+
+# Other messages, just a selection
+
+Lots of you liked having challenges. Sometimes I get carried away adding too much instruction because there is so much I want to show you, so I hope I provide enough time for challenges this year.
+
+> i've had R experience but it's difficult for me to quickly learn and adapt to it. I understand how to use it but have difficulty creating things like tables or organizing data. I'm hoping by the end of this course, i'll be able to gain more knowledge to allow me to do those types of task.
+
+You are my perfect audience, these are my goals, too!
+
+> After 2 years of just sort of flinging myself at R willy-nilly, the first class showed me a lot of tips for using R that have already made my life easier.
+
+So happy to hear it!
 
 
 # Additional Info
