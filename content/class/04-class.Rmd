@@ -20,7 +20,7 @@ editor_options:
 
 ## R Project files
 
-Please download the part4 subfolder in [this folder link](https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0) Be sure to unzip if necessary. "Knit" the part4.Rmd file to install packages and make sure everything is working with data loading.
+Please download the `part4` folder from [this dropbox folder link](https://bit.ly/bsta504_dropbox_2023). Be sure to unzip if necessary. "Knit" the part4.Rmd file to install packages and make sure everything is working with data loading.
 
 ## Class Video
 
@@ -38,4 +38,5 @@ Please fill out the following survey and we will discuss the results during the 
 - Muddiest Point: What was the most unclear part of the lecture to you?
 - Anything Else: Is there something you'd like me to know?
 
-<https://forms.gle/PA1CH7gTgrKWkmzw6>
+
+<https://bit.ly/bsta504_postclass_survey>

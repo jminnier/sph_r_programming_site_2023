@@ -1,8 +1,8 @@
 ---
 title: "Part 2: Loading Data, data.frames, and ggplot2"
 linktitle: "Part 2: Loading Data, data.frames, and ggplot2"
-date: "2022-01-12"
-class_date: "2022-01-12"
+date: "2023-01-18"
+class_date: "2023-01-18"
 output:
   blogdown::html_page:
     toc: true
@@ -20,7 +20,7 @@ editor_options:
 
 ## R Project files
 
-Please download the `part2` and `function_of_the_week` folders from [this dropbox folder link](https://bit.ly/bsta504_dropbox_2023) Be sure to unzip if necessary. In advance of class, please open the `part2` Rstudio project (double click on the `.rproj` file), open `part2.Rmd` and `knit` (click the Knit button at the top of the file) this file. This will install packages that you need for the Rmd to run.
+Please download the `part2` folder from [this dropbox folder link](https://bit.ly/bsta504_dropbox_2023) Be sure to unzip if necessary. In advance of class, please open the `part2` Rstudio project (double click on the `.rproj` file), open `part2.Rmd` and `knit` (click the Knit button at the top of the file) this file. This will install packages that you need for the Rmd to run.
 
 ## Readings
 
