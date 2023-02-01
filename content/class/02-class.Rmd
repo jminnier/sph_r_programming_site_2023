@@ -73,7 +73,7 @@ mtcars_tib
 Another interesting difference is that tibbles don't have row names, but a lot of built in data.frames in R do. But rownames are hard to get out. So, when you make a tibble of a data.frame you can tell the function to use the rownames as a column:
 
 ```{r}
-mtcars_tib <- as_tibble(mtcars, rownames = "car")
+mtcars_tib <- as_tibble(mtcars, rownames = "car_name")
 mtcars_tib
 ```
 
@@ -140,19 +140,19 @@ Good question, what this does is pulls a function from a package, so it works wh
 
 ```{r, eval = FALSE}
 # does not work, haven't loaded the package janitor
-mtcars %>% tabyl(disp, cyl)
+mtcars %>% tabyl(am, cyl)
 ```
 
 
 ```{r}
 # does work
-mtcars %>% janitor::tabyl(disp, cyl)
+mtcars %>% janitor::tabyl(am, cyl)
 ```
 
 ```{r}
 # also works
 library(janitor)
-mtcars %>% tabyl(disp, cyl)
+mtcars %>% tabyl(am, cyl)
 ```
 
 # Clearest Points
@@ -163,7 +163,7 @@ mtcars %>% tabyl(disp, cyl)
 
 > Loading in the data and selecting the sheets that are most relevant to what we are looking to do was very clear and a nice foundation for future projects. I found that showing different ways of importing the data was helpful.
 
-I'm glad, the import tool in Rstudio is very nice.
+I'm glad, the import tool in Rstudio is very nice, just remember to save the code in your Rmd.
 
 > functionality of ggplot
 

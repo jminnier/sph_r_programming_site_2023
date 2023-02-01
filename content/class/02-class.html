@@ -137,10 +137,10 @@ class(mtcars_tib)</code></pre>
 ## # … with 22 more rows
 ## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <p>Another interesting difference is that tibbles don’t have row names, but a lot of built in data.frames in R do. But rownames are hard to get out. So, when you make a tibble of a data.frame you can tell the function to use the rownames as a column:</p>
-<pre class="r"><code>mtcars_tib &lt;- as_tibble(mtcars, rownames = &quot;car&quot;)
+<pre class="r"><code>mtcars_tib &lt;- as_tibble(mtcars, rownames = &quot;car_name&quot;)
 mtcars_tib</code></pre>
 <pre><code>## # A tibble: 32 × 12
-##    car           mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    car_name      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
 ##    &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1 Mazda RX4    21       6  160    110  3.9   2.62  16.5     0     1     4     4
 ##  2 Mazda RX4 …  21       6  160    110  3.9   2.88  17.0     0     1     4     4
@@ -165,7 +165,7 @@ mtcars_tib</code></pre>
 ## [31] 15.0 21.4</code></pre>
 <pre class="r"><code>mtcars_tib[,1]</code></pre>
 <pre><code>## # A tibble: 32 × 1
-##    car              
+##    car_name         
 ##    &lt;chr&gt;            
 ##  1 Mazda RX4        
 ##  2 Mazda RX4 Wag    
@@ -249,37 +249,12 @@ df1</code></pre>
 </blockquote>
 <p>Good question, what this does is pulls a function from a package, so it works whether you have <em>loaded</em> the package (using <code>library()</code> or <code>p_load()</code>) or not. I mainly use it as a clue to you to where the function is coming from. Otherwise, you may not know you need to load that package to use it! For instance:</p>
 <pre class="r"><code># does not work, haven&#39;t loaded the package janitor
-mtcars %&gt;% tabyl(disp, cyl)</code></pre>
+mtcars %&gt;% tabyl(am, cyl)</code></pre>
 <pre class="r"><code># does work
-mtcars %&gt;% janitor::tabyl(disp, cyl)</code></pre>
-<pre><code>##   disp 4 6 8
-##   71.1 1 0 0
-##   75.7 1 0 0
-##   78.7 1 0 0
-##   79.0 1 0 0
-##   95.1 1 0 0
-##  108.0 1 0 0
-##  120.1 1 0 0
-##  120.3 1 0 0
-##  121.0 1 0 0
-##  140.8 1 0 0
-##  145.0 0 1 0
-##  146.7 1 0 0
-##  160.0 0 2 0
-##  167.6 0 2 0
-##  225.0 0 1 0
-##  258.0 0 1 0
-##  275.8 0 0 3
-##  301.0 0 0 1
-##  304.0 0 0 1
-##  318.0 0 0 1
-##  350.0 0 0 1
-##  351.0 0 0 1
-##  360.0 0 0 2
-##  400.0 0 0 1
-##  440.0 0 0 1
-##  460.0 0 0 1
-##  472.0 0 0 1</code></pre>
+mtcars %&gt;% janitor::tabyl(am, cyl)</code></pre>
+<pre><code>##  am 4 6  8
+##   0 3 4 12
+##   1 8 3  2</code></pre>
 <pre class="r"><code># also works
 library(janitor)</code></pre>
 <pre><code>## 
@@ -287,35 +262,10 @@ library(janitor)</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
 ## 
 ##     chisq.test, fisher.test</code></pre>
-<pre class="r"><code>mtcars %&gt;% tabyl(disp, cyl)</code></pre>
-<pre><code>##   disp 4 6 8
-##   71.1 1 0 0
-##   75.7 1 0 0
-##   78.7 1 0 0
-##   79.0 1 0 0
-##   95.1 1 0 0
-##  108.0 1 0 0
-##  120.1 1 0 0
-##  120.3 1 0 0
-##  121.0 1 0 0
-##  140.8 1 0 0
-##  145.0 0 1 0
-##  146.7 1 0 0
-##  160.0 0 2 0
-##  167.6 0 2 0
-##  225.0 0 1 0
-##  258.0 0 1 0
-##  275.8 0 0 3
-##  301.0 0 0 1
-##  304.0 0 0 1
-##  318.0 0 0 1
-##  350.0 0 0 1
-##  351.0 0 0 1
-##  360.0 0 0 2
-##  400.0 0 0 1
-##  440.0 0 0 1
-##  460.0 0 0 1
-##  472.0 0 0 1</code></pre>
+<pre class="r"><code>mtcars %&gt;% tabyl(am, cyl)</code></pre>
+<pre><code>##  am 4 6  8
+##   0 3 4 12
+##   1 8 3  2</code></pre>
 </div>
 <div id="clearest-points" class="section level1">
 <h1>Clearest Points</h1>
@@ -328,7 +278,7 @@ library(janitor)</code></pre>
 <blockquote>
 <p>Loading in the data and selecting the sheets that are most relevant to what we are looking to do was very clear and a nice foundation for future projects. I found that showing different ways of importing the data was helpful.</p>
 </blockquote>
-<p>I’m glad, the import tool in Rstudio is very nice.</p>
+<p>I’m glad, the import tool in Rstudio is very nice, just remember to save the code in your Rmd.</p>
 <blockquote>
 <p>functionality of ggplot</p>
 </blockquote>
