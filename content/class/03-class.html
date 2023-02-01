@@ -207,6 +207,7 @@ penguins %&gt;% select(any_of(colnames_needed)) # works!</code></pre>
 ## # … with 334 more rows
 ## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <pre class="r"><code># penguins %&gt;% select(all_of(colnames_needed)) # does not work</code></pre>
+<p><code>any_of()</code> is an example of a tidyselect helper, which we will see a lot more of when we start using <code>across()</code> with <code>mutate()</code> and <code>summarize()</code> in class 4. <a href="https://tidyselect.r-lib.org/reference/language.html">See this long list of useful tidyselect functions for more.</a></p>
 <p>On the other hand, <code>count()</code> is mainly to count the number of unique values in a column/vector:</p>
 <pre class="r"><code>penguins %&gt;% count(species)</code></pre>
 <pre><code>## # A tibble: 3 × 2

@@ -148,6 +148,8 @@ penguins %>% select(any_of(colnames_needed)) # works!
 # penguins %>% select(all_of(colnames_needed)) # does not work
 ```
 
+`any_of()` is an example of a tidyselect helper, which we will see a lot more of when we start using `across()` with `mutate()` and `summarize()` in class 4. [See this long list of useful tidyselect functions for more.](https://tidyselect.r-lib.org/reference/language.html)
+
 On the other hand, `count()` is mainly to count the number of unique values in a column/vector:
 
 ```{r}
