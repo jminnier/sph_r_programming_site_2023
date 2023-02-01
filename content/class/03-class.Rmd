@@ -111,7 +111,7 @@ Agreed, it's very confusing, more in class 4!
 
 > Could you please clarify about the use of select(one_of) and the count command that was mentioned in dplyr cheatsheet?
 
-These are very different, if you are talking about select() vs count(). One thing to note is that since I recorded that class, `one_of()` has been superseded/replaced by `any_of()` and `all_of()`.
+These are very different, if you are talking about `select()` vs `count()`. One thing to note is that since I recorded that class, `one_of()` has been superseded/replaced by `any_of()` and `all_of()`.
 
 First, `select()` is a function to subset columns.
 
