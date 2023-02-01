@@ -236,7 +236,20 @@ penguins %&gt;% select(any_of(colnames_needed)) # works!</code></pre>
 <blockquote>
 <p>filter, select, arrange, pipes</p>
 </blockquote>
-<p>Super!</p>
+<p>Super! I want to take the time to mention that the pipe has recently (2021) been integrated into “base R”, that is, it’s loaded without loading the tidyverse package. HOWEVER it is this symbol <code>|&gt;</code> and does not behave <em>exactly</em> like the tidyverse pipe <code>%&gt;%</code> (actually from the <code>magrittr</code> package within the <code>tidyverse</code> package). So if you see that, know that it’s doing basically the same thing. <a href="https://r4ds.hadley.nz/workflow-pipes.html">Even R for Data Science is likely moving to use the native/base pipe, see this explanation</a>.</p>
+<pre class="r"><code>penguins |&gt; count(species, year)</code></pre>
+<pre><code>## # A tibble: 9 × 3
+##   species    year     n
+##   &lt;fct&gt;     &lt;int&gt; &lt;int&gt;
+## 1 Adelie     2007    50
+## 2 Adelie     2008    50
+## 3 Adelie     2009    52
+## 4 Chinstrap  2007    26
+## 5 Chinstrap  2008    18
+## 6 Chinstrap  2009    24
+## 7 Gentoo     2007    34
+## 8 Gentoo     2008    46
+## 9 Gentoo     2009    44</code></pre>
 </div>
 <div id="other-messages" class="section level1">
 <h1>Other messages</h1>

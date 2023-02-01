@@ -166,7 +166,12 @@ penguins %>% count(species, year)
 
 > filter, select, arrange, pipes
 
-Super!
+Super! I want to take the time to mention that the pipe has recently (2021) been integrated into "base R", that is, it's loaded without loading the tidyverse package. HOWEVER it is this symbol `|>` and does not behave *exactly* like the tidyverse pipe `%>%` (actually from the `magrittr` package within the `tidyverse` package). So if you see that, know that it's doing basically the same thing. [Even R for Data Science is likely moving to use the native/base pipe, see this explanation](https://r4ds.hadley.nz/workflow-pipes.html).
+
+```{r}
+penguins |> count(species, year)
+```
+
 
 # Other messages
 
