@@ -23,9 +23,12 @@ editor_options:
 <ul>
 <li><a href="#r-project-files" id="toc-r-project-files">R Project files</a></li>
 <li><a href="#readings" id="toc-readings">Readings</a></li>
-<li><a href="#class-video" id="toc-class-video">Class Video</a></li>
+<li><a href="#this-years-class-video" id="toc-this-years-class-video">This year’s class video</a></li>
 <li><a href="#last-years-class-video" id="toc-last-years-class-video">Last Year’s Class Video</a></li>
 <li><a href="#post-class" id="toc-post-class">Post-Class</a></li>
+<li><a href="#muddiest-points" id="toc-muddiest-points">Muddiest Points</a></li>
+<li><a href="#clearest-points" id="toc-clearest-points">Clearest Points</a></li>
+<li><a href="#other-messages" id="toc-other-messages">Other messages</a></li>
 </ul>
 </div>
 
@@ -37,9 +40,9 @@ editor_options:
 <h2>Readings</h2>
 <p>Required and suggested class readings can be found on the Readings tab by class. These readings may be done anytime before or after class, but they will supplement your understanding of the class materials and help make homework and project work easier.</p>
 </div>
-<div id="class-video" class="section level2">
-<h2>Class Video</h2>
-<p>Class video recording will be posted on Slack.</p>
+<div id="this-years-class-video" class="section level2">
+<h2>This year’s class video</h2>
+<p>See Slack for the zoom recording link</p>
 </div>
 <div id="last-years-class-video" class="section level2">
 <h2>Last Year’s Class Video</h2>
@@ -56,4 +59,297 @@ editor_options:
 <li>Anything Else: Is there something you’d like me to know?</li>
 </ul>
 <p><a href="https://bit.ly/bsta504_postclass_survey" class="uri">https://bit.ly/bsta504_postclass_survey</a></p>
+</div>
+<div id="muddiest-points" class="section level1">
+<h1>Muddiest Points</h1>
+<blockquote>
+<p>the benefits of tibble vs data frame and when to use which?</p>
+</blockquote>
+<p>In this class we will always use tibble. Just remember that an object can be multiple types. A tibble is a data frame, but not vice versa. A tibble is really a data frame with “perks”. See this explanation from the <a href="https://posit.co/blog/tibble-1-0-0/#:~:text=Tibbles%20vs%20data%20frames,to%20work%20with%20large%20data.">tibble 1.0 package release</a></p>
+<blockquote>
+<p>There are two main differences in the usage of a data frame vs a tibble: printing, and subsetting.</p>
+</blockquote>
+<blockquote>
+<p>Tibbles have a refined print method that shows only the first 10 rows, and all the columns that fit on screen. This makes it much easier to work with large data. In addition to its name, each column reports its type, a nice feature borrowed from <code>str()</code>:</p>
+</blockquote>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+## ✔ readr   2.1.2     ✔ forcats 0.5.1
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>class(mtcars)</code></pre>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>mtcars</code></pre>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<pre class="r"><code>mtcars_tib &lt;- as_tibble(mtcars)
+class(mtcars_tib)</code></pre>
+<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>mtcars_tib</code></pre>
+<pre><code>## # A tibble: 32 × 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  21       6  160    110  3.9   2.62  16.5     0     1     4     4
+##  2  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+##  3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+##  4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+##  5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+##  6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+##  7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+##  9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+## 10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+## # … with 22 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+<p>Another interesting difference is that tibbles don’t have row names, but a lot of built in data.frames in R do. But rownames are hard to get out. So, when you make a tibble of a data.frame you can tell the function to use the rownames as a column:</p>
+<pre class="r"><code>mtcars_tib &lt;- as_tibble(mtcars, rownames = &quot;car&quot;)
+mtcars_tib</code></pre>
+<pre><code>## # A tibble: 32 × 12
+##    car           mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 Mazda RX4    21       6  160    110  3.9   2.62  16.5     0     1     4     4
+##  2 Mazda RX4 …  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+##  3 Datsun 710   22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+##  4 Hornet 4 D…  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+##  5 Hornet Spo…  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+##  6 Valiant      18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+##  7 Duster 360   14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  8 Merc 240D    24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+##  9 Merc 230     22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+## 10 Merc 280     19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+## # … with 22 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+<blockquote>
+<p>Tibbles also clearly delineate [ and [[: [ always returns another tibble, [[ always returns a vector. No more drop = FALSE!</p>
+</blockquote>
+<p>If we ask for the first column using the <code>[]</code> notation, we receive a numeric vector from a data frame, and a tibble/data.frame from the tibble.</p>
+<p>We have not learned the <code>[[]]</code> yet because we have not talked about lists in R, but we will soon. The code below returns the first column as a vector for both a data frame and a tibble.</p>
+<pre class="r"><code>mtcars[,1]</code></pre>
+<pre><code>##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4
+## [16] 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4 15.8 19.7
+## [31] 15.0 21.4</code></pre>
+<pre class="r"><code>mtcars_tib[,1]</code></pre>
+<pre><code>## # A tibble: 32 × 1
+##    car              
+##    &lt;chr&gt;            
+##  1 Mazda RX4        
+##  2 Mazda RX4 Wag    
+##  3 Datsun 710       
+##  4 Hornet 4 Drive   
+##  5 Hornet Sportabout
+##  6 Valiant          
+##  7 Duster 360       
+##  8 Merc 240D        
+##  9 Merc 230         
+## 10 Merc 280         
+## # … with 22 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+<pre class="r"><code>mtcars[[1]]</code></pre>
+<pre><code>##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4
+## [16] 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4 15.8 19.7
+## [31] 15.0 21.4</code></pre>
+<pre class="r"><code>mtcars_tib[[1]]</code></pre>
+<pre><code>##  [1] &quot;Mazda RX4&quot;           &quot;Mazda RX4 Wag&quot;       &quot;Datsun 710&quot;         
+##  [4] &quot;Hornet 4 Drive&quot;      &quot;Hornet Sportabout&quot;   &quot;Valiant&quot;            
+##  [7] &quot;Duster 360&quot;          &quot;Merc 240D&quot;           &quot;Merc 230&quot;           
+## [10] &quot;Merc 280&quot;            &quot;Merc 280C&quot;           &quot;Merc 450SE&quot;         
+## [13] &quot;Merc 450SL&quot;          &quot;Merc 450SLC&quot;         &quot;Cadillac Fleetwood&quot; 
+## [16] &quot;Lincoln Continental&quot; &quot;Chrysler Imperial&quot;   &quot;Fiat 128&quot;           
+## [19] &quot;Honda Civic&quot;         &quot;Toyota Corolla&quot;      &quot;Toyota Corona&quot;      
+## [22] &quot;Dodge Challenger&quot;    &quot;AMC Javelin&quot;         &quot;Camaro Z28&quot;         
+## [25] &quot;Pontiac Firebird&quot;    &quot;Fiat X1-9&quot;           &quot;Porsche 914-2&quot;      
+## [28] &quot;Lotus Europa&quot;        &quot;Ford Pantera L&quot;      &quot;Ferrari Dino&quot;       
+## [31] &quot;Maserati Bora&quot;       &quot;Volvo 142E&quot;</code></pre>
+<pre class="r"><code>class(mtcars[,1])</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>class(mtcars_tib[,1])</code></pre>
+<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>class(mtcars_tib[[1]])</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>As I was mentioning in class, there are some (older) functions that don’t like tibbles, but all you need to do is just make its primary class a data.frame as such:</p>
+<blockquote>
+<p>A handful of functions are don’t work with tibbles because they expect df[, 1] to return a vector, not a data frame. If you encounter one of these functions, use as.data.frame() to turn a tibble back to a data frame:</p>
+</blockquote>
+<pre class="r"><code>mtcars_df &lt;- as.data.frame(mtcars_tib)
+class(mtcars_df)</code></pre>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<p>Back to muddy quotes:</p>
+<blockquote>
+<p>path files and knowing if you’re in a project or just an RMD</p>
+</blockquote>
+<blockquote>
+<p>R markdown vs R projects</p>
+</blockquote>
+<p>I hope to spend more time talking about this in class 4.</p>
+<blockquote>
+<p>ggplot stuff was the most muddy, but I also haven’t done a lot of ggplot stuff before</p>
+</blockquote>
+<p>Yes this was definitely expected for a brief intro, ggplot takes a while to get the hang of! We will use ggplot every class now, so we will go through it in bite sized pieces.</p>
+<blockquote>
+<p>Using na=“NA” to pull in data and how to know that it’s needed.</p>
+</blockquote>
+<p>I will show more examples of this. Rule number one of importing data in any software is to <em>look</em> at your data, and figure out if what you see in the software is what you expect. Always look at your data! The <code>read_excel(filename, na="NA")</code> is a strange case that isn’t actually very common to code data as “NA” directly, but I wanted to show you how it looks different when it does happen. Usually, missing data is just a blank space, which is automatically read in as the special <code>NA</code> data type in R.</p>
+<pre class="r"><code># If you did not include `na=NA` it would have been read in like this
+df1 &lt;- tibble(a = c(&quot;NA&quot;,&quot;C&quot;,&quot;D&quot;), b= 1:3,  c = c(1,3,&quot;NA&quot;))
+# If you did include `na = NA` it would have been read in like this
+df2 &lt;- tibble(a = c(NA,&quot;C&quot;,&quot;D&quot;), b= 1:3, c = c(1,3,NA))
+
+# note the character types of the two DFs, and the way NA is printed
+df1</code></pre>
+<pre><code>## # A tibble: 3 × 3
+##   a         b c    
+##   &lt;chr&gt; &lt;int&gt; &lt;chr&gt;
+## 1 NA        1 1    
+## 2 C         2 3    
+## 3 D         3 NA</code></pre>
+<pre class="r"><code>df2</code></pre>
+<pre><code>## # A tibble: 3 × 3
+##   a         b     c
+##   &lt;chr&gt; &lt;int&gt; &lt;dbl&gt;
+## 1 &lt;NA&gt;      1     1
+## 2 C         2     3
+## 3 D         3    NA</code></pre>
+<blockquote>
+<p>I saw a lot of code with the two colons (“::”) in the middle. It is unclear to me if this is an alternative way to write some commands or if there is a certain context in which it is used.</p>
+</blockquote>
+<p>Good question, what this does is pulls a function from a package, so it works whether you have <em>loaded</em> the package (using <code>library()</code> or <code>p_load()</code>) or not. I mainly use it as a clue to you to where the function is coming from. Otherwise, you may not know you need to load that package to use it! For instance:</p>
+<pre class="r"><code># does not work, haven&#39;t loaded the package janitor
+mtcars %&gt;% tabyl(disp, cyl)</code></pre>
+<pre class="r"><code># does work
+mtcars %&gt;% janitor::tabyl(disp, cyl)</code></pre>
+<pre><code>##   disp 4 6 8
+##   71.1 1 0 0
+##   75.7 1 0 0
+##   78.7 1 0 0
+##   79.0 1 0 0
+##   95.1 1 0 0
+##  108.0 1 0 0
+##  120.1 1 0 0
+##  120.3 1 0 0
+##  121.0 1 0 0
+##  140.8 1 0 0
+##  145.0 0 1 0
+##  146.7 1 0 0
+##  160.0 0 2 0
+##  167.6 0 2 0
+##  225.0 0 1 0
+##  258.0 0 1 0
+##  275.8 0 0 3
+##  301.0 0 0 1
+##  304.0 0 0 1
+##  318.0 0 0 1
+##  350.0 0 0 1
+##  351.0 0 0 1
+##  360.0 0 0 2
+##  400.0 0 0 1
+##  440.0 0 0 1
+##  460.0 0 0 1
+##  472.0 0 0 1</code></pre>
+<pre class="r"><code># also works
+library(janitor)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;janitor&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     chisq.test, fisher.test</code></pre>
+<pre class="r"><code>mtcars %&gt;% tabyl(disp, cyl)</code></pre>
+<pre><code>##   disp 4 6 8
+##   71.1 1 0 0
+##   75.7 1 0 0
+##   78.7 1 0 0
+##   79.0 1 0 0
+##   95.1 1 0 0
+##  108.0 1 0 0
+##  120.1 1 0 0
+##  120.3 1 0 0
+##  121.0 1 0 0
+##  140.8 1 0 0
+##  145.0 0 1 0
+##  146.7 1 0 0
+##  160.0 0 2 0
+##  167.6 0 2 0
+##  225.0 0 1 0
+##  258.0 0 1 0
+##  275.8 0 0 3
+##  301.0 0 0 1
+##  304.0 0 0 1
+##  318.0 0 0 1
+##  350.0 0 0 1
+##  351.0 0 0 1
+##  360.0 0 0 2
+##  400.0 0 0 1
+##  440.0 0 0 1
+##  460.0 0 0 1
+##  472.0 0 0 1</code></pre>
+</div>
+<div id="clearest-points" class="section level1">
+<h1>Clearest Points</h1>
+<blockquote>
+<p>skim</p>
+</blockquote>
+<blockquote>
+<p>loading our excel to R studio</p>
+</blockquote>
+<blockquote>
+<p>Loading in the data and selecting the sheets that are most relevant to what we are looking to do was very clear and a nice foundation for future projects. I found that showing different ways of importing the data was helpful.</p>
+</blockquote>
+<p>I’m glad, the import tool in Rstudio is very nice.</p>
+<blockquote>
+<p>functionality of ggplot</p>
+</blockquote>
+<blockquote>
+<p>tidying the data</p>
+</blockquote>
+<blockquote>
+<p>Found out what eval=TRUE and eval=FALSE mean!</p>
+</blockquote>
+<p>Great and I’ll show that again for anyone who was confused! (“still a little bit confused about the <code>{r, EVAL}</code> code”)</p>
+</div>
+<div id="other-messages" class="section level1">
+<h1>Other messages</h1>
+<p>Some people had trouble getting the <code>fig.path=</code> to work in the knitr options. I’m not sure what could be causing that but feel free to ask me during break.</p>
+<p><a href="https://yihui.org/knitr/options/">Here’s a good reference</a> for all the code chunk options, if you want to read about it.</p>
+<blockquote>
+<p>link to the course website that is in the overview tab in SAKAI links to last years materials.</p>
+</blockquote>
+<p>Oops thank you great catch, fixed!</p>
+<blockquote>
+<p>Speed is going great. I’m just worried as we progress through the course, it’ll be more difficult. Overall, really enjoying this class.</p>
+</blockquote>
+<p>I understand the concern, some things will get more difficult (I’m thinking <code>across()</code> in class 4, writing functions, and <code>purrr</code>), but we will also circle back to some things that might be familiar or maybe less complicated to start (stats models, making tables). Definitely keep asking questions and I will slow down as needed!</p>
 </div>

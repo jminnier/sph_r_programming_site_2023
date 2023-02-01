@@ -25,6 +25,9 @@ editor_options:
 <li><a href="#readings" id="toc-readings">Readings</a></li>
 <li><a href="#class-video" id="toc-class-video">Class Video</a></li>
 <li><a href="#post-class" id="toc-post-class">Post-Class</a></li>
+<li><a href="#muddiest-points" id="toc-muddiest-points">Muddiest points</a></li>
+<li><a href="#clearest-points" id="toc-clearest-points">Clearest Points</a></li>
+<li><a href="#other-messages" id="toc-other-messages">Other messages</a></li>
 </ul>
 </div>
 
@@ -40,7 +43,7 @@ editor_options:
 </div>
 <div id="class-video" class="section level2">
 <h2>Class Video</h2>
-<p>The class video is here, but I forgot to video tape the part about <code>here::here()</code>. If I have a chance I will re-record myself talking about it, but in the meantime, <a href="https://youtu.be/7KZWcICwF54?t=1463">click here for Ted’s video from last year</a>, which explains similar ideas.</p>
+<p>The class video is here, but I forgot to video tape the part about <code>here::here()</code>. If I have a chance I will re-record myself talking about it, but in the meantime, <a href="https://youtu.be/7KZWcICwF54?t=1463">click here for Ted’s video from last year, start at linked time and watch for about 6 minutes</a>, which explains similar ideas.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gLTl_9AAMjo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 <p>View last year’s class and materials <a href="https://sph-r-programming-2022.netlify.app/class/03-class/">here</a>.</p>
@@ -54,4 +57,190 @@ editor_options:
 <li>Anything Else: Is there something you’d like me to know?</li>
 </ul>
 <p><a href="https://bit.ly/bsta504_postclass_survey" class="uri">https://bit.ly/bsta504_postclass_survey</a></p>
+</div>
+<div id="muddiest-points" class="section level1">
+<h1>Muddiest points</h1>
+<blockquote>
+<p>themes in ggplot</p>
+</blockquote>
+<p><a href="https://ggplot2-book.org/polishing.html">Check out this reference about ggplot themes first.</a></p>
+<p>Here’s a couple examples using this one plot, so you can see how the theme changes the look of the figure, when you use built in themes from the <code>ggplot2</code> package (yes it only works in ggplot figures, for the person who asked about that)</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+## ✔ readr   2.1.2     ✔ forcats 0.5.1
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>p &lt;- ggplot(mtcars, aes(x = mpg, y = carb, color = factor(cyl))) +
+  geom_point() +
+  labs(title = &quot;My scatterplot&quot;)
+p</code></pre>
+<p><img src="/class/03-class_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Here are some built in themes:</p>
+<pre class="r"><code>p + theme_bw()</code></pre>
+<p><img src="/class/03-class_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>p + theme_minimal()</code></pre>
+<p><img src="/class/03-class_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>p + theme_classic()</code></pre>
+<p><img src="/class/03-class_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>However you can make more customized themes or plot changes where you use the <code>theme()</code> function to add in a lot of other elements. You can use this add on function to choose specific parts of the plot that you want to change, like this example from the above reference. Anything specified here will override the built in theme selected first. There are many options, and looking at specific examples will help. I am always, always googling how to change parts of the theme/plot like this, because there are just so many options it’s too hard to remember them all.</p>
+<pre class="r"><code>p + theme_classic() +
+  theme(
+    plot.title = element_text(face = &quot;bold&quot;, size = 12),
+    legend.background = element_rect(fill = &quot;white&quot;, size = 4, colour = &quot;white&quot;),
+    legend.justification = c(0, 1),
+    legend.position = c(0, 1),
+    axis.ticks = element_line(colour = &quot;grey70&quot;, size = 0.2),
+    panel.grid.major = element_line(colour = &quot;grey70&quot;, size = 0.2),
+    panel.grid.minor = element_blank()
+  )</code></pre>
+<p><img src="/class/03-class_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Here’s a simpler example just changing the title (from the above reference):</p>
+<pre class="r"><code>p + theme(plot.title = element_text(size = 16))</code></pre>
+<p><img src="/class/03-class_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>p + theme(plot.title = element_text(face = &quot;bold&quot;, colour = &quot;red&quot;))</code></pre>
+<p><img src="/class/03-class_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<pre class="r"><code>p + theme(plot.title = element_text(hjust = 1))</code></pre>
+<p><img src="/class/03-class_files/figure-html/unnamed-chunk-6-3.png" width="672" /></p>
+<blockquote>
+<p>here()</p>
+</blockquote>
+<p>Agreed, it’s very confusing, more in class 4!</p>
+<blockquote>
+<p>Could you please clarify about the use of select(one_of) and the count command that was mentioned in dplyr cheatsheet?</p>
+</blockquote>
+<p>These are very different, if you are talking about select() vs count(). One thing to note is that since I recorded that class, <code>one_of()</code> has been superseded/replaced by <code>any_of()</code> and <code>all_of()</code>.</p>
+<p>First, <code>select()</code> is a function to subset columns.</p>
+<pre class="r"><code>library(palmerpenguins)</code></pre>
+<p>Here we specify the columns we want in the order we want:</p>
+<pre class="r"><code>penguins %&gt;% select(bill_length_mm, island, species, year)</code></pre>
+<pre><code>## # A tibble: 344 × 4
+##    bill_length_mm island    species  year
+##             &lt;dbl&gt; &lt;fct&gt;     &lt;fct&gt;   &lt;int&gt;
+##  1           39.1 Torgersen Adelie   2007
+##  2           39.5 Torgersen Adelie   2007
+##  3           40.3 Torgersen Adelie   2007
+##  4           NA   Torgersen Adelie   2007
+##  5           36.7 Torgersen Adelie   2007
+##  6           39.3 Torgersen Adelie   2007
+##  7           38.9 Torgersen Adelie   2007
+##  8           39.2 Torgersen Adelie   2007
+##  9           34.1 Torgersen Adelie   2007
+## 10           42   Torgersen Adelie   2007
+## # … with 334 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+<p>Here, we pass a vector of character names, both of which work:</p>
+<pre class="r"><code>penguins %&gt;% select(c(&quot;bill_length_mm&quot;,&quot;island&quot;,&quot;species&quot;,&quot;year&quot;))</code></pre>
+<pre><code>## # A tibble: 344 × 4
+##    bill_length_mm island    species  year
+##             &lt;dbl&gt; &lt;fct&gt;     &lt;fct&gt;   &lt;int&gt;
+##  1           39.1 Torgersen Adelie   2007
+##  2           39.5 Torgersen Adelie   2007
+##  3           40.3 Torgersen Adelie   2007
+##  4           NA   Torgersen Adelie   2007
+##  5           36.7 Torgersen Adelie   2007
+##  6           39.3 Torgersen Adelie   2007
+##  7           38.9 Torgersen Adelie   2007
+##  8           39.2 Torgersen Adelie   2007
+##  9           34.1 Torgersen Adelie   2007
+## 10           42   Torgersen Adelie   2007
+## # … with 334 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+<pre class="r"><code>penguins %&gt;% select(any_of(c(&quot;bill_length_mm&quot;,&quot;island&quot;,&quot;species&quot;,&quot;year&quot;)))</code></pre>
+<pre><code>## # A tibble: 344 × 4
+##    bill_length_mm island    species  year
+##             &lt;dbl&gt; &lt;fct&gt;     &lt;fct&gt;   &lt;int&gt;
+##  1           39.1 Torgersen Adelie   2007
+##  2           39.5 Torgersen Adelie   2007
+##  3           40.3 Torgersen Adelie   2007
+##  4           NA   Torgersen Adelie   2007
+##  5           36.7 Torgersen Adelie   2007
+##  6           39.3 Torgersen Adelie   2007
+##  7           38.9 Torgersen Adelie   2007
+##  8           39.2 Torgersen Adelie   2007
+##  9           34.1 Torgersen Adelie   2007
+## 10           42   Torgersen Adelie   2007
+## # … with 334 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+<p>This might be useful if we have that character vector already saved from some other data work we are doing:</p>
+<pre class="r"><code>colnames_needed &lt;- c(&quot;bill_length_mm&quot;,&quot;island&quot;,&quot;species&quot;,&quot;year&quot;)
+penguins %&gt;% select(colnames_needed)</code></pre>
+<pre><code>## Note: Using an external vector in selections is ambiguous.
+## ℹ Use `all_of(colnames_needed)` instead of `colnames_needed` to silence this message.
+## ℹ See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
+## This message is displayed once per session.</code></pre>
+<pre><code>## # A tibble: 344 × 4
+##    bill_length_mm island    species  year
+##             &lt;dbl&gt; &lt;fct&gt;     &lt;fct&gt;   &lt;int&gt;
+##  1           39.1 Torgersen Adelie   2007
+##  2           39.5 Torgersen Adelie   2007
+##  3           40.3 Torgersen Adelie   2007
+##  4           NA   Torgersen Adelie   2007
+##  5           36.7 Torgersen Adelie   2007
+##  6           39.3 Torgersen Adelie   2007
+##  7           38.9 Torgersen Adelie   2007
+##  8           39.2 Torgersen Adelie   2007
+##  9           34.1 Torgersen Adelie   2007
+## 10           42   Torgersen Adelie   2007
+## # … with 334 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+<p>But the key about <code>any_of</code> and <code>all_of</code> is what it allows. <code>any_of()</code> allows column names that don’t exist! Using no tidyselect helper or <code>all_of()</code> does not allow this. Which you use depends on what you want to allow to happen.</p>
+<pre class="r"><code>colnames_needed &lt;- c(&quot;bill_length_mm&quot;,&quot;island&quot;,&quot;species&quot;,&quot;year&quot;,&quot;MISSING&quot;)
+# penguins %&gt;% select((olnames_needed)) # does not work
+penguins %&gt;% select(any_of(colnames_needed)) # works!</code></pre>
+<pre><code>## # A tibble: 344 × 4
+##    bill_length_mm island    species  year
+##             &lt;dbl&gt; &lt;fct&gt;     &lt;fct&gt;   &lt;int&gt;
+##  1           39.1 Torgersen Adelie   2007
+##  2           39.5 Torgersen Adelie   2007
+##  3           40.3 Torgersen Adelie   2007
+##  4           NA   Torgersen Adelie   2007
+##  5           36.7 Torgersen Adelie   2007
+##  6           39.3 Torgersen Adelie   2007
+##  7           38.9 Torgersen Adelie   2007
+##  8           39.2 Torgersen Adelie   2007
+##  9           34.1 Torgersen Adelie   2007
+## 10           42   Torgersen Adelie   2007
+## # … with 334 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+<pre class="r"><code># penguins %&gt;% select(all_of(colnames_needed)) # does not work</code></pre>
+<p>On the other hand, <code>count()</code> is mainly to count the number of unique values in a column/vector:</p>
+<pre class="r"><code>penguins %&gt;% count(species)</code></pre>
+<pre><code>## # A tibble: 3 × 2
+##   species       n
+##   &lt;fct&gt;     &lt;int&gt;
+## 1 Adelie      152
+## 2 Chinstrap    68
+## 3 Gentoo      124</code></pre>
+<p>This created a new tibble, that <em>summarizes</em> the species column by counting the number of each type of species. This works for any type of vector but is most useful with character and factor columns. You can also use multiple columns here to see all possible combinations:</p>
+<pre class="r"><code>penguins %&gt;% count(species, year)</code></pre>
+<pre><code>## # A tibble: 9 × 3
+##   species    year     n
+##   &lt;fct&gt;     &lt;int&gt; &lt;int&gt;
+## 1 Adelie     2007    50
+## 2 Adelie     2008    50
+## 3 Adelie     2009    52
+## 4 Chinstrap  2007    26
+## 5 Chinstrap  2008    18
+## 6 Chinstrap  2009    24
+## 7 Gentoo     2007    34
+## 8 Gentoo     2008    46
+## 9 Gentoo     2009    44</code></pre>
+</div>
+<div id="clearest-points" class="section level1">
+<h1>Clearest Points</h1>
+<blockquote>
+<p>filter, select, arrange, pipes</p>
+</blockquote>
+<p>Super!</p>
+</div>
+<div id="other-messages" class="section level1">
+<h1>Other messages</h1>
+<blockquote>
+<p>Density ridges are cool!</p>
+</blockquote>
+<p>I agree!</p>
 </div>

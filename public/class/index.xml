@@ -210,7 +210,7 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
     <item>
       <title>Part 2: Loading Data, data.frames, and ggplot2</title>
       <link>https://sph-r-programming-2023.netlify.app/class/02-class/</link>
-      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate>
       <guid>https://sph-r-programming-2023.netlify.app/class/02-class/</guid>
       <description>
 
@@ -218,23 +218,24 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#readings&#34; id=&#34;toc-readings&#34;&gt;Readings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#class-video&#34; id=&#34;toc-class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#this-years-class-video&#34; id=&#34;toc-this-years-class-video&#34;&gt;This year’s class video&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#last-years-class-video&#34; id=&#34;toc-last-years-class-video&#34;&gt;Last Year’s Class Video&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34; id=&#34;toc-muddiest-points&#34;&gt;Muddiest Points&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
 &lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Project files&lt;/h2&gt;
-&lt;p&gt;Please download the &lt;code&gt;part2&lt;/code&gt; and &lt;code&gt;function_of_the_week&lt;/code&gt; folders from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this dropbox folder link&lt;/a&gt; Be sure to unzip if necessary. In advance of class, please open the &lt;code&gt;part2&lt;/code&gt; Rstudio project (double click on the &lt;code&gt;.rproj&lt;/code&gt; file), open &lt;code&gt;part2.Rmd&lt;/code&gt; and &lt;code&gt;knit&lt;/code&gt; (click the Knit button at the top of the file) this file. This will install packages that you need for the Rmd to run.&lt;/p&gt;
+&lt;p&gt;Please download the &lt;code&gt;part2&lt;/code&gt; folder from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this dropbox folder link&lt;/a&gt; Be sure to unzip if necessary. In advance of class, please open the &lt;code&gt;part2&lt;/code&gt; Rstudio project (double click on the &lt;code&gt;.rproj&lt;/code&gt; file), open &lt;code&gt;part2.Rmd&lt;/code&gt; and &lt;code&gt;knit&lt;/code&gt; (click the Knit button at the top of the file) this file. This will install packages that you need for the Rmd to run.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;readings&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Readings&lt;/h2&gt;
 &lt;p&gt;Required and suggested class readings can be found on the Readings tab by class. These readings may be done anytime before or after class, but they will supplement your understanding of the class materials and help make homework and project work easier.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Class Video&lt;/h2&gt;
-&lt;p&gt;Class video recording will be posted on Slack.&lt;/p&gt;
+&lt;div id=&#34;this-years-class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;This year’s class video&lt;/h2&gt;
+&lt;p&gt;See Slack for the zoom recording link&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;last-years-class-video&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Last Year’s Class Video&lt;/h2&gt;
@@ -252,13 +253,240 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;div id=&#34;muddiest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Muddiest Points&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;the benefits of tibble vs data frame and when to use which?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In this class we will always use tibble. Just remember that an object can be multiple types. A tibble is a data frame, but not vice versa. A tibble is really a data frame with “perks”. See this explanation from the &lt;a href=&#34;https://posit.co/blog/tibble-1-0-0/#:~:text=Tibbles%20vs%20data%20frames,to%20work%20with%20large%20data.&#34;&gt;tibble 1.0 package release&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There are two main differences in the usage of a data frame vs a tibble: printing, and subsetting.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tibbles have a refined print method that shows only the first 10 rows, and all the columns that fit on screen. This makes it much easier to work with large data. In addition to its name, each column reports its type, a nice feature borrowed from &lt;code&gt;str()&lt;/code&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+## ✔ readr   2.1.2     ✔ forcats 0.5.1
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(mtcars)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;data.frame&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars_tib &amp;lt;- tibble(mtcars)
+class(mtcars_tib)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;tbl_df&amp;quot;     &amp;quot;tbl&amp;quot;        &amp;quot;data.frame&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars_tib&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 32 × 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+##  1  21       6  160    110  3.9   2.62  16.5     0     1     4     4
+##  2  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+##  3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+##  4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+##  5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+##  6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+##  7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+##  9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+## 10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+## # … with 22 more rows
+## # ℹ Use `print(n = ...)` to see more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tibbles also clearly delineate [ and [[: [ always returns another tibble, [[ always returns a vector. No more drop = FALSE!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If we ask for the first column using the &lt;code&gt;[]&lt;/code&gt; notation, we receive a numeric vector from a data frame, and a tibble/data.frame from the tibble.&lt;/p&gt;
+&lt;p&gt;We have not learned the &lt;code&gt;[[]]&lt;/code&gt; yet because we have not talked about lists in R, but we will soon. The code below returns the first column as a vector for both a data frame and a tibble.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars[,1]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4
+## [16] 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4 15.8 19.7
+## [31] 15.0 21.4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars_tib[,1]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 32 × 1
+##      mpg
+##    &amp;lt;dbl&amp;gt;
+##  1  21  
+##  2  21  
+##  3  22.8
+##  4  21.4
+##  5  18.7
+##  6  18.1
+##  7  14.3
+##  8  24.4
+##  9  22.8
+## 10  19.2
+## # … with 22 more rows
+## # ℹ Use `print(n = ...)` to see more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars[[1]]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4
+## [16] 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4 15.8 19.7
+## [31] 15.0 21.4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars_tib[[1]]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4
+## [16] 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4 15.8 19.7
+## [31] 15.0 21.4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(mtcars[,1])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(mtcars_tib[,1])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;tbl_df&amp;quot;     &amp;quot;tbl&amp;quot;        &amp;quot;data.frame&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(mtcars_tib[[1]])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As I was mentioning in class, there are some (older) functions that don’t like tibbles, but all you need to do is just make its primary class a data.frame as such:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A handful of functions are don’t work with tibbles because they expect df[, 1] to return a vector, not a data frame. If you encounter one of these functions, use as.data.frame() to turn a tibble back to a data frame:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars_df &amp;lt;- as.data.frame(mtcars_tib)
+class(mtcars_df)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;data.frame&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;R markdown vs R projects&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I hope to spend more time talking about this in class 4.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ggplot stuff was the most muddy, but I also haven’t done a lot of ggplot stuff before&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yes this was definitely expected for a brief intro, ggplot takes a while to get the hang of!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Using na=“NA” to pull in data and how to know that it’s needed.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I will show more examples of this. Rule number one of importing data in any software is to &lt;em&gt;look&lt;/em&gt; at your data, and figure out if what you see in the software is what you expect. Always look at your data! The &lt;code&gt;na=NA&lt;/code&gt; is a strange case that isn’t actually very common I’d say, but I wanted to show you how it looks different.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# If you did not include `na=NA` it would have been read in like this
+df1 &amp;lt;- tibble(a = c(&amp;quot;NA&amp;quot;,&amp;quot;C&amp;quot;,&amp;quot;D&amp;quot;), b= 1:3,  c = c(1,3,&amp;quot;NA&amp;quot;))
+# If you did include `na = NA` it would have been read in like this
+df2 &amp;lt;- tibble(a = c(NA,&amp;quot;C&amp;quot;,&amp;quot;D&amp;quot;), b= 1:3, c = c(1,3,NA))
+
+# note the character types of the two DFs, and the way NA is printed
+df1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 3
+##   a         b c    
+##   &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;
+## 1 NA        1 1    
+## 2 C         2 3    
+## 3 D         3 NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 3
+##   a         b     c
+##   &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 &amp;lt;NA&amp;gt;      1     1
+## 2 C         2     3
+## 3 D         3    NA&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I saw a lot of code with the two colons (“::”) in the middle. It is unclear to me if this is an alternative way to write some commands or if there is a certain context in which it is used.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Good question, what this does is pulls a function from a package, so it works whether you have &lt;em&gt;loaded&lt;/em&gt; the package (using &lt;code&gt;library()&lt;/code&gt; or &lt;code&gt;p_load()&lt;/code&gt;) or not. I mainly use it as a clue to you to where the function is coming from. Otherwise, you may not know you need to load that package to use it! For instance:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# does not work, haven&amp;#39;t loaded the package janitor
+mtcars %&amp;gt;% tabyl(disp, cyl)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# does work
+mtcars %&amp;gt;% janitor::tabyl(disp, cyl)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   disp 4 6 8
+##   71.1 1 0 0
+##   75.7 1 0 0
+##   78.7 1 0 0
+##   79.0 1 0 0
+##   95.1 1 0 0
+##  108.0 1 0 0
+##  120.1 1 0 0
+##  120.3 1 0 0
+##  121.0 1 0 0
+##  140.8 1 0 0
+##  145.0 0 1 0
+##  146.7 1 0 0
+##  160.0 0 2 0
+##  167.6 0 2 0
+##  225.0 0 1 0
+##  258.0 0 1 0
+##  275.8 0 0 3
+##  301.0 0 0 1
+##  304.0 0 0 1
+##  318.0 0 0 1
+##  350.0 0 0 1
+##  351.0 0 0 1
+##  360.0 0 0 2
+##  400.0 0 0 1
+##  440.0 0 0 1
+##  460.0 0 0 1
+##  472.0 0 0 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# also works
+library(janitor)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;janitor&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     chisq.test, fisher.test&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars %&amp;gt;% tabyl(disp, cyl)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   disp 4 6 8
+##   71.1 1 0 0
+##   75.7 1 0 0
+##   78.7 1 0 0
+##   79.0 1 0 0
+##   95.1 1 0 0
+##  108.0 1 0 0
+##  120.1 1 0 0
+##  120.3 1 0 0
+##  121.0 1 0 0
+##  140.8 1 0 0
+##  145.0 0 1 0
+##  146.7 1 0 0
+##  160.0 0 2 0
+##  167.6 0 2 0
+##  225.0 0 1 0
+##  258.0 0 1 0
+##  275.8 0 0 3
+##  301.0 0 0 1
+##  304.0 0 0 1
+##  318.0 0 0 1
+##  350.0 0 0 1
+##  351.0 0 0 1
+##  360.0 0 0 2
+##  400.0 0 0 1
+##  440.0 0 0 1
+##  460.0 0 0 1
+##  472.0 0 0 1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
     </item>
     
     <item>
       <title>Part 3: ggplot2, factors, boxplots, dplyr: subsetting</title>
       <link>https://sph-r-programming-2023.netlify.app/class/03-class/</link>
-      <pubDate>Wed, 19 Jan 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate>
       <guid>https://sph-r-programming-2023.netlify.app/class/03-class/</guid>
       <description>
 
@@ -273,7 +501,9 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 
 &lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Project files&lt;/h2&gt;
-&lt;p&gt;Please download the &lt;a href=&#34;https://www.dropbox.com/sh/6071l3w2c7janda/AACbC_iGdedvuOfBA9Jy25Soa?dl=0&#34;&gt;part3&lt;/a&gt; folder for class materials. Use the grey “download” button to download the whole folder, please keep the file structure and folder organization exactly the same as we need this for class. Be sure to unzip if necessary. You may move the folder &lt;code&gt;part3&lt;/code&gt; wherever you like on your computer.&lt;/p&gt;
+&lt;p&gt;Please download the &lt;code&gt;part3&lt;/code&gt; folder from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this dropbox folder link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Use the grey “download” button to download the &lt;em&gt;whole folder&lt;/em&gt;, please keep the file structure and folder organization exactly the same as we need this for class. Be sure to unzip if necessary. You may move the folder &lt;code&gt;part3&lt;/code&gt; wherever you like on your computer. Be sure to unzip if necessary.&lt;/p&gt;
+&lt;p&gt;In advance of class, please open the &lt;code&gt;part3&lt;/code&gt; Rstudio project (double click on the &lt;code&gt;.rproj&lt;/code&gt; file), open &lt;code&gt;part3.Rmd&lt;/code&gt; and &lt;code&gt;knit&lt;/code&gt; (click the Knit button at the top of the file) this file. This will install packages that you need for the Rmd to run.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;readings&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Readings&lt;/h2&gt;
@@ -281,7 +511,7 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Class Video&lt;/h2&gt;
-&lt;p&gt;The class video is here, but I forgot to video tape the part about &lt;code&gt;here::here()&lt;/code&gt;. If I have a chance I will re-record myself talking about it, but in the meantime, &lt;a href=&#34;https://youtu.be/7KZWcICwF54?t=1463&#34;&gt;click here for Ted’s video from last year&lt;/a&gt;, which explains similar ideas.&lt;/p&gt;
+&lt;p&gt;The class video is here, but I forgot to video tape the part about &lt;code&gt;here::here()&lt;/code&gt;. If I have a chance I will re-record myself talking about it, but in the meantime, &lt;a href=&#34;https://youtu.be/7KZWcICwF54?t=1463&#34;&gt;click here for Ted’s video from last year, start at linked time and watch for about 6 minutes&lt;/a&gt;, which explains similar ideas.&lt;/p&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/gLTl_9AAMjo&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/class/03-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -294,7 +524,7 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
 &lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://forms.gle/PA1CH7gTgrKWkmzw6&#34; class=&#34;uri&#34;&gt;https://forms.gle/PA1CH7gTgrKWkmzw6&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -316,7 +546,7 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 
 &lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Project files&lt;/h2&gt;
-&lt;p&gt;Please download the part4 subfolder in &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this folder link&lt;/a&gt; Be sure to unzip if necessary. “Knit” the part4.Rmd file to install packages and make sure everything is working with data loading.&lt;/p&gt;
+&lt;p&gt;Please download the &lt;code&gt;part4&lt;/code&gt; folder from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this dropbox folder link&lt;/a&gt;. Be sure to unzip if necessary. “Knit” the part4.Rmd file to install packages and make sure everything is working with data loading.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Class Video&lt;/h2&gt;
@@ -332,7 +562,7 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
 &lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://forms.gle/PA1CH7gTgrKWkmzw6&#34; class=&#34;uri&#34;&gt;https://forms.gle/PA1CH7gTgrKWkmzw6&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -356,7 +586,7 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 
 &lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Project files&lt;/h2&gt;
-&lt;p&gt;Please download the part5 subfolder in &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this folder link&lt;/a&gt; Be sure to unzip if necessary. “Knit” the &lt;code&gt;code/part5.Rmd&lt;/code&gt; file to install packages and make sure everything is working with data loading.&lt;/p&gt;
+&lt;p&gt;Please download the &lt;code&gt;part5&lt;/code&gt; folder from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this dropbox folder link&lt;/a&gt;. Be sure to unzip if necessary. “Knit” the &lt;code&gt;code/part5.Rmd&lt;/code&gt; file to install packages and make sure everything is working with data loading.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Class Video&lt;/h2&gt;
@@ -383,7 +613,7 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
 &lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://forms.gle/PA1CH7gTgrKWkmzw6&#34; class=&#34;uri&#34;&gt;https://forms.gle/PA1CH7gTgrKWkmzw6&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -399,18 +629,29 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#class-video&#34; id=&#34;toc-class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
 &lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Project files&lt;/h2&gt;
-&lt;p&gt;In this class we finished the part5 material from &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this folder link&lt;/a&gt;. Please download this folder and be sure to unzip if necessary. Knit the &lt;code&gt;part5.Rmd&lt;/code&gt; to install any required packages.&lt;/p&gt;
+&lt;p&gt;In this class we finished the part5 material from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this folder link&lt;/a&gt;. Please download this folder and be sure to unzip if necessary. Knit the &lt;code&gt;part6.Rmd&lt;/code&gt; to install any required packages.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Class Video&lt;/h2&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/c3ZuPANIEAM&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/class/06-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Post-Class&lt;/h1&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -426,6 +667,7 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#class-video&#34; id=&#34;toc-class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -438,6 +680,16 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/IJYgWOfZa-M&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/class/08-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Post-Class&lt;/h1&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -453,6 +705,7 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#class-7-video&#34; id=&#34;toc-class-7-video&#34;&gt;Class 7 Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -466,6 +719,16 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/j-eoXIEGQQg&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/class/07-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Post-Class&lt;/h1&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -481,6 +744,7 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#class-video&#34; id=&#34;toc-class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -493,6 +757,16 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/X73yjK2zhH4&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/class/09-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Post-Class&lt;/h1&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -508,6 +782,7 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#class-video&#34; id=&#34;toc-class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -520,6 +795,16 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/2d-oAKAkkfI&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/class/10-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;post-class&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Post-Class&lt;/h1&gt;
+&lt;p&gt;Please fill out the following survey and we will discuss the results during the next lecture. All responses will be anonymous.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clearest Point: What was the most clear part of the lecture?&lt;/li&gt;
+&lt;li&gt;Muddiest Point: What was the most unclear part of the lecture to you?&lt;/li&gt;
+&lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

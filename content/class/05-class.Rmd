@@ -21,7 +21,7 @@ editor_options:
 
 ## R Project files
 
-Please download the part5 subfolder in [this folder link](https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0) Be sure to unzip if necessary. "Knit" the `code/part5.Rmd` file to install packages and make sure everything is working with data loading.
+Please download the `part5` folder from [this dropbox folder link](https://bit.ly/bsta504_dropbox_2023). Be sure to unzip if necessary. "Knit" the `code/part5.Rmd` file to install packages and make sure everything is working with data loading.
 
 ## Class Video
 

@@ -32,7 +32,7 @@ Required and suggested class readings can be found on the Readings tab by class.
 
 ## Class Video
 
-The class video is here, but I forgot to video tape the part about `here::here()`. If I have a chance I will re-record myself talking about it, but in the meantime, [click here for Ted's video from last year](https://youtu.be/7KZWcICwF54?t=1463), which explains similar ideas.
+The class video is here, but I forgot to video tape the part about `here::here()`. If I have a chance I will re-record myself talking about it, but in the meantime, [click here for Ted's video from last year, start at linked time and watch for about 6 minutes](https://youtu.be/7KZWcICwF54?t=1463), which explains similar ideas.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gLTl_9AAMjo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -49,4 +49,126 @@ Please fill out the following survey and we will discuss the results during the 
 - Anything Else: Is there something you'd like me to know?
 
 <https://bit.ly/bsta504_postclass_survey>
+
+# Muddiest points
+
+> themes in ggplot
+
+[Check out this reference about ggplot themes first.](https://ggplot2-book.org/polishing.html)
+
+Here's a couple examples using this one plot, so you can see how the theme changes the look of the figure, when you use built in themes from the `ggplot2` package (yes it only works in ggplot figures, for the person who asked about that)
+
+```{r}
+library(tidyverse)
+
+p <- ggplot(mtcars, aes(x = mpg, y = carb, color = factor(cyl))) +
+  geom_point() +
+  labs(title = "My scatterplot")
+p
+```
+
+Here are some built in themes:
+
+```{r}
+p + theme_bw()
+```
+
+```{r}
+p + theme_minimal()
+```
+
+```{r}
+p + theme_classic()
+```
+
+However you can make more customized themes or plot changes where you use the `theme()` function to add in a lot of other elements. You can use this add on function to choose specific parts of the plot that you want to change, like this example from the above reference. Anything specified here will override the built in theme selected first. There are many options, and looking at specific examples will help. I am always, always googling how to change parts of the theme/plot like this, because there are just so many options it's too hard to remember them all.
+
+```{r}
+p + theme_classic() +
+  theme(
+    plot.title = element_text(face = "bold", size = 12),
+    legend.background = element_rect(fill = "white", size = 4, colour = "white"),
+    legend.justification = c(0, 1),
+    legend.position = c(0, 1),
+    axis.ticks = element_line(colour = "grey70", size = 0.2),
+    panel.grid.major = element_line(colour = "grey70", size = 0.2),
+    panel.grid.minor = element_blank()
+  )
+```
+
+
+Here's a simpler example just changing the title (from the above reference):
+
+```{r}
+p + theme(plot.title = element_text(size = 16))
+p + theme(plot.title = element_text(face = "bold", colour = "red"))
+p + theme(plot.title = element_text(hjust = 1))
+```
+
+> here()
+
+Agreed, it's very confusing, more in class 4!
+
+> Could you please clarify about the use of select(one_of) and the count command that was mentioned in dplyr cheatsheet?
+
+These are very different, if you are talking about select() vs count(). One thing to note is that since I recorded that class, `one_of()` has been superseded/replaced by `any_of()` and `all_of()`.
+
+First, `select()` is a function to subset columns.
+
+```{r}
+library(palmerpenguins)
+```
+
+Here we specify the columns we want in the order we want:
+
+```{r}
+penguins %>% select(bill_length_mm, island, species, year)
+```
+
+Here, we pass a vector of character names, both of which work:
+
+```{r}
+penguins %>% select(c("bill_length_mm","island","species","year"))
+penguins %>% select(any_of(c("bill_length_mm","island","species","year")))
+```
+
+This might be useful if we have that character vector already saved from some other data work we are doing:
+
+```{r}
+colnames_needed <- c("bill_length_mm","island","species","year")
+penguins %>% select(colnames_needed)
+```
+
+But the key about `any_of` and `all_of` is what it allows. `any_of()` allows column names that don't exist! Using no tidyselect helper or `all_of()` does not allow this. Which you use depends on what you want to allow to happen.
+
+```{r}
+colnames_needed <- c("bill_length_mm","island","species","year","MISSING")
+# penguins %>% select((olnames_needed)) # does not work
+penguins %>% select(any_of(colnames_needed)) # works!
+# penguins %>% select(all_of(colnames_needed)) # does not work
+```
+
+On the other hand, `count()` is mainly to count the number of unique values in a column/vector:
+
+```{r}
+penguins %>% count(species)
+```
+
+This created a new tibble, that *summarizes* the species column by counting the number of each type of species. This works for any type of vector but is most useful with character and factor columns. You can also use multiple columns here to see all possible combinations:
+
+```{r}
+penguins %>% count(species, year)
+```
+
+# Clearest Points
+
+> filter, select, arrange, pipes
+
+Super!
+
+# Other messages
+
+> Density ridges are cool!
+
+I agree!
 
