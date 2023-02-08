@@ -143,7 +143,7 @@ But the key about `any_of` and `all_of` is what it allows. `any_of()` allows col
 
 ```{r}
 colnames_needed <- c("bill_length_mm","island","species","year","MISSING")
-# penguins %>% select((olnames_needed)) # does not work
+# penguins %>% select((colnames_needed)) # does not work
 penguins %>% select(any_of(colnames_needed)) # works!
 # penguins %>% select(all_of(colnames_needed)) # does not work
 ```

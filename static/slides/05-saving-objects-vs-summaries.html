@@ -4,7 +4,7 @@
     <title>Part 5</title>
     <meta charset="utf-8" />
     <meta name="author" content="Jessica Minnier" />
-    <meta name="date" content="2022-02-02" />
+    <meta name="date" content="2023-02-07" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
@@ -18,10 +18,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Part 5
+]
+.subtitle[
 ## R Programming
+]
+.author[
 ### Jessica Minnier
-### 2022-02-02
+]
+.date[
+### 2023-02-07
+]
 
 ---
 
@@ -52,14 +60,14 @@ glimpse(penguins)
 ```
 ## Rows: 344
 ## Columns: 8
-## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie,…
-## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen…
-## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.…
-## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.…
-## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 18…
-## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 365…
-## $ sex               &lt;fct&gt; male, female, female, NA, femal…
-## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2…
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
 ```
 
 ---
@@ -100,6 +108,7 @@ penguins_f %&gt;% select(sex, contains("bill"))
 ##  9 female           37.6          19.3       1.95
 ## 10 female           36.7          18.8       1.95
 ## # … with 155 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -137,7 +146,7 @@ glimpse(penguins_f_table)
 ## Rows: 3
 ## Columns: 3
 ## $ species &lt;fct&gt; Adelie, Chinstrap, Gentoo
-## $ n       &lt;dbl&gt; 73, 34, 58
+## $ n       &lt;int&gt; 73, 34, 58
 ## $ percent &lt;dbl&gt; 0.4424242, 0.2060606, 0.3515152
 ```
 
@@ -174,12 +183,12 @@ Nice printing:
 penguins_f_table %&gt;% gt::gt()
 ```
 
-<div id="fwwjzjwxfh" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="jhhzlkwaal" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#fwwjzjwxfh .gt_table {
+#jhhzlkwaal .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -204,7 +213,7 @@ penguins_f_table %&gt;% gt::gt()
   border-left-color: #D3D3D3;
 }
 
-#fwwjzjwxfh .gt_heading {
+#jhhzlkwaal .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -216,33 +225,37 @@ penguins_f_table %&gt;% gt::gt()
   border-right-color: #D3D3D3;
 }
 
-#fwwjzjwxfh .gt_title {
+#jhhzlkwaal .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
   padding-top: 4px;
   padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-bottom-color: #FFFFFF;
   border-bottom-width: 0;
 }
 
-#fwwjzjwxfh .gt_subtitle {
+#jhhzlkwaal .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
   padding-top: 0;
   padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#fwwjzjwxfh .gt_bottom_border {
+#jhhzlkwaal .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fwwjzjwxfh .gt_col_headings {
+#jhhzlkwaal .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -257,7 +270,7 @@ penguins_f_table %&gt;% gt::gt()
   border-right-color: #D3D3D3;
 }
 
-#fwwjzjwxfh .gt_col_heading {
+#jhhzlkwaal .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -277,7 +290,7 @@ penguins_f_table %&gt;% gt::gt()
   overflow-x: hidden;
 }
 
-#fwwjzjwxfh .gt_column_spanner_outer {
+#jhhzlkwaal .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -289,15 +302,15 @@ penguins_f_table %&gt;% gt::gt()
   padding-right: 4px;
 }
 
-#fwwjzjwxfh .gt_column_spanner_outer:first-child {
+#jhhzlkwaal .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fwwjzjwxfh .gt_column_spanner_outer:last-child {
+#jhhzlkwaal .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fwwjzjwxfh .gt_column_spanner {
+#jhhzlkwaal .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -309,8 +322,11 @@ penguins_f_table %&gt;% gt::gt()
   width: 100%;
 }
 
-#fwwjzjwxfh .gt_group_heading {
-  padding: 8px;
+#jhhzlkwaal .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -331,7 +347,7 @@ penguins_f_table %&gt;% gt::gt()
   vertical-align: middle;
 }
 
-#fwwjzjwxfh .gt_empty_group_heading {
+#jhhzlkwaal .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -346,15 +362,15 @@ penguins_f_table %&gt;% gt::gt()
   vertical-align: middle;
 }
 
-#fwwjzjwxfh .gt_from_md > :first-child {
+#jhhzlkwaal .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fwwjzjwxfh .gt_from_md > :last-child {
+#jhhzlkwaal .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fwwjzjwxfh .gt_row {
+#jhhzlkwaal .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -373,7 +389,7 @@ penguins_f_table %&gt;% gt::gt()
   overflow-x: hidden;
 }
 
-#fwwjzjwxfh .gt_stub {
+#jhhzlkwaal .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -382,10 +398,29 @@ penguins_f_table %&gt;% gt::gt()
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #D3D3D3;
-  padding-left: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#fwwjzjwxfh .gt_summary_row {
+#jhhzlkwaal .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#jhhzlkwaal .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#jhhzlkwaal .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -395,17 +430,26 @@ penguins_f_table %&gt;% gt::gt()
   padding-right: 5px;
 }
 
-#fwwjzjwxfh .gt_first_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
+#jhhzlkwaal .gt_first_summary_row {
   border-top-style: solid;
-  border-top-width: 2px;
   border-top-color: #D3D3D3;
 }
 
-#fwwjzjwxfh .gt_grand_summary_row {
+#jhhzlkwaal .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#jhhzlkwaal .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jhhzlkwaal .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -415,7 +459,7 @@ penguins_f_table %&gt;% gt::gt()
   padding-right: 5px;
 }
 
-#fwwjzjwxfh .gt_first_grand_summary_row {
+#jhhzlkwaal .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -425,11 +469,11 @@ penguins_f_table %&gt;% gt::gt()
   border-top-color: #D3D3D3;
 }
 
-#fwwjzjwxfh .gt_striped {
+#jhhzlkwaal .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fwwjzjwxfh .gt_table_body {
+#jhhzlkwaal .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -438,7 +482,7 @@ penguins_f_table %&gt;% gt::gt()
   border-bottom-color: #D3D3D3;
 }
 
-#fwwjzjwxfh .gt_footnotes {
+#jhhzlkwaal .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -452,13 +496,16 @@ penguins_f_table %&gt;% gt::gt()
   border-right-color: #D3D3D3;
 }
 
-#fwwjzjwxfh .gt_footnote {
+#jhhzlkwaal .gt_footnote {
   margin: 0px;
   font-size: 90%;
-  padding: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#fwwjzjwxfh .gt_sourcenotes {
+#jhhzlkwaal .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -472,44 +519,80 @@ penguins_f_table %&gt;% gt::gt()
   border-right-color: #D3D3D3;
 }
 
-#fwwjzjwxfh .gt_sourcenote {
+#jhhzlkwaal .gt_sourcenote {
   font-size: 90%;
-  padding: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#fwwjzjwxfh .gt_left {
+#jhhzlkwaal .gt_left {
   text-align: left;
 }
 
-#fwwjzjwxfh .gt_center {
+#jhhzlkwaal .gt_center {
   text-align: center;
 }
 
-#fwwjzjwxfh .gt_right {
+#jhhzlkwaal .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fwwjzjwxfh .gt_font_normal {
+#jhhzlkwaal .gt_font_normal {
   font-weight: normal;
 }
 
-#fwwjzjwxfh .gt_font_bold {
+#jhhzlkwaal .gt_font_bold {
   font-weight: bold;
 }
 
-#fwwjzjwxfh .gt_font_italic {
+#jhhzlkwaal .gt_font_italic {
   font-style: italic;
 }
 
-#fwwjzjwxfh .gt_super {
+#jhhzlkwaal .gt_super {
   font-size: 65%;
 }
 
-#fwwjzjwxfh .gt_footnote_marks {
+#jhhzlkwaal .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#jhhzlkwaal .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
-  font-size: 65%;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#jhhzlkwaal .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#jhhzlkwaal .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#jhhzlkwaal .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#jhhzlkwaal .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
 }
 </style>
 <table class="gt_table">
@@ -581,15 +664,15 @@ glimpse_out &lt;- glimpse(penguins_f)
 ```
 ## Rows: 165
 ## Columns: 9
-## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie,…
-## $ island            &lt;fct&gt; Torgersen, Biscoe, Torgersen, B…
-## $ bill_length_mm    &lt;dbl&gt; 33.5, 35.3, 34.4, 35.9, 36.7, 3…
-## $ bill_depth_mm     &lt;dbl&gt; 19.0, 18.9, 18.4, 19.2, 19.3, 1…
-## $ flipper_length_mm &lt;int&gt; 190, 187, 184, 189, 193, 187, 1…
-## $ body_mass_g       &lt;int&gt; 3600, 3800, 3325, 3800, 3450, 2…
-## $ sex               &lt;fct&gt; female, female, female, female,…
-## $ year              &lt;int&gt; 2008, 2007, 2007, 2007, 2007, 2…
-## $ bill_ratio        &lt;dbl&gt; 1.763158, 1.867725, 1.869565, 1…
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &lt;fct&gt; Torgersen, Biscoe, Torgersen, Biscoe, Torgersen, Bis…
+## $ bill_length_mm    &lt;dbl&gt; 33.5, 35.3, 34.4, 35.9, 36.7, 34.5, 39.6, 36.0, 37.6…
+## $ bill_depth_mm     &lt;dbl&gt; 19.0, 18.9, 18.4, 19.2, 19.3, 18.1, 20.7, 18.5, 19.3…
+## $ flipper_length_mm &lt;int&gt; 190, 187, 184, 189, 193, 187, 191, 186, 181, 187, 19…
+## $ body_mass_g       &lt;int&gt; 3600, 3800, 3325, 3800, 3450, 2900, 3900, 3100, 3300…
+## $ sex               &lt;fct&gt; female, female, female, female, female, female, fema…
+## $ year              &lt;int&gt; 2008, 2007, 2007, 2007, 2007, 2008, 2009, 2007, 2007…
+## $ bill_ratio        &lt;dbl&gt; 1.763158, 1.867725, 1.869565, 1.869792, 1.901554, 1.…
 ```
 
 Print it now (but really, don't do this, there's no point):
@@ -601,21 +684,21 @@ glimpse_out
 
 ```
 ## # A tibble: 165 × 9
-##    species island    bill_length_mm bill_depth_mm
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;
-##  1 Adelie  Torgersen           33.5          19  
-##  2 Adelie  Biscoe              35.3          18.9
-##  3 Adelie  Torgersen           34.4          18.4
-##  4 Adelie  Biscoe              35.9          19.2
-##  5 Adelie  Torgersen           36.7          19.3
-##  6 Adelie  Biscoe              34.5          18.1
-##  7 Adelie  Biscoe              39.6          20.7
-##  8 Adelie  Dream               36            18.5
-##  9 Adelie  Dream               37.6          19.3
-## 10 Adelie  Torgersen           36.7          18.8
-## # … with 155 more rows, and 5 more variables:
-## #   flipper_length_mm &lt;int&gt;, body_mass_g &lt;int&gt;, sex &lt;fct&gt;,
-## #   year &lt;int&gt;, bill_ratio &lt;dbl&gt;
+##    species island    bill_length_mm bill_d…¹ flipp…² body_…³ sex    year bill_…⁴
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;    &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;   &lt;dbl&gt;
+##  1 Adelie  Torgersen           33.5     19       190    3600 fema…  2008    1.76
+##  2 Adelie  Biscoe              35.3     18.9     187    3800 fema…  2007    1.87
+##  3 Adelie  Torgersen           34.4     18.4     184    3325 fema…  2007    1.87
+##  4 Adelie  Biscoe              35.9     19.2     189    3800 fema…  2007    1.87
+##  5 Adelie  Torgersen           36.7     19.3     193    3450 fema…  2007    1.90
+##  6 Adelie  Biscoe              34.5     18.1     187    2900 fema…  2008    1.91
+##  7 Adelie  Biscoe              39.6     20.7     191    3900 fema…  2009    1.91
+##  8 Adelie  Dream               36       18.5     186    3100 fema…  2007    1.95
+##  9 Adelie  Dream               37.6     19.3     181    3300 fema…  2007    1.95
+## 10 Adelie  Torgersen           36.7     18.8     187    3800 fema…  2008    1.95
+## # … with 155 more rows, and abbreviated variable names ¹​bill_depth_mm,
+## #   ²​flipper_length_mm, ³​body_mass_g, ⁴​bill_ratio
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 ---
@@ -695,21 +778,21 @@ glimpse(skim_out)
 ```
 ## Rows: 9
 ## Columns: 15
-## $ skim_type         &lt;chr&gt; "factor", "factor", "factor", "…
-## $ skim_variable     &lt;chr&gt; "species", "island", "sex", "bi…
+## $ skim_type         &lt;chr&gt; "factor", "factor", "factor", "numeric", "numeric", …
+## $ skim_variable     &lt;chr&gt; "species", "island", "sex", "bill_length_mm", "bill_…
 ## $ n_missing         &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0
 ## $ complete_rate     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1
-## $ factor.ordered    &lt;lgl&gt; FALSE, FALSE, FALSE, NA, NA, NA…
+## $ factor.ordered    &lt;lgl&gt; FALSE, FALSE, FALSE, NA, NA, NA, NA, NA, NA
 ## $ factor.n_unique   &lt;int&gt; 3, 3, 1, NA, NA, NA, NA, NA, NA
-## $ factor.top_counts &lt;chr&gt; "Ade: 73, Gen: 58, Chi: 34", "B…
-## $ numeric.mean      &lt;dbl&gt; NA, NA, NA, 42.096970, 16.42545…
-## $ numeric.sd        &lt;dbl&gt; NA, NA, NA, 4.9034759, 1.795680…
-## $ numeric.p0        &lt;dbl&gt; NA, NA, NA, 32.100000, 13.10000…
-## $ numeric.p25       &lt;dbl&gt; NA, NA, NA, 37.600000, 14.50000…
-## $ numeric.p50       &lt;dbl&gt; NA, NA, NA, 42.800000, 17.00000…
-## $ numeric.p75       &lt;dbl&gt; NA, NA, NA, 46.200000, 17.80000…
-## $ numeric.p100      &lt;dbl&gt; NA, NA, NA, 58.000000, 20.70000…
-## $ numeric.hist      &lt;chr&gt; NA, NA, NA, "▅▅▇▂▁", "▇▃▇▇▁", "…
+## $ factor.top_counts &lt;chr&gt; "Ade: 73, Gen: 58, Chi: 34", "Bis: 80, Dre: 61, Tor:…
+## $ numeric.mean      &lt;dbl&gt; NA, NA, NA, 42.096970, 16.425455, 197.363636, 3862.2…
+## $ numeric.sd        &lt;dbl&gt; NA, NA, NA, 4.9034759, 1.7956809, 12.5007760, 666.17…
+## $ numeric.p0        &lt;dbl&gt; NA, NA, NA, 32.100000, 13.100000, 172.000000, 2700.0…
+## $ numeric.p25       &lt;dbl&gt; NA, NA, NA, 37.600000, 14.500000, 187.000000, 3350.0…
+## $ numeric.p50       &lt;dbl&gt; NA, NA, NA, 42.800000, 17.000000, 193.000000, 3650.0…
+## $ numeric.p75       &lt;dbl&gt; NA, NA, NA, 46.200000, 17.800000, 210.000000, 4550.0…
+## $ numeric.p100      &lt;dbl&gt; NA, NA, NA, 58.000000, 20.700000, 222.000000, 5200.0…
+## $ numeric.hist      &lt;chr&gt; NA, NA, NA, "▅▅▇▂▁", "▇▃▇▇▁", "▂▇▃▃▃", "▃▇▂▃▃", "▇▁▇…
 ```
 
 ---
@@ -723,13 +806,12 @@ skim_out %&gt;% filter(n_missing &gt; 0)
 
 ```
 ## # A tibble: 0 × 15
-## # … with 15 variables: skim_type &lt;chr&gt;,
-## #   skim_variable &lt;chr&gt;, n_missing &lt;int&gt;,
-## #   complete_rate &lt;dbl&gt;, factor.ordered &lt;lgl&gt;,
-## #   factor.n_unique &lt;int&gt;, factor.top_counts &lt;chr&gt;,
-## #   numeric.mean &lt;dbl&gt;, numeric.sd &lt;dbl&gt;,
-## #   numeric.p0 &lt;dbl&gt;, numeric.p25 &lt;dbl&gt;,
-## #   numeric.p50 &lt;dbl&gt;, numeric.p75 &lt;dbl&gt;, …
+## # … with 15 variables: skim_type &lt;chr&gt;, skim_variable &lt;chr&gt;, n_missing &lt;int&gt;,
+## #   complete_rate &lt;dbl&gt;, factor.ordered &lt;lgl&gt;, factor.n_unique &lt;int&gt;,
+## #   factor.top_counts &lt;chr&gt;, numeric.mean &lt;dbl&gt;, numeric.sd &lt;dbl&gt;,
+## #   numeric.p0 &lt;dbl&gt;, numeric.p25 &lt;dbl&gt;, numeric.p50 &lt;dbl&gt;, numeric.p75 &lt;dbl&gt;,
+## #   numeric.p100 &lt;dbl&gt;, numeric.hist &lt;chr&gt;
+## # ℹ Use `colnames()` to see all variable names
 ```
 
 ```r
@@ -807,8 +889,7 @@ p_boxplot
 ```
 
 ```
-## Warning: Removed 2 rows containing non-finite values
-## (stat_boxplot).
+## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
 ```
 
 ![](05-saving-objects-vs-summaries_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
@@ -824,8 +905,7 @@ ggsave(p_boxplot, file = "p_boxplot.png", height = 6, width = 5)
 ```
 
 ```
-## Warning: Removed 2 rows containing non-finite values
-## (stat_boxplot).
+## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
 ```
 
 ```r
@@ -834,8 +914,7 @@ p_boxplot + theme_minimal() + labs(title = "Add layers to my boxplot!", x = "")
 ```
 
 ```
-## Warning: Removed 2 rows containing non-finite values
-## (stat_boxplot).
+## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
 ```
 
 ![](05-saving-objects-vs-summaries_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
@@ -851,8 +930,7 @@ ggsave(p_boxplot, file = "p_boxplot_minimal.png", height = 6, width = 5)
 ```
 
 ```
-## Warning: Removed 2 rows containing non-finite values
-## (stat_boxplot).
+## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
 ```
 
 ```r
@@ -860,8 +938,7 @@ p_boxplot
 ```
 
 ```
-## Warning: Removed 2 rows containing non-finite values
-## (stat_boxplot).
+## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
 ```
 
 ![](05-saving-objects-vs-summaries_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
@@ -937,6 +1014,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

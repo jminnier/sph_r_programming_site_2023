@@ -1,8 +1,8 @@
 ---
 title: "Part 4. dplyr: mutate, group_by, summarize, across"
 linktitle: "Part 4. dplyr: mutate, group_by, summarize, across"
-date: "2021-01-26"
-class_date: "2021-01-26"
+date: "2023-02-01"
+class_date: "2023-02-01"
 output:
   blogdown::html_page:
     toc: true
@@ -22,12 +22,31 @@ editor_options:
 
 Please download the `part4` folder from [this dropbox folder link](https://bit.ly/bsta504_dropbox_2023). Be sure to unzip if necessary. "Knit" the part4.Rmd file to install packages and make sure everything is working with data loading.
 
-## Class Video
+(We did not finish part4, and will finish it in class 5.)
+
+
+## This year's class video
+
+See Slack for the zoom recording link
+
+## Last Year's Class Video
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GGBlm21dyBE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 View last year's class and materials [here](https://sph-r-programming-2022.netlify.app/class/04-class/).
+
+## Slides
+
+During "Muddiest  Parts" review, we will go over [these slides](https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries)
+
+```{r echo=FALSE}
+knitr::include_url('https://sph-r-programming-2023.netlify.app/slides/05-saving-objects-vs-summaries#1')
+```
+
+## Another useful video
+
+[Dr. Kelly Bodwin's forcats/factor](https://www.youtube.com/watch?v=bBfZFasd61c)
 
 
 # Post-Class
@@ -40,3 +59,169 @@ Please fill out the following survey and we will discuss the results during the 
 
 
 <https://bit.ly/bsta504_postclass_survey>
+
+
+
+# Muddiest points
+
+I've noticed some confusion about what I call "saving your work", so we'll go over the slides above.
+
+> using factors, what you're doing and the benefit of turning things into factors in mutate
+
+I usually turn something into a factor for plotting (especially if I have a categorial numeric variable), and we'll see more examples of that. We also later will see how it matters in statistical modeling/regression. It also is often easier to manage levels/categories this way, as we will see when we talk about the `forcats` package again in class 6.
+
+> case_when is not easy
+
+Correct! Also some other comments on wanting more practice with `case_when()`. We will continue to see examples with this as we finish part5 and in other classes. It's a very handy function so I use it a lot! See also the [video above about factors with another explanation](https://www.youtube.com/watch?v=bBfZFasd61c).
+
+> The function for converting a vector back from factor to character - I thought I had it, but I didn't.
+
+Oh, I didn't show this! 
+
+```{r}
+# make a character vector
+myvec <- c("cat", "dog", "mouse", "dog")
+myvec_fac <- factor(myvec)
+myvec_fac
+class(myvec_fac)
+# get the levels out
+levels(myvec_fac)
+
+# Note we can "test" the classes of something like so:
+is.factor(myvec_fac)
+is.character(myvec_fac)
+
+# Now we can change it back
+myvec2 <- as.character(myvec_fac)
+myvec2
+class(myvec2)
+levels(myvec2) # no levels, because it's not a factor
+
+# we could also change to numeric, how do you think it picks which number is which?
+myvec3 <- as.numeric(myvec_fac)
+myvec3
+
+# levels in order is assigned 1, 2, 3
+table(myvec_fac, myvec3)
+
+# change the level order
+myvec_fac2 <- factor(myvec, levels = c("dog", "cat", "mouse"))
+levels(myvec_fac2)
+myvec4 <- as.numeric(myvec_fac2)
+myvec4
+table(myvec_fac2, myvec4)
+```
+
+> factor vs as.factor
+
+Essentially the same. From the help documentation `?factor`: "as.factor coerces its argument to a factor. It is an abbreviated (sometimes faster) form of factor."
+
+
+> I would like to know when you recommend that we save a new data set once we create new covariates. Also, it is unclear to me how you add the variable to the existing data.
+
+If I want to use that column/covariate again, I save it (so almost always, as I don't often make a column without using it later). I usually save it back into the original data set I'm working with, that is, overwrite that object to be updated with the new column. As long as I keep track of my changes this is definitely ok. It can get confusing having too many versions of a data set floating around. If something is broken, the worst that happens is that you'll just need to start from the beginning and reload your data and re-run the code below.
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+
+# does not save the new column, just prints result
+penguins %>% 
+  mutate(newvec = bill_length_mm/bill_depth_mm)
+
+# saves new column in a data frame that is called penguins2
+penguins2 <- penguins %>% 
+  mutate(newvec = bill_length_mm/bill_depth_mm)
+glimpse(penguins2)
+glimpse(penguins) # has not been changed
+
+# saves new column in a data frame in the original data frame penguins
+# *overwrites penguins*
+penguins <- penguins %>% 
+  mutate(newvec = bill_length_mm/bill_depth_mm)
+glimpse(penguins)
+```
+
+> arrange vs filter
+
+`arrange` orders or sorts your data and does not remove or add anything, while `filter` removes rows. 
+
+# Clearest points
+
+> working directory, here
+> reordering factors
+> mutate
+> tibble vs data frame
+> factors
+> filtering
+
+Glad to hear we're making progress!
+
+# Other points
+
+> Is there a list somewhere of all potential colors?
+
+A couple answers:
+
+- See [this page for a list of "named" colors in R.](https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/), or the [ggplot2 cookbook for a smaller list](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)
+- We will talk more about palettes when we finish part4 but there are many, many. I suggest finding a package or two that has the palettes you like and working with those. See a bunch listed [here (scroll down in the readme).](https://github.com/EmilHvitfeldt/r-color-palettes)
+
+> I'm curious what the best practice is for stringing things together versus breaking them into pieces. For example, if I was trying to make a binary variable where all values were classified as larger or greater than the mean, I could use mean() inside several other functions like mutate(). Alternately I could calculate mean() [meanxx <- mean(xxx)] and save it as an object, and then use the other functions on that value. I'm curious because it seems like if you did too many functions at once and were getting errors, it would be hard to tell what was wrong. But if you did it in a more stepwise fashion, you could see (for example) that mean() wasn't working because there were NAs in your dataset. More importantly, I think if you were getting an erroneous answer (not an error, but a wrong answer, like if you calculated the mean of a variable but your NA's were marked with "-88" and so R considered these actual observations) you might not know if you joined too many functions together and didn't "see" what was happening under the hood. I'm curious how to deal with that.
+
+I copied over this whole question because I think it is an excellent one, and well said (hope you don't mind)! I think this is something that evolves as you become more experienced in coding and debugging, and as you find your own style of coding. I will talk some about debugging later, but what you are saying about breaking things up into pieces absolutely helps with that.
+
+The one thing to make sure of is that if you are saving intermediate steps, such as `meanxx <- mean(mydata$xx)` and using it later, but then you update the data set (filter, replace NAs, fix an incorrect data entry, whatever), you need to make sure to update/re-calculate that mean object as it no longer matches your newer data set! So there is more to keep track of, in that case.
+
+I will say that if you are keeping track of all the steps well, then functionally it does not matter too much, so if it makes things easier to break it up, do that! If you like to chain everything together (often I do) you can run each piece by highlighting the code and running just that part to see what is going on, and this is something I do often.
+
+Your example is something I would probably do, though, as using the mean inside mutate does make me a bit nervous. For example, let's use median because it's easier to check my work at the end:
+
+```{r}
+library(janitor) # for tabyl()
+
+# there are NAs in here:
+median(penguins$body_mass_g)
+
+# let's save the median as a vector of length 1, remove NAs
+tmpmedian <- median(penguins$body_mass_g, na.rm = TRUE)
+tmpmedian
+
+penguins <- penguins %>%
+  mutate(
+    large_mass = case_when(
+      body_mass_g >= tmpmedian ~ "yes",
+      body_mass_g < tmpmedian ~ "no" # this allows NAs to remain NA
+    ))
+
+penguins %>% tabyl(large_mass)
+
+# if I had just used median without checking for NAs, they all are NA:
+penguins %>%
+  mutate(large_mass = 1*(body_mass_g >= median(body_mass_g))) %>%
+  tabyl(large_mass)
+
+
+# Note if I just want females, this no longer makes sense:
+penguins %>%
+  filter(sex=="female") %>%
+  mutate(
+    large_mass = case_when(
+      body_mass_g >= tmpmedian ~ "yes",
+      body_mass_g < tmpmedian ~ "no" # this allows NAs to remain NA
+    )) %>%
+  tabyl(large_mass)
+
+# but this would:
+penguins %>%
+  filter(sex=="female") %>%
+  mutate(
+    large_mass = case_when(
+      body_mass_g >= median(body_mass_g, na.rm = TRUE) ~ "yes",
+      body_mass_g < median(body_mass_g, na.rm = TRUE) ~ "no" 
+    )) %>%
+  tabyl(large_mass)
+```
+
+
+
+

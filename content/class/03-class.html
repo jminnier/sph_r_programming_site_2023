@@ -189,7 +189,7 @@ penguins %&gt;% select(colnames_needed)</code></pre>
 ## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <p>But the key about <code>any_of</code> and <code>all_of</code> is what it allows. <code>any_of()</code> allows column names that don’t exist! Using no tidyselect helper or <code>all_of()</code> does not allow this. Which you use depends on what you want to allow to happen.</p>
 <pre class="r"><code>colnames_needed &lt;- c(&quot;bill_length_mm&quot;,&quot;island&quot;,&quot;species&quot;,&quot;year&quot;,&quot;MISSING&quot;)
-# penguins %&gt;% select((olnames_needed)) # does not work
+# penguins %&gt;% select((colnames_needed)) # does not work
 penguins %&gt;% select(any_of(colnames_needed)) # works!</code></pre>
 <pre><code>## # A tibble: 344 × 4
 ##    bill_length_mm island    species  year

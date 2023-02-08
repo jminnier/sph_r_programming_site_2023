@@ -222,6 +222,8 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;a href=&#34;#last-years-class-video&#34; id=&#34;toc-last-years-class-video&#34;&gt;Last Year’s Class Video&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#muddiest-points&#34; id=&#34;toc-muddiest-points&#34;&gt;Muddiest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clearest-points&#34; id=&#34;toc-clearest-points&#34;&gt;Clearest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other-messages&#34; id=&#34;toc-other-messages&#34;&gt;Other messages&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -310,7 +312,7 @@ cor(vec1, vec2)&lt;/code&gt;&lt;/pre&gt;
 ## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
 ## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
 ## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars_tib &amp;lt;- tibble(mtcars)
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars_tib &amp;lt;- as_tibble(mtcars)
 class(mtcars_tib)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;tbl_df&amp;quot;     &amp;quot;tbl&amp;quot;        &amp;quot;data.frame&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars_tib&lt;/code&gt;&lt;/pre&gt;
@@ -329,6 +331,24 @@ class(mtcars_tib)&lt;/code&gt;&lt;/pre&gt;
 ## 10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
 ## # … with 22 more rows
 ## # ℹ Use `print(n = ...)` to see more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Another interesting difference is that tibbles don’t have row names, but a lot of built in data.frames in R do. But rownames are hard to get out. So, when you make a tibble of a data.frame you can tell the function to use the rownames as a column:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars_tib &amp;lt;- as_tibble(mtcars, rownames = &amp;quot;car_name&amp;quot;)
+mtcars_tib&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 32 × 12
+##    car_name      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+##  1 Mazda RX4    21       6  160    110  3.9   2.62  16.5     0     1     4     4
+##  2 Mazda RX4 …  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+##  3 Datsun 710   22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+##  4 Hornet 4 D…  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+##  5 Hornet Spo…  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+##  6 Valiant      18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+##  7 Duster 360   14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  8 Merc 240D    24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+##  9 Merc 230     22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+## 10 Merc 280     19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+## # … with 22 more rows
+## # ℹ Use `print(n = ...)` to see more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Tibbles also clearly delineate [ and [[: [ always returns another tibble, [[ always returns a vector. No more drop = FALSE!&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -340,18 +360,18 @@ class(mtcars_tib)&lt;/code&gt;&lt;/pre&gt;
 ## [31] 15.0 21.4&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars_tib[,1]&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 32 × 1
-##      mpg
-##    &amp;lt;dbl&amp;gt;
-##  1  21  
-##  2  21  
-##  3  22.8
-##  4  21.4
-##  5  18.7
-##  6  18.1
-##  7  14.3
-##  8  24.4
-##  9  22.8
-## 10  19.2
+##    car_name         
+##    &amp;lt;chr&amp;gt;            
+##  1 Mazda RX4        
+##  2 Mazda RX4 Wag    
+##  3 Datsun 710       
+##  4 Hornet 4 Drive   
+##  5 Hornet Sportabout
+##  6 Valiant          
+##  7 Duster 360       
+##  8 Merc 240D        
+##  9 Merc 230         
+## 10 Merc 280         
 ## # … with 22 more rows
 ## # ℹ Use `print(n = ...)` to see more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars[[1]]&lt;/code&gt;&lt;/pre&gt;
@@ -359,15 +379,23 @@ class(mtcars_tib)&lt;/code&gt;&lt;/pre&gt;
 ## [16] 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4 15.8 19.7
 ## [31] 15.0 21.4&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars_tib[[1]]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4
-## [16] 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4 15.8 19.7
-## [31] 15.0 21.4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;Mazda RX4&amp;quot;           &amp;quot;Mazda RX4 Wag&amp;quot;       &amp;quot;Datsun 710&amp;quot;         
+##  [4] &amp;quot;Hornet 4 Drive&amp;quot;      &amp;quot;Hornet Sportabout&amp;quot;   &amp;quot;Valiant&amp;quot;            
+##  [7] &amp;quot;Duster 360&amp;quot;          &amp;quot;Merc 240D&amp;quot;           &amp;quot;Merc 230&amp;quot;           
+## [10] &amp;quot;Merc 280&amp;quot;            &amp;quot;Merc 280C&amp;quot;           &amp;quot;Merc 450SE&amp;quot;         
+## [13] &amp;quot;Merc 450SL&amp;quot;          &amp;quot;Merc 450SLC&amp;quot;         &amp;quot;Cadillac Fleetwood&amp;quot; 
+## [16] &amp;quot;Lincoln Continental&amp;quot; &amp;quot;Chrysler Imperial&amp;quot;   &amp;quot;Fiat 128&amp;quot;           
+## [19] &amp;quot;Honda Civic&amp;quot;         &amp;quot;Toyota Corolla&amp;quot;      &amp;quot;Toyota Corona&amp;quot;      
+## [22] &amp;quot;Dodge Challenger&amp;quot;    &amp;quot;AMC Javelin&amp;quot;         &amp;quot;Camaro Z28&amp;quot;         
+## [25] &amp;quot;Pontiac Firebird&amp;quot;    &amp;quot;Fiat X1-9&amp;quot;           &amp;quot;Porsche 914-2&amp;quot;      
+## [28] &amp;quot;Lotus Europa&amp;quot;        &amp;quot;Ford Pantera L&amp;quot;      &amp;quot;Ferrari Dino&amp;quot;       
+## [31] &amp;quot;Maserati Bora&amp;quot;       &amp;quot;Volvo 142E&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(mtcars[,1])&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(mtcars_tib[,1])&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;tbl_df&amp;quot;     &amp;quot;tbl&amp;quot;        &amp;quot;data.frame&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(mtcars_tib[[1]])&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;As I was mentioning in class, there are some (older) functions that don’t like tibbles, but all you need to do is just make its primary class a data.frame as such:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;A handful of functions are don’t work with tibbles because they expect df[, 1] to return a vector, not a data frame. If you encounter one of these functions, use as.data.frame() to turn a tibble back to a data frame:&lt;/p&gt;
@@ -375,6 +403,10 @@ class(mtcars_tib)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars_df &amp;lt;- as.data.frame(mtcars_tib)
 class(mtcars_df)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;data.frame&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Back to muddy quotes:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;path files and knowing if you’re in a project or just an RMD&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;R markdown vs R projects&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -382,11 +414,11 @@ class(mtcars_df)&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
 &lt;p&gt;ggplot stuff was the most muddy, but I also haven’t done a lot of ggplot stuff before&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Yes this was definitely expected for a brief intro, ggplot takes a while to get the hang of!&lt;/p&gt;
+&lt;p&gt;Yes this was definitely expected for a brief intro, ggplot takes a while to get the hang of! We will use ggplot every class now, so we will go through it in bite sized pieces.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Using na=“NA” to pull in data and how to know that it’s needed.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;I will show more examples of this. Rule number one of importing data in any software is to &lt;em&gt;look&lt;/em&gt; at your data, and figure out if what you see in the software is what you expect. Always look at your data! The &lt;code&gt;na=NA&lt;/code&gt; is a strange case that isn’t actually very common I’d say, but I wanted to show you how it looks different.&lt;/p&gt;
+&lt;p&gt;I will show more examples of this. Rule number one of importing data in any software is to &lt;em&gt;look&lt;/em&gt; at your data, and figure out if what you see in the software is what you expect. Always look at your data! The &lt;code&gt;read_excel(filename, na=&#34;NA&#34;)&lt;/code&gt; is a strange case that isn’t actually very common to code data as “NA” directly, but I wanted to show you how it looks different when it does happen. Usually, missing data is just a blank space, which is automatically read in as the special &lt;code&gt;NA&lt;/code&gt; data type in R.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# If you did not include `na=NA` it would have been read in like this
 df1 &amp;lt;- tibble(a = c(&amp;quot;NA&amp;quot;,&amp;quot;C&amp;quot;,&amp;quot;D&amp;quot;), b= 1:3,  c = c(1,3,&amp;quot;NA&amp;quot;))
 # If you did include `na = NA` it would have been read in like this
@@ -412,37 +444,12 @@ df1&lt;/code&gt;&lt;/pre&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Good question, what this does is pulls a function from a package, so it works whether you have &lt;em&gt;loaded&lt;/em&gt; the package (using &lt;code&gt;library()&lt;/code&gt; or &lt;code&gt;p_load()&lt;/code&gt;) or not. I mainly use it as a clue to you to where the function is coming from. Otherwise, you may not know you need to load that package to use it! For instance:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# does not work, haven&amp;#39;t loaded the package janitor
-mtcars %&amp;gt;% tabyl(disp, cyl)&lt;/code&gt;&lt;/pre&gt;
+mtcars %&amp;gt;% tabyl(am, cyl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# does work
-mtcars %&amp;gt;% janitor::tabyl(disp, cyl)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   disp 4 6 8
-##   71.1 1 0 0
-##   75.7 1 0 0
-##   78.7 1 0 0
-##   79.0 1 0 0
-##   95.1 1 0 0
-##  108.0 1 0 0
-##  120.1 1 0 0
-##  120.3 1 0 0
-##  121.0 1 0 0
-##  140.8 1 0 0
-##  145.0 0 1 0
-##  146.7 1 0 0
-##  160.0 0 2 0
-##  167.6 0 2 0
-##  225.0 0 1 0
-##  258.0 0 1 0
-##  275.8 0 0 3
-##  301.0 0 0 1
-##  304.0 0 0 1
-##  318.0 0 0 1
-##  350.0 0 0 1
-##  351.0 0 0 1
-##  360.0 0 0 2
-##  400.0 0 0 1
-##  440.0 0 0 1
-##  460.0 0 0 1
-##  472.0 0 0 1&lt;/code&gt;&lt;/pre&gt;
+mtcars %&amp;gt;% janitor::tabyl(am, cyl)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  am 4 6  8
+##   0 3 4 12
+##   1 8 3  2&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# also works
 library(janitor)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
@@ -450,35 +457,46 @@ library(janitor)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
 ## 
 ##     chisq.test, fisher.test&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars %&amp;gt;% tabyl(disp, cyl)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   disp 4 6 8
-##   71.1 1 0 0
-##   75.7 1 0 0
-##   78.7 1 0 0
-##   79.0 1 0 0
-##   95.1 1 0 0
-##  108.0 1 0 0
-##  120.1 1 0 0
-##  120.3 1 0 0
-##  121.0 1 0 0
-##  140.8 1 0 0
-##  145.0 0 1 0
-##  146.7 1 0 0
-##  160.0 0 2 0
-##  167.6 0 2 0
-##  225.0 0 1 0
-##  258.0 0 1 0
-##  275.8 0 0 3
-##  301.0 0 0 1
-##  304.0 0 0 1
-##  318.0 0 0 1
-##  350.0 0 0 1
-##  351.0 0 0 1
-##  360.0 0 0 2
-##  400.0 0 0 1
-##  440.0 0 0 1
-##  460.0 0 0 1
-##  472.0 0 0 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars %&amp;gt;% tabyl(am, cyl)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  am 4 6  8
+##   0 3 4 12
+##   1 8 3  2&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clearest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Clearest Points&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;skim&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;loading our excel to R studio&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Loading in the data and selecting the sheets that are most relevant to what we are looking to do was very clear and a nice foundation for future projects. I found that showing different ways of importing the data was helpful.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I’m glad, the import tool in Rstudio is very nice, just remember to save the code in your Rmd.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;functionality of ggplot&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;tidying the data&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Found out what eval=TRUE and eval=FALSE mean!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Great and I’ll show that again for anyone who was confused! (“still a little bit confused about the &lt;code&gt;{r, EVAL}&lt;/code&gt; code”)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-messages&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Other messages&lt;/h1&gt;
+&lt;p&gt;Some people had trouble getting the &lt;code&gt;fig.path=&lt;/code&gt; to work in the knitr options. I’m not sure what could be causing that but feel free to ask me during break.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://yihui.org/knitr/options/&#34;&gt;Here’s a good reference&lt;/a&gt; for all the code chunk options, if you want to read about it.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;link to the course website that is in the overview tab in SAKAI links to last years materials.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Oops thank you great catch, fixed!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Speed is going great. I’m just worried as we progress through the course, it’ll be more difficult. Overall, really enjoying this class.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I understand the concern, some things will get more difficult (I’m thinking &lt;code&gt;across()&lt;/code&gt; in class 4, writing functions, and &lt;code&gt;purrr&lt;/code&gt;), but we will also circle back to some things that might be familiar or maybe less complicated to start (stats models, making tables). Definitely keep asking questions and I will slow down as needed!&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -496,6 +514,9 @@ library(janitor)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;a href=&#34;#readings&#34; id=&#34;toc-readings&#34;&gt;Readings&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#class-video&#34; id=&#34;toc-class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34; id=&#34;toc-muddiest-points&#34;&gt;Muddiest points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clearest-points&#34; id=&#34;toc-clearest-points&#34;&gt;Clearest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other-messages&#34; id=&#34;toc-other-messages&#34;&gt;Other messages&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -526,33 +547,254 @@ library(janitor)&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;div id=&#34;muddiest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Muddiest points&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;themes in ggplot&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://ggplot2-book.org/polishing.html&#34;&gt;Check out this reference about ggplot themes first.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here’s a couple examples using this one plot, so you can see how the theme changes the look of the figure, when you use built in themes from the &lt;code&gt;ggplot2&lt;/code&gt; package (yes it only works in ggplot figures, for the person who asked about that)&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+## ✔ readr   2.1.2     ✔ forcats 0.5.1
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(mtcars, aes(x = mpg, y = carb, color = factor(cyl))) +
+  geom_point() +
+  labs(title = &amp;quot;My scatterplot&amp;quot;)
+p&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/03-class_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Here are some built in themes:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme_bw()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/03-class_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme_minimal()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/03-class_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme_classic()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/03-class_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;However you can make more customized themes or plot changes where you use the &lt;code&gt;theme()&lt;/code&gt; function to add in a lot of other elements. You can use this add on function to choose specific parts of the plot that you want to change, like this example from the above reference. Anything specified here will override the built in theme selected first. There are many options, and looking at specific examples will help. I am always, always googling how to change parts of the theme/plot like this, because there are just so many options it’s too hard to remember them all.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme_classic() +
+  theme(
+    plot.title = element_text(face = &amp;quot;bold&amp;quot;, size = 12),
+    legend.background = element_rect(fill = &amp;quot;white&amp;quot;, size = 4, colour = &amp;quot;white&amp;quot;),
+    legend.justification = c(0, 1),
+    legend.position = c(0, 1),
+    axis.ticks = element_line(colour = &amp;quot;grey70&amp;quot;, size = 0.2),
+    panel.grid.major = element_line(colour = &amp;quot;grey70&amp;quot;, size = 0.2),
+    panel.grid.minor = element_blank()
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/03-class_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Here’s a simpler example just changing the title (from the above reference):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(plot.title = element_text(size = 16))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/03-class_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(plot.title = element_text(face = &amp;quot;bold&amp;quot;, colour = &amp;quot;red&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/03-class_files/figure-html/unnamed-chunk-6-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p + theme(plot.title = element_text(hjust = 1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/03-class_files/figure-html/unnamed-chunk-6-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;here()&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Agreed, it’s very confusing, more in class 4!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Could you please clarify about the use of select(one_of) and the count command that was mentioned in dplyr cheatsheet?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;These are very different, if you are talking about &lt;code&gt;select()&lt;/code&gt; vs &lt;code&gt;count()&lt;/code&gt;. One thing to note is that since I recorded that class, &lt;code&gt;one_of()&lt;/code&gt; has been superseded/replaced by &lt;code&gt;any_of()&lt;/code&gt; and &lt;code&gt;all_of()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;First, &lt;code&gt;select()&lt;/code&gt; is a function to subset columns.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(palmerpenguins)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here we specify the columns we want in the order we want:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% select(bill_length_mm, island, species, year)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 344 × 4
+##    bill_length_mm island    species  year
+##             &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;     &amp;lt;fct&amp;gt;   &amp;lt;int&amp;gt;
+##  1           39.1 Torgersen Adelie   2007
+##  2           39.5 Torgersen Adelie   2007
+##  3           40.3 Torgersen Adelie   2007
+##  4           NA   Torgersen Adelie   2007
+##  5           36.7 Torgersen Adelie   2007
+##  6           39.3 Torgersen Adelie   2007
+##  7           38.9 Torgersen Adelie   2007
+##  8           39.2 Torgersen Adelie   2007
+##  9           34.1 Torgersen Adelie   2007
+## 10           42   Torgersen Adelie   2007
+## # … with 334 more rows
+## # ℹ Use `print(n = ...)` to see more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, we pass a vector of character names, both of which work:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% select(c(&amp;quot;bill_length_mm&amp;quot;,&amp;quot;island&amp;quot;,&amp;quot;species&amp;quot;,&amp;quot;year&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 344 × 4
+##    bill_length_mm island    species  year
+##             &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;     &amp;lt;fct&amp;gt;   &amp;lt;int&amp;gt;
+##  1           39.1 Torgersen Adelie   2007
+##  2           39.5 Torgersen Adelie   2007
+##  3           40.3 Torgersen Adelie   2007
+##  4           NA   Torgersen Adelie   2007
+##  5           36.7 Torgersen Adelie   2007
+##  6           39.3 Torgersen Adelie   2007
+##  7           38.9 Torgersen Adelie   2007
+##  8           39.2 Torgersen Adelie   2007
+##  9           34.1 Torgersen Adelie   2007
+## 10           42   Torgersen Adelie   2007
+## # … with 334 more rows
+## # ℹ Use `print(n = ...)` to see more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% select(any_of(c(&amp;quot;bill_length_mm&amp;quot;,&amp;quot;island&amp;quot;,&amp;quot;species&amp;quot;,&amp;quot;year&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 344 × 4
+##    bill_length_mm island    species  year
+##             &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;     &amp;lt;fct&amp;gt;   &amp;lt;int&amp;gt;
+##  1           39.1 Torgersen Adelie   2007
+##  2           39.5 Torgersen Adelie   2007
+##  3           40.3 Torgersen Adelie   2007
+##  4           NA   Torgersen Adelie   2007
+##  5           36.7 Torgersen Adelie   2007
+##  6           39.3 Torgersen Adelie   2007
+##  7           38.9 Torgersen Adelie   2007
+##  8           39.2 Torgersen Adelie   2007
+##  9           34.1 Torgersen Adelie   2007
+## 10           42   Torgersen Adelie   2007
+## # … with 334 more rows
+## # ℹ Use `print(n = ...)` to see more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This might be useful if we have that character vector already saved from some other data work we are doing:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;colnames_needed &amp;lt;- c(&amp;quot;bill_length_mm&amp;quot;,&amp;quot;island&amp;quot;,&amp;quot;species&amp;quot;,&amp;quot;year&amp;quot;)
+penguins %&amp;gt;% select(colnames_needed)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Note: Using an external vector in selections is ambiguous.
+## ℹ Use `all_of(colnames_needed)` instead of `colnames_needed` to silence this message.
+## ℹ See &amp;lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&amp;gt;.
+## This message is displayed once per session.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 344 × 4
+##    bill_length_mm island    species  year
+##             &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;     &amp;lt;fct&amp;gt;   &amp;lt;int&amp;gt;
+##  1           39.1 Torgersen Adelie   2007
+##  2           39.5 Torgersen Adelie   2007
+##  3           40.3 Torgersen Adelie   2007
+##  4           NA   Torgersen Adelie   2007
+##  5           36.7 Torgersen Adelie   2007
+##  6           39.3 Torgersen Adelie   2007
+##  7           38.9 Torgersen Adelie   2007
+##  8           39.2 Torgersen Adelie   2007
+##  9           34.1 Torgersen Adelie   2007
+## 10           42   Torgersen Adelie   2007
+## # … with 334 more rows
+## # ℹ Use `print(n = ...)` to see more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But the key about &lt;code&gt;any_of&lt;/code&gt; and &lt;code&gt;all_of&lt;/code&gt; is what it allows. &lt;code&gt;any_of()&lt;/code&gt; allows column names that don’t exist! Using no tidyselect helper or &lt;code&gt;all_of()&lt;/code&gt; does not allow this. Which you use depends on what you want to allow to happen.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;colnames_needed &amp;lt;- c(&amp;quot;bill_length_mm&amp;quot;,&amp;quot;island&amp;quot;,&amp;quot;species&amp;quot;,&amp;quot;year&amp;quot;,&amp;quot;MISSING&amp;quot;)
+# penguins %&amp;gt;% select((colnames_needed)) # does not work
+penguins %&amp;gt;% select(any_of(colnames_needed)) # works!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 344 × 4
+##    bill_length_mm island    species  year
+##             &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;     &amp;lt;fct&amp;gt;   &amp;lt;int&amp;gt;
+##  1           39.1 Torgersen Adelie   2007
+##  2           39.5 Torgersen Adelie   2007
+##  3           40.3 Torgersen Adelie   2007
+##  4           NA   Torgersen Adelie   2007
+##  5           36.7 Torgersen Adelie   2007
+##  6           39.3 Torgersen Adelie   2007
+##  7           38.9 Torgersen Adelie   2007
+##  8           39.2 Torgersen Adelie   2007
+##  9           34.1 Torgersen Adelie   2007
+## 10           42   Torgersen Adelie   2007
+## # … with 334 more rows
+## # ℹ Use `print(n = ...)` to see more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# penguins %&amp;gt;% select(all_of(colnames_needed)) # does not work&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;any_of()&lt;/code&gt; is an example of a tidyselect helper, which we will see a lot more of when we start using &lt;code&gt;across()&lt;/code&gt; with &lt;code&gt;mutate()&lt;/code&gt; and &lt;code&gt;summarize()&lt;/code&gt; in class 4. &lt;a href=&#34;https://tidyselect.r-lib.org/reference/language.html&#34;&gt;See this long list of useful tidyselect functions for more.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;On the other hand, &lt;code&gt;count()&lt;/code&gt; is mainly to count the number of unique values in a column/vector:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% count(species)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 2
+##   species       n
+##   &amp;lt;fct&amp;gt;     &amp;lt;int&amp;gt;
+## 1 Adelie      152
+## 2 Chinstrap    68
+## 3 Gentoo      124&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This created a new tibble, that &lt;em&gt;summarizes&lt;/em&gt; the species column by counting the number of each type of species. This works for any type of vector but is most useful with character and factor columns. You can also use multiple columns here to see all possible combinations:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% count(species, year)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 9 × 3
+##   species    year     n
+##   &amp;lt;fct&amp;gt;     &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;
+## 1 Adelie     2007    50
+## 2 Adelie     2008    50
+## 3 Adelie     2009    52
+## 4 Chinstrap  2007    26
+## 5 Chinstrap  2008    18
+## 6 Chinstrap  2009    24
+## 7 Gentoo     2007    34
+## 8 Gentoo     2008    46
+## 9 Gentoo     2009    44&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clearest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Clearest Points&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;filter, select, arrange, pipes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Super! I want to take the time to mention (and hopefully not confuse everyone) that the pipe has recently (2021) been integrated into “base R”, that is, it’s loaded without loading the tidyverse package. HOWEVER it is this symbol &lt;code&gt;|&amp;gt;&lt;/code&gt; and does not behave &lt;em&gt;exactly&lt;/em&gt; like the tidyverse pipe &lt;code&gt;%&amp;gt;%&lt;/code&gt; (actually from the &lt;code&gt;magrittr&lt;/code&gt; package within the &lt;code&gt;tidyverse&lt;/code&gt; package). For all the usual uses it works the same, so it could be used interchangeably in this class. Just know that if you see that type of pipe being used, assume it’s doing basically the same thing. &lt;a href=&#34;https://r4ds.hadley.nz/workflow-pipes.html&#34;&gt;Even R for Data Science is likely moving to use the native/base pipe, see this explanation&lt;/a&gt;. Probably next year’s class I will switch everything over to use this, though I still just use &lt;code&gt;%&amp;gt;%&lt;/code&gt; in my own work as it’s slightly more flexible for more “advanced” usage.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins |&amp;gt; count(species, year)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 9 × 3
+##   species    year     n
+##   &amp;lt;fct&amp;gt;     &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;
+## 1 Adelie     2007    50
+## 2 Adelie     2008    50
+## 3 Adelie     2009    52
+## 4 Chinstrap  2007    26
+## 5 Chinstrap  2008    18
+## 6 Chinstrap  2009    24
+## 7 Gentoo     2007    34
+## 8 Gentoo     2008    46
+## 9 Gentoo     2009    44&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-messages&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Other messages&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Density ridges are cool!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I agree!&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     
     <item>
       <title>Part 4. dplyr: mutate, group_by, summarize, across</title>
       <link>https://sph-r-programming-2023.netlify.app/class/04-class/</link>
-      <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
       <guid>https://sph-r-programming-2023.netlify.app/class/04-class/</guid>
       <description>
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#class-video&#34; id=&#34;toc-class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#this-years-class-video&#34; id=&#34;toc-this-years-class-video&#34;&gt;This year’s class video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#last-years-class-video&#34; id=&#34;toc-last-years-class-video&#34;&gt;Last Year’s Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34; id=&#34;toc-slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#another-useful-video&#34; id=&#34;toc-another-useful-video&#34;&gt;Another useful video&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34; id=&#34;toc-muddiest-points&#34;&gt;Muddiest points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clearest-points&#34; id=&#34;toc-clearest-points&#34;&gt;Clearest points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other-points&#34; id=&#34;toc-other-points&#34;&gt;Other points&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
 &lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Project files&lt;/h2&gt;
 &lt;p&gt;Please download the &lt;code&gt;part4&lt;/code&gt; folder from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this dropbox folder link&lt;/a&gt;. Be sure to unzip if necessary. “Knit” the part4.Rmd file to install packages and make sure everything is working with data loading.&lt;/p&gt;
+&lt;p&gt;(We did not finish part4, and will finish it in class 5.)&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;div id=&#34;this-years-class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;This year’s class video&lt;/h2&gt;
+&lt;p&gt;See Slack for the zoom recording link&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;last-years-class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Last Year’s Class Video&lt;/h2&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/GGBlm21dyBE&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/class/04-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;During “Muddiest Parts” review, we will go over &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries&#34;&gt;these slides&lt;/a&gt;&lt;/p&gt;
+&lt;iframe src=&#34;https://sph-r-programming-2023.netlify.app/slides/05-saving-objects-vs-summaries#1&#34; width=&#34;672&#34; height=&#34;400px&#34; data-external=&#34;1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div id=&#34;another-useful-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Another useful video&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=bBfZFasd61c&#34;&gt;Dr. Kelly Bodwin’s forcats/factor&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;post-class&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Post-Class&lt;/h1&gt;
@@ -563,6 +805,239 @@ library(janitor)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Muddiest points&lt;/h1&gt;
+&lt;p&gt;I’ve noticed some confusion about what I call “saving your work”, so we’ll go over the slides above.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;using factors, what you’re doing and the benefit of turning things into factors in mutate&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I usually turn something into a factor for plotting (especially if I have a categorial numeric variable), and we’ll see more examples of that. We also later will see how it matters in statistical modeling/regression. It also is often easier to manage levels/categories this way, as we will see when we talk about the &lt;code&gt;forcats&lt;/code&gt; package again in class 6.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;case_when is not easy&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Correct! Also some other comments on wanting more practice with &lt;code&gt;case_when()&lt;/code&gt;. We will continue to see examples with this as we finish part5 and in other classes. It’s a very handy function so I use it a lot! See also the &lt;a href=&#34;https://www.youtube.com/watch?v=bBfZFasd61c&#34;&gt;video above about factors with another explanation&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The function for converting a vector back from factor to character - I thought I had it, but I didn’t.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Oh, I didn’t show this!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# make a character vector
+myvec &amp;lt;- c(&amp;quot;cat&amp;quot;, &amp;quot;dog&amp;quot;, &amp;quot;mouse&amp;quot;, &amp;quot;dog&amp;quot;)
+myvec_fac &amp;lt;- factor(myvec)
+myvec_fac&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] cat   dog   mouse dog  
+## Levels: cat dog mouse&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(myvec_fac)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;factor&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# get the levels out
+levels(myvec_fac)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;cat&amp;quot;   &amp;quot;dog&amp;quot;   &amp;quot;mouse&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Note we can &amp;quot;test&amp;quot; the classes of something like so:
+is.factor(myvec_fac)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;is.character(myvec_fac)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Now we can change it back
+myvec2 &amp;lt;- as.character(myvec_fac)
+myvec2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;cat&amp;quot;   &amp;quot;dog&amp;quot;   &amp;quot;mouse&amp;quot; &amp;quot;dog&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(myvec2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;levels(myvec2) # no levels, because it&amp;#39;s not a factor&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## NULL&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# we could also change to numeric, how do you think it picks which number is which?
+myvec3 &amp;lt;- as.numeric(myvec_fac)
+myvec3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1 2 3 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# levels in order is assigned 1, 2, 3
+table(myvec_fac, myvec3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          myvec3
+## myvec_fac 1 2 3
+##     cat   1 0 0
+##     dog   0 2 0
+##     mouse 0 0 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# change the level order
+myvec_fac2 &amp;lt;- factor(myvec, levels = c(&amp;quot;dog&amp;quot;, &amp;quot;cat&amp;quot;, &amp;quot;mouse&amp;quot;))
+levels(myvec_fac2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;dog&amp;quot;   &amp;quot;cat&amp;quot;   &amp;quot;mouse&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;myvec4 &amp;lt;- as.numeric(myvec_fac2)
+myvec4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2 1 3 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table(myvec_fac2, myvec4)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           myvec4
+## myvec_fac2 1 2 3
+##      dog   2 0 0
+##      cat   0 1 0
+##      mouse 0 0 1&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;factor vs as.factor&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Essentially the same. From the help documentation &lt;code&gt;?factor&lt;/code&gt;: “as.factor coerces its argument to a factor. It is an abbreviated (sometimes faster) form of factor.”&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I would like to know when you recommend that we save a new data set once we create new covariates. Also, it is unclear to me how you add the variable to the existing data.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If I want to use that column/covariate again, I save it (so almost always, as I don’t often make a column without using it later). I usually save it back into the original data set I’m working with, that is, overwrite that object to be updated with the new column. As long as I keep track of my changes this is definitely ok. It can get confusing having too many versions of a data set floating around. If something is broken, the worst that happens is that you’ll just need to start from the beginning and reload your data and re-run the code below.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+## ✔ readr   2.1.2     ✔ forcats 0.5.1
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(palmerpenguins)
+
+# does not save the new column, just prints result
+penguins %&amp;gt;% 
+  mutate(newvec = bill_length_mm/bill_depth_mm)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 344 × 9
+##    species island    bill_length_mm bill_de…¹ flipp…² body_…³ sex    year newvec
+##    &amp;lt;fct&amp;gt;   &amp;lt;fct&amp;gt;              &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;int&amp;gt;  &amp;lt;dbl&amp;gt;
+##  1 Adelie  Torgersen           39.1      18.7     181    3750 male   2007   2.09
+##  2 Adelie  Torgersen           39.5      17.4     186    3800 fema…  2007   2.27
+##  3 Adelie  Torgersen           40.3      18       195    3250 fema…  2007   2.24
+##  4 Adelie  Torgersen           NA        NA        NA      NA &amp;lt;NA&amp;gt;   2007  NA   
+##  5 Adelie  Torgersen           36.7      19.3     193    3450 fema…  2007   1.90
+##  6 Adelie  Torgersen           39.3      20.6     190    3650 male   2007   1.91
+##  7 Adelie  Torgersen           38.9      17.8     181    3625 fema…  2007   2.19
+##  8 Adelie  Torgersen           39.2      19.6     195    4675 male   2007   2   
+##  9 Adelie  Torgersen           34.1      18.1     193    3475 &amp;lt;NA&amp;gt;   2007   1.88
+## 10 Adelie  Torgersen           42        20.2     190    4250 &amp;lt;NA&amp;gt;   2007   2.08
+## # … with 334 more rows, and abbreviated variable names ¹​bill_depth_mm,
+## #   ²​flipper_length_mm, ³​body_mass_g
+## # ℹ Use `print(n = ...)` to see more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# saves new column in a data frame that is called penguins2
+penguins2 &amp;lt;- penguins %&amp;gt;% 
+  mutate(newvec = bill_length_mm/bill_depth_mm)
+glimpse(penguins2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 344
+## Columns: 9
+## $ species           &amp;lt;fct&amp;gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &amp;lt;fct&amp;gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    &amp;lt;dbl&amp;gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+## $ bill_depth_mm     &amp;lt;dbl&amp;gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+## $ flipper_length_mm &amp;lt;int&amp;gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+## $ body_mass_g       &amp;lt;int&amp;gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               &amp;lt;fct&amp;gt; male, female, female, NA, female, male, female, male…
+## $ year              &amp;lt;int&amp;gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
+## $ newvec            &amp;lt;dbl&amp;gt; 2.090909, 2.270115, 2.238889, NA, 1.901554, 1.907767…&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;glimpse(penguins) # has not been changed&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 344
+## Columns: 8
+## $ species           &amp;lt;fct&amp;gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &amp;lt;fct&amp;gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    &amp;lt;dbl&amp;gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+## $ bill_depth_mm     &amp;lt;dbl&amp;gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+## $ flipper_length_mm &amp;lt;int&amp;gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+## $ body_mass_g       &amp;lt;int&amp;gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               &amp;lt;fct&amp;gt; male, female, female, NA, female, male, female, male…
+## $ year              &amp;lt;int&amp;gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# saves new column in a data frame in the original data frame penguins
+# *overwrites penguins*
+penguins &amp;lt;- penguins %&amp;gt;% 
+  mutate(newvec = bill_length_mm/bill_depth_mm)
+glimpse(penguins)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 344
+## Columns: 9
+## $ species           &amp;lt;fct&amp;gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &amp;lt;fct&amp;gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    &amp;lt;dbl&amp;gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+## $ bill_depth_mm     &amp;lt;dbl&amp;gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+## $ flipper_length_mm &amp;lt;int&amp;gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+## $ body_mass_g       &amp;lt;int&amp;gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               &amp;lt;fct&amp;gt; male, female, female, NA, female, male, female, male…
+## $ year              &amp;lt;int&amp;gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
+## $ newvec            &amp;lt;dbl&amp;gt; 2.090909, 2.270115, 2.238889, NA, 1.901554, 1.907767…&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;arrange vs filter&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;arrange&lt;/code&gt; orders or sorts your data and does not remove or add anything, while &lt;code&gt;filter&lt;/code&gt; removes rows.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clearest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Clearest points&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;working directory, here
+reordering factors
+mutate
+tibble vs data frame
+factors
+filtering&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Glad to hear we’re making progress!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Other points&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Is there a list somewhere of all potential colors?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A couple answers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;See &lt;a href=&#34;https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/&#34;&gt;this page for a list of “named” colors in R.&lt;/a&gt;, or the &lt;a href=&#34;http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/&#34;&gt;ggplot2 cookbook for a smaller list&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;We will talk more about palettes when we finish part4 but there are many, many. I suggest finding a package or two that has the palettes you like and working with those. See a bunch listed &lt;a href=&#34;https://github.com/EmilHvitfeldt/r-color-palettes&#34;&gt;here (scroll down in the readme).&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I’m curious what the best practice is for stringing things together versus breaking them into pieces. For example, if I was trying to make a binary variable where all values were classified as larger or greater than the mean, I could use mean() inside several other functions like mutate(). Alternately I could calculate mean() [meanxx &amp;lt;- mean(xxx)] and save it as an object, and then use the other functions on that value. I’m curious because it seems like if you did too many functions at once and were getting errors, it would be hard to tell what was wrong. But if you did it in a more stepwise fashion, you could see (for example) that mean() wasn’t working because there were NAs in your dataset. More importantly, I think if you were getting an erroneous answer (not an error, but a wrong answer, like if you calculated the mean of a variable but your NA’s were marked with “-88” and so R considered these actual observations) you might not know if you joined too many functions together and didn’t “see” what was happening under the hood. I’m curious how to deal with that.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I copied over this whole question because I think it is an excellent one, and well said (hope you don’t mind)! I think this is something that evolves as you become more experienced in coding and debugging, and as you find your own style of coding. I will talk some about debugging later, but what you are saying about breaking things up into pieces absolutely helps with that.&lt;/p&gt;
+&lt;p&gt;The one thing to make sure of is that if you are saving intermediate steps, such as &lt;code&gt;meanxx &amp;lt;- mean(mydata$xx)&lt;/code&gt; and using it later, but then you update the data set (filter, replace NAs, fix an incorrect data entry, whatever), you need to make sure to update/re-calculate that mean object as it no longer matches your newer data set! So there is more to keep track of, in that case.&lt;/p&gt;
+&lt;p&gt;I will say that if you are keeping track of all the steps well, then functionally it does not matter too much, so if it makes things easier to break it up, do that! If you like to chain everything together (often I do) you can run each piece by highlighting the code and running just that part to see what is going on, and this is something I do often.&lt;/p&gt;
+&lt;p&gt;Your example is something I would probably do, though, as using the mean inside mutate does make me a bit nervous. For example, let’s use median because it’s easier to check my work at the end:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(janitor) # for tabyl()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;janitor&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     chisq.test, fisher.test&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# there are NAs in here:
+median(penguins$body_mass_g)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# let&amp;#39;s save the median as a vector of length 1, remove NAs
+tmpmedian &amp;lt;- median(penguins$body_mass_g, na.rm = TRUE)
+tmpmedian&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4050&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins &amp;lt;- penguins %&amp;gt;%
+  mutate(
+    large_mass = case_when(
+      body_mass_g &amp;gt;= tmpmedian ~ &amp;quot;yes&amp;quot;,
+      body_mass_g &amp;lt; tmpmedian ~ &amp;quot;no&amp;quot; # this allows NAs to remain NA
+    ))
+
+penguins %&amp;gt;% tabyl(large_mass)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  large_mass   n     percent valid_percent
+##          no 170 0.494186047      0.497076
+##         yes 172 0.500000000      0.502924
+##        &amp;lt;NA&amp;gt;   2 0.005813953            NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# if I had just used median without checking for NAs, they all are NA:
+penguins %&amp;gt;%
+  mutate(large_mass = 1*(body_mass_g &amp;gt;= median(body_mass_g))) %&amp;gt;%
+  tabyl(large_mass)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  large_mass   n percent valid_percent
+##          NA 344       1            NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Note if I just want females, this no longer makes sense:
+penguins %&amp;gt;%
+  filter(sex==&amp;quot;female&amp;quot;) %&amp;gt;%
+  mutate(
+    large_mass = case_when(
+      body_mass_g &amp;gt;= tmpmedian ~ &amp;quot;yes&amp;quot;,
+      body_mass_g &amp;lt; tmpmedian ~ &amp;quot;no&amp;quot; # this allows NAs to remain NA
+    )) %&amp;gt;%
+  tabyl(large_mass)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  large_mass   n   percent
+##          no 107 0.6484848
+##         yes  58 0.3515152&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# but this would:
+penguins %&amp;gt;%
+  filter(sex==&amp;quot;female&amp;quot;) %&amp;gt;%
+  mutate(
+    large_mass = case_when(
+      body_mass_g &amp;gt;= median(body_mass_g, na.rm = TRUE) ~ &amp;quot;yes&amp;quot;,
+      body_mass_g &amp;lt; median(body_mass_g, na.rm = TRUE) ~ &amp;quot;no&amp;quot; 
+    )) %&amp;gt;%
+  tabyl(large_mass)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  large_mass  n   percent
+##          no 80 0.4848485
+##         yes 85 0.5151515&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>

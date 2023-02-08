@@ -1,8 +1,8 @@
 ---
 title: "Part 4. dplyr: mutate, group_by, summarize, across"
 linktitle: "Part 4. dplyr: mutate, group_by, summarize, across"
-date: "2021-01-26"
-class_date: "2021-01-26"
+date: "2023-02-01"
+class_date: "2023-02-01"
 output:
   blogdown::html_page:
     toc: true
@@ -22,20 +22,41 @@ editor_options:
 <div id="TOC">
 <ul>
 <li><a href="#r-project-files" id="toc-r-project-files">R Project files</a></li>
-<li><a href="#class-video" id="toc-class-video">Class Video</a></li>
+<li><a href="#this-years-class-video" id="toc-this-years-class-video">This year’s class video</a></li>
+<li><a href="#last-years-class-video" id="toc-last-years-class-video">Last Year’s Class Video</a></li>
+<li><a href="#slides" id="toc-slides">Slides</a></li>
+<li><a href="#another-useful-video" id="toc-another-useful-video">Another useful video</a></li>
 <li><a href="#post-class" id="toc-post-class">Post-Class</a></li>
+<li><a href="#muddiest-points" id="toc-muddiest-points">Muddiest points</a></li>
+<li><a href="#clearest-points" id="toc-clearest-points">Clearest points</a></li>
+<li><a href="#other-points" id="toc-other-points">Other points</a></li>
 </ul>
 </div>
 
 <div id="r-project-files" class="section level2">
 <h2>R Project files</h2>
 <p>Please download the <code>part4</code> folder from <a href="https://bit.ly/bsta504_dropbox_2023">this dropbox folder link</a>. Be sure to unzip if necessary. “Knit” the part4.Rmd file to install packages and make sure everything is working with data loading.</p>
+<p>(We did not finish part4, and will finish it in class 5.)</p>
 </div>
-<div id="class-video" class="section level2">
-<h2>Class Video</h2>
+<div id="this-years-class-video" class="section level2">
+<h2>This year’s class video</h2>
+<p>See Slack for the zoom recording link</p>
+</div>
+<div id="last-years-class-video" class="section level2">
+<h2>Last Year’s Class Video</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GGBlm21dyBE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 <p>View last year’s class and materials <a href="https://sph-r-programming-2022.netlify.app/class/04-class/">here</a>.</p>
+</div>
+<div id="slides" class="section level2">
+<h2>Slides</h2>
+<p>During “Muddiest Parts” review, we will go over <a href="https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries">these slides</a></p>
+<iframe src="https://sph-r-programming-2023.netlify.app/slides/05-saving-objects-vs-summaries#1" width="672" height="400px" data-external="1">
+</iframe>
+</div>
+<div id="another-useful-video" class="section level2">
+<h2>Another useful video</h2>
+<p><a href="https://www.youtube.com/watch?v=bBfZFasd61c">Dr. Kelly Bodwin’s forcats/factor</a></p>
 </div>
 <div id="post-class" class="section level1">
 <h1>Post-Class</h1>
@@ -46,4 +67,237 @@ editor_options:
 <li>Anything Else: Is there something you’d like me to know?</li>
 </ul>
 <p><a href="https://bit.ly/bsta504_postclass_survey" class="uri">https://bit.ly/bsta504_postclass_survey</a></p>
+</div>
+<div id="muddiest-points" class="section level1">
+<h1>Muddiest points</h1>
+<p>I’ve noticed some confusion about what I call “saving your work”, so we’ll go over the slides above.</p>
+<blockquote>
+<p>using factors, what you’re doing and the benefit of turning things into factors in mutate</p>
+</blockquote>
+<p>I usually turn something into a factor for plotting (especially if I have a categorial numeric variable), and we’ll see more examples of that. We also later will see how it matters in statistical modeling/regression. It also is often easier to manage levels/categories this way, as we will see when we talk about the <code>forcats</code> package again in class 6.</p>
+<blockquote>
+<p>case_when is not easy</p>
+</blockquote>
+<p>Correct! Also some other comments on wanting more practice with <code>case_when()</code>. We will continue to see examples with this as we finish part5 and in other classes. It’s a very handy function so I use it a lot! See also the <a href="https://www.youtube.com/watch?v=bBfZFasd61c">video above about factors with another explanation</a>.</p>
+<blockquote>
+<p>The function for converting a vector back from factor to character - I thought I had it, but I didn’t.</p>
+</blockquote>
+<p>Oh, I didn’t show this!</p>
+<pre class="r"><code># make a character vector
+myvec &lt;- c(&quot;cat&quot;, &quot;dog&quot;, &quot;mouse&quot;, &quot;dog&quot;)
+myvec_fac &lt;- factor(myvec)
+myvec_fac</code></pre>
+<pre><code>## [1] cat   dog   mouse dog  
+## Levels: cat dog mouse</code></pre>
+<pre class="r"><code>class(myvec_fac)</code></pre>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<pre class="r"><code># get the levels out
+levels(myvec_fac)</code></pre>
+<pre><code>## [1] &quot;cat&quot;   &quot;dog&quot;   &quot;mouse&quot;</code></pre>
+<pre class="r"><code># Note we can &quot;test&quot; the classes of something like so:
+is.factor(myvec_fac)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>is.character(myvec_fac)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code># Now we can change it back
+myvec2 &lt;- as.character(myvec_fac)
+myvec2</code></pre>
+<pre><code>## [1] &quot;cat&quot;   &quot;dog&quot;   &quot;mouse&quot; &quot;dog&quot;</code></pre>
+<pre class="r"><code>class(myvec2)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>levels(myvec2) # no levels, because it&#39;s not a factor</code></pre>
+<pre><code>## NULL</code></pre>
+<pre class="r"><code># we could also change to numeric, how do you think it picks which number is which?
+myvec3 &lt;- as.numeric(myvec_fac)
+myvec3</code></pre>
+<pre><code>## [1] 1 2 3 2</code></pre>
+<pre class="r"><code># levels in order is assigned 1, 2, 3
+table(myvec_fac, myvec3)</code></pre>
+<pre><code>##          myvec3
+## myvec_fac 1 2 3
+##     cat   1 0 0
+##     dog   0 2 0
+##     mouse 0 0 1</code></pre>
+<pre class="r"><code># change the level order
+myvec_fac2 &lt;- factor(myvec, levels = c(&quot;dog&quot;, &quot;cat&quot;, &quot;mouse&quot;))
+levels(myvec_fac2)</code></pre>
+<pre><code>## [1] &quot;dog&quot;   &quot;cat&quot;   &quot;mouse&quot;</code></pre>
+<pre class="r"><code>myvec4 &lt;- as.numeric(myvec_fac2)
+myvec4</code></pre>
+<pre><code>## [1] 2 1 3 1</code></pre>
+<pre class="r"><code>table(myvec_fac2, myvec4)</code></pre>
+<pre><code>##           myvec4
+## myvec_fac2 1 2 3
+##      dog   2 0 0
+##      cat   0 1 0
+##      mouse 0 0 1</code></pre>
+<blockquote>
+<p>factor vs as.factor</p>
+</blockquote>
+<p>Essentially the same. From the help documentation <code>?factor</code>: “as.factor coerces its argument to a factor. It is an abbreviated (sometimes faster) form of factor.”</p>
+<blockquote>
+<p>I would like to know when you recommend that we save a new data set once we create new covariates. Also, it is unclear to me how you add the variable to the existing data.</p>
+</blockquote>
+<p>If I want to use that column/covariate again, I save it (so almost always, as I don’t often make a column without using it later). I usually save it back into the original data set I’m working with, that is, overwrite that object to be updated with the new column. As long as I keep track of my changes this is definitely ok. It can get confusing having too many versions of a data set floating around. If something is broken, the worst that happens is that you’ll just need to start from the beginning and reload your data and re-run the code below.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+## ✔ readr   2.1.2     ✔ forcats 0.5.1
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(palmerpenguins)
+
+# does not save the new column, just prints result
+penguins %&gt;% 
+  mutate(newvec = bill_length_mm/bill_depth_mm)</code></pre>
+<pre><code>## # A tibble: 344 × 9
+##    species island    bill_length_mm bill_de…¹ flipp…² body_…³ sex    year newvec
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;     &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;  &lt;dbl&gt;
+##  1 Adelie  Torgersen           39.1      18.7     181    3750 male   2007   2.09
+##  2 Adelie  Torgersen           39.5      17.4     186    3800 fema…  2007   2.27
+##  3 Adelie  Torgersen           40.3      18       195    3250 fema…  2007   2.24
+##  4 Adelie  Torgersen           NA        NA        NA      NA &lt;NA&gt;   2007  NA   
+##  5 Adelie  Torgersen           36.7      19.3     193    3450 fema…  2007   1.90
+##  6 Adelie  Torgersen           39.3      20.6     190    3650 male   2007   1.91
+##  7 Adelie  Torgersen           38.9      17.8     181    3625 fema…  2007   2.19
+##  8 Adelie  Torgersen           39.2      19.6     195    4675 male   2007   2   
+##  9 Adelie  Torgersen           34.1      18.1     193    3475 &lt;NA&gt;   2007   1.88
+## 10 Adelie  Torgersen           42        20.2     190    4250 &lt;NA&gt;   2007   2.08
+## # … with 334 more rows, and abbreviated variable names ¹​bill_depth_mm,
+## #   ²​flipper_length_mm, ³​body_mass_g
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+<pre class="r"><code># saves new column in a data frame that is called penguins2
+penguins2 &lt;- penguins %&gt;% 
+  mutate(newvec = bill_length_mm/bill_depth_mm)
+glimpse(penguins2)</code></pre>
+<pre><code>## Rows: 344
+## Columns: 9
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
+## $ newvec            &lt;dbl&gt; 2.090909, 2.270115, 2.238889, NA, 1.901554, 1.907767…</code></pre>
+<pre class="r"><code>glimpse(penguins) # has not been changed</code></pre>
+<pre><code>## Rows: 344
+## Columns: 8
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+<pre class="r"><code># saves new column in a data frame in the original data frame penguins
+# *overwrites penguins*
+penguins &lt;- penguins %&gt;% 
+  mutate(newvec = bill_length_mm/bill_depth_mm)
+glimpse(penguins)</code></pre>
+<pre><code>## Rows: 344
+## Columns: 9
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
+## $ newvec            &lt;dbl&gt; 2.090909, 2.270115, 2.238889, NA, 1.901554, 1.907767…</code></pre>
+<blockquote>
+<p>arrange vs filter</p>
+</blockquote>
+<p><code>arrange</code> orders or sorts your data and does not remove or add anything, while <code>filter</code> removes rows.</p>
+</div>
+<div id="clearest-points" class="section level1">
+<h1>Clearest points</h1>
+<blockquote>
+<p>working directory, here
+reordering factors
+mutate
+tibble vs data frame
+factors
+filtering</p>
+</blockquote>
+<p>Glad to hear we’re making progress!</p>
+</div>
+<div id="other-points" class="section level1">
+<h1>Other points</h1>
+<blockquote>
+<p>Is there a list somewhere of all potential colors?</p>
+</blockquote>
+<p>A couple answers:</p>
+<ul>
+<li>See <a href="https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/">this page for a list of “named” colors in R.</a>, or the <a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/">ggplot2 cookbook for a smaller list</a></li>
+<li>We will talk more about palettes when we finish part4 but there are many, many. I suggest finding a package or two that has the palettes you like and working with those. See a bunch listed <a href="https://github.com/EmilHvitfeldt/r-color-palettes">here (scroll down in the readme).</a></li>
+</ul>
+<blockquote>
+<p>I’m curious what the best practice is for stringing things together versus breaking them into pieces. For example, if I was trying to make a binary variable where all values were classified as larger or greater than the mean, I could use mean() inside several other functions like mutate(). Alternately I could calculate mean() [meanxx &lt;- mean(xxx)] and save it as an object, and then use the other functions on that value. I’m curious because it seems like if you did too many functions at once and were getting errors, it would be hard to tell what was wrong. But if you did it in a more stepwise fashion, you could see (for example) that mean() wasn’t working because there were NAs in your dataset. More importantly, I think if you were getting an erroneous answer (not an error, but a wrong answer, like if you calculated the mean of a variable but your NA’s were marked with “-88” and so R considered these actual observations) you might not know if you joined too many functions together and didn’t “see” what was happening under the hood. I’m curious how to deal with that.</p>
+</blockquote>
+<p>I copied over this whole question because I think it is an excellent one, and well said (hope you don’t mind)! I think this is something that evolves as you become more experienced in coding and debugging, and as you find your own style of coding. I will talk some about debugging later, but what you are saying about breaking things up into pieces absolutely helps with that.</p>
+<p>The one thing to make sure of is that if you are saving intermediate steps, such as <code>meanxx &lt;- mean(mydata$xx)</code> and using it later, but then you update the data set (filter, replace NAs, fix an incorrect data entry, whatever), you need to make sure to update/re-calculate that mean object as it no longer matches your newer data set! So there is more to keep track of, in that case.</p>
+<p>I will say that if you are keeping track of all the steps well, then functionally it does not matter too much, so if it makes things easier to break it up, do that! If you like to chain everything together (often I do) you can run each piece by highlighting the code and running just that part to see what is going on, and this is something I do often.</p>
+<p>Your example is something I would probably do, though, as using the mean inside mutate does make me a bit nervous. For example, let’s use median because it’s easier to check my work at the end:</p>
+<pre class="r"><code>library(janitor) # for tabyl()</code></pre>
+<pre><code>## 
+## Attaching package: &#39;janitor&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     chisq.test, fisher.test</code></pre>
+<pre class="r"><code># there are NAs in here:
+median(penguins$body_mass_g)</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code># let&#39;s save the median as a vector of length 1, remove NAs
+tmpmedian &lt;- median(penguins$body_mass_g, na.rm = TRUE)
+tmpmedian</code></pre>
+<pre><code>## [1] 4050</code></pre>
+<pre class="r"><code>penguins &lt;- penguins %&gt;%
+  mutate(
+    large_mass = case_when(
+      body_mass_g &gt;= tmpmedian ~ &quot;yes&quot;,
+      body_mass_g &lt; tmpmedian ~ &quot;no&quot; # this allows NAs to remain NA
+    ))
+
+penguins %&gt;% tabyl(large_mass)</code></pre>
+<pre><code>##  large_mass   n     percent valid_percent
+##          no 170 0.494186047      0.497076
+##         yes 172 0.500000000      0.502924
+##        &lt;NA&gt;   2 0.005813953            NA</code></pre>
+<pre class="r"><code># if I had just used median without checking for NAs, they all are NA:
+penguins %&gt;%
+  mutate(large_mass = 1*(body_mass_g &gt;= median(body_mass_g))) %&gt;%
+  tabyl(large_mass)</code></pre>
+<pre><code>##  large_mass   n percent valid_percent
+##          NA 344       1            NA</code></pre>
+<pre class="r"><code># Note if I just want females, this no longer makes sense:
+penguins %&gt;%
+  filter(sex==&quot;female&quot;) %&gt;%
+  mutate(
+    large_mass = case_when(
+      body_mass_g &gt;= tmpmedian ~ &quot;yes&quot;,
+      body_mass_g &lt; tmpmedian ~ &quot;no&quot; # this allows NAs to remain NA
+    )) %&gt;%
+  tabyl(large_mass)</code></pre>
+<pre><code>##  large_mass   n   percent
+##          no 107 0.6484848
+##         yes  58 0.3515152</code></pre>
+<pre class="r"><code># but this would:
+penguins %&gt;%
+  filter(sex==&quot;female&quot;) %&gt;%
+  mutate(
+    large_mass = case_when(
+      body_mass_g &gt;= median(body_mass_g, na.rm = TRUE) ~ &quot;yes&quot;,
+      body_mass_g &lt; median(body_mass_g, na.rm = TRUE) ~ &quot;no&quot; 
+    )) %&gt;%
+  tabyl(large_mass)</code></pre>
+<pre><code>##  large_mass  n   percent
+##          no 80 0.4848485
+##         yes 85 0.5151515</code></pre>
 </div>
