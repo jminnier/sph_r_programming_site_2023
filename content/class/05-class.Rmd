@@ -40,6 +40,11 @@ View last year's class and materials [here](https://sph-r-programming-2022.netli
 For a short version, watch the [pivot_longer excerpt](https://youtu.be/4ZIFb1BoIB4?t=365) about "working backwards" from a plot. Then watch the [pivot_wider excerpt](https://youtu.be/4ZIFb1BoIB4?t=620)
 
 
+## Useful ggplot2 links
+
+- [ggplot2 cookbook, scales](https://ggplot2-book.org/scale-position.html)
+- [ggplot2 guide_axis()](https://ggplot2.tidyverse.org/reference/guide_axis.html), which lets you [avoid overlapping axis labels](https://datavizpyr.com/how-to-dodge-overlapping-text-on-x-axis-labels-in-ggplot2/)
+- [ggplot2 faq axes](https://ggplot2.tidyverse.org/articles/faq-axes.html)
 
 # Post-Class
 

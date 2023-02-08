@@ -1055,6 +1055,7 @@ penguins %&amp;gt;%
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#last-years-class-video-part-5&#34; id=&#34;toc-last-years-class-video-part-5&#34;&gt;Last Year’s Class Video (Part 5)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#another-useful-video&#34; id=&#34;toc-another-useful-video&#34;&gt;Another useful video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#useful-ggplot2-links&#34; id=&#34;toc-useful-ggplot2-links&#34;&gt;Useful ggplot2 links&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -1073,6 +1074,14 @@ penguins %&amp;gt;%
 &lt;h2&gt;Another useful video&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4&#34;&gt;Dr. Kelly Bodwin’s Reshaping Data Video&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;For a short version, watch the &lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4?t=365&#34;&gt;pivot_longer excerpt&lt;/a&gt; about “working backwards” from a plot. Then watch the &lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4?t=620&#34;&gt;pivot_wider excerpt&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;useful-ggplot2-links&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Useful ggplot2 links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ggplot2-book.org/scale-position.html&#34;&gt;ggplot2 cookbook, scales&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ggplot2.tidyverse.org/reference/guide_axis.html&#34;&gt;ggplot2 guide_axis()&lt;/a&gt;, which lets you &lt;a href=&#34;https://datavizpyr.com/how-to-dodge-overlapping-text-on-x-axis-labels-in-ggplot2/&#34;&gt;avoid overlapping axis labels&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ggplot2.tidyverse.org/articles/faq-axes.html&#34;&gt;ggplot2 faq axes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;post-class&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Post-Class&lt;/h1&gt;
