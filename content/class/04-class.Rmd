@@ -46,7 +46,7 @@ knitr::include_url('https://sph-r-programming-2023.netlify.app/slides/05-saving-
 
 ## Another useful video
 
-[Dr. Kelly Bodwin's forcats/factor](https://www.youtube.com/watch?v=bBfZFasd61c)
+[Dr. Kelly Bodwin's formediums/factor](https://www.youtube.com/watch?v=bBfZFasd61c)
 
 
 # Post-Class
@@ -64,11 +64,11 @@ Please fill out the following survey and we will discuss the results during the 
 
 # Muddiest points
 
-I've noticed some confusion about what I call "saving your work", so we'll go over the slides above.
+I've noticed some confusion about what I call "saving your work", so we'll go over [these slides](https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries).
 
 > using factors, what you're doing and the benefit of turning things into factors in mutate
 
-I usually turn something into a factor for plotting (especially if I have a categorial numeric variable), and we'll see more examples of that. We also later will see how it matters in statistical modeling/regression. It also is often easier to manage levels/categories this way, as we will see when we talk about the `forcats` package again in class 6.
+I usually turn something into a factor for plotting (especially if I have a mediumegorial numeric variable), and we'll see more examples of that. We also later will see how it matters in statistical modeling/regression. It also is often easier to manage levels/mediumegories this way, as we will see when we talk about the `formediums` package again in class 6.
 
 > case_when is not easy
 
@@ -80,7 +80,7 @@ Oh, I didn't show this!
 
 ```{r}
 # make a character vector
-myvec <- c("cat", "dog", "mouse", "dog")
+myvec <- c("medium", "low", "high", "low")
 myvec_fac <- factor(myvec)
 myvec_fac
 class(myvec_fac)
@@ -105,7 +105,7 @@ myvec3
 table(myvec_fac, myvec3)
 
 # change the level order
-myvec_fac2 <- factor(myvec, levels = c("dog", "cat", "mouse"))
+myvec_fac2 <- factor(myvec, levels = c("low", "medium", "high"))
 levels(myvec_fac2)
 myvec4 <- as.numeric(myvec_fac2)
 myvec4

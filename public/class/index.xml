@@ -794,7 +794,7 @@ penguins %&amp;gt;% select(any_of(colnames_needed)) # works!&lt;/code&gt;&lt;/pr
 &lt;/div&gt;
 &lt;div id=&#34;another-useful-video&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Another useful video&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=bBfZFasd61c&#34;&gt;Dr. Kelly Bodwin’s forcats/factor&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=bBfZFasd61c&#34;&gt;Dr. Kelly Bodwin’s formediums/factor&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;post-class&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Post-Class&lt;/h1&gt;
@@ -808,11 +808,11 @@ penguins %&amp;gt;% select(any_of(colnames_needed)) # works!&lt;/code&gt;&lt;/pr
 &lt;/div&gt;
 &lt;div id=&#34;muddiest-points&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Muddiest points&lt;/h1&gt;
-&lt;p&gt;I’ve noticed some confusion about what I call “saving your work”, so we’ll go over the slides above.&lt;/p&gt;
+&lt;p&gt;I’ve noticed some confusion about what I call “saving your work”, so we’ll go over &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries&#34;&gt;these slides&lt;/a&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;using factors, what you’re doing and the benefit of turning things into factors in mutate&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;I usually turn something into a factor for plotting (especially if I have a categorial numeric variable), and we’ll see more examples of that. We also later will see how it matters in statistical modeling/regression. It also is often easier to manage levels/categories this way, as we will see when we talk about the &lt;code&gt;forcats&lt;/code&gt; package again in class 6.&lt;/p&gt;
+&lt;p&gt;I usually turn something into a factor for plotting (especially if I have a mediumegorial numeric variable), and we’ll see more examples of that. We also later will see how it matters in statistical modeling/regression. It also is often easier to manage levels/mediumegories this way, as we will see when we talk about the &lt;code&gt;formediums&lt;/code&gt; package again in class 6.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;case_when is not easy&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -822,16 +822,16 @@ penguins %&amp;gt;% select(any_of(colnames_needed)) # works!&lt;/code&gt;&lt;/pr
 &lt;/blockquote&gt;
 &lt;p&gt;Oh, I didn’t show this!&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# make a character vector
-myvec &amp;lt;- c(&amp;quot;cat&amp;quot;, &amp;quot;dog&amp;quot;, &amp;quot;mouse&amp;quot;, &amp;quot;dog&amp;quot;)
+myvec &amp;lt;- c(&amp;quot;medium&amp;quot;, &amp;quot;low&amp;quot;, &amp;quot;high&amp;quot;, &amp;quot;low&amp;quot;)
 myvec_fac &amp;lt;- factor(myvec)
 myvec_fac&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] cat   dog   mouse dog  
-## Levels: cat dog mouse&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] medium low    high   low   
+## Levels: high low medium&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(myvec_fac)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;factor&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# get the levels out
 levels(myvec_fac)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;cat&amp;quot;   &amp;quot;dog&amp;quot;   &amp;quot;mouse&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;high&amp;quot;   &amp;quot;low&amp;quot;    &amp;quot;medium&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Note we can &amp;quot;test&amp;quot; the classes of something like so:
 is.factor(myvec_fac)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
@@ -840,7 +840,7 @@ is.factor(myvec_fac)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Now we can change it back
 myvec2 &amp;lt;- as.character(myvec_fac)
 myvec2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;cat&amp;quot;   &amp;quot;dog&amp;quot;   &amp;quot;mouse&amp;quot; &amp;quot;dog&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;medium&amp;quot; &amp;quot;low&amp;quot;    &amp;quot;high&amp;quot;   &amp;quot;low&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(myvec2)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;levels(myvec2) # no levels, because it&amp;#39;s not a factor&lt;/code&gt;&lt;/pre&gt;
@@ -848,27 +848,27 @@ myvec2&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# we could also change to numeric, how do you think it picks which number is which?
 myvec3 &amp;lt;- as.numeric(myvec_fac)
 myvec3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1 2 3 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3 2 1 2&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# levels in order is assigned 1, 2, 3
 table(myvec_fac, myvec3)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##          myvec3
 ## myvec_fac 1 2 3
-##     cat   1 0 0
-##     dog   0 2 0
-##     mouse 0 0 1&lt;/code&gt;&lt;/pre&gt;
+##    high   1 0 0
+##    low    0 2 0
+##    medium 0 0 1&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# change the level order
-myvec_fac2 &amp;lt;- factor(myvec, levels = c(&amp;quot;dog&amp;quot;, &amp;quot;cat&amp;quot;, &amp;quot;mouse&amp;quot;))
+myvec_fac2 &amp;lt;- factor(myvec, levels = c(&amp;quot;low&amp;quot;, &amp;quot;medium&amp;quot;, &amp;quot;high&amp;quot;))
 levels(myvec_fac2)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;dog&amp;quot;   &amp;quot;cat&amp;quot;   &amp;quot;mouse&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;low&amp;quot;    &amp;quot;medium&amp;quot; &amp;quot;high&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;myvec4 &amp;lt;- as.numeric(myvec_fac2)
 myvec4&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 2 1 3 1&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table(myvec_fac2, myvec4)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##           myvec4
 ## myvec_fac2 1 2 3
-##      dog   2 0 0
-##      cat   0 1 0
-##      mouse 0 0 1&lt;/code&gt;&lt;/pre&gt;
+##     low    2 0 0
+##     medium 0 1 0
+##     high   0 0 1&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
 &lt;p&gt;factor vs as.factor&lt;/p&gt;
 &lt;/blockquote&gt;

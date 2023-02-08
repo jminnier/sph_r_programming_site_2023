@@ -56,7 +56,7 @@ editor_options:
 </div>
 <div id="another-useful-video" class="section level2">
 <h2>Another useful video</h2>
-<p><a href="https://www.youtube.com/watch?v=bBfZFasd61c">Dr. Kelly Bodwin’s forcats/factor</a></p>
+<p><a href="https://www.youtube.com/watch?v=bBfZFasd61c">Dr. Kelly Bodwin’s formediums/factor</a></p>
 </div>
 <div id="post-class" class="section level1">
 <h1>Post-Class</h1>
@@ -70,11 +70,11 @@ editor_options:
 </div>
 <div id="muddiest-points" class="section level1">
 <h1>Muddiest points</h1>
-<p>I’ve noticed some confusion about what I call “saving your work”, so we’ll go over the slides above.</p>
+<p>I’ve noticed some confusion about what I call “saving your work”, so we’ll go over <a href="https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries">these slides</a>.</p>
 <blockquote>
 <p>using factors, what you’re doing and the benefit of turning things into factors in mutate</p>
 </blockquote>
-<p>I usually turn something into a factor for plotting (especially if I have a categorial numeric variable), and we’ll see more examples of that. We also later will see how it matters in statistical modeling/regression. It also is often easier to manage levels/categories this way, as we will see when we talk about the <code>forcats</code> package again in class 6.</p>
+<p>I usually turn something into a factor for plotting (especially if I have a mediumegorial numeric variable), and we’ll see more examples of that. We also later will see how it matters in statistical modeling/regression. It also is often easier to manage levels/mediumegories this way, as we will see when we talk about the <code>formediums</code> package again in class 6.</p>
 <blockquote>
 <p>case_when is not easy</p>
 </blockquote>
@@ -84,16 +84,16 @@ editor_options:
 </blockquote>
 <p>Oh, I didn’t show this!</p>
 <pre class="r"><code># make a character vector
-myvec &lt;- c(&quot;cat&quot;, &quot;dog&quot;, &quot;mouse&quot;, &quot;dog&quot;)
+myvec &lt;- c(&quot;medium&quot;, &quot;low&quot;, &quot;high&quot;, &quot;low&quot;)
 myvec_fac &lt;- factor(myvec)
 myvec_fac</code></pre>
-<pre><code>## [1] cat   dog   mouse dog  
-## Levels: cat dog mouse</code></pre>
+<pre><code>## [1] medium low    high   low   
+## Levels: high low medium</code></pre>
 <pre class="r"><code>class(myvec_fac)</code></pre>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
 <pre class="r"><code># get the levels out
 levels(myvec_fac)</code></pre>
-<pre><code>## [1] &quot;cat&quot;   &quot;dog&quot;   &quot;mouse&quot;</code></pre>
+<pre><code>## [1] &quot;high&quot;   &quot;low&quot;    &quot;medium&quot;</code></pre>
 <pre class="r"><code># Note we can &quot;test&quot; the classes of something like so:
 is.factor(myvec_fac)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
@@ -102,7 +102,7 @@ is.factor(myvec_fac)</code></pre>
 <pre class="r"><code># Now we can change it back
 myvec2 &lt;- as.character(myvec_fac)
 myvec2</code></pre>
-<pre><code>## [1] &quot;cat&quot;   &quot;dog&quot;   &quot;mouse&quot; &quot;dog&quot;</code></pre>
+<pre><code>## [1] &quot;medium&quot; &quot;low&quot;    &quot;high&quot;   &quot;low&quot;</code></pre>
 <pre class="r"><code>class(myvec2)</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <pre class="r"><code>levels(myvec2) # no levels, because it&#39;s not a factor</code></pre>
@@ -110,27 +110,27 @@ myvec2</code></pre>
 <pre class="r"><code># we could also change to numeric, how do you think it picks which number is which?
 myvec3 &lt;- as.numeric(myvec_fac)
 myvec3</code></pre>
-<pre><code>## [1] 1 2 3 2</code></pre>
+<pre><code>## [1] 3 2 1 2</code></pre>
 <pre class="r"><code># levels in order is assigned 1, 2, 3
 table(myvec_fac, myvec3)</code></pre>
 <pre><code>##          myvec3
 ## myvec_fac 1 2 3
-##     cat   1 0 0
-##     dog   0 2 0
-##     mouse 0 0 1</code></pre>
+##    high   1 0 0
+##    low    0 2 0
+##    medium 0 0 1</code></pre>
 <pre class="r"><code># change the level order
-myvec_fac2 &lt;- factor(myvec, levels = c(&quot;dog&quot;, &quot;cat&quot;, &quot;mouse&quot;))
+myvec_fac2 &lt;- factor(myvec, levels = c(&quot;low&quot;, &quot;medium&quot;, &quot;high&quot;))
 levels(myvec_fac2)</code></pre>
-<pre><code>## [1] &quot;dog&quot;   &quot;cat&quot;   &quot;mouse&quot;</code></pre>
+<pre><code>## [1] &quot;low&quot;    &quot;medium&quot; &quot;high&quot;</code></pre>
 <pre class="r"><code>myvec4 &lt;- as.numeric(myvec_fac2)
 myvec4</code></pre>
 <pre><code>## [1] 2 1 3 1</code></pre>
 <pre class="r"><code>table(myvec_fac2, myvec4)</code></pre>
 <pre><code>##           myvec4
 ## myvec_fac2 1 2 3
-##      dog   2 0 0
-##      cat   0 1 0
-##      mouse 0 0 1</code></pre>
+##     low    2 0 0
+##     medium 0 1 0
+##     high   0 0 1</code></pre>
 <blockquote>
 <p>factor vs as.factor</p>
 </blockquote>
