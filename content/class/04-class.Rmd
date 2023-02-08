@@ -119,7 +119,7 @@ Essentially the same. From the help documentation `?factor`: "as.factor coerces 
 
 > I would like to know when you recommend that we save a new data set once we create new covariates. Also, it is unclear to me how you add the variable to the existing data.
 
-If I want to use that column/covariate again, I save it (so almost always, as I don't often make a column without using it later). I usually save it back into the original data set I'm working with, that is, overwrite that object to be updated with the new column. As long as I keep track of my changes this is definitely ok. It can get confusing having too many versions of a data set floating around. If something is broken, the worst that happens is that you'll just need to start from the beginning and reload your data and re-run the code below.
+If I want to use that column/covariate again, I save it (so almost always, as I don't often make a column without using it later). I usually save it back into the original data set I'm working with, that is, overwrite that object to be updated with the new column. As long as I keep track of my changes this is definitely ok. It can get confusing having too many versions of a data set floating around. If something is broken, the worst that happens is that you'll just need to start from the beginning and reload your data (the data file will remain untouched) and re-run the code.
 
 ```{r}
 library(tidyverse)
@@ -164,7 +164,8 @@ Glad to hear we're making progress!
 A couple answers:
 
 - See [this page for a list of "named" colors in R.](https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/), or the [ggplot2 cookbook for a smaller list](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)
-- We will talk more about palettes when we finish part4 but there are many, many. I suggest finding a package or two that has the palettes you like and working with those. See a bunch listed [here (scroll down in the readme).](https://github.com/EmilHvitfeldt/r-color-palettes)
+- We will talk more about palettes when we finish part4 but there are many, many. I suggest finding a package or two that has the palettes you like and working with those. See a bunch listed [here (scroll down in the readme).](https://github.com/EmilHvitfeldt/r-color-palettes). My favorites are
+[`ggthemes`](https://github.com/jrnold/ggthemes) and [`colorBlindness`](https://cran.r-project.org/web/packages/colorBlindness/vignettes/colorBlindness.html).
 
 > I'm curious what the best practice is for stringing things together versus breaking them into pieces. For example, if I was trying to make a binary variable where all values were classified as larger or greater than the mean, I could use mean() inside several other functions like mutate(). Alternately I could calculate mean() [meanxx <- mean(xxx)] and save it as an object, and then use the other functions on that value. I'm curious because it seems like if you did too many functions at once and were getting errors, it would be hard to tell what was wrong. But if you did it in a more stepwise fashion, you could see (for example) that mean() wasn't working because there were NAs in your dataset. More importantly, I think if you were getting an erroneous answer (not an error, but a wrong answer, like if you calculated the mean of a variable but your NA's were marked with "-88" and so R considered these actual observations) you might not know if you joined too many functions together and didn't "see" what was happening under the hood. I'm curious how to deal with that.
 
