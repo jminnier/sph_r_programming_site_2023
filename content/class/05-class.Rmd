@@ -1,8 +1,8 @@
 ---
-title: "Part 5: Data summarizing, reshaping, and wrangling with multiple tables"
-linktitle: "Part 5: Data summarizing, reshaping, and wrangling with multiple tables"
-date: "2022-02-02"
-class_date: "2022-02-02"
+title: "Part 4 (contd) + Part 5: Data summarizing, reshaping, and wrangling with multiple tables"
+linktitle: "Part 4 (contd) + Part 5: Data summarizing, reshaping, and wrangling with multiple tables"
+date: "2023-02-07"
+class_date: "2023-02-07"
 output:
   blogdown::html_page:
     toc: true
@@ -23,7 +23,7 @@ editor_options:
 
 Please download the `part5` folder from [this dropbox folder link](https://bit.ly/bsta504_dropbox_2023). Be sure to unzip if necessary. "Knit" the `code/part5.Rmd` file to install packages and make sure everything is working with data loading.
 
-## Class Video
+## Last Year's Class Video (Part 5)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_V7cKw39Fzc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -32,14 +32,6 @@ Please download the `part5` folder from [this dropbox folder link](https://bit.l
 View last year's class and materials [here](https://sph-r-programming-2022.netlify.app/class/05-class/).
 
 
-
-## Slides
-
-During "Muddiest  Parts" review, we will go over [these slides](https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries)
-
-```{r echo=FALSE}
-knitr::include_url('https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries#1')
-```
 
 ## Another useful video
 
