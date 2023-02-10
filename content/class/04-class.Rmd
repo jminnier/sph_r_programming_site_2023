@@ -46,7 +46,7 @@ knitr::include_url('https://sph-r-programming-2023.netlify.app/slides/05-saving-
 
 ## Another useful video
 
-[Dr. Kelly Bodwin's formediums/factor](https://www.youtube.com/watch?v=bBfZFasd61c)
+[Dr. Kelly Bodwin's forcats/factor](https://www.youtube.com/watch?v=bBfZFasd61c)
 
 
 # Post-Class
@@ -68,7 +68,7 @@ I've noticed some confusion about what I call "saving your work", so we'll go ov
 
 > using factors, what you're doing and the benefit of turning things into factors in mutate
 
-I usually turn something into a factor for plotting (especially if I have a mediumegorial numeric variable), and we'll see more examples of that. We also later will see how it matters in statistical modeling/regression. It also is often easier to manage levels/mediumegories this way, as we will see when we talk about the `formediums` package again in class 6.
+I usually turn something into a factor for plotting (especially if I have a categorial numeric variable), and we'll see more examples of that. We also later will see how it matters in statistical modeling/regression. It also is often easier to manage levels/categories this way, as we will see when we talk about the `forcats` package again in class 6.
 
 > case_when is not easy
 

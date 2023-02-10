@@ -30,7 +30,8 @@
   
     
   
-  <meta name="description" content="Function of the Week:      h1 {font-size: 34px;} h1.title {font-size: 38px;} h2 {font-size: 30px;} h3 {font-size: 24px;} h4 {font-size: 18px;} h5 {font-size: 16px;} h6 {font-size: 12px;} code {color: inherit; background-color: rgba(0, 0, 0, 0.04);} pre:not([class]) { background-color: white }   code{white-space: pre-wrap;} span.smallcaps{font-variant: small-caps;} span.underline{text-decoration: underline;} div.column{display: inline-block; vertical-align: top; width: 50%;} div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;} ul.task-list{list-style: none;}  code{white-space: pre;} if (window.">
+  <meta name="description" content="&lt;!DOCTYPE html&gt; Function of the Week: Function of the Week: Kathryn Liu 2022-02-02 fct_lump() In this document, I will introduce the fct_lump() function and show what it’s for.
+#load packages pacman::p_load( tidyverse, readxl, here, janitor, dplyr ) #load data for examples smoke_complete &lt;- read_excel(&quot;data/smoke_complete.xlsx&quot;, sheet =1, na= &quot;NA&quot;) #prepare data for analysis smoke_sample &lt;- smoke_complete %&gt;% #create small sample sample_n(., 10) %&gt;% #keep only relevant fields select(primary_diagnosis, tumor_stage, disease) #output example data set for reference (smoke_sample) ## # A tibble: 10 x 3 ## primary_diagnosis tumor_stage disease ## &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; ## 1 C34.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sph-r-programming-2023.netlify.app/functions/forcats_fct_lump/">
@@ -236,7 +237,8 @@
   <meta property="og:site_name" content="R Programming 2023">
   <meta property="og:url" content="https://sph-r-programming-2023.netlify.app/functions/forcats_fct_lump/">
   <meta property="og:title" content="forcats::fct_lump() | R Programming 2023">
-  <meta property="og:description" content="Function of the Week:      h1 {font-size: 34px;} h1.title {font-size: 38px;} h2 {font-size: 30px;} h3 {font-size: 24px;} h4 {font-size: 18px;} h5 {font-size: 16px;} h6 {font-size: 12px;} code {color: inherit; background-color: rgba(0, 0, 0, 0.04);} pre:not([class]) { background-color: white }   code{white-space: pre-wrap;} span.smallcaps{font-variant: small-caps;} span.underline{text-decoration: underline;} div.column{display: inline-block; vertical-align: top; width: 50%;} div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;} ul.task-list{list-style: none;}  code{white-space: pre;} if (window."><meta property="og:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png">
+  <meta property="og:description" content="&lt;!DOCTYPE html&gt; Function of the Week: Function of the Week: Kathryn Liu 2022-02-02 fct_lump() In this document, I will introduce the fct_lump() function and show what it’s for.
+#load packages pacman::p_load( tidyverse, readxl, here, janitor, dplyr ) #load data for examples smoke_complete &lt;- read_excel(&quot;data/smoke_complete.xlsx&quot;, sheet =1, na= &quot;NA&quot;) #prepare data for analysis smoke_sample &lt;- smoke_complete %&gt;% #create small sample sample_n(., 10) %&gt;% #keep only relevant fields select(primary_diagnosis, tumor_stage, disease) #output example data set for reference (smoke_sample) ## # A tibble: 10 x 3 ## primary_diagnosis tumor_stage disease ## &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; ## 1 C34."><meta property="og:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
@@ -1189,7 +1191,7 @@ $(document).ready(function () {
     
     
     
-    <script src="/js/academic.min.a1c3596268a997890f5b9089b30365c6.js"></script>
+    <script src="/js/academic.min.d826a73cb8735f0e2dbcff8b72113468.js"></script>
 
     
 
