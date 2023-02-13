@@ -30,8 +30,8 @@
   
     
   
-  <meta name="description" content="R Project files This year’s class video Last Year’s Class Video Slides Another useful video Post-Class Muddiest points Clearest points Other points R Project files Please download the part4 folder from this dropbox folder link. Be sure to unzip if necessary. “Knit” the part4.Rmd file to install packages and make sure everything is working with data loading.
-(We did not finish part4, and will finish it in class 5.)">
+  <meta name="description" content="R Project files This year’s class video Last Year’s Class Video Slides Another useful video Post-Class Muddiest points Clearest points Other points   R Project files Please download the part4 folder from this dropbox folder link. Be sure to unzip if necessary. “Knit” the part4.Rmd file to install packages and make sure everything is working with data loading.
+(We did not finish part4, and will finish it in class 5.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sph-r-programming-2023.netlify.app/class/04-class/">
@@ -237,14 +237,14 @@
   <meta property="og:site_name" content="R Programming 2023">
   <meta property="og:url" content="https://sph-r-programming-2023.netlify.app/class/04-class/">
   <meta property="og:title" content="Part 4. dplyr: mutate, group_by, summarize, across | R Programming 2023">
-  <meta property="og:description" content="R Project files This year’s class video Last Year’s Class Video Slides Another useful video Post-Class Muddiest points Clearest points Other points R Project files Please download the part4 folder from this dropbox folder link. Be sure to unzip if necessary. “Knit” the part4.Rmd file to install packages and make sure everything is working with data loading.
-(We did not finish part4, and will finish it in class 5.)"><meta property="og:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png">
+  <meta property="og:description" content="R Project files This year’s class video Last Year’s Class Video Slides Another useful video Post-Class Muddiest points Clearest points Other points   R Project files Please download the part4 folder from this dropbox folder link. Be sure to unzip if necessary. “Knit” the part4.Rmd file to install packages and make sure everything is working with data loading.
+(We did not finish part4, and will finish it in class 5."><meta property="og:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2023-02-01T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2023-02-07T16:29:35-08:00">
+    <meta property="article:modified_time" content="2023-02-10T09:54:17-08:00">
   
 
   
@@ -642,7 +642,7 @@
 </div>
 <div id="slides" class="section level2">
 <h2>Slides</h2>
-<p>During “Muddiest Parts” review, we will go over <a href="https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries">these slides</a></p>
+<p>During “Muddiest Parts” review, we will go over <a href="https://sph-r-programming-2023.netlify.app/slides/05-saving-objects-vs-summaries">these slides</a></p>
 <iframe src="https://sph-r-programming-2023.netlify.app/slides/05-saving-objects-vs-summaries#1" width="672" height="400px" data-external="1">
 </iframe>
 </div>
@@ -662,7 +662,7 @@
 </div>
 <div id="muddiest-points" class="section level1">
 <h1>Muddiest points</h1>
-<p>I’ve noticed some confusion about what I call “saving your work”, so we’ll go over <a href="https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries">these slides</a>.</p>
+<p>I’ve noticed some confusion about what I call “saving your work”, so we’ll go over <a href="https://sph-r-programming-2023.netlify.app/slides/05-saving-objects-vs-summaries">these slides</a>.</p>
 <blockquote>
 <p>using factors, what you’re doing and the benefit of turning things into factors in mutate</p>
 </blockquote>
@@ -733,10 +733,10 @@ myvec4</code></pre>
 <p>If I want to use that column/covariate again, I save it (so almost always, as I don’t often make a column without using it later). I usually save it back into the original data set I’m working with, that is, overwrite that object to be updated with the new column. As long as I keep track of my changes this is definitely ok. It can get confusing having too many versions of a data set floating around. If something is broken, the worst that happens is that you’ll just need to start from the beginning and reload your data (the data file will remain untouched) and re-run the code.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-## ✔ ggplot2 3.4.0      ✔ purrr   1.0.1 
-## ✔ tibble  3.1.8      ✔ dplyr   1.0.10
-## ✔ tidyr   1.2.1      ✔ stringr 1.5.0 
-## ✔ readr   2.1.3      ✔ forcats 0.5.2 
+## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+## ✔ readr   2.1.2     ✔ forcats 0.5.1
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
@@ -759,7 +759,8 @@ penguins %&gt;%
 ##  9 Adelie  Torgersen           34.1      18.1     193    3475 &lt;NA&gt;   2007   1.88
 ## 10 Adelie  Torgersen           42        20.2     190    4250 &lt;NA&gt;   2007   2.08
 ## # … with 334 more rows, and abbreviated variable names ¹​bill_depth_mm,
-## #   ²​flipper_length_mm, ³​body_mass_g</code></pre>
+## #   ²​flipper_length_mm, ³​body_mass_g
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <pre class="r"><code># saves new column in a data frame that is called penguins2
 penguins2 &lt;- penguins %&gt;% 
   mutate(newvec = bill_length_mm/bill_depth_mm)
@@ -904,7 +905,7 @@ penguins %&gt;%
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on February 7, 2023</p>
+                    <p>Last updated on February 10, 2023</p>
 
                     
 
@@ -1036,7 +1037,7 @@ penguins %&gt;%
     
     
     
-    <script src="/js/academic.min.d826a73cb8735f0e2dbcff8b72113468.js"></script>
+    <script src="/js/academic.min.a1c3596268a997890f5b9089b30365c6.js"></script>
 
     
 

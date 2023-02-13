@@ -38,7 +38,7 @@ View last year's class and materials [here](https://sph-r-programming-2022.netli
 
 ## Slides
 
-During "Muddiest  Parts" review, we will go over [these slides](https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries)
+During "Muddiest  Parts" review, we will go over [these slides](https://sph-r-programming-2023.netlify.app/slides/05-saving-objects-vs-summaries)
 
 ```{r echo=FALSE}
 knitr::include_url('https://sph-r-programming-2023.netlify.app/slides/05-saving-objects-vs-summaries#1')
@@ -64,7 +64,7 @@ Please fill out the following survey and we will discuss the results during the 
 
 # Muddiest points
 
-I've noticed some confusion about what I call "saving your work", so we'll go over [these slides](https://sph-r-programming-2022.netlify.app/slides/05-saving-objects-vs-summaries).
+I've noticed some confusion about what I call "saving your work", so we'll go over [these slides](https://sph-r-programming-2023.netlify.app/slides/05-saving-objects-vs-summaries).
 
 > using factors, what you're doing and the benefit of turning things into factors in mutate
 
