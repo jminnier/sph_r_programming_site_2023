@@ -1,6 +1,6 @@
 ---
-title: "Part 5 contd (Class 6): Data summarizing, reshaping, and wrangling with multiple tables (contd)"
-linktitle: "Part 5 contd (Class 6): Data summarizing, reshaping, and wrangling with multiple tables (contd)"
+title: "(Class 6) Part 5 contd: Data summarizing, reshaping, and wrangling with multiple tables (contd)"
+linktitle: "(Class 6) Part 5 contd: Data summarizing, reshaping, and wrangling with multiple tables (contd)"
 date: "2023-02-15"
 class_date: "2023-02-15"
 output:
@@ -21,7 +21,7 @@ editor_options:
 ## R Project files
 
 
-In this class we will finish the part5 material from [this folder link](https://bit.ly/bsta504_dropbox_2023). There are a couple updates so please download `part5-part2.Rmd` and `part5-haven.Rmd`
+In this class we will finish the part5 material from [this folder link](https://bit.ly/bsta504_dropbox_2023). There are a couple updates so please download `part5_updated.Rmd` and `part5_haven.Rmd`.
 
 ## Class Video
 
