@@ -309,6 +309,18 @@ Whoever had the brilliant idea of “raising hand” during zoom class, definite
 
 # Clearest points
 
+> palettes
+> mutate()
+> case_when()
+> here
+> group_by() and summarize
+> ggplots
+
+Great, we are getting there!
+
+> The section on color palettes was clearest. It is nice to be given so many options and resources.
+
+Oh good, I was worried that I spent too much time on this, so glad you find it helpful.
 
 # Other
 
