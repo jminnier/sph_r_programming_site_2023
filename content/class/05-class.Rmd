@@ -23,6 +23,12 @@ editor_options:
 
 Please download the `part5` folder from [this dropbox folder link](https://bit.ly/bsta504_dropbox_2023). Be sure to unzip if necessary. "Knit" the `code/part5.Rmd` file to install packages and make sure everything is working with data loading.
 
+
+
+## This year's class video
+
+See Slack for the zoom recording link (though zoom had some malfunction that failed to show the correct Rstudio screen, so last year's video may be more helpful)
+
 ## Last Year's Class Video (Part 5)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_V7cKw39Fzc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -56,4 +62,312 @@ Please fill out the following survey and we will discuss the results during the 
 
 
 <https://bit.ly/bsta504_postclass_survey>
+
+
+
+# Muddiest points
+
+> I wasn't super unclear about it, but just want to be more comfortable using summarize() and across and group_by functions. It looks like these will be really useful for future data projects, so that's exciting!
+> across function was a bit hazy because screen kept freezing
+
+Sorry the zoom malfunctioned during this rather important and confusing section!
+
+We will have more practice with `across` in other sections but the main points I want to get across (ha) are:
+
+- `group_by()` is used to "group the data" (a.k.a "split") by a categorical variable, and then all kinds of computations can be done within groups including `summarize()` but also `slice()` (such as `slice_sample()`) and later we will see this with `nest()` etc.
+- `summarize()` can be used with or without `group_by()` to collapse a big data set into a summarized table/data frame/tibble. This is still data, it's just summarized data. Be careful when you are saving it, don't overwrite your original data.
+- `across()` can be used inside `mutate()` and `summarize()` to "select" the columns we want to transform/mutate or summarize
+- `across()` uses what we call "tidyselect" syntax. For explanation and examples you can type `?dplyr_tidy_select` or go to this [website.](https://tidyselect.r-lib.org/reference/language.html)
+
+> the syntax of .x ~
+
+We use this when we are creating our own function inside of mutate. Think of algebra, where if we want to add something we might say:
+
+```
+y = x + 3
+y = x/10
+y = log(x)
+y = exp(x)^3 - x/10
+```
+
+This is the same idea, except it's just written with the special syntax/variable name that R knows how to interpret, where we use `.x` instead of `x`:
+
+```
+y = .x + 3
+y = .x/10
+y = log(.x)
+y = exp(.x)^3 - .x/10
+```
+
+But we also need to use `~` to tell R, here's a function! and we use the argument name and equal sign `.fns = ` to say, here we are inputting the custom function as the argument input. If you look at the help `?across` we see this is called "A purrr-style lambda" because we use it in the `purrr` package functions as well (we will see this later):
+
+```{r, eval = FALSE}
+# think of this as input to the argument of across()
+# typical argument syntax arg = _____
+.fns = ~ .x+3
+.fns = ~ .x/10
+.fns = ~ log(.x)
+.fns = ~ exp(.x)^3 - .x/10
+```
+
+And this needs to go inside the nested functions `mutate(across())` as an argument: `mutate(across(.cols = ----, .fns = ----))`:
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+
+penguins %>% mutate(
+  across(.cols = c(bill_length_mm, body_mass_g),
+         .fns = ~ exp(.x)^3 - .x/10))
+```
+
+We can also apply multiple functions by putting them inside a `list()` and we can give them names:
+
+```{r}
+# here we have 3 functions
+penguins %>% mutate(
+  across(.cols = c(bill_length_mm, body_mass_g),
+         .fns = list(
+           ~ .x/3,
+           log, # just using the named function, don't need .x
+           ~ exp(.x)^3 - .x/10))) %>%
+  glimpse()
+
+# here we have the same 3 functions but with names
+penguins %>% mutate(
+  across(.cols = c(bill_length_mm, body_mass_g),
+         .fns = list(
+           fn1 = ~ .x/3,
+           log = log,
+           fn2 = ~ exp(.x)^3 - .x/10))) %>%
+  glimpse()
+```
+
+
+> how do we change the names when using across() inside mutate()
+
+I skipped this for the sake of time and to avoid confusion last class and showed you how to do this using `rename()` instead, but let's go over it now a little bit. 
+
+The `.names` argument inside `across()` uses a function called `glue()` inside the package `glue`. We haven't covered `glue` package syntax yet (it's in part9) but think of it as a string concatenating ("gluing") method where we write out what we want to be in the text string inside quotes, but use variable names and code functions inside of the quotes in a special way. The important part to know right now is that the stuff inside `{}` is code, and everything else is just text. Here when we use `.col` inside the glue code that is the stand-in for the column name, so `"{.col}"` is literally just the column name, and `"{.col}_fun"` is the column name with "_fun" appended to it.
+
+Here are some simple glue examples:
+
+```{r}
+library(glue)
+glue("hello")
+
+myname <- "jessica"
+
+glue("hello {myname}")
+
+glue("hello {myname}, how are you?")
+
+firstname <- "jane"
+lastname <- "doe"
+glue("{firstname}_{lastname}")
+```
+
+Look at `?across` and the `.names` argument for some info and the defaults.
+
+```{r}
+# Does not change names of transformed columns
+# no longer accruate since not mm
+penguins %>%
+  mutate(
+    across(.cols = ends_with("mm"), .fns = ~ .x/10)) %>%
+  glimpse()
+
+# adds cm to end of column names, but still has mm, confusing
+penguins %>%
+  mutate(
+    across(.cols = ends_with("mm"),
+           .fns = ~ .x/10,
+           .names = "{.col}_cm")) %>%
+  glimpse()
+
+# code inside the {} is evaluated, 
+# so we can use stringr::str_remove() to remove what we don't want there
+# str_remove_all() also works
+# note now we have kept the original columns as well
+# note we need single quotes for the glue code because we are wrapping it in
+# double quotes already
+penguins %>%
+  mutate(
+    across(.cols = ends_with("mm"),
+           .fns = ~ .x/10,
+           .names = "{str_remove(.col,'_mm')}_cm")) %>%
+  glimpse()
+
+# alternative that works here is using str_replace()
+penguins %>%
+  mutate(
+    across(.cols = ends_with("mm"),
+           .fns = ~ .x/10,
+           .names = "{str_replace(.col,'_mm', '_cm')}")) %>%
+  glimpse()
+
+```
+
+> It's unclear to me if there is distinction between using 'str_remove_all' and 'separate()' when we talked about removing "years old" from the column "age". Are there particular circumstances where one is preferred over the other?
+
+In R and in programming in general, there are always multiple ways to do the same thing. Often many, many ways! There is no preferred way just which makes the most sense to you/which you are most comfortable with.
+
+For me, I like to use the `stringr` functions to remove stuff from columns that I don't want, because it is the most "clear" to me and also probably to anyone reading my code.
+
+The `separate()` way is more of a clever trick, an "out of the box" way to use an existing function that works for our needs in this case. There are a lot of things like that, and it's perfectly ok to use them if you understand what they are doing and why.
+
+> arrange with two variables
+
+Here's a simple example so we can see how `arrange()` works with two categories (this is analogous to sorting by two variables in excel)
+
+```{r}
+mydata <- tibble(
+  id = 1:4,
+  animal = c("cat","mouse","dog","cat"),
+  weight = c(10, 1, 20, 8),
+  age = c(15, 3, 3, 20))
+
+mydata
+
+mydata %>% arrange(weight)
+
+mydata %>% arrange(animal)
+
+# arrange by animal first, then weight within animal categories
+mydata %>% arrange(animal, weight)
+
+# does not do anything in this case, but would arrange by age if there were ties in the weight column within the animal category
+mydata %>% arrange(animal, weight, age)
+```
+
+> stringr::str_to_title()
+
+Just a clarification:
+
+Remember to read help documentation and look at examples if still not clear!
+
+```{r}
+str_to_title("hello")
+
+str_to_title("hello my name is jessica")
+
+str_to_title("HELLO MY name is jessica")
+```
+
+There are other similar "case conversion" functions as well:
+
+```{r}
+str_to_upper("HELLO MY name is jessica")
+
+str_to_lower("HELLO MY name is jessica")
+
+str_to_sentence("HELLO MY name is jessica")
+```
+
+> stringing together multiple commands in a pipe, which comes first and which functions are safe to put inside other functions- and if so- how do you know what order to put them in.
+
+You'll want to put them in the order that you want the operations to be performed.
+
+For instance, if you want to summarize a data set after filtering, then put `filter()` first then `summarize()`. When in doubt, don't string them together just do them one at a time!
+
+Regarding `which functions are safe to put inside other functions` I am not sure exactly what you mean, but perhaps it's the `summarize(across())` type situation that is causing confusion. In this case, the result of `across()` becomes an argument input for `summarize()`. We also use functions as arguments inside `across()`.
+
+This part will require just more experience seeing what functions go where and getting used to all the syntax. I'll try to point out specific examples where it makes sense to put functions inside other functions, but in general the tidyverse "verbs" such as `mutate()`, `select()`, `filter()`, `summarize()`, `separate()`, `rename()` are done in some kind of order that makes sense for how you want to transform your data, and they are chained together by pipes or done one at a time.
+
+```{r}
+
+# mutate first
+penguins <- penguins %>% mutate(bill_length_cm = bill_length_mm/10)
+
+# create a filtered data sest of just female penguins
+penguins_f <- penguins %>% filter(sex=="female")
+
+# we could have mutated *after* filtering in this case, it doesn't matter if we only care about the female penguins
+
+# summarize that female penguin data set, don't save as anything
+# just print it out
+penguins_f %>% summarize(across( # across goes inside summarize
+  .cols = where(is.numeric), # where() is a function inside across()
+  .fns = mean, na.rm = TRUE))
+
+
+```
+
+
+> Importing files from other statistical programs, such as SAS and Stata
+> joining tables
+> joining two tables seems scary!
+
+We will cover these in class 6! We haven't talked about joining yet, just "stacking" tables with `bind_rows()`. Hopefully talking about join will make the difference more clear.
+
+> zoom issues, try restarting R?
+
+Good idea I'll try that next time! Hope there isn't a next time... 
+
+Whoever had the brilliant idea of “raising hand” during zoom class, definitely do that if you want to get my attention because I can see that but not the chat while teaching, and sometimes the audio in the room forces my computer to go on mute even when I unmute it.
+
+
+# Clearest points
+
+
+# Other
+
+> When we encounter many categories (eg. 100+) in a variable, how do we plot the top 5% or 10% of the data using ggplot?
+
+Hmm this is a pretty open ended question and could mean a lot of different things, but initial thought is you mean something like: "we have a lot of categories, we want to only plot a summary (i.e. boxplot) of the 5% most common categories." It's a very specific kind of question but I'll show it in class as an excuse to show more `forcats` functions with factors.
+
+```{r}
+library(gapminder)
+library(janitor)
+set.seed(500) # set my random seed so the sampling is always the same
+
+# create a data that has uneven number of obs for each country
+mydata <- gapminder %>% slice_sample(prop=.2) 
+
+# we can see some countries have more observations than others
+mydata %>%
+  tabyl(country) %>%
+  arrange(desc(n))
+
+# note country is a factor
+glimpse(mydata)
+```
+
+
+```{r}
+# If we only want the categories with at least 5 levels, for example, we could lump everything else into an "other" category:
+
+mydata <- mydata %>% mutate(country_lump = fct_lump_min(country, min=5))
+mydata %>% tabyl(country_lump)
+
+# plot all countries
+ggplot(mydata, aes(x=country, y=lifeExp, color = year)) +
+  geom_point() + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
+
+# plot just the most common ones
+ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
+  geom_point() + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
+
+# remove the other category
+ggplot(mydata %>% filter(country_lump!="Other"), 
+       aes(x=country_lump, y=lifeExp, color = year)) +
+  geom_point() + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
+
+# plot in order of number of observations
+levels(mydata$country_lump)
+
+# this relevels the factor in order of frequency:
+mydata <- mydata %>% 
+  mutate(country_lump = fct_infreq(country_lump))
+levels(mydata$country_lump)
+
+# now plotting order has changed
+ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
+  geom_point() + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))
+  
+```
 

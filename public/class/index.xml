@@ -1053,16 +1053,24 @@ penguins %&amp;gt;%
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#this-years-class-video&#34; id=&#34;toc-this-years-class-video&#34;&gt;This year’s class video&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#last-years-class-video-part-5&#34; id=&#34;toc-last-years-class-video-part-5&#34;&gt;Last Year’s Class Video (Part 5)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#another-useful-video&#34; id=&#34;toc-another-useful-video&#34;&gt;Another useful video&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#useful-ggplot2-links&#34; id=&#34;toc-useful-ggplot2-links&#34;&gt;Useful ggplot2 links&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34; id=&#34;toc-muddiest-points&#34;&gt;Muddiest points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clearest-points&#34; id=&#34;toc-clearest-points&#34;&gt;Clearest points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other&#34; id=&#34;toc-other&#34;&gt;Other&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
 &lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Project files&lt;/h2&gt;
 &lt;p&gt;Please download the &lt;code&gt;part5&lt;/code&gt; folder from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this dropbox folder link&lt;/a&gt;. Be sure to unzip if necessary. “Knit” the &lt;code&gt;code/part5.Rmd&lt;/code&gt; file to install packages and make sure everything is working with data loading.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;this-years-class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;This year’s class video&lt;/h2&gt;
+&lt;p&gt;See Slack for the zoom recording link (though zoom had some malfunction that failed to show the correct Rstudio screen, so last year’s video may be more helpful)&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;last-years-class-video-part-5&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Last Year’s Class Video (Part 5)&lt;/h2&gt;
@@ -1093,13 +1101,553 @@ penguins %&amp;gt;%
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;div id=&#34;muddiest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Muddiest points&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I wasn’t super unclear about it, but just want to be more comfortable using summarize() and across and group_by functions. It looks like these will be really useful for future data projects, so that’s exciting!
+across function was a bit hazy because screen kept freezing&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sorry the zoom malfunctioned during this rather important and confusing section!&lt;/p&gt;
+&lt;p&gt;We will have more practice with &lt;code&gt;across&lt;/code&gt; in other sections but the main points I want to get across (ha) are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;group_by()&lt;/code&gt; is used to “group the data” (a.k.a “split”) by a categorical variable, and then all kinds of computations can be done within groups including &lt;code&gt;summarize()&lt;/code&gt; but also &lt;code&gt;slice()&lt;/code&gt; (such as &lt;code&gt;slice_sample()&lt;/code&gt;) and later we will see this with &lt;code&gt;nest()&lt;/code&gt; etc.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;summarize()&lt;/code&gt; can be used with or without &lt;code&gt;group_by()&lt;/code&gt; to collapse a big data set into a summarized table/data frame/tibble. This is still data, it’s just summarized data. Be careful when you are saving it, don’t overwrite your original data.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;across()&lt;/code&gt; can be used inside &lt;code&gt;mutate()&lt;/code&gt; and &lt;code&gt;summarize()&lt;/code&gt; to “select” the columns we want to transform/mutate or summarize&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;across()&lt;/code&gt; uses what we call “tidyselect” syntax. For explanation and examples you can type &lt;code&gt;?dplyr_tidy_select&lt;/code&gt; or go to this &lt;a href=&#34;https://tidyselect.r-lib.org/reference/language.html&#34;&gt;website.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;the syntax of .x ~&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We use this when we are creating our own function inside of mutate. Think of algebra, where if we want to add something we might say:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;y = x + 3
+y = x/10
+y = log(x)
+y = exp(x)^3 - x/10&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is the same idea, except it’s just written with the special syntax/variable name that R knows how to interpret, where we use &lt;code&gt;.x&lt;/code&gt; instead of &lt;code&gt;x&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;y = .x + 3
+y = .x/10
+y = log(.x)
+y = exp(.x)^3 - .x/10&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But we also need to use &lt;code&gt;~&lt;/code&gt; instead of &lt;code&gt;=&lt;/code&gt; here to tell R, here’s a function! and we use the argument name &lt;code&gt;.fns =&lt;/code&gt; to say, here we are inputting the custom function as the argument input. If you look at the help &lt;code&gt;?across&lt;/code&gt; we see this is called “A purrr-style lambda” because we use it in the &lt;code&gt;purrr&lt;/code&gt; package functions as well (we will see this later):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# think of this as input to the argument of across()
+.fns = ~ .x+3
+.fns = ~ .x/10
+.fns = ~ log(.x)
+.fns = ~ exp(.x)^3 - .x/10&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And this needs to go inside the nested functions &lt;code&gt;mutate(across())&lt;/code&gt; as an argument: &lt;code&gt;mutate(across(.cols = ----, .fns = ----))&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+## ✔ readr   2.1.2     ✔ forcats 0.5.1
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(palmerpenguins)
+
+penguins %&amp;gt;% mutate(
+  across(.cols = c(bill_length_mm, body_mass_g),
+         .fns = ~ exp(.x)^3 - .x/10))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 344 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex    year
+##    &amp;lt;fct&amp;gt;   &amp;lt;fct&amp;gt;              &amp;lt;dbl&amp;gt;         &amp;lt;dbl&amp;gt;      &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;int&amp;gt;
+##  1 Adelie  Torgersen        8.76e50          18.7        181     Inf male   2007
+##  2 Adelie  Torgersen        2.91e51          17.4        186     Inf fema…  2007
+##  3 Adelie  Torgersen        3.21e52          18          195     Inf fema…  2007
+##  4 Adelie  Torgersen       NA                NA           NA      NA &amp;lt;NA&amp;gt;   2007
+##  5 Adelie  Torgersen        6.54e47          19.3        193     Inf fema…  2007
+##  6 Adelie  Torgersen        1.60e51          20.6        190     Inf male   2007
+##  7 Adelie  Torgersen        4.81e50          17.8        181     Inf fema…  2007
+##  8 Adelie  Torgersen        1.18e51          19.6        195     Inf male   2007
+##  9 Adelie  Torgersen        2.68e44          18.1        193     Inf &amp;lt;NA&amp;gt;   2007
+## 10 Adelie  Torgersen        5.26e54          20.2        190     Inf &amp;lt;NA&amp;gt;   2007
+## # … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,
+## #   ²​body_mass_g
+## # ℹ Use `print(n = ...)` to see more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also apply multiple functions by putting them inside a &lt;code&gt;list()&lt;/code&gt; and we can give them names:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# here we have 3 functions
+penguins %&amp;gt;% mutate(
+  across(.cols = c(bill_length_mm, body_mass_g),
+         .fns = list(
+           ~ .x/3,
+           log, # just using the named function, don&amp;#39;t need .x
+           ~ exp(.x)^3 - .x/10))) %&amp;gt;%
+  glimpse()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 344
+## Columns: 14
+## $ species           &amp;lt;fct&amp;gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &amp;lt;fct&amp;gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    &amp;lt;dbl&amp;gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+## $ bill_depth_mm     &amp;lt;dbl&amp;gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+## $ flipper_length_mm &amp;lt;int&amp;gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+## $ body_mass_g       &amp;lt;int&amp;gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               &amp;lt;fct&amp;gt; male, female, female, NA, female, male, female, male…
+## $ year              &amp;lt;int&amp;gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
+## $ bill_length_mm_1  &amp;lt;dbl&amp;gt; 13.03333, 13.16667, 13.43333, NA, 12.23333, 13.10000…
+## $ bill_length_mm_2  &amp;lt;dbl&amp;gt; 3.666122, 3.676301, 3.696351, NA, 3.602777, 3.671225…
+## $ bill_length_mm_3  &amp;lt;dbl&amp;gt; 8.764814e+50, 2.910021e+51, 3.207767e+52, NA, 6.5436…
+## $ body_mass_g_1     &amp;lt;dbl&amp;gt; 1250.000, 1266.667, 1083.333, NA, 1150.000, 1216.667…
+## $ body_mass_g_2     &amp;lt;dbl&amp;gt; 8.229511, 8.242756, 8.086410, NA, 8.146130, 8.202482…
+## $ body_mass_g_3     &amp;lt;dbl&amp;gt; Inf, Inf, Inf, NA, Inf, Inf, Inf, Inf, Inf, Inf, Inf…&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# here we have the same 3 functions but with names
+penguins %&amp;gt;% mutate(
+  across(.cols = c(bill_length_mm, body_mass_g),
+         .fns = list(
+           fn1 = ~ .x/3,
+           log = log,
+           fn2 = ~ exp(.x)^3 - .x/10))) %&amp;gt;%
+  glimpse()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 344
+## Columns: 14
+## $ species            &amp;lt;fct&amp;gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Ade…
+## $ island             &amp;lt;fct&amp;gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgers…
+## $ bill_length_mm     &amp;lt;dbl&amp;gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1,…
+## $ bill_depth_mm      &amp;lt;dbl&amp;gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1,…
+## $ flipper_length_mm  &amp;lt;int&amp;gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 18…
+## $ body_mass_g        &amp;lt;int&amp;gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475,…
+## $ sex                &amp;lt;fct&amp;gt; male, female, female, NA, female, male, female, mal…
+## $ year               &amp;lt;int&amp;gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 200…
+## $ bill_length_mm_fn1 &amp;lt;dbl&amp;gt; 13.03333, 13.16667, 13.43333, NA, 12.23333, 13.1000…
+## $ bill_length_mm_log &amp;lt;dbl&amp;gt; 3.666122, 3.676301, 3.696351, NA, 3.602777, 3.67122…
+## $ bill_length_mm_fn2 &amp;lt;dbl&amp;gt; 8.764814e+50, 2.910021e+51, 3.207767e+52, NA, 6.543…
+## $ body_mass_g_fn1    &amp;lt;dbl&amp;gt; 1250.000, 1266.667, 1083.333, NA, 1150.000, 1216.66…
+## $ body_mass_g_log    &amp;lt;dbl&amp;gt; 8.229511, 8.242756, 8.086410, NA, 8.146130, 8.20248…
+## $ body_mass_g_fn2    &amp;lt;dbl&amp;gt; Inf, Inf, Inf, NA, Inf, Inf, Inf, Inf, Inf, Inf, In…&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;how do we change the names when using across() inside mutate()&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I skipped this for the sake of time and to avoid confusion last class and showed you how to do this using &lt;code&gt;rename()&lt;/code&gt; instead, but let’s go over it now a little bit. We haven’t covered &lt;code&gt;glue&lt;/code&gt; package syntax yet (it’s in part9) but think of it as a string concatenating (“gluing”) method that has specific syntax. The important part to know is that the stuff inside &lt;code&gt;{}&lt;/code&gt; is code, and everything else is just text. Look at &lt;code&gt;?across&lt;/code&gt; and the &lt;code&gt;.names&lt;/code&gt; argument for some info and the defaults.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Does not change names of transformed columns
+# no longer accruate since not mm
+penguins %&amp;gt;%
+  mutate(
+    across(.cols = ends_with(&amp;quot;mm&amp;quot;), .fns = ~ .x/10)) %&amp;gt;%
+  glimpse()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 344
+## Columns: 8
+## $ species           &amp;lt;fct&amp;gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &amp;lt;fct&amp;gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    &amp;lt;dbl&amp;gt; 3.91, 3.95, 4.03, NA, 3.67, 3.93, 3.89, 3.92, 3.41, …
+## $ bill_depth_mm     &amp;lt;dbl&amp;gt; 1.87, 1.74, 1.80, NA, 1.93, 2.06, 1.78, 1.96, 1.81, …
+## $ flipper_length_mm &amp;lt;dbl&amp;gt; 18.1, 18.6, 19.5, NA, 19.3, 19.0, 18.1, 19.5, 19.3, …
+## $ body_mass_g       &amp;lt;int&amp;gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               &amp;lt;fct&amp;gt; male, female, female, NA, female, male, female, male…
+## $ year              &amp;lt;int&amp;gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# adds cm to end of column names, but still has mm, confusing
+penguins %&amp;gt;%
+  mutate(
+    across(.cols = ends_with(&amp;quot;mm&amp;quot;),
+           .fns = ~ .x/10,
+           .names = &amp;quot;{.col}_cm&amp;quot;)) %&amp;gt;%
+  glimpse()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 344
+## Columns: 11
+## $ species              &amp;lt;fct&amp;gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, A…
+## $ island               &amp;lt;fct&amp;gt; Torgersen, Torgersen, Torgersen, Torgersen, Torge…
+## $ bill_length_mm       &amp;lt;dbl&amp;gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.…
+## $ bill_depth_mm        &amp;lt;dbl&amp;gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.…
+## $ flipper_length_mm    &amp;lt;int&amp;gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, …
+## $ body_mass_g          &amp;lt;int&amp;gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 347…
+## $ sex                  &amp;lt;fct&amp;gt; male, female, female, NA, female, male, female, m…
+## $ year                 &amp;lt;int&amp;gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2…
+## $ bill_length_mm_cm    &amp;lt;dbl&amp;gt; 3.91, 3.95, 4.03, NA, 3.67, 3.93, 3.89, 3.92, 3.4…
+## $ bill_depth_mm_cm     &amp;lt;dbl&amp;gt; 1.87, 1.74, 1.80, NA, 1.93, 2.06, 1.78, 1.96, 1.8…
+## $ flipper_length_mm_cm &amp;lt;dbl&amp;gt; 18.1, 18.6, 19.5, NA, 19.3, 19.0, 18.1, 19.5, 19.…&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# code inside the {} is evaluated, 
+# so we can use stringr::str_remove() to remove what we don&amp;#39;t want there
+# str_remove_all() also works
+# note now we have kept the original columns as well
+# note we need single quotes for the glue code because we are wrapping it in
+# double quotes already
+penguins %&amp;gt;%
+  mutate(
+    across(.cols = ends_with(&amp;quot;mm&amp;quot;),
+           .fns = ~ .x/10,
+           .names = &amp;quot;{str_remove(.col,&amp;#39;_mm&amp;#39;)}_cm&amp;quot;)) %&amp;gt;%
+  glimpse()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 344
+## Columns: 11
+## $ species           &amp;lt;fct&amp;gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &amp;lt;fct&amp;gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    &amp;lt;dbl&amp;gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+## $ bill_depth_mm     &amp;lt;dbl&amp;gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+## $ flipper_length_mm &amp;lt;int&amp;gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+## $ body_mass_g       &amp;lt;int&amp;gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               &amp;lt;fct&amp;gt; male, female, female, NA, female, male, female, male…
+## $ year              &amp;lt;int&amp;gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
+## $ bill_length_cm    &amp;lt;dbl&amp;gt; 3.91, 3.95, 4.03, NA, 3.67, 3.93, 3.89, 3.92, 3.41, …
+## $ bill_depth_cm     &amp;lt;dbl&amp;gt; 1.87, 1.74, 1.80, NA, 1.93, 2.06, 1.78, 1.96, 1.81, …
+## $ flipper_length_cm &amp;lt;dbl&amp;gt; 18.1, 18.6, 19.5, NA, 19.3, 19.0, 18.1, 19.5, 19.3, …&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# alternative that works here is using str_replace()
+penguins %&amp;gt;%
+  mutate(
+    across(.cols = ends_with(&amp;quot;mm&amp;quot;),
+           .fns = ~ .x/10,
+           .names = &amp;quot;{str_replace(.col,&amp;#39;_mm&amp;#39;, &amp;#39;_cm&amp;#39;)}&amp;quot;)) %&amp;gt;%
+  glimpse()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 344
+## Columns: 11
+## $ species           &amp;lt;fct&amp;gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &amp;lt;fct&amp;gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    &amp;lt;dbl&amp;gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+## $ bill_depth_mm     &amp;lt;dbl&amp;gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+## $ flipper_length_mm &amp;lt;int&amp;gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+## $ body_mass_g       &amp;lt;int&amp;gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               &amp;lt;fct&amp;gt; male, female, female, NA, female, male, female, male…
+## $ year              &amp;lt;int&amp;gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
+## $ bill_length_cm    &amp;lt;dbl&amp;gt; 3.91, 3.95, 4.03, NA, 3.67, 3.93, 3.89, 3.92, 3.41, …
+## $ bill_depth_cm     &amp;lt;dbl&amp;gt; 1.87, 1.74, 1.80, NA, 1.93, 2.06, 1.78, 1.96, 1.81, …
+## $ flipper_length_cm &amp;lt;dbl&amp;gt; 18.1, 18.6, 19.5, NA, 19.3, 19.0, 18.1, 19.5, 19.3, …&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It’s unclear to me if there is distinction between using ‘str_remove_all’ and ‘separate()’ when we talked about removing “years old” from the column “age”. Are there particular circumstances where one is preferred over the other?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In R and in programming in general, there are always multiple ways to do the same thing. Often many, many ways! There is no preferred way just which makes the most sense to you/which you are most comfortable with.&lt;/p&gt;
+&lt;p&gt;For me, I like to use the &lt;code&gt;stringr&lt;/code&gt; functions to remove stuff from columns that I don’t want, because it is the most “clear” to me and also probably to anyone reading my code.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;separate()&lt;/code&gt; way is more of a clever trick, an “out of the box” way to use an existing function that works for our needs in this case. There are a lot of things like that, and it’s perfectly ok to use them if you understand what they are doing and why.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;arrange with two variables&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Here’s a simple example so we can see how &lt;code&gt;arrange()&lt;/code&gt; works with two categories (this is analogous to sorting by two variables in excel)&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- tibble(
+  id = 1:4,
+  animal = c(&amp;quot;cat&amp;quot;,&amp;quot;mouse&amp;quot;,&amp;quot;dog&amp;quot;,&amp;quot;cat&amp;quot;),
+  weight = c(10, 1, 20, 8),
+  age = c(15, 3, 3, 20))
+
+mydata&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 × 4
+##      id animal weight   age
+##   &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1     1 cat        10    15
+## 2     2 mouse       1     3
+## 3     3 dog        20     3
+## 4     4 cat         8    20&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata %&amp;gt;% arrange(weight)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 × 4
+##      id animal weight   age
+##   &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1     2 mouse       1     3
+## 2     4 cat         8    20
+## 3     1 cat        10    15
+## 4     3 dog        20     3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata %&amp;gt;% arrange(animal)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 × 4
+##      id animal weight   age
+##   &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1     1 cat        10    15
+## 2     4 cat         8    20
+## 3     3 dog        20     3
+## 4     2 mouse       1     3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# arrange by animal first, then weight within animal categories
+mydata %&amp;gt;% arrange(animal, weight)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 × 4
+##      id animal weight   age
+##   &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1     4 cat         8    20
+## 2     1 cat        10    15
+## 3     3 dog        20     3
+## 4     2 mouse       1     3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# does not do anything in this case, but would arrange by age if there were ties in the weight column within the animal category
+mydata %&amp;gt;% arrange(animal, weight, age)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 × 4
+##      id animal weight   age
+##   &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1     4 cat         8    20
+## 2     1 cat        10    15
+## 3     3 dog        20     3
+## 4     2 mouse       1     3&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;stringr::str_to_title()&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Just a clarification:&lt;/p&gt;
+&lt;p&gt;Remember to read help documentation and look at examples if still not clear!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_to_title(&amp;quot;hello&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Hello&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_to_title(&amp;quot;hello my name is jessica&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Hello My Name Is Jessica&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_to_title(&amp;quot;HELLO MY name is jessica&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Hello My Name Is Jessica&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are other similar “case conversion” functions as well:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_to_upper(&amp;quot;HELLO MY name is jessica&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;HELLO MY NAME IS JESSICA&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_to_lower(&amp;quot;HELLO MY name is jessica&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;hello my name is jessica&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_to_sentence(&amp;quot;HELLO MY name is jessica&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Hello my name is jessica&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;stringing together multiple commands in a pipe, which comes first and which functions are safe to put inside other functions- and if so- how do you know what order to put them in.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You’ll want to put them in the order that you want the operations to be performed.&lt;/p&gt;
+&lt;p&gt;For instance, if you want to summarize a data set after filtering, then put &lt;code&gt;filter()&lt;/code&gt; first then &lt;code&gt;summarize()&lt;/code&gt;. When in doubt, don’t string them together just do them one at a time!&lt;/p&gt;
+&lt;p&gt;Regarding &lt;code&gt;which functions are safe to put inside other functions&lt;/code&gt; I am not sure exactly what you mean, but perhaps it’s the &lt;code&gt;summarize(across())&lt;/code&gt; type situation that is causing confusion. In this case, the result of &lt;code&gt;across()&lt;/code&gt; becomes an argument input for &lt;code&gt;summarize()&lt;/code&gt;. We also use functions as arguments inside &lt;code&gt;across()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This part will require just more experience seeing what functions go where and getting used to all the syntax. I’ll try to point out specific examples where it makes sense to put functions inside other functions, but in general the tidyverse “verbs” such as &lt;code&gt;mutate()&lt;/code&gt;, &lt;code&gt;select()&lt;/code&gt;, &lt;code&gt;filter()&lt;/code&gt;, &lt;code&gt;summarize()&lt;/code&gt;, &lt;code&gt;separate()&lt;/code&gt;, &lt;code&gt;rename()&lt;/code&gt; are done in some kind of order that makes sense for how you want to transform your data, and they are chained together by pipes or done one at a time.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mutate first
+penguins &amp;lt;- penguins %&amp;gt;% mutate(bill_length_cm = bill_length_mm/10)
+
+# create a filtered data sest of just female penguins
+penguins_f &amp;lt;- penguins %&amp;gt;% filter(sex==&amp;quot;female&amp;quot;)
+
+# we could have mutated *after* filtering in this case, it doesn&amp;#39;t matter if we only care about the female penguins
+
+# summarize that female penguin data set, don&amp;#39;t save as anything
+# just print it out
+penguins_f %&amp;gt;% summarize(across( # across goes inside summarize
+  .cols = where(is.numeric), # where() is a function inside across()
+  .fns = mean, na.rm = TRUE))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1 × 6
+##   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year bill_length…¹
+##            &amp;lt;dbl&amp;gt;         &amp;lt;dbl&amp;gt;             &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;         &amp;lt;dbl&amp;gt;
+## 1           42.1          16.4              197.       3862. 2008.          4.21
+## # … with abbreviated variable name ¹​bill_length_cm&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Importing files from other statistical programs, such as SAS and Stata
+joining tables
+joining two tables seems scary!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We will cover these in class 6! We haven’t talked about joining yet, just “stacking” tables with &lt;code&gt;bind_rows()&lt;/code&gt;. Hopefully talking about join will make the difference more clear.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;zoom issues, try restarting R?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Good idea I’ll try that next time! Hope there isn’t a next time…&lt;/p&gt;
+&lt;p&gt;Whoever had the brilliant idea of “raising hand” during zoom class, definitely do that if you want to get my attention because I can see that but not the chat while teaching, and sometimes the audio in the room forces my computer to go on mute even when I unmute it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clearest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Clearest points&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Other&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When we encounter many categories (eg. 100+) in a variable, how do we plot the top 5% or 10% of the data using ggplot?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Hmm this is a pretty open ended question and could mean a lot of different things, but initial thought is you mean something like: “we have a lot of categories, we want to only plot a summary (i.e. boxplot) of the 5% most common categories.” It’s a very specific kind of question but I’ll show it in class as an excuse to show more &lt;code&gt;forcats&lt;/code&gt; functions with factors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gapminder)
+library(janitor)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;janitor&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     chisq.test, fisher.test&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(500) # set my random seed so the sampling is always the same
+
+# create a data that has uneven number of obs for each country
+mydata &amp;lt;- gapminder %&amp;gt;% slice_sample(prop=.2) 
+
+# we can see some countries have more observations than others
+mydata %&amp;gt;%
+  tabyl(country) %&amp;gt;%
+  arrange(desc(n))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                   country n     percent
+##              Burkina Faso 6 0.017647059
+##                   Senegal 6 0.017647059
+##             Guinea-Bissau 5 0.014705882
+##                      Mali 5 0.014705882
+##                 Nicaragua 5 0.014705882
+##     Sao Tome and Principe 5 0.014705882
+##              Saudi Arabia 5 0.014705882
+##                    Serbia 5 0.014705882
+##               Switzerland 5 0.014705882
+##                   Bolivia 4 0.011764706
+##                  Botswana 4 0.011764706
+##                  Cambodia 4 0.011764706
+##               Congo, Rep. 4 0.011764706
+##                   Ecuador 4 0.011764706
+##         Equatorial Guinea 4 0.011764706
+##                    France 4 0.011764706
+##                      Iraq 4 0.011764706
+##               Korea, Rep. 4 0.011764706
+##                  Mongolia 4 0.011764706
+##                Montenegro 4 0.011764706
+##                   Namibia 4 0.011764706
+##                  Pakistan 4 0.011764706
+##                  Slovenia 4 0.011764706
+##              South Africa 4 0.011764706
+##                    Taiwan 4 0.011764706
+##       Trinidad and Tobago 4 0.011764706
+##                   Tunisia 4 0.011764706
+##                    Turkey 4 0.011764706
+##        West Bank and Gaza 4 0.011764706
+##                Bangladesh 3 0.008823529
+##  Central African Republic 3 0.008823529
+##                   Comoros 3 0.008823529
+##             Cote d&amp;#39;Ivoire 3 0.008823529
+##            Czech Republic 3 0.008823529
+##        Dominican Republic 3 0.008823529
+##               El Salvador 3 0.008823529
+##                  Ethiopia 3 0.008823529
+##                   Germany 3 0.008823529
+##                   Iceland 3 0.008823529
+##                     India 3 0.008823529
+##                 Indonesia 3 0.008823529
+##                     Italy 3 0.008823529
+##                     Japan 3 0.008823529
+##                     Kenya 3 0.008823529
+##                    Kuwait 3 0.008823529
+##                   Lebanon 3 0.008823529
+##                   Lesotho 3 0.008823529
+##                Madagascar 3 0.008823529
+##                    Malawi 3 0.008823529
+##                Mauritania 3 0.008823529
+##                Mozambique 3 0.008823529
+##                   Myanmar 3 0.008823529
+##                     Nepal 3 0.008823529
+##                     Niger 3 0.008823529
+##                      Oman 3 0.008823529
+##                  Paraguay 3 0.008823529
+##                    Rwanda 3 0.008823529
+##              Sierra Leone 3 0.008823529
+##                   Somalia 3 0.008823529
+##                 Sri Lanka 3 0.008823529
+##                  Thailand 3 0.008823529
+##                      Togo 3 0.008823529
+##                    Uganda 3 0.008823529
+##                   Vietnam 3 0.008823529
+##                  Zimbabwe 3 0.008823529
+##                    Angola 2 0.005882353
+##                 Argentina 2 0.005882353
+##                   Austria 2 0.005882353
+##                   Bahrain 2 0.005882353
+##                  Bulgaria 2 0.005882353
+##                   Burundi 2 0.005882353
+##                  Cameroon 2 0.005882353
+##                     Chile 2 0.005882353
+##                     China 2 0.005882353
+##                  Colombia 2 0.005882353
+##          Congo, Dem. Rep. 2 0.005882353
+##                   Denmark 2 0.005882353
+##                  Djibouti 2 0.005882353
+##                     Egypt 2 0.005882353
+##                   Finland 2 0.005882353
+##                     Ghana 2 0.005882353
+##                    Guinea 2 0.005882353
+##                     Haiti 2 0.005882353
+##                   Hungary 2 0.005882353
+##                   Jamaica 2 0.005882353
+##                    Jordan 2 0.005882353
+##          Korea, Dem. Rep. 2 0.005882353
+##                   Liberia 2 0.005882353
+##                     Libya 2 0.005882353
+##                    Mexico 2 0.005882353
+##                    Norway 2 0.005882353
+##                      Peru 2 0.005882353
+##               Philippines 2 0.005882353
+##               Puerto Rico 2 0.005882353
+##                   Reunion 2 0.005882353
+##                 Singapore 2 0.005882353
+##           Slovak Republic 2 0.005882353
+##                     Spain 2 0.005882353
+##                     Sudan 2 0.005882353
+##                    Sweden 2 0.005882353
+##                     Syria 2 0.005882353
+##                  Tanzania 2 0.005882353
+##                   Uruguay 2 0.005882353
+##                 Venezuela 2 0.005882353
+##               Afghanistan 1 0.002941176
+##                   Belgium 1 0.002941176
+##                     Benin 1 0.002941176
+##    Bosnia and Herzegovina 1 0.002941176
+##                    Canada 1 0.002941176
+##                      Chad 1 0.002941176
+##                Costa Rica 1 0.002941176
+##                   Croatia 1 0.002941176
+##                      Cuba 1 0.002941176
+##                     Gabon 1 0.002941176
+##                    Gambia 1 0.002941176
+##                    Greece 1 0.002941176
+##                 Guatemala 1 0.002941176
+##                  Honduras 1 0.002941176
+##                      Iran 1 0.002941176
+##                   Ireland 1 0.002941176
+##                    Israel 1 0.002941176
+##                 Mauritius 1 0.002941176
+##                   Morocco 1 0.002941176
+##               Netherlands 1 0.002941176
+##               New Zealand 1 0.002941176
+##                    Poland 1 0.002941176
+##                  Portugal 1 0.002941176
+##                   Romania 1 0.002941176
+##                 Swaziland 1 0.002941176
+##            United Kingdom 1 0.002941176
+##               Yemen, Rep. 1 0.002941176
+##                   Albania 0 0.000000000
+##                   Algeria 0 0.000000000
+##                 Australia 0 0.000000000
+##                    Brazil 0 0.000000000
+##                   Eritrea 0 0.000000000
+##          Hong Kong, China 0 0.000000000
+##                  Malaysia 0 0.000000000
+##                   Nigeria 0 0.000000000
+##                    Panama 0 0.000000000
+##             United States 0 0.000000000
+##                    Zambia 0 0.000000000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# note country is a factor
+glimpse(mydata)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 340
+## Columns: 6
+## $ country   &amp;lt;fct&amp;gt; &amp;quot;Slovenia&amp;quot;, &amp;quot;Denmark&amp;quot;, &amp;quot;Djibouti&amp;quot;, &amp;quot;Paraguay&amp;quot;, &amp;quot;Japan&amp;quot;, &amp;quot;Pue…
+## $ continent &amp;lt;fct&amp;gt; Europe, Europe, Africa, Americas, Asia, Americas, Asia, Euro…
+## $ year      &amp;lt;int&amp;gt; 1962, 1962, 2002, 1972, 1982, 2007, 1962, 1977, 1977, 1977, …
+## $ lifeExp   &amp;lt;dbl&amp;gt; 69.150, 72.350, 53.373, 65.815, 77.110, 78.746, 39.393, 59.5…
+## $ pop       &amp;lt;int&amp;gt; 1582962, 4646899, 447416, 2614104, 118454974, 3942491, 10332…
+## $ gdpPercap &amp;lt;dbl&amp;gt; 7402.3034, 13583.3135, 1908.2609, 2523.3380, 19384.1057, 193…&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# If we only want the categories with at least 5 levels, for example, we could lump everything else into an &amp;quot;other&amp;quot; category:
+
+mydata &amp;lt;- mydata %&amp;gt;% mutate(country_lump = fct_lump_min(country, min=5))
+mydata %&amp;gt;% tabyl(country_lump)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           country_lump   n    percent
+##           Burkina Faso   6 0.01764706
+##          Guinea-Bissau   5 0.01470588
+##                   Mali   5 0.01470588
+##              Nicaragua   5 0.01470588
+##  Sao Tome and Principe   5 0.01470588
+##           Saudi Arabia   5 0.01470588
+##                Senegal   6 0.01764706
+##                 Serbia   5 0.01470588
+##            Switzerland   5 0.01470588
+##                  Other 293 0.86176471&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot all countries
+ggplot(mydata, aes(x=country, y=lifeExp, color = year)) +
+  geom_point() + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/05-class_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot just the most common ones
+ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
+  geom_point() + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/05-class_files/figure-html/unnamed-chunk-10-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# remove the other category
+ggplot(mydata %&amp;gt;% filter(country_lump!=&amp;quot;Other&amp;quot;), 
+       aes(x=country_lump, y=lifeExp, color = year)) +
+  geom_point() + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/05-class_files/figure-html/unnamed-chunk-10-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot in order of number of observations
+levels(mydata$country_lump)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;Burkina Faso&amp;quot;          &amp;quot;Guinea-Bissau&amp;quot;         &amp;quot;Mali&amp;quot;                 
+##  [4] &amp;quot;Nicaragua&amp;quot;             &amp;quot;Sao Tome and Principe&amp;quot; &amp;quot;Saudi Arabia&amp;quot;         
+##  [7] &amp;quot;Senegal&amp;quot;               &amp;quot;Serbia&amp;quot;                &amp;quot;Switzerland&amp;quot;          
+## [10] &amp;quot;Other&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# this relevels the factor in order of frequency:
+mydata &amp;lt;- mydata %&amp;gt;% 
+  mutate(country_lump = fct_infreq(country_lump))
+levels(mydata$country_lump)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;Other&amp;quot;                 &amp;quot;Burkina Faso&amp;quot;          &amp;quot;Senegal&amp;quot;              
+##  [4] &amp;quot;Guinea-Bissau&amp;quot;         &amp;quot;Mali&amp;quot;                  &amp;quot;Nicaragua&amp;quot;            
+##  [7] &amp;quot;Sao Tome and Principe&amp;quot; &amp;quot;Saudi Arabia&amp;quot;          &amp;quot;Serbia&amp;quot;               
+## [10] &amp;quot;Switzerland&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# now plotting order has changed
+ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
+  geom_point() + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/05-class_files/figure-html/unnamed-chunk-10-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     
     <item>
       <title>Part 5 contd (Class 6): Data summarizing, reshaping, and wrangling with multiple tables (contd)</title>
       <link>https://sph-r-programming-2023.netlify.app/class/06-class/</link>
-      <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate>
       <guid>https://sph-r-programming-2023.netlify.app/class/06-class/</guid>
       <description>
 
@@ -1113,7 +1661,7 @@ penguins %&amp;gt;%
 
 &lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Project files&lt;/h2&gt;
-&lt;p&gt;In this class we finished the part5 material from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this folder link&lt;/a&gt;. Please download this folder and be sure to unzip if necessary. Knit the &lt;code&gt;part6.Rmd&lt;/code&gt; to install any required packages.&lt;/p&gt;
+&lt;p&gt;In this class we will finish the part5 material from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this folder link&lt;/a&gt;. There are a couple updates so please download &lt;code&gt;part5-part2.Rmd&lt;/code&gt; and &lt;code&gt;part5-haven.Rmd&lt;/code&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Class Video&lt;/h2&gt;
