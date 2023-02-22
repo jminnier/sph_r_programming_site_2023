@@ -1,6 +1,6 @@
 ---
-title: "Part 4 (contd) + Part 5: Data summarizing, reshaping, and wrangling with multiple tables"
-linktitle: "Part 4 (contd) + Part 5: Data summarizing, reshaping, and wrangling with multiple tables"
+title: "(Class 5) Part 4 (contd) + Part 5: Data summarizing"
+linktitle: "(Class 5) Part 4 (contd) + Part 5: Data summarizing"
 date: "2023-02-07"
 class_date: "2023-02-07"
 output:

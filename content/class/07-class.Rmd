@@ -1,6 +1,6 @@
 ---
-title: "Part 6 (Class 7): More data wrangling and ggplot"
-linktitle: "Part 6 (Class 7): More data wrangling and ggplot"
+title: "(Class 7) Part 6: Messy data example, more data wrangling and ggplot"
+linktitle: "(Class 7) Part 6: Messy data example, more data wrangling and ggplot"
 date: "2022-02-16"
 class_date: "2022-02-16"
 output:
@@ -22,12 +22,18 @@ editor_options:
 
 ## R Project files
 
-Last class we finished up part5 materials. This is class 7, and we will start with part6 now (sorry, we're going to be off by one from now on). Please download the part6 sub-folder from [this dropbox link](https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0). Be sure to unzip if necessary. Knit the `part6.Rmd` to install any required packages.
+Last class we finished up part5 materials. This is class 7, and we will start with part6 now (sorry, we're going to be off by one from now on). Please download the part6 sub-folder from [this dropbox folder link](https://bit.ly/bsta504_dropbox_2023).
 
-This section is mainly a practice, with some additional ggplot lessons. There will be lots of time for breakout room challenges so that you can get practice working on these data wrangling and graphing problems together.
+This section is mainly a practice, with some additional ggplot lessons. There will be lots of time for challenges so that you can get practice working on these data wrangling and graphing problems together.
 
 
-## Class 7 Video
+
+
+## This year's class video
+
+See Slack for the zoom recording link (though zoom had some malfunction that failed to show the correct Rstudio screen, so last year's video may be more helpful)
+
+## Last Year's Class Video (Class 7, Part 6)
 
 
 

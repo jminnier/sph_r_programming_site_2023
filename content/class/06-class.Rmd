@@ -23,8 +23,12 @@ editor_options:
 
 In this class we will finish the part5 material from [this folder link](https://bit.ly/bsta504_dropbox_2023). There are a couple updates so please download `part5_updated.Rmd` and `part5_haven.Rmd`.
 
-## Class Video
 
+## This year's class video
+
+See Slack for the zoom recording link (though zoom had some malfunction that failed to show the correct Rstudio screen, so last year's video may be more helpful)
+
+## Last Year's Class Video (Part 5 continued, split about the same)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/c3ZuPANIEAM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -39,3 +43,90 @@ Please fill out the following survey and we will discuss the results during the 
 - Anything Else: Is there something you'd like me to know?
 
 <https://bit.ly/bsta504_postclass_survey>
+
+
+# Muddiest Points
+
+Somewhat equal numbers said that pivot/joining were clear or were muddy! I think that sounds about right, though, these concepts are tricky and will take a lot of practice. Today's class will use these methods again and I hope that will help solidify what you've learned.
+
+I really do recommend watching the short video that I recommended last class if you're still having trouble with grasping pivoting.
+
+[Dr. Kelly Bodwin's Reshaping Data Video](https://youtu.be/4ZIFb1BoIB4)
+
+For a short version, watch the [pivot_longer excerpt](https://youtu.be/4ZIFb1BoIB4?t=365) about "working backwards" from a plot. Then watch the [pivot_wider excerpt](https://youtu.be/4ZIFb1BoIB4?t=620)
+
+[Also read this join cheatsheet](https://stat545.com/join-cheatsheet.html) for some good explanations/examples about which join to use when!
+
+Definitely do the readings in th eR for Data Science in the appropriate chapters as well! [joining](https://r4ds.had.co.nz/relational-data.html), [pivoting](https://r4ds.had.co.nz/tidy-data.html?#pivoting)
+
+> separate(), needed a few more minutes to get it figured out
+
+Let's do another short example!
+
+```{r}
+library(tidyverse)
+
+mydata <- tibble(
+  name = c("Doe, Jane", "Smith, M", "Lee, Dave"),
+  rx = c("Advil; 4.5 mg", "Tylenol; 300mg", "Advil; 2.5 mg")
+)
+
+# obviously the dosage makes no sense, but, for sake of example
+mydata
+
+# by default, separates using most special/non-alphanumeric characters
+mydata %>%
+  separate(name, into = c("last_name", "first_name"))
+
+# since there are special characters in rx, will need to be more specific
+# note it tried to split on the . since we only have 2 columns named, it removed the rest
+mydata %>%
+  separate(rx, into = c("rx_name", "rx_dose"))
+
+# if we add in some more columns, we can see it's splitting based on ; . and space!
+mydata %>%
+  separate(rx, into = c("rx_name", "rx_dose", "a", "b", "c"))
+
+# still have a space
+mydata %>%
+  separate(rx, into = c("rx_name", "rx_dose"), sep=";")
+
+# removed the space
+mydata %>%
+  separate(rx, into = c("rx_name", "rx_dose"), sep="; ")
+
+# removed the space, let's also remove the mg
+mydata %>%
+  separate(rx, into = c("rx_name", "rx_dose_mg"), sep="; ") %>%
+  mutate(rx_dose_mg = str_remove_all(rx_dose_mg, "mg"),
+         rx_dose_mg = as.numeric(rx_dose_mg))
+
+# all together, and also leave the name column in
+mydata %>%
+  separate(name, into = c("last_name", "first_name"), remove = FALSE) %>%
+  separate(rx, into = c("rx_name", "rx_dose_mg"), sep="; ") %>%
+  mutate(rx_dose_mg = str_remove_all(rx_dose_mg, "mg"),
+         rx_dose_mg = as.numeric(rx_dose_mg))
+
+```
+
+
+## Other: piping troubles
+
+> I have issues with my pipes where I think I'm putting things in the wrong order and nothing happens- I don't get errors I can google, it just doesn't work. Most often it's when I end a pipe with %>% tabyl(variable), maybe that is a no-no? But I've found I end up having to break pipes into multiple pieces because I can't string them together the right way.
+
+> 	I have a hard time understanding when to pipe things together or knowing when to nest a function as well. I'm glad you've reassured us in class that it's ok that we put our functions into pieces. I think that eases the stress with learning as I feel like trying to make everything happen in one command can be very overwhelming.
+
+Yes, yes! Please separate out your pipes/commands if it makes things more clear or makes it work better for you!
+
+I'm not sure what's happening with the no-errors-broken situation. I will say that I often separate the `taybl(variable)` code when I'm doing analysis work, just because I am saving intermediate data sets after data cleaning or sub-setting and don't want to save that tabyl. Something like this:
+
+```{r}
+library(janitor)
+mtcars6 <- mtcars %>% filter(cyl==6)
+# check that it worked
+mtcars6 %>% tabyl(cyl)
+```
+
+As a beginner I definitely think doing each step individually and seeing the result and (saving it/assigning it appropriately!) is the way to learn what each function does. I tend to string things together because I am used to doing that, but I'll try not to do that so much if it's adding confusion.
+

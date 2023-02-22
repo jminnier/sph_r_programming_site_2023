@@ -1044,7 +1044,7 @@ penguins %&amp;gt;%
     </item>
     
     <item>
-      <title>Part 4 (contd) &#43; Part 5: Data summarizing, reshaping, and wrangling with multiple tables</title>
+      <title>(Class 5) Part 4 (contd) &#43; Part 5: Data summarizing</title>
       <link>https://sph-r-programming-2023.netlify.app/class/05-class/</link>
       <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
       <guid>https://sph-r-programming-2023.netlify.app/class/05-class/</guid>
@@ -1128,8 +1128,9 @@ y = exp(x)^3 - x/10&lt;/code&gt;&lt;/pre&gt;
 y = .x/10
 y = log(.x)
 y = exp(.x)^3 - .x/10&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;But we also need to use &lt;code&gt;~&lt;/code&gt; instead of &lt;code&gt;=&lt;/code&gt; here to tell R, here’s a function! and we use the argument name &lt;code&gt;.fns =&lt;/code&gt; to say, here we are inputting the custom function as the argument input. If you look at the help &lt;code&gt;?across&lt;/code&gt; we see this is called “A purrr-style lambda” because we use it in the &lt;code&gt;purrr&lt;/code&gt; package functions as well (we will see this later):&lt;/p&gt;
+&lt;p&gt;But we also need to use &lt;code&gt;~&lt;/code&gt; to tell R, here’s a function! and we use the argument name and equal sign &lt;code&gt;.fns =&lt;/code&gt; to say, here we are inputting the custom function as the argument input. If you look at the help &lt;code&gt;?across&lt;/code&gt; we see this is called “A purrr-style lambda” because we use it in the &lt;code&gt;purrr&lt;/code&gt; package functions as well (we will see this later):&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# think of this as input to the argument of across()
+# typical argument syntax arg = _____
 .fns = ~ .x+3
 .fns = ~ .x/10
 .fns = ~ log(.x)
@@ -1217,7 +1218,23 @@ penguins %&amp;gt;% mutate(
 &lt;blockquote&gt;
 &lt;p&gt;how do we change the names when using across() inside mutate()&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;I skipped this for the sake of time and to avoid confusion last class and showed you how to do this using &lt;code&gt;rename()&lt;/code&gt; instead, but let’s go over it now a little bit. We haven’t covered &lt;code&gt;glue&lt;/code&gt; package syntax yet (it’s in part9) but think of it as a string concatenating (“gluing”) method that has specific syntax. The important part to know is that the stuff inside &lt;code&gt;{}&lt;/code&gt; is code, and everything else is just text. Look at &lt;code&gt;?across&lt;/code&gt; and the &lt;code&gt;.names&lt;/code&gt; argument for some info and the defaults.&lt;/p&gt;
+&lt;p&gt;I skipped this for the sake of time and to avoid confusion last class and showed you how to do this using &lt;code&gt;rename()&lt;/code&gt; instead, but let’s go over it now a little bit.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;.names&lt;/code&gt; argument inside &lt;code&gt;across()&lt;/code&gt; uses a function called &lt;code&gt;glue()&lt;/code&gt; inside the package &lt;code&gt;glue&lt;/code&gt;. We haven’t covered &lt;code&gt;glue&lt;/code&gt; package syntax yet (it’s in part9) but think of it as a string concatenating (“gluing”) method where we write out what we want to be in the text string inside quotes, but use variable names and code functions inside of the quotes in a special way. The important part to know right now is that the stuff inside &lt;code&gt;{}&lt;/code&gt; is code, and everything else is just text. Here when we use &lt;code&gt;.col&lt;/code&gt; inside the glue code that is the stand-in for the column name, so &lt;code&gt;&#34;{.col}&#34;&lt;/code&gt; is literally just the column name, and &lt;code&gt;&#34;{.col}_fun&#34;&lt;/code&gt; is the column name with “_fun” appended to it.&lt;/p&gt;
+&lt;p&gt;Here are some simple glue examples:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(glue)
+glue(&amp;quot;hello&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## hello&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;myname &amp;lt;- &amp;quot;jessica&amp;quot;
+
+glue(&amp;quot;hello {myname}&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## hello jessica&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;glue(&amp;quot;hello {myname}, how are you?&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## hello jessica, how are you?&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;firstname &amp;lt;- &amp;quot;jane&amp;quot;
+lastname &amp;lt;- &amp;quot;doe&amp;quot;
+glue(&amp;quot;{firstname}_{lastname}&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## jane_doe&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Look at &lt;code&gt;?across&lt;/code&gt; and the &lt;code&gt;.names&lt;/code&gt; argument for some info and the defaults.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Does not change names of transformed columns
 # no longer accruate since not mm
 penguins %&amp;gt;%
@@ -1414,6 +1431,19 @@ joining two tables seems scary!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;clearest-points&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Clearest points&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;palettes
+mutate()
+case_when()
+here
+group_by() and summarize
+ggplots&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Great, we are getting there!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The section on color palettes was clearest. It is nice to be given so many options and resources.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Oh good, I was worried that I spent too much time on this, so glad you find it helpful.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;other&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Other&lt;/h1&gt;
@@ -1609,18 +1639,18 @@ mydata %&amp;gt;% tabyl(country_lump)&lt;/code&gt;&lt;/pre&gt;
 ggplot(mydata, aes(x=country, y=lifeExp, color = year)) +
   geom_point() + 
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/05-class_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/05-class_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot just the most common ones
 ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
   geom_point() + 
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/05-class_files/figure-html/unnamed-chunk-10-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/05-class_files/figure-html/unnamed-chunk-11-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# remove the other category
 ggplot(mydata %&amp;gt;% filter(country_lump!=&amp;quot;Other&amp;quot;), 
        aes(x=country_lump, y=lifeExp, color = year)) +
   geom_point() + 
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/05-class_files/figure-html/unnamed-chunk-10-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/05-class_files/figure-html/unnamed-chunk-11-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot in order of number of observations
 levels(mydata$country_lump)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;Burkina Faso&amp;quot;          &amp;quot;Guinea-Bissau&amp;quot;         &amp;quot;Mali&amp;quot;                 
@@ -1639,13 +1669,13 @@ levels(mydata$country_lump)&lt;/code&gt;&lt;/pre&gt;
 ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
   geom_point() + 
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/05-class_files/figure-html/unnamed-chunk-10-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/class/05-class_files/figure-html/unnamed-chunk-11-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
     
     <item>
-      <title>Part 5 contd (Class 6): Data summarizing, reshaping, and wrangling with multiple tables (contd)</title>
+      <title>(Class 6) Part 5 contd: Data summarizing, reshaping, and wrangling with multiple tables (contd)</title>
       <link>https://sph-r-programming-2023.netlify.app/class/06-class/</link>
       <pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate>
       <guid>https://sph-r-programming-2023.netlify.app/class/06-class/</guid>
@@ -1654,17 +1684,26 @@ ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#class-video&#34; id=&#34;toc-class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#this-years-class-video&#34; id=&#34;toc-this-years-class-video&#34;&gt;This year’s class video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#last-years-class-video-part-5-continued-split-about-the-same&#34; id=&#34;toc-last-years-class-video-part-5-continued-split-about-the-same&#34;&gt;Last Year’s Class Video (Part 5 continued, split about the same)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34; id=&#34;toc-muddiest-points&#34;&gt;Muddiest Points&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#other-piping-troubles&#34; id=&#34;toc-other-piping-troubles&#34;&gt;Other: piping troubles&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
 &lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Project files&lt;/h2&gt;
-&lt;p&gt;In this class we will finish the part5 material from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this folder link&lt;/a&gt;. There are a couple updates so please download &lt;code&gt;part5-part2.Rmd&lt;/code&gt; and &lt;code&gt;part5-haven.Rmd&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In this class we will finish the part5 material from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this folder link&lt;/a&gt;. There are a couple updates so please download &lt;code&gt;part5_updated.Rmd&lt;/code&gt; and &lt;code&gt;part5_haven.Rmd&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;div id=&#34;this-years-class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;This year’s class video&lt;/h2&gt;
+&lt;p&gt;See Slack for the zoom recording link (though zoom had some malfunction that failed to show the correct Rstudio screen, so last year’s video may be more helpful)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;last-years-class-video-part-5-continued-split-about-the-same&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Last Year’s Class Video (Part 5 continued, split about the same)&lt;/h2&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/c3ZuPANIEAM&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/class/06-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -1678,6 +1717,135 @@ ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
 &lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Muddiest Points&lt;/h1&gt;
+&lt;p&gt;Somewhat equal numbers said that pivot/joining were clear or were muddy! I think that sounds about right, though, these concepts are tricky and will take a lot of practice. Today’s class will use these methods again and I hope that will help solidify what you’ve learned.&lt;/p&gt;
+&lt;p&gt;I really do recommend watching the short video that I recommended last class if you’re still having trouble with grasping pivoting.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4&#34;&gt;Dr. Kelly Bodwin’s Reshaping Data Video&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For a short version, watch the &lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4?t=365&#34;&gt;pivot_longer excerpt&lt;/a&gt; about “working backwards” from a plot. Then watch the &lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4?t=620&#34;&gt;pivot_wider excerpt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stat545.com/join-cheatsheet.html&#34;&gt;Also read this join cheatsheet&lt;/a&gt; for some good explanations/examples about which join to use when!&lt;/p&gt;
+&lt;p&gt;Definitely do the readings in th eR for Data Science in the appropriate chapters as well! &lt;a href=&#34;https://r4ds.had.co.nz/relational-data.html&#34;&gt;joining&lt;/a&gt;, &lt;a href=&#34;https://r4ds.had.co.nz/tidy-data.html?#pivoting&#34;&gt;pivoting&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;separate(), needed a few more minutes to get it figured out&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Let’s do another short example!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+## ✔ readr   2.1.2     ✔ forcats 0.5.1
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- tibble(
+  name = c(&amp;quot;Doe, Jane&amp;quot;, &amp;quot;Smith, M&amp;quot;, &amp;quot;Lee, Dave&amp;quot;),
+  rx = c(&amp;quot;Advil; 4.5 mg&amp;quot;, &amp;quot;Tylenol; 300mg&amp;quot;, &amp;quot;Advil; 2.5 mg&amp;quot;)
+)
+
+# obviously the dosage makes no sense, but, for sake of example
+mydata&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 2
+##   name      rx            
+##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;         
+## 1 Doe, Jane Advil; 4.5 mg 
+## 2 Smith, M  Tylenol; 300mg
+## 3 Lee, Dave Advil; 2.5 mg&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# by default, separates using most special/non-alphanumeric characters
+mydata %&amp;gt;%
+  separate(name, into = c(&amp;quot;last_name&amp;quot;, &amp;quot;first_name&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 3
+##   last_name first_name rx            
+##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;         
+## 1 Doe       Jane       Advil; 4.5 mg 
+## 2 Smith     M          Tylenol; 300mg
+## 3 Lee       Dave       Advil; 2.5 mg&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# since there are special characters in rx, will need to be more specific
+# note it tried to split on the . since we only have 2 columns named, it removed the rest
+mydata %&amp;gt;%
+  separate(rx, into = c(&amp;quot;rx_name&amp;quot;, &amp;quot;rx_dose&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Expected 2 pieces. Additional pieces discarded in 2 rows [1, 3].&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 3
+##   name      rx_name rx_dose
+##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;  
+## 1 Doe, Jane Advil   4      
+## 2 Smith, M  Tylenol 300mg  
+## 3 Lee, Dave Advil   2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# if we add in some more columns, we can see it&amp;#39;s splitting based on ; . and space!
+mydata %&amp;gt;%
+  separate(rx, into = c(&amp;quot;rx_name&amp;quot;, &amp;quot;rx_dose&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Expected 5 pieces. Missing pieces filled with `NA` in 3 rows [1, 2, 3].&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 6
+##   name      rx_name rx_dose a     b     c    
+##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;
+## 1 Doe, Jane Advil   4       5     mg    &amp;lt;NA&amp;gt; 
+## 2 Smith, M  Tylenol 300mg   &amp;lt;NA&amp;gt;  &amp;lt;NA&amp;gt;  &amp;lt;NA&amp;gt; 
+## 3 Lee, Dave Advil   2       5     mg    &amp;lt;NA&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# still have a space
+mydata %&amp;gt;%
+  separate(rx, into = c(&amp;quot;rx_name&amp;quot;, &amp;quot;rx_dose&amp;quot;), sep=&amp;quot;;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 3
+##   name      rx_name rx_dose  
+##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;    
+## 1 Doe, Jane Advil   &amp;quot; 4.5 mg&amp;quot;
+## 2 Smith, M  Tylenol &amp;quot; 300mg&amp;quot; 
+## 3 Lee, Dave Advil   &amp;quot; 2.5 mg&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# removed the space
+mydata %&amp;gt;%
+  separate(rx, into = c(&amp;quot;rx_name&amp;quot;, &amp;quot;rx_dose&amp;quot;), sep=&amp;quot;; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 3
+##   name      rx_name rx_dose
+##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;  
+## 1 Doe, Jane Advil   4.5 mg 
+## 2 Smith, M  Tylenol 300mg  
+## 3 Lee, Dave Advil   2.5 mg&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# removed the space, let&amp;#39;s also remove the mg
+mydata %&amp;gt;%
+  separate(rx, into = c(&amp;quot;rx_name&amp;quot;, &amp;quot;rx_dose_mg&amp;quot;), sep=&amp;quot;; &amp;quot;) %&amp;gt;%
+  mutate(rx_dose_mg = str_remove_all(rx_dose_mg, &amp;quot;mg&amp;quot;),
+         rx_dose_mg = as.numeric(rx_dose_mg))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 3
+##   name      rx_name rx_dose_mg
+##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;        &amp;lt;dbl&amp;gt;
+## 1 Doe, Jane Advil          4.5
+## 2 Smith, M  Tylenol      300  
+## 3 Lee, Dave Advil          2.5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# all together, and also leave the name column in
+mydata %&amp;gt;%
+  separate(name, into = c(&amp;quot;last_name&amp;quot;, &amp;quot;first_name&amp;quot;), remove = FALSE) %&amp;gt;%
+  separate(rx, into = c(&amp;quot;rx_name&amp;quot;, &amp;quot;rx_dose_mg&amp;quot;), sep=&amp;quot;; &amp;quot;) %&amp;gt;%
+  mutate(rx_dose_mg = str_remove_all(rx_dose_mg, &amp;quot;mg&amp;quot;),
+         rx_dose_mg = as.numeric(rx_dose_mg))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 5
+##   name      last_name first_name rx_name rx_dose_mg
+##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;        &amp;lt;dbl&amp;gt;
+## 1 Doe, Jane Doe       Jane       Advil          4.5
+## 2 Smith, M  Smith     M          Tylenol      300  
+## 3 Lee, Dave Lee       Dave       Advil          2.5&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;other-piping-troubles&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Other: piping troubles&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I have issues with my pipes where I think I’m putting things in the wrong order and nothing happens- I don’t get errors I can google, it just doesn’t work. Most often it’s when I end a pipe with %&amp;gt;% tabyl(variable), maybe that is a no-no? But I’ve found I end up having to break pipes into multiple pieces because I can’t string them together the right way.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I have a hard time understanding when to pipe things together or knowing when to nest a function as well. I’m glad you’ve reassured us in class that it’s ok that we put our functions into pieces. I think that eases the stress with learning as I feel like trying to make everything happen in one command can be very overwhelming.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yes, yes! Please separate out your pipes/commands if it makes things more clear or makes it work better for you!&lt;/p&gt;
+&lt;p&gt;I’m not sure what’s happening with the no-errors-broken situation. I will say that I often separate the &lt;code&gt;taybl(variable)&lt;/code&gt; code when I’m doing analysis work, just because I am saving intermediate data sets after data cleaning or sub-setting and don’t want to save that tabyl. Something like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(janitor)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;janitor&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     chisq.test, fisher.test&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars6 &amp;lt;- mtcars %&amp;gt;% filter(cyl==6)
+# check that it worked
+mtcars6 %&amp;gt;% tabyl(cyl)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  cyl n percent
+##    6 7       1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As a beginner I definitely think doing each step individually and seeing the result and (saving it/assigning it appropriately!) is the way to learn what each function does. I tend to string things together because I am used to doing that, but I’ll try not to do that so much if it’s adding confusion.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -1721,7 +1889,7 @@ ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
     </item>
     
     <item>
-      <title>Part 6 (Class 7): More data wrangling and ggplot</title>
+      <title>(Class 7) Part 6: Messy data example, more data wrangling and ggplot</title>
       <link>https://sph-r-programming-2023.netlify.app/class/07-class/</link>
       <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
       <guid>https://sph-r-programming-2023.netlify.app/class/07-class/</guid>
@@ -1730,18 +1898,23 @@ ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#class-7-video&#34; id=&#34;toc-class-7-video&#34;&gt;Class 7 Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#this-years-class-video&#34; id=&#34;toc-this-years-class-video&#34;&gt;This year’s class video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#last-years-class-video-class-7-part-6&#34; id=&#34;toc-last-years-class-video-class-7-part-6&#34;&gt;Last Year’s Class Video (Class 7, Part 6)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
 &lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Project files&lt;/h2&gt;
-&lt;p&gt;Last class we finished up part5 materials. This is class 7, and we will start with part6 now (sorry, we’re going to be off by one from now on). Please download the part6 sub-folder from &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this dropbox link&lt;/a&gt;. Be sure to unzip if necessary. Knit the &lt;code&gt;part6.Rmd&lt;/code&gt; to install any required packages.&lt;/p&gt;
-&lt;p&gt;This section is mainly a practice, with some additional ggplot lessons. There will be lots of time for breakout room challenges so that you can get practice working on these data wrangling and graphing problems together.&lt;/p&gt;
+&lt;p&gt;Last class we finished up part5 materials. This is class 7, and we will start with part6 now (sorry, we’re going to be off by one from now on). Please download the part6 sub-folder from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this dropbox folder link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This section is mainly a practice, with some additional ggplot lessons. There will be lots of time for challenges so that you can get practice working on these data wrangling and graphing problems together.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;class-7-video&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Class 7 Video&lt;/h2&gt;
+&lt;div id=&#34;this-years-class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;This year’s class video&lt;/h2&gt;
+&lt;p&gt;See Slack for the zoom recording link (though zoom had some malfunction that failed to show the correct Rstudio screen, so last year’s video may be more helpful)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;last-years-class-video-class-7-part-6&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Last Year’s Class Video (Class 7, Part 6)&lt;/h2&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/j-eoXIEGQQg&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/class/07-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;

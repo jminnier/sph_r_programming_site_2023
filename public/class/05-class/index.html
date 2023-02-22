@@ -236,7 +236,7 @@
   
   <meta property="og:site_name" content="R Programming 2023">
   <meta property="og:url" content="https://sph-r-programming-2023.netlify.app/class/05-class/">
-  <meta property="og:title" content="Part 4 (contd) &#43; Part 5: Data summarizing, reshaping, and wrangling with multiple tables | R Programming 2023">
+  <meta property="og:title" content="(Class 5) Part 4 (contd) &#43; Part 5: Data summarizing | R Programming 2023">
   <meta property="og:description" content="R Project files This year’s class video Last Year’s Class Video (Part 5) Another useful video Useful ggplot2 links Post-Class Muddiest points Clearest points Other   R Project files Please download the part5 folder from this dropbox folder link. Be sure to unzip if necessary. “Knit” the code/part5.Rmd file to install packages and make sure everything is working with data loading.
  This year’s class video See Slack for the zoom recording link (though zoom had some malfunction that failed to show the correct Rstudio screen, so last year’s video may be more helpful)"><meta property="og:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
@@ -244,7 +244,7 @@
     
       <meta property="article:published_time" content="2023-02-07T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2023-02-07T16:56:47-08:00">
+    <meta property="article:modified_time" content="2023-02-15T11:44:04-08:00">
   
 
   
@@ -271,7 +271,7 @@
   <meta name="msapplication-TileImage" content="https://sph-r-programming-2023.netlify.app/img/mstile-144x144.png" />
 
 
-  <title>Part 4 (contd) &#43; Part 5: Data summarizing, reshaping, and wrangling with multiple tables | R Programming 2023</title>
+  <title>(Class 5) Part 4 (contd) &#43; Part 5: Data summarizing | R Programming 2023</title>
 
 </head>
 
@@ -552,15 +552,15 @@
       </li>
       
       <li class="active">
-        <a href="/class/05-class/">Part 4 (contd) &#43; Part 5: Data summarizing, reshaping, and wrangling with multiple tables</a>
+        <a href="/class/05-class/">(Class 5) Part 4 (contd) &#43; Part 5: Data summarizing</a>
       </li>
       
       <li >
-        <a href="/class/06-class/">Part 5 contd (Class 6): Data summarizing, reshaping, and wrangling with multiple tables (contd)</a>
+        <a href="/class/06-class/">(Class 6) Part 5 contd: Data summarizing, reshaping, and wrangling with multiple tables (contd)</a>
       </li>
       
       <li >
-        <a href="/class/07-class/">Part 6 (Class 7): More data wrangling and ggplot</a>
+        <a href="/class/07-class/">(Class 7) Part 6: Messy data example, more data wrangling and ggplot</a>
       </li>
       
       <li >
@@ -596,7 +596,7 @@
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Part 4 (contd) &#43; Part 5: Data summarizing, reshaping, and wrangling with multiple tables</h1>
+                    <h1>(Class 5) Part 4 (contd) &#43; Part 5: Data summarizing</h1>
 
                     
 
@@ -689,8 +689,9 @@ y = exp(x)^3 - x/10</code></pre>
 y = .x/10
 y = log(.x)
 y = exp(.x)^3 - .x/10</code></pre>
-<p>But we also need to use <code>~</code> instead of <code>=</code> here to tell R, here’s a function! and we use the argument name <code>.fns =</code> to say, here we are inputting the custom function as the argument input. If you look at the help <code>?across</code> we see this is called “A purrr-style lambda” because we use it in the <code>purrr</code> package functions as well (we will see this later):</p>
+<p>But we also need to use <code>~</code> to tell R, here’s a function! and we use the argument name and equal sign <code>.fns =</code> to say, here we are inputting the custom function as the argument input. If you look at the help <code>?across</code> we see this is called “A purrr-style lambda” because we use it in the <code>purrr</code> package functions as well (we will see this later):</p>
 <pre class="r"><code># think of this as input to the argument of across()
+# typical argument syntax arg = _____
 .fns = ~ .x+3
 .fns = ~ .x/10
 .fns = ~ log(.x)
@@ -778,7 +779,23 @@ penguins %&gt;% mutate(
 <blockquote>
 <p>how do we change the names when using across() inside mutate()</p>
 </blockquote>
-<p>I skipped this for the sake of time and to avoid confusion last class and showed you how to do this using <code>rename()</code> instead, but let’s go over it now a little bit. We haven’t covered <code>glue</code> package syntax yet (it’s in part9) but think of it as a string concatenating (“gluing”) method that has specific syntax. The important part to know is that the stuff inside <code>{}</code> is code, and everything else is just text. Look at <code>?across</code> and the <code>.names</code> argument for some info and the defaults.</p>
+<p>I skipped this for the sake of time and to avoid confusion last class and showed you how to do this using <code>rename()</code> instead, but let’s go over it now a little bit.</p>
+<p>The <code>.names</code> argument inside <code>across()</code> uses a function called <code>glue()</code> inside the package <code>glue</code>. We haven’t covered <code>glue</code> package syntax yet (it’s in part9) but think of it as a string concatenating (“gluing”) method where we write out what we want to be in the text string inside quotes, but use variable names and code functions inside of the quotes in a special way. The important part to know right now is that the stuff inside <code>{}</code> is code, and everything else is just text. Here when we use <code>.col</code> inside the glue code that is the stand-in for the column name, so <code>"{.col}"</code> is literally just the column name, and <code>"{.col}_fun"</code> is the column name with “_fun” appended to it.</p>
+<p>Here are some simple glue examples:</p>
+<pre class="r"><code>library(glue)
+glue(&quot;hello&quot;)</code></pre>
+<pre><code>## hello</code></pre>
+<pre class="r"><code>myname &lt;- &quot;jessica&quot;
+
+glue(&quot;hello {myname}&quot;)</code></pre>
+<pre><code>## hello jessica</code></pre>
+<pre class="r"><code>glue(&quot;hello {myname}, how are you?&quot;)</code></pre>
+<pre><code>## hello jessica, how are you?</code></pre>
+<pre class="r"><code>firstname &lt;- &quot;jane&quot;
+lastname &lt;- &quot;doe&quot;
+glue(&quot;{firstname}_{lastname}&quot;)</code></pre>
+<pre><code>## jane_doe</code></pre>
+<p>Look at <code>?across</code> and the <code>.names</code> argument for some info and the defaults.</p>
 <pre class="r"><code># Does not change names of transformed columns
 # no longer accruate since not mm
 penguins %&gt;%
@@ -975,6 +992,19 @@ joining two tables seems scary!</p>
 </div>
 <div id="clearest-points" class="section level1">
 <h1>Clearest points</h1>
+<blockquote>
+<p>palettes
+mutate()
+case_when()
+here
+group_by() and summarize
+ggplots</p>
+</blockquote>
+<p>Great, we are getting there!</p>
+<blockquote>
+<p>The section on color palettes was clearest. It is nice to be given so many options and resources.</p>
+</blockquote>
+<p>Oh good, I was worried that I spent too much time on this, so glad you find it helpful.</p>
 </div>
 <div id="other" class="section level1">
 <h1>Other</h1>
@@ -1170,18 +1200,18 @@ mydata %&gt;% tabyl(country_lump)</code></pre>
 ggplot(mydata, aes(x=country, y=lifeExp, color = year)) +
   geom_point() + 
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))</code></pre>
-<p><img src="/class/05-class_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="/class/05-class_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <pre class="r"><code># plot just the most common ones
 ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
   geom_point() + 
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))</code></pre>
-<p><img src="/class/05-class_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
+<p><img src="/class/05-class_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
 <pre class="r"><code># remove the other category
 ggplot(mydata %&gt;% filter(country_lump!=&quot;Other&quot;), 
        aes(x=country_lump, y=lifeExp, color = year)) +
   geom_point() + 
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))</code></pre>
-<p><img src="/class/05-class_files/figure-html/unnamed-chunk-10-3.png" width="672" /></p>
+<p><img src="/class/05-class_files/figure-html/unnamed-chunk-11-3.png" width="672" /></p>
 <pre class="r"><code># plot in order of number of observations
 levels(mydata$country_lump)</code></pre>
 <pre><code>##  [1] &quot;Burkina Faso&quot;          &quot;Guinea-Bissau&quot;         &quot;Mali&quot;                 
@@ -1200,7 +1230,7 @@ levels(mydata$country_lump)</code></pre>
 ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
   geom_point() + 
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))</code></pre>
-<p><img src="/class/05-class_files/figure-html/unnamed-chunk-10-4.png" width="672" /></p>
+<p><img src="/class/05-class_files/figure-html/unnamed-chunk-11-4.png" width="672" /></p>
 </div>
 
                     </div>
@@ -1213,7 +1243,7 @@ ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on February 7, 2023</p>
+                    <p>Last updated on February 15, 2023</p>
 
                     
 
