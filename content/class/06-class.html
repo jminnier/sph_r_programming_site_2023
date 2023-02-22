@@ -28,6 +28,7 @@ editor_options:
 <li><a href="#muddiest-points" id="toc-muddiest-points">Muddiest Points</a>
 <ul>
 <li><a href="#when-do-we-use-which-join" id="toc-when-do-we-use-which-join">When do we use which join?</a></li>
+<li><a href="#separate-example" id="toc-separate-example">separate example</a></li>
 <li><a href="#other-piping-troubles" id="toc-other-piping-troubles">Other: piping troubles</a></li>
 </ul></li>
 </ul>
@@ -92,6 +93,9 @@ editor_options:
 <li><code>full_join</code> = does not remove any rows, you might want to use this as your default and filter later</li>
 <li><code>anti_join</code> and <code>semi_join</code> = filtering joins, probably use rarely, use right table as an exclusion criteria and find unmatched keys between two tables (<code>anti_join</code>), or filter left table based on keys in right table (<code>semi_join</code>), and keep only columns from left table</li>
 </ul>
+</div>
+<div id="separate-example" class="section level3">
+<h3>separate example</h3>
 <blockquote>
 <p>separate(), needed a few more minutes to get it figured out</p>
 </blockquote>
@@ -118,6 +122,30 @@ mydata</code></pre>
 ## 1 Doe, Jane Advil; 4.5 mg 
 ## 2 Smith, M  Tylenol; 300mg
 ## 3 Lee, Dave Advil; 2.5 mg</code></pre>
+<pre class="r"><code># prints a little prettier in html
+knitr::kable(mydata)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="left">rx</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Doe, Jane</td>
+<td align="left">Advil; 4.5 mg</td>
+</tr>
+<tr class="even">
+<td align="left">Smith, M</td>
+<td align="left">Tylenol; 300mg</td>
+</tr>
+<tr class="odd">
+<td align="left">Lee, Dave</td>
+<td align="left">Advil; 2.5 mg</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code># by default, separates using most special/non-alphanumeric characters
 mydata %&gt;%
   separate(name, into = c(&quot;last_name&quot;, &quot;first_name&quot;))</code></pre>

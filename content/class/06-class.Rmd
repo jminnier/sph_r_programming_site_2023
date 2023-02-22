@@ -95,6 +95,7 @@ These joins are created to match SQL joins for databases.
 - `full_join` = does not remove any rows, you might want to use this as your default and filter later
 - `anti_join` and `semi_join` = filtering joins, probably use rarely, use right table as an exclusion criteria and find unmatched keys between two tables (`anti_join`), or filter left table based on keys in right table (`semi_join`), and keep only columns from left table
 
+### separate example
 
 > separate(), needed a few more minutes to get it figured out
 
@@ -111,6 +112,12 @@ mydata <- tibble(
 # obviously the dosage makes no sense, but, for sake of example
 mydata
 
+# prints a little prettier in html
+knitr::kable(mydata)
+```
+
+
+```{r}
 # by default, separates using most special/non-alphanumeric characters
 mydata %>%
   separate(name, into = c("last_name", "first_name"))
