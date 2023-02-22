@@ -57,7 +57,44 @@ For a short version, watch the [pivot_longer excerpt](https://youtu.be/4ZIFb1BoI
 
 [Also read this join cheatsheet](https://stat545.com/join-cheatsheet.html) for some good explanations/examples about which join to use when!
 
-Definitely do the readings in th eR for Data Science in the appropriate chapters as well! [joining](https://r4ds.had.co.nz/relational-data.html), [pivoting](https://r4ds.had.co.nz/tidy-data.html?#pivoting)
+[The rstudio cheatsheet is also good.](https://nyu-cdsc.github.io/learningr/assets/data-transformation.pdf)
+
+Definitely do the readings in the R for Data Science in the appropriate chapters as well! [joining](https://r4ds.had.co.nz/relational-data.html), [pivoting](https://r4ds.had.co.nz/tidy-data.html?#pivoting)
+
+For the different join types, here are some visuals I find helpful.
+
+When we use `bind_rows()` we stack cases on top of each other like so:
+
+<img src="/img/bind_rows_add.png" alt=""  width="70%" height="40%"/>
+
+
+For joins, we put columns next to each other based on matching keys. The "intersection" of keys is shown in these diagrams for each type of join, with the blue denoting which keys/rows we keep from which table:
+
+<img src="/img/dplyr_join_venn.png" alt=""  width="70%" height="70%"/>
+
+A more data oriented visual is shown below. The lines denote the keys that match:
+
+<img src="/img/joins_colors.png" alt=""  />
+
+
+
+This is from the part5 Rmd:
+
+### When do we use which join?
+
+See this [two-table verbs vignette](https://dplyr.tidyverse.org/articles/two-table.html) and this [cheatsheet](https://stat545.com/join-cheatsheet.html) for some extra explanations. 
+
+These joins are created to match SQL joins for databases.
+
+- `inner_join` = You only want data that is in both tables
+- `left_join` = You only want data that is in one table.
+    * Often the right table is a subset of the left table, so it's easy to use this to keep everything in the bigger table, and join on the smaller table
+    * If the left table contains a cohort of interest, i.e. everyone that has been given a specific treatment, and you want to get their lab values from another table, use `left_join()` to add those lab values in the cohort defined by the left table
+- `right_join` = maybe never   
+    * `right_join` does the same thing as `left_join` but backwards, I find left join easier to think about (personal preference)
+- `full_join` = does not remove any rows, you might want to use this as your default and filter later
+- `anti_join` and `semi_join` = filtering joins, probably use rarely, use right table as an exclusion criteria and find unmatched keys between two tables (`anti_join`), or filter left table based on keys in right table (`semi_join`), and keep only columns from left table
+
 
 > separate(), needed a few more minutes to get it figured out
 

@@ -1725,7 +1725,12 @@ ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
 &lt;p&gt;&lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4&#34;&gt;Dr. Kelly Bodwin’s Reshaping Data Video&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;For a short version, watch the &lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4?t=365&#34;&gt;pivot_longer excerpt&lt;/a&gt; about “working backwards” from a plot. Then watch the &lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4?t=620&#34;&gt;pivot_wider excerpt&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://stat545.com/join-cheatsheet.html&#34;&gt;Also read this join cheatsheet&lt;/a&gt; for some good explanations/examples about which join to use when!&lt;/p&gt;
-&lt;p&gt;Definitely do the readings in th eR for Data Science in the appropriate chapters as well! &lt;a href=&#34;https://r4ds.had.co.nz/relational-data.html&#34;&gt;joining&lt;/a&gt;, &lt;a href=&#34;https://r4ds.had.co.nz/tidy-data.html?#pivoting&#34;&gt;pivoting&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Definitely do the readings in the R for Data Science in the appropriate chapters as well! &lt;a href=&#34;https://r4ds.had.co.nz/relational-data.html&#34;&gt;joining&lt;/a&gt;, &lt;a href=&#34;https://r4ds.had.co.nz/tidy-data.html?#pivoting&#34;&gt;pivoting&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For the different join types, here are some visuals I find helpful:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;here::here()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/Users/minnier/Dropbox (Personal)/Work/repos/sph_r_programming_site_2023&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(here::here(&amp;quot;static/img/bind_rows_add.png&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../static/img/bind_rows_add.png&#34; width=&#34;314&#34; /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;separate(), needed a few more minutes to get it figured out&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1733,7 +1738,7 @@ ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
 ## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
+## ✔ tibble  3.1.8     ✔ dplyr   1.1.0
 ## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
 ## ✔ readr   2.1.2     ✔ forcats 0.5.1
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
@@ -1842,6 +1847,10 @@ mydata %&amp;gt;%
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars6 &amp;lt;- mtcars %&amp;gt;% filter(cyl==6)
 # check that it worked
 mtcars6 %&amp;gt;% tabyl(cyl)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Using one column matrices in `filter()` was deprecated in dplyr 1.1.0.
+## ℹ Please use one dimensional logical vectors instead.
+## ℹ The deprecated feature was likely used in the dplyr package.
+##   Please report the issue at &amp;lt;]8;;https://github.com/tidyverse/dplyr/issueshttps://github.com/tidyverse/dplyr/issues]8;;&amp;gt;.&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##  cyl n percent
 ##    6 7       1&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;As a beginner I definitely think doing each step individually and seeing the result and (saving it/assigning it appropriately!) is the way to learn what each function does. I tend to string things together because I am used to doing that, but I’ll try not to do that so much if it’s adding confusion.&lt;/p&gt;

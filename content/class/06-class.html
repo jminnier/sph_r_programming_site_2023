@@ -27,6 +27,7 @@ editor_options:
 <li><a href="#post-class" id="toc-post-class">Post-Class</a></li>
 <li><a href="#muddiest-points" id="toc-muddiest-points">Muddiest Points</a>
 <ul>
+<li><a href="#when-do-we-use-which-join" id="toc-when-do-we-use-which-join">When do we use which join?</a></li>
 <li><a href="#other-piping-troubles" id="toc-other-piping-troubles">Other: piping troubles</a></li>
 </ul></li>
 </ul>
@@ -63,7 +64,34 @@ editor_options:
 <p><a href="https://youtu.be/4ZIFb1BoIB4">Dr. Kelly Bodwin’s Reshaping Data Video</a></p>
 <p>For a short version, watch the <a href="https://youtu.be/4ZIFb1BoIB4?t=365">pivot_longer excerpt</a> about “working backwards” from a plot. Then watch the <a href="https://youtu.be/4ZIFb1BoIB4?t=620">pivot_wider excerpt</a></p>
 <p><a href="https://stat545.com/join-cheatsheet.html">Also read this join cheatsheet</a> for some good explanations/examples about which join to use when!</p>
-<p>Definitely do the readings in th eR for Data Science in the appropriate chapters as well! <a href="https://r4ds.had.co.nz/relational-data.html">joining</a>, <a href="https://r4ds.had.co.nz/tidy-data.html?#pivoting">pivoting</a></p>
+<p><a href="https://nyu-cdsc.github.io/learningr/assets/data-transformation.pdf">The rstudio cheatsheet is also good.</a></p>
+<p>Definitely do the readings in the R for Data Science in the appropriate chapters as well! <a href="https://r4ds.had.co.nz/relational-data.html">joining</a>, <a href="https://r4ds.had.co.nz/tidy-data.html?#pivoting">pivoting</a></p>
+<p>For the different join types, here are some visuals I find helpful.</p>
+<p>When we use <code>bind_rows()</code> we stack cases on top of each other like so:</p>
+<p><img src="/img/bind_rows_add.png" alt=""  width="70%" height="40%"/></p>
+<p>For joins, we put columns next to each other based on matching keys. The “intersection” of keys is shown in these diagrams for each type of join, with the blue denoting which keys/rows we keep from which table:</p>
+<p><img src="/img/dplyr_join_venn.png" alt=""  width="70%" height="70%"/></p>
+<p>A more data oriented visual is shown below. The lines denote the keys that match:</p>
+<p><img src="/img/joins_colors.png" alt=""  /></p>
+<p>This is from the part5 Rmd:</p>
+<div id="when-do-we-use-which-join" class="section level3">
+<h3>When do we use which join?</h3>
+<p>See this <a href="https://dplyr.tidyverse.org/articles/two-table.html">two-table verbs vignette</a> and this <a href="https://stat545.com/join-cheatsheet.html">cheatsheet</a> for some extra explanations.</p>
+<p>These joins are created to match SQL joins for databases.</p>
+<ul>
+<li><code>inner_join</code> = You only want data that is in both tables</li>
+<li><code>left_join</code> = You only want data that is in one table.
+<ul>
+<li>Often the right table is a subset of the left table, so it’s easy to use this to keep everything in the bigger table, and join on the smaller table</li>
+<li>If the left table contains a cohort of interest, i.e. everyone that has been given a specific treatment, and you want to get their lab values from another table, use <code>left_join()</code> to add those lab values in the cohort defined by the left table</li>
+</ul></li>
+<li><code>right_join</code> = maybe never
+<ul>
+<li><code>right_join</code> does the same thing as <code>left_join</code> but backwards, I find left join easier to think about (personal preference)</li>
+</ul></li>
+<li><code>full_join</code> = does not remove any rows, you might want to use this as your default and filter later</li>
+<li><code>anti_join</code> and <code>semi_join</code> = filtering joins, probably use rarely, use right table as an exclusion criteria and find unmatched keys between two tables (<code>anti_join</code>), or filter left table based on keys in right table (<code>semi_join</code>), and keep only columns from left table</li>
+</ul>
 <blockquote>
 <p>separate(), needed a few more minutes to get it figured out</p>
 </blockquote>
@@ -71,7 +99,7 @@ editor_options:
 <pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
 ## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
+## ✔ tibble  3.1.8     ✔ dplyr   1.1.0
 ## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
 ## ✔ readr   2.1.2     ✔ forcats 0.5.1
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
@@ -161,6 +189,7 @@ mydata %&gt;%
 ## 1 Doe, Jane Doe       Jane       Advil          4.5
 ## 2 Smith, M  Smith     M          Tylenol      300  
 ## 3 Lee, Dave Lee       Dave       Advil          2.5</code></pre>
+</div>
 <div id="other-piping-troubles" class="section level2">
 <h2>Other: piping troubles</h2>
 <blockquote>
@@ -180,6 +209,10 @@ mydata %&gt;%
 <pre class="r"><code>mtcars6 &lt;- mtcars %&gt;% filter(cyl==6)
 # check that it worked
 mtcars6 %&gt;% tabyl(cyl)</code></pre>
+<pre><code>## Warning: Using one column matrices in `filter()` was deprecated in dplyr 1.1.0.
+## ℹ Please use one dimensional logical vectors instead.
+## ℹ The deprecated feature was likely used in the dplyr package.
+##   Please report the issue at &lt;]8;;https://github.com/tidyverse/dplyr/issueshttps://github.com/tidyverse/dplyr/issues]8;;&gt;.</code></pre>
 <pre><code>##  cyl n percent
 ##    6 7       1</code></pre>
 <p>As a beginner I definitely think doing each step individually and seeing the result and (saving it/assigning it appropriately!) is the way to learn what each function does. I tend to string things together because I am used to doing that, but I’ll try not to do that so much if it’s adding confusion.</p>

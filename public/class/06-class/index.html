@@ -244,7 +244,7 @@
     
       <meta property="article:published_time" content="2023-02-15T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2023-02-15T11:51:26-08:00">
+    <meta property="article:modified_time" content="2023-02-21T19:10:21-08:00">
   
 
   
@@ -655,7 +655,12 @@
 <p><a href="https://youtu.be/4ZIFb1BoIB4">Dr. Kelly Bodwin’s Reshaping Data Video</a></p>
 <p>For a short version, watch the <a href="https://youtu.be/4ZIFb1BoIB4?t=365">pivot_longer excerpt</a> about “working backwards” from a plot. Then watch the <a href="https://youtu.be/4ZIFb1BoIB4?t=620">pivot_wider excerpt</a></p>
 <p><a href="https://stat545.com/join-cheatsheet.html">Also read this join cheatsheet</a> for some good explanations/examples about which join to use when!</p>
-<p>Definitely do the readings in th eR for Data Science in the appropriate chapters as well! <a href="https://r4ds.had.co.nz/relational-data.html">joining</a>, <a href="https://r4ds.had.co.nz/tidy-data.html?#pivoting">pivoting</a></p>
+<p>Definitely do the readings in the R for Data Science in the appropriate chapters as well! <a href="https://r4ds.had.co.nz/relational-data.html">joining</a>, <a href="https://r4ds.had.co.nz/tidy-data.html?#pivoting">pivoting</a></p>
+<p>For the different join types, here are some visuals I find helpful:</p>
+<pre class="r"><code>here::here()</code></pre>
+<pre><code>## [1] &quot;/Users/minnier/Dropbox (Personal)/Work/repos/sph_r_programming_site_2023&quot;</code></pre>
+<pre class="r"><code>knitr::include_graphics(here::here(&quot;static/img/bind_rows_add.png&quot;))</code></pre>
+<p><img src="../../static/img/bind_rows_add.png" width="314" /></p>
 <blockquote>
 <p>separate(), needed a few more minutes to get it figured out</p>
 </blockquote>
@@ -663,7 +668,7 @@
 <pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
 ## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
+## ✔ tibble  3.1.8     ✔ dplyr   1.1.0
 ## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
 ## ✔ readr   2.1.2     ✔ forcats 0.5.1
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
@@ -772,6 +777,10 @@ mydata %&gt;%
 <pre class="r"><code>mtcars6 &lt;- mtcars %&gt;% filter(cyl==6)
 # check that it worked
 mtcars6 %&gt;% tabyl(cyl)</code></pre>
+<pre><code>## Warning: Using one column matrices in `filter()` was deprecated in dplyr 1.1.0.
+## ℹ Please use one dimensional logical vectors instead.
+## ℹ The deprecated feature was likely used in the dplyr package.
+##   Please report the issue at &lt;]8;;https://github.com/tidyverse/dplyr/issueshttps://github.com/tidyverse/dplyr/issues]8;;&gt;.</code></pre>
 <pre><code>##  cyl n percent
 ##    6 7       1</code></pre>
 <p>As a beginner I definitely think doing each step individually and seeing the result and (saving it/assigning it appropriately!) is the way to learn what each function does. I tend to string things together because I am used to doing that, but I’ll try not to do that so much if it’s adding confusion.</p>
@@ -788,7 +797,7 @@ mtcars6 %&gt;% tabyl(cyl)</code></pre>
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on February 15, 2023</p>
+                    <p>Last updated on February 21, 2023</p>
 
                     
 
