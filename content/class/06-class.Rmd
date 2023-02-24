@@ -174,3 +174,4 @@ mtcars6 %>% tabyl(cyl)
 
 As a beginner I definitely think doing each step individually and seeing the result and (saving it/assigning it appropriately!) is the way to learn what each function does. I tend to string things together because I am used to doing that, but I'll try not to do that so much if it's adding confusion.
 
+##

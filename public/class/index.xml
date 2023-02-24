@@ -1689,7 +1689,10 @@ ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#muddiest-points&#34; id=&#34;toc-muddiest-points&#34;&gt;Muddiest Points&lt;/a&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#when-do-we-use-which-join&#34; id=&#34;toc-when-do-we-use-which-join&#34;&gt;When do we use which join?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#separate-example&#34; id=&#34;toc-separate-example&#34;&gt;separate example&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#other-piping-troubles&#34; id=&#34;toc-other-piping-troubles&#34;&gt;Other: piping troubles&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#section&#34; id=&#34;toc-section&#34;&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -1725,12 +1728,37 @@ ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
 &lt;p&gt;&lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4&#34;&gt;Dr. Kelly Bodwin’s Reshaping Data Video&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;For a short version, watch the &lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4?t=365&#34;&gt;pivot_longer excerpt&lt;/a&gt; about “working backwards” from a plot. Then watch the &lt;a href=&#34;https://youtu.be/4ZIFb1BoIB4?t=620&#34;&gt;pivot_wider excerpt&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://stat545.com/join-cheatsheet.html&#34;&gt;Also read this join cheatsheet&lt;/a&gt; for some good explanations/examples about which join to use when!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://nyu-cdsc.github.io/learningr/assets/data-transformation.pdf&#34;&gt;The rstudio cheatsheet is also good.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Definitely do the readings in the R for Data Science in the appropriate chapters as well! &lt;a href=&#34;https://r4ds.had.co.nz/relational-data.html&#34;&gt;joining&lt;/a&gt;, &lt;a href=&#34;https://r4ds.had.co.nz/tidy-data.html?#pivoting&#34;&gt;pivoting&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;For the different join types, here are some visuals I find helpful:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;here::here()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;/Users/minnier/Dropbox (Personal)/Work/repos/sph_r_programming_site_2023&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(here::here(&amp;quot;static/img/bind_rows_add.png&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;../../static/img/bind_rows_add.png&#34; width=&#34;314&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;For the different join types, here are some visuals I find helpful.&lt;/p&gt;
+&lt;p&gt;When we use &lt;code&gt;bind_rows()&lt;/code&gt; we stack cases on top of each other like so:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/img/bind_rows_add.png&#34; alt=&#34;&#34;  width=&#34;70%&#34; height=&#34;40%&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;For joins, we put columns next to each other based on matching keys. The “intersection” of keys is shown in these diagrams for each type of join, with the blue denoting which keys/rows we keep from which table:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/img/dplyr_join_venn.png&#34; alt=&#34;&#34;  width=&#34;70%&#34; height=&#34;70%&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;A more data oriented visual is shown below. The lines denote the keys that match:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sph-r-programming-2023.netlify.app/img/joins_colors.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;This is from the part5 Rmd:&lt;/p&gt;
+&lt;div id=&#34;when-do-we-use-which-join&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;When do we use which join?&lt;/h3&gt;
+&lt;p&gt;See this &lt;a href=&#34;https://dplyr.tidyverse.org/articles/two-table.html&#34;&gt;two-table verbs vignette&lt;/a&gt; and this &lt;a href=&#34;https://stat545.com/join-cheatsheet.html&#34;&gt;cheatsheet&lt;/a&gt; for some extra explanations.&lt;/p&gt;
+&lt;p&gt;These joins are created to match SQL joins for databases.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;inner_join&lt;/code&gt; = You only want data that is in both tables&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;left_join&lt;/code&gt; = You only want data that is in one table.
+&lt;ul&gt;
+&lt;li&gt;Often the right table is a subset of the left table, so it’s easy to use this to keep everything in the bigger table, and join on the smaller table&lt;/li&gt;
+&lt;li&gt;If the left table contains a cohort of interest, i.e. everyone that has been given a specific treatment, and you want to get their lab values from another table, use &lt;code&gt;left_join()&lt;/code&gt; to add those lab values in the cohort defined by the left table&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;right_join&lt;/code&gt; = maybe never
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;right_join&lt;/code&gt; does the same thing as &lt;code&gt;left_join&lt;/code&gt; but backwards, I find left join easier to think about (personal preference)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;full_join&lt;/code&gt; = does not remove any rows, you might want to use this as your default and filter later&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;anti_join&lt;/code&gt; and &lt;code&gt;semi_join&lt;/code&gt; = filtering joins, probably use rarely, use right table as an exclusion criteria and find unmatched keys between two tables (&lt;code&gt;anti_join&lt;/code&gt;), or filter left table based on keys in right table (&lt;code&gt;semi_join&lt;/code&gt;), and keep only columns from left table&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;separate-example&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;separate example&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;separate(), needed a few more minutes to get it figured out&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1757,6 +1785,30 @@ mydata&lt;/code&gt;&lt;/pre&gt;
 ## 1 Doe, Jane Advil; 4.5 mg 
 ## 2 Smith, M  Tylenol; 300mg
 ## 3 Lee, Dave Advil; 2.5 mg&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# prints a little prettier in html
+knitr::kable(mydata)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;name&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;rx&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Doe, Jane&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Advil; 4.5 mg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Smith, M&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Tylenol; 300mg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Lee, Dave&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Advil; 2.5 mg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# by default, separates using most special/non-alphanumeric characters
 mydata %&amp;gt;%
   separate(name, into = c(&amp;quot;last_name&amp;quot;, &amp;quot;first_name&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
@@ -1828,6 +1880,7 @@ mydata %&amp;gt;%
 ## 1 Doe, Jane Doe       Jane       Advil          4.5
 ## 2 Smith, M  Smith     M          Tylenol      300  
 ## 3 Lee, Dave Lee       Dave       Advil          2.5&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;div id=&#34;other-piping-troubles&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Other: piping troubles&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -1854,6 +1907,9 @@ mtcars6 %&amp;gt;% tabyl(cyl)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##  cyl n percent
 ##    6 7       1&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;As a beginner I definitely think doing each step individually and seeing the result and (saving it/assigning it appropriately!) is the way to learn what each function does. I tend to string things together because I am used to doing that, but I’ll try not to do that so much if it’s adding confusion.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;section&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
