@@ -76,6 +76,12 @@ snippet plonger
 	)
 ```
 
+> I struggled with the pivoting of tables on assignment #5, and still have some trouble wrapping my head around it-- especially when we pivoted the long table back to wide but with different column names.
+
+One difficult thing to grasp about pivoting is the idea of pivoting long, and then even longer (doubly long?), and then back again to wide but in a different way, with different information in the columns. This takes a *lot* of practice to get there without a lot of struggle. After you have done this many times you'll be better able to see what you need out of the data frame and how to get it there. I wish we had more time to just pivot things in all sorts of ways, because it's a powerful form of data manipulation!
+
+
+
 > Faceting in ggplot
 > I need to play with setting plot scales to actual values with "free_x/free_y"
 
@@ -86,11 +92,11 @@ I've also been meaning to mention that the ggplot2 package website has useful FA
 
 > Reading the vignette for summarize and list. Can you explain how to read this vignette.
 
-Sorry I couldn't figure out which vignette you were talking about here, could you send me the link? Or maybe you are looking for a link...Usually if I mention a vignette in class I have the link the Rmd/html file. Otherwise, the best way to find package vignettes is by going to the package website. Most of the tidyverse packages have a website, and the vignettes will often be in the "Articles" drop down. For instance, [here's dplyr's website and list of articles/vignettes](https://dplyr.tidyverse.org/articles/index.html), but I don't see one on summarize/lists! You can also see vignettes in the CRAN package's website usually, for instance here's [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html)
+Sorry I couldn't figure out which vignette you were talking about here, could you send me the link? Or maybe you are looking for a link... Usually if I mention a vignette in class I have the link the Rmd/html file. Otherwise, the best way to find package vignettes is by going to the package website. Most of the tidyverse packages have a website, and the vignettes will often be in the "Articles" drop down. For instance, [here's dplyr's website and list of articles/vignettes](https://dplyr.tidyverse.org/articles/index.html), but I don't see one on summarize/lists! You can also see vignettes in the CRAN package's website usually, for instance here's [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html)
 
 > Can we go over how to create a summary table with percentages using summary and across?
 
-This depends on exactly what you want to do. I might use one of the fancier functions like `gtsummary::tbl_summary()` for a true "summary table" of all my categorical variables, but we can see how this would work with `summarize()` "by hand". We are going to see in part6 some examples with `tabyl`, as well.
+This depends on exactly what you want to do. I might use one of the fancier functions like `gtsummary::tbl_summary()` or `table1::table1` for a true "summary table" of all my categorical variables, but we can see how this would work with `summarize()` "by hand". We are going to see in part6 some examples with `tabyl`, as well.
 
 Here's an example just with summarize:
 
@@ -132,6 +138,12 @@ penguins %>% group_by(species) %>%
 # Clearest Points
 
 Lots of joining and binding, great!
+
+> Outlining the steps you took and what you are looking for in the data was really helpful.
+
+> I really liked the flow of explanation on data management yesterday, thank you!
+
+That's great to hear, I almost completely got rid of part6 because I wasn't sure if it would be that helpful. Hopefully it provided some useful practice with messier data!
 
 # Other
 
