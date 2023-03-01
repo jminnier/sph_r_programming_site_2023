@@ -1692,7 +1692,6 @@ ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
 &lt;li&gt;&lt;a href=&#34;#when-do-we-use-which-join&#34; id=&#34;toc-when-do-we-use-which-join&#34;&gt;When do we use which join?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#separate-example&#34; id=&#34;toc-separate-example&#34;&gt;separate example&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#other-piping-troubles&#34; id=&#34;toc-other-piping-troubles&#34;&gt;Other: piping troubles&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#section&#34; id=&#34;toc-section&#34;&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -1764,14 +1763,16 @@ ggplot(mydata, aes(x=country_lump, y=lifeExp, color = year)) +
 &lt;/blockquote&gt;
 &lt;p&gt;Let’s do another short example!&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-## ✔ tibble  3.1.8     ✔ dplyr   1.1.0
-## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
-## ✔ readr   2.1.2     ✔ forcats 0.5.1
+&lt;pre&gt;&lt;code&gt;## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.0     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.1     ✔ tibble    3.1.8
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.1     
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- tibble(
   name = c(&amp;quot;Doe, Jane&amp;quot;, &amp;quot;Smith, M&amp;quot;, &amp;quot;Lee, Dave&amp;quot;),
   rx = c(&amp;quot;Advil; 4.5 mg&amp;quot;, &amp;quot;Tylenol; 300mg&amp;quot;, &amp;quot;Advil; 2.5 mg&amp;quot;)
@@ -1832,7 +1833,8 @@ mydata %&amp;gt;%
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# if we add in some more columns, we can see it&amp;#39;s splitting based on ; . and space!
 mydata %&amp;gt;%
   separate(rx, into = c(&amp;quot;rx_name&amp;quot;, &amp;quot;rx_dose&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: Expected 5 pieces. Missing pieces filled with `NA` in 3 rows [1, 2, 3].&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Expected 5 pieces. Missing pieces filled with `NA` in 3 rows [1, 2,
+## 3].&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 6
 ##   name      rx_name rx_dose a     b     c    
 ##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;
@@ -1887,7 +1889,7 @@ mydata %&amp;gt;%
 &lt;p&gt;I have issues with my pipes where I think I’m putting things in the wrong order and nothing happens- I don’t get errors I can google, it just doesn’t work. Most often it’s when I end a pipe with %&amp;gt;% tabyl(variable), maybe that is a no-no? But I’ve found I end up having to break pipes into multiple pieces because I can’t string them together the right way.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;I have a hard time understanding when to pipe things together or knowing when to nest a function as well. I’m glad you’ve reassured us in class that it’s ok that we put our functions into pieces. I think that eases the stress with learning as I feel like trying to make everything happen in one command can be very overwhelming.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;I have a hard time understanding when to pipe things together or knowing when to nest a function as well. I&amp;#39;m glad you&amp;#39;ve reassured us in class that it&amp;#39;s ok that we put our functions into pieces. I think that eases the stress with learning as I feel like trying to make everything happen in one command can be very overwhelming.&lt;/code&gt;&lt;/pre&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Yes, yes! Please separate out your pipes/commands if it makes things more clear or makes it work better for you!&lt;/p&gt;
 &lt;p&gt;I’m not sure what’s happening with the no-errors-broken situation. I will say that I often separate the &lt;code&gt;taybl(variable)&lt;/code&gt; code when I’m doing analysis work, just because I am saving intermediate data sets after data cleaning or sub-setting and don’t want to save that tabyl. Something like this:&lt;/p&gt;
@@ -1900,25 +1902,18 @@ mydata %&amp;gt;%
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars6 &amp;lt;- mtcars %&amp;gt;% filter(cyl==6)
 # check that it worked
 mtcars6 %&amp;gt;% tabyl(cyl)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: Using one column matrices in `filter()` was deprecated in dplyr 1.1.0.
-## ℹ Please use one dimensional logical vectors instead.
-## ℹ The deprecated feature was likely used in the dplyr package.
-##   Please report the issue at &amp;lt;]8;;https://github.com/tidyverse/dplyr/issueshttps://github.com/tidyverse/dplyr/issues]8;;&amp;gt;.&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##  cyl n percent
 ##    6 7       1&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;As a beginner I definitely think doing each step individually and seeing the result and (saving it/assigning it appropriately!) is the way to learn what each function does. I tend to string things together because I am used to doing that, but I’ll try not to do that so much if it’s adding confusion.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;section&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
     
     <item>
-      <title>Part 7 (Class 8): Lists/Functions/Intro to Purrr</title>
+      <title>(Class 8) Part 6 Continued, Part 7 : Lists/Functions/Intro to Purrr</title>
       <link>https://sph-r-programming-2023.netlify.app/class/08-class/</link>
-      <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate>
       <guid>https://sph-r-programming-2023.netlify.app/class/08-class/</guid>
       <description>
 
@@ -1932,7 +1927,7 @@ mtcars6 %&amp;gt;% tabyl(cyl)&lt;/code&gt;&lt;/pre&gt;
 
 &lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Project files&lt;/h2&gt;
-&lt;p&gt;Please download the part7 sub-folder from &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this dropbox link&lt;/a&gt;. Be sure to unzip if necessary. Knit the &lt;code&gt;part7.Rmd&lt;/code&gt; to install any required packages.&lt;/p&gt;
+&lt;p&gt;Last class we worked on part6 materials. This is class 8, and we will finish part6 and start part7. Please download the part6 and part7 sub-folders from &lt;a href=&#34;https://bit.ly/bsta504_dropbox_2023&#34;&gt;this dropbox folder link&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Class Video&lt;/h2&gt;
@@ -1956,7 +1951,7 @@ mtcars6 %&amp;gt;% tabyl(cyl)&lt;/code&gt;&lt;/pre&gt;
     <item>
       <title>(Class 7) Part 6: Messy data example, more data wrangling and ggplot</title>
       <link>https://sph-r-programming-2023.netlify.app/class/07-class/</link>
-      <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
       <guid>https://sph-r-programming-2023.netlify.app/class/07-class/</guid>
       <description>
 
@@ -1966,6 +1961,9 @@ mtcars6 %&amp;gt;% tabyl(cyl)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;a href=&#34;#this-years-class-video&#34; id=&#34;toc-this-years-class-video&#34;&gt;This year’s class video&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#last-years-class-video-class-7-part-6&#34; id=&#34;toc-last-years-class-video-class-7-part-6&#34;&gt;Last Year’s Class Video (Class 7, Part 6)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-parts&#34; id=&#34;toc-muddiest-parts&#34;&gt;Muddiest Parts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clearest-points&#34; id=&#34;toc-clearest-points&#34;&gt;Clearest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other&#34; id=&#34;toc-other&#34;&gt;Other&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -1994,13 +1992,134 @@ mtcars6 %&amp;gt;% tabyl(cyl)&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;div id=&#34;muddiest-parts&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Muddiest Parts&lt;/h1&gt;
+&lt;p&gt;Still some pain points related to &lt;code&gt;pivot_&lt;/code&gt;-ing. I get it, it took me a long time to get comfortable with this (and I’ve gone through multiple function and argument transformations from &lt;code&gt;melt()&lt;/code&gt; to &lt;code&gt;gather()&lt;/code&gt; to &lt;code&gt;pivot_longer()&lt;/code&gt; etc, all those transitions were hard!). We might not see many more examples with this because we have so much more to cover, but keep practicing, and ask for help when you need it! Relatedly:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pivot_longer is so versatile for data manipulation but sometimes it’s contains many arguments&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When ever I use pivot_longer and pivot_wider I get the columns that are being switched wrong.Is there a way you think about it that helps you sort out which is which? The Stata manual uses this ‘i’ and ‘j’ notation that’s helping when I’m working in Stata, but I haven’t found an easy way to work with those functions in R.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The argument names have changed a lot since I started pivoting with the tidyverse, but now they are using &lt;code&gt;names_to =&lt;/code&gt; because the authors think this makes more sense, and I tend to agree. This argument name helps me more than old versions. I think of this as “column names turn into one column called” or send the “names” of these columns “to” this new column. Therefore, I need to specify which &lt;code&gt;cols =&lt;/code&gt; are the column names going into &lt;code&gt;names_to =&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Then, when we go to &lt;code&gt;pivot_wider()&lt;/code&gt; we get &lt;code&gt;names_from =&lt;/code&gt; which is asking, where are the column names coming from? Also, &lt;code&gt;values_from =&lt;/code&gt; which is asking, where are the actual values coming from? Pivot wider to me is easier because we don’t need to specify any other information than those two pieces (you can specify &lt;code&gt;id_cols =&lt;/code&gt; but the default is just to use everything else you’re not pivoting). Pivot wider is tricky, however, in that you do need just one value for each combination of id columns.&lt;/p&gt;
+&lt;p&gt;If you’re still having trouble, you’re not alone, &lt;a href=&#34;https://www.infoworld.com/article/3637083/never-look-up-tidyrs-pivotwider-or-pivotlonger-again.html&#34;&gt;look at this article on how to create a code snippet that pops up to tell you exactly what to do, every time:&lt;/a&gt; (and there’s more about what “snippets” are in that article).&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;snippet plonger
+	pivot_longer(${1:mydf},
+	             cols = ${2:columns to pivot long},
+	             names_to = &amp;quot;${3:desired name for category column}&amp;quot;,
+	             values_to = &amp;quot;${4:desired name for value column}&amp;quot;
+	)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Faceting in ggplot
+I need to play with setting plot scales to actual values with “free_x/free_y”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is something I think you’ll need to “play around with” to just, try some things and see how it affects the plot. The homework faceting is similar to the example plot we did in class last week, but, there’s a lot more you can do with faceting and it’s a very powerful way to display data. The &lt;code&gt;ggplot2&lt;/code&gt; book’s &lt;a href=&#34;https://ggplot2-book.org/facet.html&#34;&gt;Faceting chapter&lt;/a&gt; is a nice review of this.&lt;/p&gt;
+&lt;p&gt;I’ve also been meaning to mention that the ggplot2 package website has useful FAQs on lots of tricky subjects. &lt;a href=&#34;https://ggplot2.tidyverse.org/articles/faq-faceting.html&#34;&gt;Here’s the faceting one.&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;Reading the vignette for summarize and list. Can you explain how to read this vignette.&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sorry I couldn’t figure out which vignette you were talking about here, could you send me the link?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Can we go over how to create a summary table with percentages using summary and across?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This depends on exactly what you want to do. I might use one of the fancier functions like &lt;code&gt;gtsummary::tbl_summary()&lt;/code&gt; for a true “summary table” of all my categorical variables, but we can see how this would work with &lt;code&gt;summarize()&lt;/code&gt; “by hand”. We are going to see in part6 some examples with &lt;code&gt;tabyl&lt;/code&gt;, as well.&lt;/p&gt;
+&lt;p&gt;Here’s an example just with summarize:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.0     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.1     ✔ tibble    3.1.8
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.1     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(janitor)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;janitor&amp;#39;
+## 
+## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     chisq.test, fisher.test&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(palmerpenguins)
+
+# First with tabyl, using adorn_ (which we will see in part6 today)
+penguins %&amp;gt;%
+  tabyl(species, sex) %&amp;gt;%
+  adorn_percentages() %&amp;gt;%
+  adorn_pct_formatting()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    species female  male  NA_
+##     Adelie  48.0% 48.0% 3.9%
+##  Chinstrap  50.0% 50.0% 0.0%
+##     Gentoo  46.8% 49.2% 4.0%&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# try to get the same information with summarize:
+penguins %&amp;gt;%
+  group_by(species) %&amp;gt;%
+  summarize(pct_male = sum(sex==&amp;quot;male&amp;quot;, na.rm = TRUE)/length(sex),
+            pct_female = sum(sex==&amp;quot;female&amp;quot;, na.rm = TRUE)/length(sex),
+            pct_NA = sum(is.na(sex), na.rm = TRUE)/length(sex)) %&amp;gt;%
+  mutate(across(where(is.numeric), ~.x*100))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 4
+##   species   pct_male pct_female pct_NA
+##   &amp;lt;fct&amp;gt;        &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1 Adelie        48.0       48.0   3.95
+## 2 Chinstrap     50         50     0   
+## 3 Gentoo        49.2       46.8   4.03&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# mean also works:
+penguins %&amp;gt;%
+  group_by(species) %&amp;gt;%
+  summarize(pct_male = mean(sex==&amp;quot;male&amp;quot;, na.rm = TRUE),
+            pct_female = mean(sex==&amp;quot;female&amp;quot;, na.rm = TRUE),
+            pct_NA = mean(is.na(sex), na.rm = TRUE)) %&amp;gt;%
+  mutate(across(where(is.numeric), ~.x*100))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 4
+##   species   pct_male pct_female pct_NA
+##   &amp;lt;fct&amp;gt;        &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1 Adelie        50         50     3.95
+## 2 Chinstrap     50         50     0   
+## 3 Gentoo        51.3       48.7   4.03&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But it’s hard to generalize that specific &lt;code&gt;summarize&lt;/code&gt; to other columns with &lt;code&gt;across()&lt;/code&gt;, because nothing else has the category “male”, “female”. You’d need your data to be in quite a particular format, so I think this not something you’ll commonly do. You could calculate proportion missing, though, which is a similar idea:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% group_by(species) %&amp;gt;%
+  summarize(across(everything(), .fns= ~ mean(is.na(.x))))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 × 8
+##   species   island bill_length_mm bill_depth_mm flipper_l…¹ body_…²    sex  year
+##   &amp;lt;fct&amp;gt;      &amp;lt;dbl&amp;gt;          &amp;lt;dbl&amp;gt;         &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 Adelie         0        0.00658       0.00658     0.00658 0.00658 0.0395     0
+## 2 Chinstrap      0        0             0           0       0       0          0
+## 3 Gentoo         0        0.00806       0.00806     0.00806 0.00806 0.0403     0
+## # … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clearest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Clearest Points&lt;/h1&gt;
+&lt;p&gt;Lots of joining and binding, great!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Other&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We followed an example where we had a graph to strive for, but is there an example or just advice you can provide when we don’t have that? How do you know to leave the demographic information aside and only join the other data first?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I don’t think there’s good one size fits all advice here. For that particular question, I could have joined the demographic data with each piece of the other data, that is also an option. That also would have avoided the need for &lt;code&gt;bind_rows()&lt;/code&gt;, so that’s a good point. I do tend to create separate data sets by “type” so for instance in that example I wanted all of the biomarker/outcome data together, just so I knew where it was. That’s my main reason for binding those data together first.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Working with messy data seems very scary!!!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It’s so useful to learn how to work with super messy data because unfortunately that’s often how people have their data set up!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Messy data &lt;em&gt;is&lt;/em&gt; scary, I agree!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Why do you use here::here sometimes and other times it’s just here without the here:: preceding it?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Usually &lt;code&gt;pckgname::functioname()&lt;/code&gt; is not necessary but used for clarification where that function is coming from. I sometimes do that in case I haven’t loaded the package first. Since I often use the &lt;code&gt;here&lt;/code&gt; package at the beginning of my script when loading in data for an analysis, I’m not used to loading like other packages, but instead just call that function by using &lt;code&gt;here::here()&lt;/code&gt;, so it’s somewhat due to habit!&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     
     <item>
-      <title>Part 8 (Class 9). Intro to stats/`broom`/More Purrr</title>
+      <title>(Class 9) Part 7 continued and Part 8 . Intro to stats/`broom`/More Purrr</title>
       <link>https://sph-r-programming-2023.netlify.app/class/09-class/</link>
-      <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 08 Mar 2023 00:00:00 +0000</pubDate>
       <guid>https://sph-r-programming-2023.netlify.app/class/09-class/</guid>
       <description>
 

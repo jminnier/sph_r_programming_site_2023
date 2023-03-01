@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="R Project files This year’s class video Last Year’s Class Video (Class 7, Part 6) Post-Class   R Project files Last class we finished up part5 materials. This is class 7, and we will start with part6 now (sorry, we’re going to be off by one from now on). Please download the part6 sub-folder from this dropbox folder link.
+  <meta name="description" content="R Project files This year’s class video Last Year’s Class Video (Class 7, Part 6) Post-Class Muddiest Parts Clearest Points Other   R Project files Last class we finished up part5 materials. This is class 7, and we will start with part6 now (sorry, we’re going to be off by one from now on). Please download the part6 sub-folder from this dropbox folder link.
 This section is mainly a practice, with some additional ggplot lessons.">
 
   
@@ -237,12 +237,12 @@ This section is mainly a practice, with some additional ggplot lessons.">
   <meta property="og:site_name" content="R Programming 2023">
   <meta property="og:url" content="https://sph-r-programming-2023.netlify.app/class/07-class/">
   <meta property="og:title" content="(Class 7) Part 6: Messy data example, more data wrangling and ggplot | R Programming 2023">
-  <meta property="og:description" content="R Project files This year’s class video Last Year’s Class Video (Class 7, Part 6) Post-Class   R Project files Last class we finished up part5 materials. This is class 7, and we will start with part6 now (sorry, we’re going to be off by one from now on). Please download the part6 sub-folder from this dropbox folder link.
+  <meta property="og:description" content="R Project files This year’s class video Last Year’s Class Video (Class 7, Part 6) Post-Class Muddiest Parts Clearest Points Other   R Project files Last class we finished up part5 materials. This is class 7, and we will start with part6 now (sorry, we’re going to be off by one from now on). Please download the part6 sub-folder from this dropbox folder link.
 This section is mainly a practice, with some additional ggplot lessons."><meta property="og:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2022-02-16T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2023-02-22T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2023-02-21T19:10:21-08:00">
   
@@ -564,11 +564,11 @@ This section is mainly a practice, with some additional ggplot lessons."><meta p
       </li>
       
       <li >
-        <a href="/class/08-class/">Part 7 (Class 8): Lists/Functions/Intro to Purrr</a>
+        <a href="/class/08-class/">(Class 8) Part 6 Continued, Part 7: Lists/Functions/Intro to Purrr</a>
       </li>
       
       <li >
-        <a href="/class/09-class/">Part 8 (Class 9). Intro to stats/`broom`/More Purrr</a>
+        <a href="/class/09-class/">(Class 9) Part 7 continued and Part 8 . Intro to stats/`broom`/More Purrr</a>
       </li>
       
       <li >
@@ -604,7 +604,7 @@ This section is mainly a practice, with some additional ggplot lessons."><meta p
 
                     
                     <div class="due-date p-2 mb-3 bg-secondary text-white">
-                        Materials from class on Wednesday, February 16, 2022
+                        Materials from class on Wednesday, February 22, 2023
                     </div>
                     
 
@@ -617,6 +617,9 @@ This section is mainly a practice, with some additional ggplot lessons."><meta p
 <li><a href="#this-years-class-video" id="toc-this-years-class-video">This year’s class video</a></li>
 <li><a href="#last-years-class-video-class-7-part-6" id="toc-last-years-class-video-class-7-part-6">Last Year’s Class Video (Class 7, Part 6)</a></li>
 <li><a href="#post-class" id="toc-post-class">Post-Class</a></li>
+<li><a href="#muddiest-parts" id="toc-muddiest-parts">Muddiest Parts</a></li>
+<li><a href="#clearest-points" id="toc-clearest-points">Clearest Points</a></li>
+<li><a href="#other" id="toc-other">Other</a></li>
 </ul>
 </div>
 
@@ -644,6 +647,127 @@ This section is mainly a practice, with some additional ggplot lessons."><meta p
 <li>Anything Else: Is there something you’d like me to know?</li>
 </ul>
 <p><a href="https://bit.ly/bsta504_postclass_survey" class="uri">https://bit.ly/bsta504_postclass_survey</a></p>
+</div>
+<div id="muddiest-parts" class="section level1">
+<h1>Muddiest Parts</h1>
+<p>Still some pain points related to <code>pivot_</code>-ing. I get it, it took me a long time to get comfortable with this (and I’ve gone through multiple function and argument transformations from <code>melt()</code> to <code>gather()</code> to <code>pivot_longer()</code> etc, all those transitions were hard!). We might not see many more examples with this because we have so much more to cover, but keep practicing, and ask for help when you need it! Relatedly:</p>
+<blockquote>
+<p>pivot_longer is so versatile for data manipulation but sometimes it’s contains many arguments</p>
+</blockquote>
+<blockquote>
+<p>When ever I use pivot_longer and pivot_wider I get the columns that are being switched wrong.Is there a way you think about it that helps you sort out which is which? The Stata manual uses this ‘i’ and ‘j’ notation that’s helping when I’m working in Stata, but I haven’t found an easy way to work with those functions in R.</p>
+</blockquote>
+<p>The argument names have changed a lot since I started pivoting with the tidyverse, but now they are using <code>names_to =</code> because the authors think this makes more sense, and I tend to agree. This argument name helps me more than old versions. I think of this as “column names turn into one column called” or send the “names” of these columns “to” this new column. Therefore, I need to specify which <code>cols =</code> are the column names going into <code>names_to =</code></p>
+<p>Then, when we go to <code>pivot_wider()</code> we get <code>names_from =</code> which is asking, where are the column names coming from? Also, <code>values_from =</code> which is asking, where are the actual values coming from? Pivot wider to me is easier because we don’t need to specify any other information than those two pieces (you can specify <code>id_cols =</code> but the default is just to use everything else you’re not pivoting). Pivot wider is tricky, however, in that you do need just one value for each combination of id columns.</p>
+<p>If you’re still having trouble, you’re not alone, <a href="https://www.infoworld.com/article/3637083/never-look-up-tidyrs-pivotwider-or-pivotlonger-again.html">look at this article on how to create a code snippet that pops up to tell you exactly what to do, every time:</a> (and there’s more about what “snippets” are in that article).</p>
+<pre><code>snippet plonger
+	pivot_longer(${1:mydf},
+	             cols = ${2:columns to pivot long},
+	             names_to = &quot;${3:desired name for category column}&quot;,
+	             values_to = &quot;${4:desired name for value column}&quot;
+	)</code></pre>
+<blockquote>
+<p>Faceting in ggplot
+I need to play with setting plot scales to actual values with “free_x/free_y”</p>
+</blockquote>
+<p>This is something I think you’ll need to “play around with” to just, try some things and see how it affects the plot. The homework faceting is similar to the example plot we did in class last week, but, there’s a lot more you can do with faceting and it’s a very powerful way to display data. The <code>ggplot2</code> book’s <a href="https://ggplot2-book.org/facet.html">Faceting chapter</a> is a nice review of this.</p>
+<p>I’ve also been meaning to mention that the ggplot2 package website has useful FAQs on lots of tricky subjects. <a href="https://ggplot2.tidyverse.org/articles/faq-faceting.html">Here’s the faceting one.</a></p>
+<blockquote>
+<pre><code>Reading the vignette for summarize and list. Can you explain how to read this vignette.</code></pre>
+</blockquote>
+<p>Sorry I couldn’t figure out which vignette you were talking about here, could you send me the link?</p>
+<blockquote>
+<p>Can we go over how to create a summary table with percentages using summary and across?</p>
+</blockquote>
+<p>This depends on exactly what you want to do. I might use one of the fancier functions like <code>gtsummary::tbl_summary()</code> for a true “summary table” of all my categorical variables, but we can see how this would work with <code>summarize()</code> “by hand”. We are going to see in part6 some examples with <code>tabyl</code>, as well.</p>
+<p>Here’s an example just with summarize:</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.0     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.1     ✔ tibble    3.1.8
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.1     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors</code></pre>
+<pre class="r"><code>library(janitor)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;janitor&#39;
+## 
+## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     chisq.test, fisher.test</code></pre>
+<pre class="r"><code>library(palmerpenguins)
+
+# First with tabyl, using adorn_ (which we will see in part6 today)
+penguins %&gt;%
+  tabyl(species, sex) %&gt;%
+  adorn_percentages() %&gt;%
+  adorn_pct_formatting()</code></pre>
+<pre><code>##    species female  male  NA_
+##     Adelie  48.0% 48.0% 3.9%
+##  Chinstrap  50.0% 50.0% 0.0%
+##     Gentoo  46.8% 49.2% 4.0%</code></pre>
+<pre class="r"><code># try to get the same information with summarize:
+penguins %&gt;%
+  group_by(species) %&gt;%
+  summarize(pct_male = sum(sex==&quot;male&quot;, na.rm = TRUE)/length(sex),
+            pct_female = sum(sex==&quot;female&quot;, na.rm = TRUE)/length(sex),
+            pct_NA = sum(is.na(sex), na.rm = TRUE)/length(sex)) %&gt;%
+  mutate(across(where(is.numeric), ~.x*100))</code></pre>
+<pre><code>## # A tibble: 3 × 4
+##   species   pct_male pct_female pct_NA
+##   &lt;fct&gt;        &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Adelie        48.0       48.0   3.95
+## 2 Chinstrap     50         50     0   
+## 3 Gentoo        49.2       46.8   4.03</code></pre>
+<pre class="r"><code># mean also works:
+penguins %&gt;%
+  group_by(species) %&gt;%
+  summarize(pct_male = mean(sex==&quot;male&quot;, na.rm = TRUE),
+            pct_female = mean(sex==&quot;female&quot;, na.rm = TRUE),
+            pct_NA = mean(is.na(sex), na.rm = TRUE)) %&gt;%
+  mutate(across(where(is.numeric), ~.x*100))</code></pre>
+<pre><code>## # A tibble: 3 × 4
+##   species   pct_male pct_female pct_NA
+##   &lt;fct&gt;        &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Adelie        50         50     3.95
+## 2 Chinstrap     50         50     0   
+## 3 Gentoo        51.3       48.7   4.03</code></pre>
+<p>But it’s hard to generalize that specific <code>summarize</code> to other columns with <code>across()</code>, because nothing else has the category “male”, “female”. You’d need your data to be in quite a particular format, so I think this not something you’ll commonly do. You could calculate proportion missing, though, which is a similar idea:</p>
+<pre class="r"><code>penguins %&gt;% group_by(species) %&gt;%
+  summarize(across(everything(), .fns= ~ mean(is.na(.x))))</code></pre>
+<pre><code>## # A tibble: 3 × 8
+##   species   island bill_length_mm bill_depth_mm flipper_l…¹ body_…²    sex  year
+##   &lt;fct&gt;      &lt;dbl&gt;          &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+## 1 Adelie         0        0.00658       0.00658     0.00658 0.00658 0.0395     0
+## 2 Chinstrap      0        0             0           0       0       0          0
+## 3 Gentoo         0        0.00806       0.00806     0.00806 0.00806 0.0403     0
+## # … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g</code></pre>
+</div>
+<div id="clearest-points" class="section level1">
+<h1>Clearest Points</h1>
+<p>Lots of joining and binding, great!</p>
+</div>
+<div id="other" class="section level1">
+<h1>Other</h1>
+<blockquote>
+<p>We followed an example where we had a graph to strive for, but is there an example or just advice you can provide when we don’t have that? How do you know to leave the demographic information aside and only join the other data first?</p>
+</blockquote>
+<p>I don’t think there’s good one size fits all advice here. For that particular question, I could have joined the demographic data with each piece of the other data, that is also an option. That also would have avoided the need for <code>bind_rows()</code>, so that’s a good point. I do tend to create separate data sets by “type” so for instance in that example I wanted all of the biomarker/outcome data together, just so I knew where it was. That’s my main reason for binding those data together first.</p>
+<blockquote>
+<p>Working with messy data seems very scary!!!</p>
+</blockquote>
+<blockquote>
+<p>It’s so useful to learn how to work with super messy data because unfortunately that’s often how people have their data set up!</p>
+</blockquote>
+<p>Messy data <em>is</em> scary, I agree!</p>
+<blockquote>
+<p>Why do you use here::here sometimes and other times it’s just here without the here:: preceding it?</p>
+</blockquote>
+<p>Usually <code>pckgname::functioname()</code> is not necessary but used for clarification where that function is coming from. I sometimes do that in case I haven’t loaded the package first. Since I often use the <code>here</code> package at the beginning of my script when loading in data for an analysis, I’m not used to loading like other packages, but instead just call that function by using <code>here::here()</code>, so it’s somewhat due to habit!</p>
 </div>
 
                     </div>
