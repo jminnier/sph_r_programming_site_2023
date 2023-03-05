@@ -244,7 +244,7 @@ This section is mainly a practice, with some additional ggplot lessons."><meta p
     
       <meta property="article:published_time" content="2023-02-22T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2023-02-21T19:10:21-08:00">
+    <meta property="article:modified_time" content="2023-02-28T20:54:18-08:00">
   
 
   
@@ -657,8 +657,8 @@ This section is mainly a practice, with some additional ggplot lessons."><meta p
 <blockquote>
 <p>When ever I use pivot_longer and pivot_wider I get the columns that are being switched wrong.Is there a way you think about it that helps you sort out which is which? The Stata manual uses this ‘i’ and ‘j’ notation that’s helping when I’m working in Stata, but I haven’t found an easy way to work with those functions in R.</p>
 </blockquote>
-<p>The argument names have changed a lot since I started pivoting with the tidyverse, but now they are using <code>names_to =</code> because the authors think this makes more sense, and I tend to agree. This argument name helps me more than old versions. I think of this as “column names turn into one column called” or send the “names” of these columns “to” this new column. Therefore, I need to specify which <code>cols =</code> are the column names going into <code>names_to =</code></p>
-<p>Then, when we go to <code>pivot_wider()</code> we get <code>names_from =</code> which is asking, where are the column names coming from? Also, <code>values_from =</code> which is asking, where are the actual values coming from? Pivot wider to me is easier because we don’t need to specify any other information than those two pieces (you can specify <code>id_cols =</code> but the default is just to use everything else you’re not pivoting). Pivot wider is tricky, however, in that you do need just one value for each combination of id columns.</p>
+<p>The argument names have changed a lot since I started pivoting with the tidyverse, but now they are using <code>names_to=</code> because the authors think this makes more sense, and I tend to agree. This argument name helps me figure out what to do more than old versions. I think of this argument as “column names turn into one column called = X” or send the “names” of these columns “to” this new column. Therefore, I need to specify which <code>cols=</code> are the column names going into <code>names_to=</code></p>
+<p>Then, when we go to <code>pivot_wider()</code> we get <code>names_from=</code> which is asking, where are the column names coming from? Also, <code>values_from=</code> which is asking, where are the actual values coming from? Pivot wider to me is easier because we don’t need to specify any other information than those two pieces (you can optionally specify <code>id_cols=</code> but the default is just to use all the other columns that you’re not pivoting). Pivot wider is tricky, however, in that you do need just one value for each combination of id columns.</p>
 <p>If you’re still having trouble, you’re not alone, <a href="https://www.infoworld.com/article/3637083/never-look-up-tidyrs-pivotwider-or-pivotlonger-again.html">look at this article on how to create a code snippet that pops up to tell you exactly what to do, every time:</a> (and there’s more about what “snippets” are in that article).</p>
 <pre><code>snippet plonger
 	pivot_longer(${1:mydf},
@@ -667,19 +667,23 @@ This section is mainly a practice, with some additional ggplot lessons."><meta p
 	             values_to = &quot;${4:desired name for value column}&quot;
 	)</code></pre>
 <blockquote>
+<p>I struggled with the pivoting of tables on assignment #5, and still have some trouble wrapping my head around it– especially when we pivoted the long table back to wide but with different column names.</p>
+</blockquote>
+<p>One difficult thing to grasp about pivoting is the idea of pivoting long, and then even longer (doubly long?), and then back again to wide but in a different way, with different information in the columns. This takes a <em>lot</em> of practice to get there without a lot of struggle. After you have done this many times you’ll be better able to see what you need out of the data frame and how to get it there. I wish we had more time to just pivot things in all sorts of ways, because it’s a powerful form of data manipulation!</p>
+<blockquote>
 <p>Faceting in ggplot
 I need to play with setting plot scales to actual values with “free_x/free_y”</p>
 </blockquote>
 <p>This is something I think you’ll need to “play around with” to just, try some things and see how it affects the plot. The homework faceting is similar to the example plot we did in class last week, but, there’s a lot more you can do with faceting and it’s a very powerful way to display data. The <code>ggplot2</code> book’s <a href="https://ggplot2-book.org/facet.html">Faceting chapter</a> is a nice review of this.</p>
 <p>I’ve also been meaning to mention that the ggplot2 package website has useful FAQs on lots of tricky subjects. <a href="https://ggplot2.tidyverse.org/articles/faq-faceting.html">Here’s the faceting one.</a></p>
 <blockquote>
-<pre><code>Reading the vignette for summarize and list. Can you explain how to read this vignette.</code></pre>
+<p>Reading the vignette for summarize and list. Can you explain how to read this vignette.</p>
 </blockquote>
-<p>Sorry I couldn’t figure out which vignette you were talking about here, could you send me the link?</p>
+<p>Sorry I couldn’t figure out which vignette you were talking about here, could you send me the link? Or maybe you are looking for a link… Usually if I mention a vignette in class I have the link the Rmd/html file. Otherwise, the best way to find package vignettes is by going to the package website. Most of the tidyverse packages have a website, and the vignettes will often be in the “Articles” drop down. For instance, <a href="https://dplyr.tidyverse.org/articles/index.html">here’s dplyr’s website and list of articles/vignettes</a>, but I don’t see one on summarize/lists! You can also see vignettes in the CRAN package’s website usually, for instance here’s <a href="https://cran.r-project.org/web/packages/dplyr/index.html">dplyr</a></p>
 <blockquote>
 <p>Can we go over how to create a summary table with percentages using summary and across?</p>
 </blockquote>
-<p>This depends on exactly what you want to do. I might use one of the fancier functions like <code>gtsummary::tbl_summary()</code> for a true “summary table” of all my categorical variables, but we can see how this would work with <code>summarize()</code> “by hand”. We are going to see in part6 some examples with <code>tabyl</code>, as well.</p>
+<p>This depends on exactly what you want to do. I might use one of the fancier functions like <code>gtsummary::tbl_summary()</code> or <code>table1::table1</code> for a true “summary table” of all my categorical variables, but we can see how this would work with <code>summarize()</code> “by hand”. We are going to see in part6 some examples with <code>tabyl</code>, as well.</p>
 <p>Here’s an example just with summarize:</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
@@ -750,6 +754,13 @@ penguins %&gt;%
 <div id="clearest-points" class="section level1">
 <h1>Clearest Points</h1>
 <p>Lots of joining and binding, great!</p>
+<blockquote>
+<p>Outlining the steps you took and what you are looking for in the data was really helpful.</p>
+</blockquote>
+<blockquote>
+<p>I really liked the flow of explanation on data management yesterday, thank you!</p>
+</blockquote>
+<p>That’s great to hear, I almost completely got rid of part6 because I wasn’t sure if it would be that helpful. Hopefully it provided some useful practice with messier data!</p>
 </div>
 <div id="other" class="section level1">
 <h1>Other</h1>
@@ -780,7 +791,7 @@ penguins %&gt;%
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on February 21, 2023</p>
+                    <p>Last updated on February 28, 2023</p>
 
                     
 
