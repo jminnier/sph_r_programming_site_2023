@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="R Project files Class Video Post-Class   R Project files Last class we worked on part6 materials. This is class 8, and we will finish part6 and start part7. Please download the part6 and part7 sub-folders from this dropbox folder link.
+  <meta name="description" content="R Project files Class Video Post-Class Muddiest Points Clearest points Other   R Project files Last class we worked on part6 materials. This is class 8, and we will finish part6 and start part7. Please download the part6 and part7 sub-folders from this dropbox folder link.
  Class Video  View last year’s class and materials here.
  Post-Class Please fill out the following survey and we will discuss the results during the next lecture.">
 
@@ -238,7 +238,7 @@
   <meta property="og:site_name" content="R Programming 2023">
   <meta property="og:url" content="https://sph-r-programming-2023.netlify.app/class/08-class/">
   <meta property="og:title" content="(Class 8) Part 6 Continued, Part 7 : Lists/Functions/Intro to Purrr | R Programming 2023">
-  <meta property="og:description" content="R Project files Class Video Post-Class   R Project files Last class we worked on part6 materials. This is class 8, and we will finish part6 and start part7. Please download the part6 and part7 sub-folders from this dropbox folder link.
+  <meta property="og:description" content="R Project files Class Video Post-Class Muddiest Points Clearest points Other   R Project files Last class we worked on part6 materials. This is class 8, and we will finish part6 and start part7. Please download the part6 and part7 sub-folders from this dropbox folder link.
  Class Video  View last year’s class and materials here.
  Post-Class Please fill out the following survey and we will discuss the results during the next lecture."><meta property="og:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://sph-r-programming-2023.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
@@ -618,6 +618,9 @@
 <li><a href="#r-project-files" id="toc-r-project-files">R Project files</a></li>
 <li><a href="#class-video" id="toc-class-video">Class Video</a></li>
 <li><a href="#post-class" id="toc-post-class">Post-Class</a></li>
+<li><a href="#muddiest-points" id="toc-muddiest-points">Muddiest Points</a></li>
+<li><a href="#clearest-points" id="toc-clearest-points">Clearest points</a></li>
+<li><a href="#other" id="toc-other">Other</a></li>
 </ul>
 </div>
 
@@ -640,6 +643,52 @@
 <li>Anything Else: Is there something you’d like me to know?</li>
 </ul>
 <p><a href="https://bit.ly/bsta504_postclass_survey" class="uri">https://bit.ly/bsta504_postclass_survey</a></p>
+</div>
+<div id="muddiest-points" class="section level1">
+<h1>Muddiest Points</h1>
+<p>Definitely functions, several comments like this:</p>
+<blockquote>
+<p>creating our own functions still seems pretty daunting. the error check in particular
+I am still very confused about how to write a function. I probably should practice more.
+Making custom function seems to be so useful, but I need to be more familiar with this.</p>
+</blockquote>
+<p>Yes this will definitely take practice! If you’re doing the assigned readings, you’ll have read the R for Data Science chapter on <a href="https://r4ds.had.co.nz/functions.html">functions</a> which I find to be a good intro to this concept, but also the suggested reading on this topic is very good too, and I recommend it if you are still confused: <a href="https://hbctraining.github.io/Intro-to-R-flipped/lessons/03_introR-functions-and-arguments.html">Harvard Chan Bioinformatics Core’s lesson on “Functions in R”</a>. The Software Carpentry’s lesson on <a href="https://swcarpentry.github.io/r-novice-inflammation/02-func-R/">functions in R</a> is also good, with some info on error handling.</p>
+<p>Hopefully doing the homework provided some good practice with functions. My tip to you is to really think about what is your input (argument) and what is your output (return).</p>
+<p>I also would not worry about error handling (using <code>stop()</code>, and <code>if()</code> etc) until you are really a pro at making the functions work without all that extra stuff.</p>
+<blockquote>
+<p>Things with periods (.namerepair, .x, .fns) and just the general flow of what you can and can’t string together in a function</p>
+</blockquote>
+<p>Note that things with periods are just an alternate way of naming arguments. I don’t do that for my custom functions because I’m not making complicated functions generally, but a lot of tidyverse functions do. There is a reason for this, which is explained in the Tidyverse design guide <a href="https://design.tidyverse.org/dots-prefix.html">Dot prefix</a> chapter.</p>
+<p>This has to do with the <code>...</code> argument which I briefly mentioned in one class. When you see this as an argument to a function it means that arguments supplied there are passed on to <em>other</em> functions. For instance, look at the simple base R function <code>plot</code> documentation (<code>?plot</code>). The explanation for the <code>...</code> is this:</p>
+<blockquote>
+<p>… Arguments to be passed to methods, such as graphical parameters (see par). Many methods will accept the following arguments:</p>
+</blockquote>
+<p>So any arguments specified after <code>x</code> and <code>y</code> inside <code>plot()</code> such as <code>title = "My Plot"</code> will be passed to be arguments of the function <code>par()</code>.</p>
+<p>The dot prefix chapter therefore says:</p>
+<blockquote>
+<p>When using … to create a data structure, or when passing … to a user-supplied function, add a . prefix to all named arguments. This reduces (but does not eliminate) the chances of matching an argument at the wrong level. Additionally, you should always provide some mechanism that allows you to escape and use that name if needed.</p>
+</blockquote>
+<p>If you look therefore at the help for <code>?purrr::map</code> you can see that the argument names start with a dot (<code>.x</code> and <code>.f</code> and <code>.progress</code>) and then everything else is passed to the function specified in <code>.f</code>.</p>
+<p>Obviously this is next level stuff, things to think about when designing your own packages, not just simple functions only you will use/see. So don’t worry about it other than to know that some arguments start with a dot and some don’t, they are used the same way!</p>
+</div>
+<div id="clearest-points" class="section level1">
+<h1>Clearest points</h1>
+<blockquote>
+<p>List’ was unfamiliar for me, but the concept was clear.</p>
+</blockquote>
+<p>Cool, more with lists today!</p>
+<blockquote>
+<p>It was great to learn functions in R
+Using gt() to make the table was really nice and clear to me.</p>
+</blockquote>
+<p>Great!</p>
+</div>
+<div id="other" class="section level1">
+<h1>Other</h1>
+<blockquote>
+<p>gt() always seems to make my RStudio slow and glitchy. When I try to scroll past a gt() table, R Studio will freeze for a moment. Is that normal? Is there anything I can do?</p>
+</blockquote>
+<p>I have this same problem with some <code>gtsummary()</code> functions that use <code>gt()</code>, I think it depends on how much memory your computer has free, at least that is my guess. I think these do take a little bit to render and your computer may freeze because it’s doing a lot of “thinking”. If you google this issue and look on the <code>gt</code> package <a href="https://github.com/rstudio/gt/issues/967">issues</a> page on github you can see it isn’t a new or rare problem. If it really is troublesome, I’d make sure you closed all your other windows/software on your computer, or maybe just switch to <code>kable</code> and <code>kableExtra</code> packages.</p>
 </div>
 
                     </div>

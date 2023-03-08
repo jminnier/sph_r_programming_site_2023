@@ -41,3 +41,58 @@ Please fill out the following survey and we will discuss the results during the 
 - Anything Else: Is there something you'd like me to know?
 
 <https://bit.ly/bsta504_postclass_survey>
+
+
+# Muddiest Points
+
+Definitely functions, several comments like this:
+
+> creating our own functions still seems pretty daunting. the error check in particular
+> I am still very confused about how to write a function. I probably should practice more.
+> Making custom function seems to be so useful, but I need to be more familiar with this. 
+
+Yes this will definitely take practice! If you're doing the assigned readings, you'll have read the R for Data Science chapter on [functions](https://r4ds.had.co.nz/functions.html) which I find to be a good intro to this concept, but also the suggested reading on this topic is very good too, and I recommend it if you are still confused: [Harvard Chan Bioinformatics Core's lesson on "Functions in R"](https://hbctraining.github.io/Intro-to-R-flipped/lessons/03_introR-functions-and-arguments.html). The Software Carpentry's lesson on [functions in R](https://swcarpentry.github.io/r-novice-inflammation/02-func-R/) is also good, with some info on error handling.
+
+Hopefully doing the homework provided some good practice with functions. My tip to you is to really think about what is your input (argument) and what is your output (return).
+
+I also would not worry about error handling (using `stop()`, and `if()` etc) until you are really a pro at making the functions work without all that extra stuff.
+
+> Things with periods (.namerepair, .x, .fns) and just the general flow of what you can and can't string together in a function
+
+Note that things with periods are just an alternate way of naming arguments. I don't do that for my custom functions because I'm not making complicated functions generally, but a lot of tidyverse functions do. There is a reason for this, which is explained in the Tidyverse design guide [Dot prefix](https://design.tidyverse.org/dots-prefix.html) chapter.
+
+This has to do with the `...` argument which I briefly mentioned in one class. When you see this as an argument to a function it means that arguments supplied there are passed on to *other* functions. For instance, look at the simple base R function `plot` documentation (`?plot`). The explanation for the `...` is this:
+
+> ...	Arguments to be passed to methods, such as graphical parameters (see par). Many methods will accept the following arguments:
+
+So any arguments specified after `x` and `y` inside `plot()` such as `title = "My Plot"` will be passed to be arguments of the function `par()`.
+
+The dot prefix chapter therefore says:
+
+> When using ... to create a data structure, or when passing ... to a user-supplied function, add a . prefix to all named arguments. This reduces (but does not eliminate) the chances of matching an argument at the wrong level. Additionally, you should always provide some mechanism that allows you to escape and use that name if needed.
+
+If you look therefore at the help for `?purrr::map` you can see that the argument names start with a dot (`.x` and `.f` and `.progress`) and then everything else is passed to the function specified in `.f`.
+
+Obviously this is next level stuff, things to think about when designing your own packages, not just simple functions only you will use/see. So don't worry about it other than to know that some arguments start with a dot and some don't, they are used the same way!
+
+
+# Clearest points
+
+> List' was unfamiliar for me, but the concept was clear.
+
+Cool, more with lists today!
+
+> It was great to learn functions in R
+> Using gt() to make the table was really nice and clear to me.
+
+Great!
+
+
+# Other
+
+> gt() always seems to make my RStudio slow and glitchy. When I try to scroll past a gt() table, R Studio will freeze for a moment. Is that normal? Is there anything I can do?
+
+I have this same problem with some `gtsummary()` functions that use `gt()`, I think it depends on how much memory your computer has free, at least that is my guess. I think these do take a little bit to render and your computer may freeze because it's doing a lot of "thinking". If you google this issue and look on the `gt` package [issues](https://github.com/rstudio/gt/issues/967) page on github you can see it isn't a new or rare problem. If it really is troublesome, I'd make sure you closed all your other windows/software on your computer, or maybe just switch to `kable` and `kableExtra` packages.
+
+
+

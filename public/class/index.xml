@@ -1922,6 +1922,9 @@ mtcars6 %&amp;gt;% tabyl(cyl)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#class-video&#34; id=&#34;toc-class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34; id=&#34;toc-muddiest-points&#34;&gt;Muddiest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clearest-points&#34; id=&#34;toc-clearest-points&#34;&gt;Clearest points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other&#34; id=&#34;toc-other&#34;&gt;Other&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -1944,6 +1947,52 @@ mtcars6 %&amp;gt;% tabyl(cyl)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Muddiest Points&lt;/h1&gt;
+&lt;p&gt;Definitely functions, several comments like this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;creating our own functions still seems pretty daunting. the error check in particular
+I am still very confused about how to write a function. I probably should practice more.
+Making custom function seems to be so useful, but I need to be more familiar with this.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yes this will definitely take practice! If you’re doing the assigned readings, you’ll have read the R for Data Science chapter on &lt;a href=&#34;https://r4ds.had.co.nz/functions.html&#34;&gt;functions&lt;/a&gt; which I find to be a good intro to this concept, but also the suggested reading on this topic is very good too, and I recommend it if you are still confused: &lt;a href=&#34;https://hbctraining.github.io/Intro-to-R-flipped/lessons/03_introR-functions-and-arguments.html&#34;&gt;Harvard Chan Bioinformatics Core’s lesson on “Functions in R”&lt;/a&gt;. The Software Carpentry’s lesson on &lt;a href=&#34;https://swcarpentry.github.io/r-novice-inflammation/02-func-R/&#34;&gt;functions in R&lt;/a&gt; is also good, with some info on error handling.&lt;/p&gt;
+&lt;p&gt;Hopefully doing the homework provided some good practice with functions. My tip to you is to really think about what is your input (argument) and what is your output (return).&lt;/p&gt;
+&lt;p&gt;I also would not worry about error handling (using &lt;code&gt;stop()&lt;/code&gt;, and &lt;code&gt;if()&lt;/code&gt; etc) until you are really a pro at making the functions work without all that extra stuff.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Things with periods (.namerepair, .x, .fns) and just the general flow of what you can and can’t string together in a function&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Note that things with periods are just an alternate way of naming arguments. I don’t do that for my custom functions because I’m not making complicated functions generally, but a lot of tidyverse functions do. There is a reason for this, which is explained in the Tidyverse design guide &lt;a href=&#34;https://design.tidyverse.org/dots-prefix.html&#34;&gt;Dot prefix&lt;/a&gt; chapter.&lt;/p&gt;
+&lt;p&gt;This has to do with the &lt;code&gt;...&lt;/code&gt; argument which I briefly mentioned in one class. When you see this as an argument to a function it means that arguments supplied there are passed on to &lt;em&gt;other&lt;/em&gt; functions. For instance, look at the simple base R function &lt;code&gt;plot&lt;/code&gt; documentation (&lt;code&gt;?plot&lt;/code&gt;). The explanation for the &lt;code&gt;...&lt;/code&gt; is this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;… Arguments to be passed to methods, such as graphical parameters (see par). Many methods will accept the following arguments:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So any arguments specified after &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; inside &lt;code&gt;plot()&lt;/code&gt; such as &lt;code&gt;title = &#34;My Plot&#34;&lt;/code&gt; will be passed to be arguments of the function &lt;code&gt;par()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The dot prefix chapter therefore says:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When using … to create a data structure, or when passing … to a user-supplied function, add a . prefix to all named arguments. This reduces (but does not eliminate) the chances of matching an argument at the wrong level. Additionally, you should always provide some mechanism that allows you to escape and use that name if needed.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you look therefore at the help for &lt;code&gt;?purrr::map&lt;/code&gt; you can see that the argument names start with a dot (&lt;code&gt;.x&lt;/code&gt; and &lt;code&gt;.f&lt;/code&gt; and &lt;code&gt;.progress&lt;/code&gt;) and then everything else is passed to the function specified in &lt;code&gt;.f&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Obviously this is next level stuff, things to think about when designing your own packages, not just simple functions only you will use/see. So don’t worry about it other than to know that some arguments start with a dot and some don’t, they are used the same way!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clearest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Clearest points&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;List’ was unfamiliar for me, but the concept was clear.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Cool, more with lists today!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It was great to learn functions in R
+Using gt() to make the table was really nice and clear to me.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Great!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Other&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;gt() always seems to make my RStudio slow and glitchy. When I try to scroll past a gt() table, R Studio will freeze for a moment. Is that normal? Is there anything I can do?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I have this same problem with some &lt;code&gt;gtsummary()&lt;/code&gt; functions that use &lt;code&gt;gt()&lt;/code&gt;, I think it depends on how much memory your computer has free, at least that is my guess. I think these do take a little bit to render and your computer may freeze because it’s doing a lot of “thinking”. If you google this issue and look on the &lt;code&gt;gt&lt;/code&gt; package &lt;a href=&#34;https://github.com/rstudio/gt/issues/967&#34;&gt;issues&lt;/a&gt; page on github you can see it isn’t a new or rare problem. If it really is troublesome, I’d make sure you closed all your other windows/software on your computer, or maybe just switch to &lt;code&gt;kable&lt;/code&gt; and &lt;code&gt;kableExtra&lt;/code&gt; packages.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

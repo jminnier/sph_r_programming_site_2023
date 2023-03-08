@@ -137,20 +137,80 @@
     <loc>https://sph-r-programming-2023.netlify.app/reviews/</loc>
     <lastmod>2023-01-04T15:13:14-08:00</lastmod>
   </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/dplyr_add_count/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/dplyr_distinct/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/dplyr_first_last/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/dplyr_matches/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
     <loc>https://sph-r-programming-2023.netlify.app/functions/dplyr_n_distinct/</loc>
     <lastmod>2023-01-04T15:13:14-08:00</lastmod>
   </url><url>
     <loc>https://sph-r-programming-2023.netlify.app/functions/dplyr_pull/</loc>
     <lastmod>2023-01-04T15:13:14-08:00</lastmod>
   </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/dplyr_recode/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
     <loc>https://sph-r-programming-2023.netlify.app/functions/dplyr_slice_min_slice_max/</loc>
     <lastmod>2023-01-04T15:13:14-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/dplyr_slice_sample/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/dplyr_uncount/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
   </url><url>
     <loc>https://sph-r-programming-2023.netlify.app/functions/forcats_fct_infreq/</loc>
     <lastmod>2023-01-04T15:13:14-08:00</lastmod>
   </url><url>
     <loc>https://sph-r-programming-2023.netlify.app/functions/forcats_fct_lump/</loc>
     <lastmod>2023-01-04T15:13:14-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/forcats_fct_relevel/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/ggplot2_expand_limits/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/ggplot2_geom_distinct/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/ggplot2_geom_dotplot/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/ggplot2_geom_hex/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/ggplot2_geom_map/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/ggplot2_geom_qq/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/ggplot2_geom_rug/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/ggplot2_scale_x_reverse/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/ggridges_geom_ridgeline/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/haven_zap_label/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/janitor_remove_empty/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
+  </url><url>
+    <loc>https://sph-r-programming-2023.netlify.app/functions/openxls_write_xlsx/</loc>
+    <lastmod>2023-03-05T13:32:57-08:00</lastmod>
   </url><url>
     <loc>https://sph-r-programming-2023.netlify.app/functions/scales_breaks_pretty/</loc>
     <lastmod>2023-01-04T15:13:14-08:00</lastmod>
