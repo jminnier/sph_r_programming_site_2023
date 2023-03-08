@@ -28,7 +28,7 @@ lessons:
     reading: "05-reading"
     
   - title: '**Take Home Midterm Assigned**'
-    date: "TBD"
+    date: "February 8"
 
   - title: '<span class="fake-header-table">Part 2: Intermediate Topics</span>'
     header: True
@@ -39,7 +39,7 @@ lessons:
     reading: "06-reading"
 
   - title: 'Take home midterm due'
-    date: "February 15"
+    date: "February 19"
 
   - title: "**Part 7: Functions/batch processing/`purrr`**"
     date: "February 22"
@@ -57,7 +57,7 @@ lessons:
     reading: "09-reading"
     
   - title: "**Final Project Assigned**"
-    date: "TBD"
+    date: "March 13"
 
   - title: "**Part 10. More Stats Stuff/Summary Tables**"
     date: "March 15"
@@ -69,5 +69,5 @@ lessons:
     class: "11-class"
 
   - title: "Final Project Due"
-    date: "TBD"
+    date: "March 24"
 
