@@ -24,6 +24,8 @@ editor_options:
 <li><a href="#r-project-files" id="toc-r-project-files">R Project files</a></li>
 <li><a href="#class-video" id="toc-class-video">Class Video</a></li>
 <li><a href="#post-class" id="toc-post-class">Post-Class</a></li>
+<li><a href="#muddiest-points" id="toc-muddiest-points">Muddiest Points</a></li>
+<li><a href="#clearest-points" id="toc-clearest-points">Clearest points</a></li>
 </ul>
 </div>
 
@@ -46,4 +48,315 @@ editor_options:
 <li>Anything Else: Is there something you’d like me to know?</li>
 </ul>
 <p><a href="https://bit.ly/bsta504_postclass_survey" class="uri">https://bit.ly/bsta504_postclass_survey</a></p>
+</div>
+<div id="muddiest-points" class="section level1">
+<h1>Muddiest Points</h1>
+<p>A lot of things were difficult including “this whole class” as one person said, and yeah, I get it, it’s hard stuff! The reason I teach these harder topics like for loops, functions, map, etc, as opposed to just going over more of the same kind of data cleaning tasks with various examples, is because it’s a lot harder to be motivated to learn the hard stuff if you’ve never been exposed to it. It will probably seem too daunting (I know this because it took me a long time to force myself to learn <code>ggplot</code>, or <code>purrr::map</code>, or even <code>across</code> and the new <code>pivot_longer</code> because I already had other ways of doing that).</p>
+<p>You have the tools by now to learn how to do other data cleaning tasks related to what we’ve learned (i.e. more factor and string manipulation, even working with dates will not be that hard to figure out).</p>
+<p>Also, part of the reason R is so powerful and useful is that it’s a “real” programming language (more similar to C, python, java, etc than SPSS or even SAS or STATA). This part of it will take a lot of practice to feel comfortable if you haven’t had any programming experience. If you <em>have</em> had programming experience, seeing how it’s done in R will get you started in the right direction to using the R-specific programming tools like <code>purrr::map</code> that are truly so useful when automating data tasks.</p>
+<blockquote>
+<p>for loop was a bit confusing when making empty vector</p>
+</blockquote>
+<p>It really is, and is why I recommend not using for loops but embracing <code>map()</code>! We could get even more technical and talk about how <a href="https://www.r-bloggers.com/2018/08/growing-objects-and-loop-memory-pre-allocation/">it’s actually better (faster/efficient) to specify the length or dimension of the empty vector (or data frame, or list, or whatever, this is called pre-allocation) because of how memory is allocated in R</a>, but, no, I refuse to go down that rabbit hole and just say, use <code>map()</code>!</p>
+<p>Side note: If you’re working with data with millions of records, you’ll have plenty of speed issues to worry about, and you need an even more advanced R programming class focused on big data.</p>
+<blockquote>
+<p>I think the whole creation of the function is still quite a bit hazy for me. I believe it’s something that just takes some more practice. Hoping we can fit some more practice challenges to help really build this understanding.</p>
+</blockquote>
+<p>We will start class with another function example, but please ask questions about anything confusing about it during class, too!</p>
+<blockquote>
+<p>I am still struggling with functions! In the reading on functions, I got confused about the difference between the &amp;&amp; || operators and the &amp; | operators..
+The reading said “beware of floating point numbers” and I’m not sure what that is.</p>
+</blockquote>
+<p>As we saw in class, the &amp; “and” operator and | “or” operator are logic operators used to string one condition to another, such as:</p>
+<pre class="r"><code>thing &lt;- 3
+is.na(thing) | thing == 3</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>is.na(thing) &amp; thing == 3</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>But remember we talked about how most functions in R are vectorized, which means they work seamlessly over a vector. This is true for | and &amp; as well. However, if you <em>didn’t</em> want that vectorized behavior and only wanted to check the first elements of a vector you’d use the double &amp;&amp; and ||. This becomes useful for if statements, but, you likely don’t need to worry about it, and you probably want the single &amp; |.</p>
+<pre class="r"><code>thing &lt;- 1:3
+is.na(thing) | thing == 3</code></pre>
+<pre><code>## [1] FALSE FALSE  TRUE</code></pre>
+<pre class="r"><code>is.na(thing) &amp; thing == 3</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE</code></pre>
+<pre class="r"><code>is.na(thing) || thing == 3</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>is.na(thing) &amp;&amp; thing == 3</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>Another very specific situation mentioned in that reading is that floating point numbers (numeric values with lots of numbers after the decimal point) sometimes due to computational rounding/storage will not be <em>exactly</em> equal to each other so you just need to be wary of using <code>==</code> there. The example from the reading sums it up well:</p>
+<pre class="r"><code>thing &lt;- sqrt(2)^2 # should be 2, right?
+2==thing # huh</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>identical(2,thing) # weird</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>2 - thing # extremely small value</code></pre>
+<pre><code>## [1] -4.440892e-16</code></pre>
+<pre class="r"><code># I used to check for &quot;equality&quot; this way...before I knew about dplyr::near()
+(2-thing) &lt; 1e-16</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>dplyr::near(2,thing)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<blockquote>
+<p>Still struggling with the difference between [[]] and [] and unclear on whether that distinction is actually important functionally.</p>
+</blockquote>
+<p>It is very important functionally, if you think back to your homework question where you got different data types depending on which you use. Sometimes you want a list, sometimes you don’t want a list. Usually you only want a list ( i.e. <code>list[1:2]</code>) if you are asking for multiple elements of a list, otherwise you’re wanting to pull out what’s inside that “slot” and use <code>list[[1]]</code>.</p>
+<p>Note that a lot of newer packages make dealing with complex lists less common than it used to be. The example I gave was the <code>broom</code> package <code>tidy()</code> function. In the past, we all learned how to pull out parts of regression output by accessing parts of the list using <code>[[]]</code> and <code>$</code>, just like I showed in class. Probably a lot of your biostats classes still do it this way because that is how your professor learned it. But, now we just need to use <code>broom::tidy()</code> to get a data frame of coefficients, confidence intervals, and p-values.</p>
+<blockquote>
+<p>If pluck and pull do the same thing, is there any advantage to using one over the other?</p>
+</blockquote>
+<p>As I mentioned last class, pluck and pull are similar in that they “pull out” elements from lists but they are used differently so there can not be any “advantage”. <code>pluck</code> is for lists and <code>pull</code> is for data frames (which are also lists, but you can’t use <code>pull</code> on a non-df list! you need to use <code>pluck</code> in that case).</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.0     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.1     ✔ tibble    3.2.0
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.1     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors</code></pre>
+<pre class="r"><code>library(palmerpenguins)
+# try this on your own
+# a list that is not a data frame
+# WHY is it not a data frame?
+mylist &lt;- list(&quot;a&quot;=1:3, &quot;b&quot; = 2) 
+# mylist %&gt;% pull(&quot;a&quot;)
+# Error in UseMethod(&quot;pull&quot;) : 
+#  no applicable method for &#39;pull&#39; applied to an object of class &quot;list&quot;</code></pre>
+<p>Side note, see the difference here:</p>
+<pre class="r"><code>as.data.frame(mylist)</code></pre>
+<pre><code>##   a b
+## 1 1 2
+## 2 2 2
+## 3 3 2</code></pre>
+<pre class="r"><code>mylist &lt;- list(&quot;a&quot;=1:3, &quot;b&quot;=2:4)
+mylist</code></pre>
+<pre><code>## $a
+## [1] 1 2 3
+## 
+## $b
+## [1] 2 3 4</code></pre>
+<pre class="r"><code>as.data.frame(mylist)</code></pre>
+<pre><code>##   a b
+## 1 1 2
+## 2 2 3
+## 3 3 4</code></pre>
+<p>If we do have a data frame/tibble and want to “pull out” a column as a vector (<em>not</em> as a data frame), we are also pulling out an element from a list because a data frame is also a list!</p>
+<p>Here is how we would use pull and pluck to do the “same thing” on a data frame:</p>
+<pre class="r"><code># remember a tibble is a special kind of data frame, which is a special kind of list
+str(penguins)</code></pre>
+<pre><code>## tibble [344 × 8] (S3: tbl_df/tbl/data.frame)
+##  $ species          : Factor w/ 3 levels &quot;Adelie&quot;,&quot;Chinstrap&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ island           : Factor w/ 3 levels &quot;Biscoe&quot;,&quot;Dream&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
+##  $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
+##  $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
+##  $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...
+##  $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
+##  $ sex              : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 1 1 NA 1 2 1 2 NA NA ...
+##  $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
+<pre class="r"><code>class(penguins)</code></pre>
+<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>typeof(penguins)</code></pre>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<pre class="r"><code>s = penguins %&gt;% pull(species)
+str(s)</code></pre>
+<pre><code>##  Factor w/ 3 levels &quot;Adelie&quot;,&quot;Chinstrap&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<pre class="r"><code># does not work because you need quotes for a list element names
+# s2 = penguins %&gt;% pluck(species)
+# Error in list2(...) : object &#39;species&#39; not found
+
+s2 = penguins %&gt;% pluck(&quot;species&quot;)
+str(s2)</code></pre>
+<pre><code>##  Factor w/ 3 levels &quot;Adelie&quot;,&quot;Chinstrap&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<pre class="r"><code># are they the same?
+identical(s, s2)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>I am not in the habit of using <code>pluck</code> yet, because I am used to <code>[[]]</code> and use it when I need it. I do use <code>pull</code> all the time to get a vector, though, for example:</p>
+<pre class="r"><code>penguins %&gt;% 
+  group_by(species) %&gt;%
+  summarize(m = mean(bill_length_mm, na.rm = TRUE)) %&gt;%
+  pull(m)</code></pre>
+<pre><code>## [1] 38.79139 48.83382 47.50488</code></pre>
+<p>Or let’s say I want a list of patient (penguin) ids of a subset:</p>
+<pre class="r"><code>mypenguins &lt;- penguins %&gt;%
+  mutate(id = row_number(), .before = &quot;species&quot;)
+
+mypenguins %&gt;% 
+  filter(bill_length_mm &lt; 35)</code></pre>
+<pre><code>## # A tibble: 9 × 9
+##      id species island    bill_length_mm bill_dept…¹ flipp…² body_…³ sex    year
+##   &lt;int&gt; &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;       &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
+## 1     9 Adelie  Torgersen           34.1        18.1     193    3475 &lt;NA&gt;   2007
+## 2    15 Adelie  Torgersen           34.6        21.1     198    4400 male   2007
+## 3    19 Adelie  Torgersen           34.4        18.4     184    3325 fema…  2007
+## 4    55 Adelie  Biscoe              34.5        18.1     187    2900 fema…  2008
+## 5    71 Adelie  Torgersen           33.5        19       190    3600 fema…  2008
+## 6    81 Adelie  Torgersen           34.6        17.2     189    3200 fema…  2008
+## 7    93 Adelie  Dream               34          17.1     185    3400 fema…  2008
+## 8    99 Adelie  Dream               33.1        16.1     178    2900 fema…  2008
+## 9   143 Adelie  Dream               32.1        15.5     188    3050 fema…  2009
+## # … with abbreviated variable names ¹​bill_depth_mm, ²​flipper_length_mm,
+## #   ³​body_mass_g</code></pre>
+<pre class="r"><code>ids_short_bill &lt;- mypenguins %&gt;% 
+  filter(bill_length_mm &lt; 35) %&gt;% 
+  pull(id)</code></pre>
+<p>Now I have a vector of IDs that satisfy my bill length requirements.</p>
+<pre class="r"><code>ids_short_bill</code></pre>
+<pre><code>## [1]   9  15  19  55  71  81  93  99 143</code></pre>
+<blockquote>
+<p>I just want to check my understanding is correct. The map() is for list and it can be used as itself, but the across() function is only for data frame or tibble and can be used inside the mutate() function. Is that correct? Then, can we use any function inside those map(), and mutate() ?</p>
+</blockquote>
+<p>I really like this distinction and clarification! Yes to this part</p>
+<ul>
+<li><code>map()</code> can be used by itself like, <code>list %&gt;% map(.f = length)</code>, applied to a list or vector</li>
+<li><code>across()</code> can only be used as a <em>helper function inside</em> <code>mutate</code> or <code>summarize</code> applied to a data frame/tibble</li>
+</ul>
+<p>Also:</p>
+<ul>
+<li>inside <code>across()</code> we need to use <em>very specific</em> syntax which is called <a href="https://tidyselect.r-lib.org/reference/language.html"><code>tidyselect</code></a>.</li>
+<li>Think of <code>across()</code> and <code>select()</code> as friends, because they use the same language to select columns.</li>
+</ul>
+<p>But <code>across()</code> is used more like <code>map()</code> in that it takes a “what” argument (<code>.cols =</code> tidy select columns for across, <code>.x =</code> a list or vector for map) and “function” argument (<code>.fns=</code> for across because multiple functions can be supplied, <code>.f=</code> for map because only <em>one</em> function can be applied)</p>
+<pre class="r"><code>library(palmerpenguins)
+
+penguins %&gt;% select(where(is.numeric))</code></pre>
+<pre><code>## # A tibble: 344 × 5
+##    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year
+##             &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;int&gt;
+##  1           39.1          18.7               181        3750  2007
+##  2           39.5          17.4               186        3800  2007
+##  3           40.3          18                 195        3250  2007
+##  4           NA            NA                  NA          NA  2007
+##  5           36.7          19.3               193        3450  2007
+##  6           39.3          20.6               190        3650  2007
+##  7           38.9          17.8               181        3625  2007
+##  8           39.2          19.6               195        4675  2007
+##  9           34.1          18.1               193        3475  2007
+## 10           42            20.2               190        4250  2007
+## # … with 334 more rows</code></pre>
+<pre class="r"><code># penguins %&gt;% across(where(is.numeric))
+# Error in `across()`:
+# ! Must only be used inside data-masking verbs like `mutate()`,
+#   `filter()`, and `group_by()`.
+
+# mutate requires a function that returns a vector the same length as the original vector
+penguins %&gt;% mutate(across(.cols = where(is.numeric), .f = as.character))</code></pre>
+<pre><code>## # A tibble: 344 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex   year 
+##    &lt;fct&gt;   &lt;fct&gt;     &lt;chr&gt;          &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;   &lt;fct&gt; &lt;chr&gt;
+##  1 Adelie  Torgersen 39.1           18.7          181        3750    male  2007 
+##  2 Adelie  Torgersen 39.5           17.4          186        3800    fema… 2007 
+##  3 Adelie  Torgersen 40.3           18            195        3250    fema… 2007 
+##  4 Adelie  Torgersen &lt;NA&gt;           &lt;NA&gt;          &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;  2007 
+##  5 Adelie  Torgersen 36.7           19.3          193        3450    fema… 2007 
+##  6 Adelie  Torgersen 39.3           20.6          190        3650    male  2007 
+##  7 Adelie  Torgersen 38.9           17.8          181        3625    fema… 2007 
+##  8 Adelie  Torgersen 39.2           19.6          195        4675    male  2007 
+##  9 Adelie  Torgersen 34.1           18.1          193        3475    &lt;NA&gt;  2007 
+## 10 Adelie  Torgersen 42             20.2          190        4250    &lt;NA&gt;  2007 
+## # … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,
+## #   ²​body_mass_g</code></pre>
+<pre class="r"><code># this works but it shouldn&#39;t and is &quot;deprecated&quot; in dplyr 1.1.0
+# summarize SHOULD return a vector of length 1
+penguins %&gt;% summarize(across(.cols = where(is.numeric), .f = as.character))</code></pre>
+<pre><code>## Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in
+## dplyr 1.1.0.
+## ℹ Please use `reframe()` instead.
+## ℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`
+##   always returns an ungrouped data frame and adjust accordingly.</code></pre>
+<pre><code>## # A tibble: 344 × 5
+##    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g year 
+##    &lt;chr&gt;          &lt;chr&gt;         &lt;chr&gt;             &lt;chr&gt;       &lt;chr&gt;
+##  1 39.1           18.7          181               3750        2007 
+##  2 39.5           17.4          186               3800        2007 
+##  3 40.3           18            195               3250        2007 
+##  4 &lt;NA&gt;           &lt;NA&gt;          &lt;NA&gt;              &lt;NA&gt;        2007 
+##  5 36.7           19.3          193               3450        2007 
+##  6 39.3           20.6          190               3650        2007 
+##  7 38.9           17.8          181               3625        2007 
+##  8 39.2           19.6          195               4675        2007 
+##  9 34.1           18.1          193               3475        2007 
+## 10 42             20.2          190               4250        2007 
+## # … with 334 more rows</code></pre>
+<pre class="r"><code>penguins %&gt;% summarize(across(.cols = where(is.numeric), .f = length))</code></pre>
+<pre><code>## # A tibble: 1 × 5
+##   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year
+##            &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt; &lt;int&gt;
+## 1            344           344               344         344   344</code></pre>
+<pre class="r"><code>mylist &lt;- list(&quot;a&quot;=1:3, &quot;b&quot; = 2, c = penguins) 
+
+# .x can be piped into map or used as an explicit argument
+mylist %&gt;% map(.f = length)</code></pre>
+<pre><code>## $a
+## [1] 3
+## 
+## $b
+## [1] 1
+## 
+## $c
+## [1] 8</code></pre>
+<pre class="r"><code>map(.x = mylist, .f = length)</code></pre>
+<pre><code>## $a
+## [1] 3
+## 
+## $b
+## [1] 1
+## 
+## $c
+## [1] 8</code></pre>
+<pre class="r"><code># this also works because penguins is a data frame which means it is also a list (columns are elements)
+penguins %&gt;% map(.f = length)</code></pre>
+<pre><code>## $species
+## [1] 344
+## 
+## $island
+## [1] 344
+## 
+## $bill_length_mm
+## [1] 344
+## 
+## $bill_depth_mm
+## [1] 344
+## 
+## $flipper_length_mm
+## [1] 344
+## 
+## $body_mass_g
+## [1] 344
+## 
+## $sex
+## [1] 344
+## 
+## $year
+## [1] 344</code></pre>
+<pre class="r"><code>map(.x = penguins, .f = length)</code></pre>
+<pre><code>## $species
+## [1] 344
+## 
+## $island
+## [1] 344
+## 
+## $bill_length_mm
+## [1] 344
+## 
+## $bill_depth_mm
+## [1] 344
+## 
+## $flipper_length_mm
+## [1] 344
+## 
+## $body_mass_g
+## [1] 344
+## 
+## $sex
+## [1] 344
+## 
+## $year
+## [1] 344</code></pre>
+<p>However, as we will see in class today, we also can use <code>map()</code> inside <code>mutate()</code> when we are using nested data frames, or when we need to “vectorize” a non-vectorized function. In this case, <code>map()</code> is being applied to a list of data that is inside a column of a data frame….it’s complicated, and we’ll see more today.</p>
+</div>
+<div id="clearest-points" class="section level1">
+<h1>Clearest points</h1>
+<p>For every topic in the muddy list it was also in the clear list, so at least it’s not all lost. I think more practice will help.</p>
 </div>

@@ -39,3 +39,216 @@ Please fill out the following survey and we will discuss the results during the 
 - Anything Else: Is there something you'd like me to know?
 
 <https://bit.ly/bsta504_postclass_survey>
+
+
+# Muddiest Points
+
+A lot of things were difficult including "this whole class" as one person said, and yeah, I get it, it's hard stuff! The reason I teach these harder topics like for loops, functions, map, etc, as opposed to just going over more of the same kind of data cleaning tasks with various examples, is because it's a lot harder to be motivated to learn the hard stuff if you've never been exposed to it. It will probably seem too daunting (I know this because it took me a long time to force myself to learn `ggplot`, or `purrr::map`, or even `across` and the new `pivot_longer` because I already had other ways of doing that). 
+
+You have the tools by now to learn how to do other data cleaning tasks related to what we've learned (i.e. more factor and string manipulation, even working with dates will not be that hard to figure out). 
+
+Also, part of the reason R is so powerful and useful is that it's a "real" programming language (more similar to C, python, java, etc than SPSS or even SAS or STATA). This part of it will take a lot of practice to feel comfortable if you haven't had any programming experience. If you *have* had programming experience, seeing how it's done in R will get you started in the right direction to using the R-specific programming tools like `purrr::map` that are truly so useful when automating data tasks.
+
+> for loop was a bit confusing when making empty vector
+
+It really is, and is why I recommend not using for loops but embracing `map()`! We could get even more technical and talk about how [it's actually better (faster/efficient) to specify the length or dimension of the empty vector (or data frame, or list, or whatever, this is called pre-allocation) because of how memory is allocated in R](https://www.r-bloggers.com/2018/08/growing-objects-and-loop-memory-pre-allocation/), but, no, I refuse to go down that rabbit hole and just say, use `map()`! 
+
+Side note: If you're working with data with millions of records, you'll have plenty of speed issues to worry about, and you need an even more advanced R programming class focused on big data.
+
+
+> I think the whole creation of the function is still quite a bit hazy for me. I believe it's something that just takes some more practice. Hoping we can fit some more practice challenges to help really build this understanding.
+
+We will start class with another function example, but please ask questions about anything confusing about it during class, too!
+
+
+> I am still struggling with functions! In the reading on functions, I got confused about the difference between the && || operators and the & | operators..
+> The reading said "beware of floating point numbers" and I'm not sure what that is.
+
+As we saw in class, the & "and" operator and | "or" operator are logic operators used to string one condition to another, such as:
+
+```{r}
+thing <- 3
+is.na(thing) | thing == 3
+is.na(thing) & thing == 3
+```
+
+But remember we talked about how most functions in R are vectorized, which means they work seamlessly over a vector. This is true for | and & as well. However, if you *didn't* want that vectorized behavior and only wanted to check the first elements of a vector you'd use the double && and ||. This becomes useful for if statements, but, you likely don't need to worry about it, and you probably want the single & |.
+
+```{r}
+thing <- 1:3
+is.na(thing) | thing == 3
+is.na(thing) & thing == 3
+
+is.na(thing) || thing == 3
+is.na(thing) && thing == 3
+```
+
+Another very specific situation mentioned in that reading is that floating point numbers (numeric values with lots of numbers after the decimal point) sometimes due to computational rounding/storage will not be *exactly* equal to each other so you just need to be wary of using `==` there. The example from the reading sums it up well:
+
+```{r}
+thing <- sqrt(2)^2 # should be 2, right?
+2==thing # huh
+identical(2,thing) # weird
+2 - thing # extremely small value
+
+# I used to check for "equality" this way...before I knew about dplyr::near()
+(2-thing) < 1e-16
+
+dplyr::near(2,thing)
+```
+
+
+
+> Still struggling with the difference between [[]] and [] and unclear on whether that distinction is actually important functionally.
+
+
+It is very important functionally, if you think back to your homework question where you got different data types depending on which you use. Sometimes you want a list, sometimes you don't want a list. Usually you only want a list ( i.e. `list[1:2]`) if you are asking for multiple elements of a list, otherwise you're wanting to pull out what's inside that "slot" and use `list[[1]]`.
+
+Note that a lot of newer packages make dealing with complex lists less common than it used to be. The example I gave was the `broom` package `tidy()` function. In the past, we all learned how to pull out parts of regression output by accessing parts of the list using `[[]]` and `$`, just like I showed in class. Probably a lot of your biostats classes still do it this way because that is how your professor learned it. But, now we just need to use `broom::tidy()` to get a data frame of coefficients, confidence intervals, and p-values.
+
+
+> If pluck and pull do the same thing, is there any advantage to using one over the other?
+
+As I mentioned last class, pluck and pull are similar in that they "pull out" elements from lists but they are used differently so there can not be any "advantage". `pluck` is for lists and `pull` is for data frames (which are also lists, but you can't use `pull` on a non-df list! you need to use `pluck` in that case).
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+# try this on your own
+# a list that is not a data frame
+# WHY is it not a data frame?
+mylist <- list("a"=1:3, "b" = 2) 
+# mylist %>% pull("a")
+# Error in UseMethod("pull") : 
+#  no applicable method for 'pull' applied to an object of class "list"
+```
+
+Side note, see the difference here:
+
+```{r}
+as.data.frame(mylist)
+
+mylist <- list("a"=1:3, "b"=2:4)
+mylist
+
+as.data.frame(mylist)
+```
+
+
+
+If we do have a data frame/tibble and want to "pull out" a column as a vector (*not* as a data frame), we are also pulling out an element from a list because a data frame is also a list!
+
+Here is how we would use pull and pluck to do the "same thing" on a data frame:
+
+```{r}
+# remember a tibble is a special kind of data frame, which is a special kind of list
+str(penguins)
+class(penguins)
+typeof(penguins)
+```
+
+
+```{r}
+s = penguins %>% pull(species)
+str(s)
+
+# does not work because you need quotes for a list element names
+# s2 = penguins %>% pluck(species)
+# Error in list2(...) : object 'species' not found
+
+s2 = penguins %>% pluck("species")
+str(s2)
+
+# are they the same?
+identical(s, s2)
+```
+
+I am not in the habit of using `pluck` yet, because I am used to `[[]]` and use it when I need it. I do use `pull` all the time to get a vector, though, for example:
+
+```{r}
+penguins %>% 
+  group_by(species) %>%
+  summarize(m = mean(bill_length_mm, na.rm = TRUE)) %>%
+  pull(m)
+```
+
+Or let's say I want a list of patient (penguin) ids of a subset:
+
+```{r}
+mypenguins <- penguins %>%
+  mutate(id = row_number(), .before = "species")
+
+mypenguins %>% 
+  filter(bill_length_mm < 35)
+
+ids_short_bill <- mypenguins %>% 
+  filter(bill_length_mm < 35) %>% 
+  pull(id)
+```
+
+Now I have a vector of IDs that satisfy my bill length requirements.
+
+```{r}
+ids_short_bill
+```
+
+
+
+
+> I just want to check my understanding is correct. The map() is for list and it can be used as itself, but the across() function is only for data frame or tibble and can be used inside the mutate() function. Is that correct? Then, can we use any function inside those map(), and mutate() ?
+
+I really like this distinction and clarification! Yes to this part
+
+- `map()` can be used by itself like, `list %>% map(.f = length)`, applied to a list or vector
+- `across()` can only be used as a *helper function inside* `mutate` or `summarize` applied to a data frame/tibble
+
+Also:
+
+- inside `across()` we need to use *very specific* syntax which is called [`tidyselect`](https://tidyselect.r-lib.org/reference/language.html). 
+- Think of `across()` and `select()` as friends, because they use the same language to select columns. 
+
+But `across()` is used more like `map()` in that it takes a "what" argument (`.cols = ` tidy select columns for across, `.x =`  a list or vector for map) and "function" argument (`.fns=` for across because multiple functions can be supplied, `.f=` for map because only *one* function can be applied)
+
+```{r}
+library(palmerpenguins)
+
+penguins %>% select(where(is.numeric))
+
+
+# penguins %>% across(where(is.numeric))
+# Error in `across()`:
+# ! Must only be used inside data-masking verbs like `mutate()`,
+#   `filter()`, and `group_by()`.
+
+# mutate requires a function that returns a vector the same length as the original vector
+penguins %>% mutate(across(.cols = where(is.numeric), .f = as.character))
+
+# this works but it shouldn't and is "deprecated" in dplyr 1.1.0
+# summarize SHOULD return a vector of length 1
+penguins %>% summarize(across(.cols = where(is.numeric), .f = as.character))
+penguins %>% summarize(across(.cols = where(is.numeric), .f = length))
+
+
+mylist <- list("a"=1:3, "b" = 2, c = penguins) 
+
+# .x can be piped into map or used as an explicit argument
+mylist %>% map(.f = length)
+map(.x = mylist, .f = length)
+
+# this also works because penguins is a data frame which means it is also a list (columns are elements)
+penguins %>% map(.f = length)
+map(.x = penguins, .f = length)
+
+```
+
+
+However, as we will see in class today, we also can use `map()` inside `mutate()` when we are using nested data frames, or when we need to "vectorize" a non-vectorized function. In this case, `map()` is being applied to a list of data that is inside a column of a data frame....it's complicated, and we'll see more today.
+
+
+
+
+# Clearest points
+
+For every topic in the muddy list it was also in the clear list, so at least it's not all lost. I think more practice will help.
+
+

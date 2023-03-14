@@ -2188,6 +2188,8 @@ penguins %&amp;gt;%
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#class-video&#34; id=&#34;toc-class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#muddiest-points&#34; id=&#34;toc-muddiest-points&#34;&gt;Muddiest Points&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clearest-points&#34; id=&#34;toc-clearest-points&#34;&gt;Clearest points&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -2210,6 +2212,297 @@ penguins %&amp;gt;%
 &lt;li&gt;Anything Else: Is there something you’d like me to know?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&#34;https://bit.ly/bsta504_postclass_survey&#34; class=&#34;uri&#34;&gt;https://bit.ly/bsta504_postclass_survey&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;muddiest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Muddiest Points&lt;/h1&gt;
+&lt;p&gt;A lot of things were difficult including “this whole class” as one person said, and yeah, I get it, it’s hard stuff! The reason I teach these harder topics like for loops, functions, map, etc, as opposed to just going over more of the same kind of data cleaning tasks with various examples, is because it’s a lot harder to be motivated to learn the hard stuff if you’ve never been exposed to it. It will probably seem too daunting (I know this because it took me a long time to force myself to learn &lt;code&gt;ggplot&lt;/code&gt;, or &lt;code&gt;purrr::map&lt;/code&gt;, or even &lt;code&gt;across&lt;/code&gt; and the new &lt;code&gt;pivot_longer&lt;/code&gt; because I already had other ways of doing that).&lt;/p&gt;
+&lt;p&gt;You have the tools by now to learn how to do other data cleaning tasks related to what we’ve learned (i.e. more factor and string manipulation, even working with dates will not be that hard to figure out).&lt;/p&gt;
+&lt;p&gt;Also, part of the reason R is so powerful and useful is that it’s a “real” programming language (more similar to C, python, java, etc than SPSS or even SAS or STATA). This part of it will take a lot of practice to feel comfortable if you haven’t had any programming experience. If you &lt;em&gt;have&lt;/em&gt; had programming experience, seeing how it’s done in R will get you started in the right direction to using the R-specific programming tools like &lt;code&gt;purrr::map&lt;/code&gt; that are truly so useful when automating data tasks.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;for loop was a bit confusing when making empty vector&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It really is, and is why I recommend not using for loops but embracing &lt;code&gt;map()&lt;/code&gt;! We could get even more technical and talk about how &lt;a href=&#34;https://www.r-bloggers.com/2018/08/growing-objects-and-loop-memory-pre-allocation/&#34;&gt;it’s actually better (faster/efficient) to specify the length or dimension of the empty vector (or data frame, or list, or whatever, this is called pre-allocation) because of how memory is allocated in R&lt;/a&gt;, but, no, I refuse to go down that rabbit hole and just say, use &lt;code&gt;map()&lt;/code&gt;!&lt;/p&gt;
+&lt;p&gt;Side note: If you’re working with data with millions of records, you’ll have plenty of speed issues to worry about, and you need an even more advanced R programming class focused on big data.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I think the whole creation of the function is still quite a bit hazy for me. I believe it’s something that just takes some more practice. Hoping we can fit some more practice challenges to help really build this understanding.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We will start class with another function example, but please ask questions about anything confusing about it during class, too!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I am still struggling with functions! In the reading on functions, I got confused about the difference between the &amp;amp;&amp;amp; || operators and the &amp;amp; | operators..
+The reading said “beware of floating point numbers” and I’m not sure what that is.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;As we saw in class, the &amp;amp; “and” operator and | “or” operator are logic operators used to string one condition to another, such as:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thing &amp;lt;- 3
+is.na(thing) | thing == 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;is.na(thing) &amp;amp; thing == 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But remember we talked about how most functions in R are vectorized, which means they work seamlessly over a vector. This is true for | and &amp;amp; as well. However, if you &lt;em&gt;didn’t&lt;/em&gt; want that vectorized behavior and only wanted to check the first elements of a vector you’d use the double &amp;amp;&amp;amp; and ||. This becomes useful for if statements, but, you likely don’t need to worry about it, and you probably want the single &amp;amp; |.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thing &amp;lt;- 1:3
+is.na(thing) | thing == 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE  TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;is.na(thing) &amp;amp; thing == 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;is.na(thing) || thing == 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;is.na(thing) &amp;amp;&amp;amp; thing == 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Another very specific situation mentioned in that reading is that floating point numbers (numeric values with lots of numbers after the decimal point) sometimes due to computational rounding/storage will not be &lt;em&gt;exactly&lt;/em&gt; equal to each other so you just need to be wary of using &lt;code&gt;==&lt;/code&gt; there. The example from the reading sums it up well:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thing &amp;lt;- sqrt(2)^2 # should be 2, right?
+2==thing # huh&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;identical(2,thing) # weird&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;2 - thing # extremely small value&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -4.440892e-16&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# I used to check for &amp;quot;equality&amp;quot; this way...before I knew about dplyr::near()
+(2-thing) &amp;lt; 1e-16&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dplyr::near(2,thing)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Still struggling with the difference between [[]] and [] and unclear on whether that distinction is actually important functionally.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It is very important functionally, if you think back to your homework question where you got different data types depending on which you use. Sometimes you want a list, sometimes you don’t want a list. Usually you only want a list ( i.e. &lt;code&gt;list[1:2]&lt;/code&gt;) if you are asking for multiple elements of a list, otherwise you’re wanting to pull out what’s inside that “slot” and use &lt;code&gt;list[[1]]&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Note that a lot of newer packages make dealing with complex lists less common than it used to be. The example I gave was the &lt;code&gt;broom&lt;/code&gt; package &lt;code&gt;tidy()&lt;/code&gt; function. In the past, we all learned how to pull out parts of regression output by accessing parts of the list using &lt;code&gt;[[]]&lt;/code&gt; and &lt;code&gt;$&lt;/code&gt;, just like I showed in class. Probably a lot of your biostats classes still do it this way because that is how your professor learned it. But, now we just need to use &lt;code&gt;broom::tidy()&lt;/code&gt; to get a data frame of coefficients, confidence intervals, and p-values.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If pluck and pull do the same thing, is there any advantage to using one over the other?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;As I mentioned last class, pluck and pull are similar in that they “pull out” elements from lists but they are used differently so there can not be any “advantage”. &lt;code&gt;pluck&lt;/code&gt; is for lists and &lt;code&gt;pull&lt;/code&gt; is for data frames (which are also lists, but you can’t use &lt;code&gt;pull&lt;/code&gt; on a non-df list!).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.0     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.1     ✔ tibble    3.2.0
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.1     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(palmerpenguins)
+# try this on your own:
+mylist &amp;lt;- list(&amp;quot;a&amp;quot;=1:3, &amp;quot;b&amp;quot; = 2) 
+# mylist %&amp;gt;% pull(&amp;quot;a&amp;quot;)
+# Error in UseMethod(&amp;quot;pull&amp;quot;) : 
+#  no applicable method for &amp;#39;pull&amp;#39; applied to an object of class &amp;quot;list&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If we do have a data frame/tibble and want to “pull out” a column as a vector (&lt;em&gt;not&lt;/em&gt; as a data frame), we are also pulling out an element from a list because a data frame is also a list!&lt;/p&gt;
+&lt;p&gt;Here is how we would use pull and pluck to do the “same thing” on a data frame:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# remember a tibble is a special kind of data frame, which is a special kind of list
+str(penguins)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## tibble [344 × 8] (S3: tbl_df/tbl/data.frame)
+##  $ species          : Factor w/ 3 levels &amp;quot;Adelie&amp;quot;,&amp;quot;Chinstrap&amp;quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ island           : Factor w/ 3 levels &amp;quot;Biscoe&amp;quot;,&amp;quot;Dream&amp;quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
+##  $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
+##  $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
+##  $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...
+##  $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
+##  $ sex              : Factor w/ 2 levels &amp;quot;female&amp;quot;,&amp;quot;male&amp;quot;: 2 1 1 NA 1 2 1 2 NA NA ...
+##  $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(penguins)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;tbl_df&amp;quot;     &amp;quot;tbl&amp;quot;        &amp;quot;data.frame&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;typeof(penguins)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;list&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s = penguins %&amp;gt;% pull(species)
+str(s)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  Factor w/ 3 levels &amp;quot;Adelie&amp;quot;,&amp;quot;Chinstrap&amp;quot;,..: 1 1 1 1 1 1 1 1 1 1 ...&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# does not work because you need quotes for a list element names
+# s2 = penguins %&amp;gt;% pluck(species)
+# Error in list2(...) : object &amp;#39;species&amp;#39; not found
+
+s2 = penguins %&amp;gt;% pluck(&amp;quot;species&amp;quot;)
+str(s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  Factor w/ 3 levels &amp;quot;Adelie&amp;quot;,&amp;quot;Chinstrap&amp;quot;,..: 1 1 1 1 1 1 1 1 1 1 ...&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# are they the same?
+identical(s, s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I am not in the habit of using &lt;code&gt;pluck&lt;/code&gt; yet, because I am used to &lt;code&gt;[[]]&lt;/code&gt; and use it when I need it. I do use &lt;code&gt;pull&lt;/code&gt; all the time to get a vector, though, for example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% 
+  group_by(species) %&amp;gt;%
+  summarize(m = mean(bill_length_mm, na.rm = TRUE)) %&amp;gt;%
+  pull(m)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 38.79139 48.83382 47.50488&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Or let’s say I want a list of patient (penguin) ids of a subset:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mypenguins &amp;lt;- penguins %&amp;gt;%
+  mutate(id = row_number(), .before = &amp;quot;species&amp;quot;)
+
+mypenguins %&amp;gt;% 
+  filter(bill_length_mm &amp;lt; 35)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 9 × 9
+##      id species island    bill_length_mm bill_dept…¹ flipp…² body_…³ sex    year
+##   &amp;lt;int&amp;gt; &amp;lt;fct&amp;gt;   &amp;lt;fct&amp;gt;              &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;   &amp;lt;int&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;int&amp;gt;
+## 1     9 Adelie  Torgersen           34.1        18.1     193    3475 &amp;lt;NA&amp;gt;   2007
+## 2    15 Adelie  Torgersen           34.6        21.1     198    4400 male   2007
+## 3    19 Adelie  Torgersen           34.4        18.4     184    3325 fema…  2007
+## 4    55 Adelie  Biscoe              34.5        18.1     187    2900 fema…  2008
+## 5    71 Adelie  Torgersen           33.5        19       190    3600 fema…  2008
+## 6    81 Adelie  Torgersen           34.6        17.2     189    3200 fema…  2008
+## 7    93 Adelie  Dream               34          17.1     185    3400 fema…  2008
+## 8    99 Adelie  Dream               33.1        16.1     178    2900 fema…  2008
+## 9   143 Adelie  Dream               32.1        15.5     188    3050 fema…  2009
+## # … with abbreviated variable names ¹​bill_depth_mm, ²​flipper_length_mm,
+## #   ³​body_mass_g&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ids_short_bill &amp;lt;- mypenguins %&amp;gt;% 
+  filter(bill_length_mm &amp;lt; 35) %&amp;gt;% 
+  pull(id)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now I have a vector of IDs that satisfy my bill length requirements.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ids_short_bill&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1]   9  15  19  55  71  81  93  99 143&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I just want to check my understanding is correct. The map() is for list and it can be used as itself, but the across() function is only for data frame or tibble and can be used inside the mutate() function. Is that correct? Then, can we use any function inside those map(), and mutate() ?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I really like this distinction and clarification! Yes to this part&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;map()&lt;/code&gt; can be used by itself like, &lt;code&gt;list %&amp;gt;% map(.f = length)&lt;/code&gt;, applied to a list or vector&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;across()&lt;/code&gt; can only be used as a &lt;em&gt;helper function inside&lt;/em&gt; &lt;code&gt;mutate&lt;/code&gt; or &lt;code&gt;summarize&lt;/code&gt; applied to a data frame/tibble&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Also:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;inside &lt;code&gt;across()&lt;/code&gt; we need to use &lt;em&gt;very specific&lt;/em&gt; syntax which is called &lt;a href=&#34;https://tidyselect.r-lib.org/reference/language.html&#34;&gt;&lt;code&gt;tidyselect&lt;/code&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Think of &lt;code&gt;across()&lt;/code&gt; and &lt;code&gt;select()&lt;/code&gt; as friends, because they use the same language to select columns.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;But &lt;code&gt;across()&lt;/code&gt; is used more like &lt;code&gt;map()&lt;/code&gt; in that it takes a “what” argument (&lt;code&gt;.cols =&lt;/code&gt; tidy select columns for across, &lt;code&gt;.x =&lt;/code&gt; a list or vector for map) and “function” argument (&lt;code&gt;.fns=&lt;/code&gt; for across because multiple functions can be supplied, &lt;code&gt;.f=&lt;/code&gt; for map because only &lt;em&gt;one&lt;/em&gt; function can be applied)&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(palmerpenguins)
+
+penguins %&amp;gt;% select(where(is.numeric))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 344 × 5
+##    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year
+##             &amp;lt;dbl&amp;gt;         &amp;lt;dbl&amp;gt;             &amp;lt;int&amp;gt;       &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;
+##  1           39.1          18.7               181        3750  2007
+##  2           39.5          17.4               186        3800  2007
+##  3           40.3          18                 195        3250  2007
+##  4           NA            NA                  NA          NA  2007
+##  5           36.7          19.3               193        3450  2007
+##  6           39.3          20.6               190        3650  2007
+##  7           38.9          17.8               181        3625  2007
+##  8           39.2          19.6               195        4675  2007
+##  9           34.1          18.1               193        3475  2007
+## 10           42            20.2               190        4250  2007
+## # … with 334 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# penguins %&amp;gt;% across(where(is.numeric))
+# Error in `across()`:
+# ! Must only be used inside data-masking verbs like `mutate()`,
+#   `filter()`, and `group_by()`.
+
+# mutate requires a function that returns a vector the same length as the original vector
+penguins %&amp;gt;% mutate(across(.cols = where(is.numeric), .f = as.character))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 344 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex   year 
+##    &amp;lt;fct&amp;gt;   &amp;lt;fct&amp;gt;     &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;         &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;   &amp;lt;fct&amp;gt; &amp;lt;chr&amp;gt;
+##  1 Adelie  Torgersen 39.1           18.7          181        3750    male  2007 
+##  2 Adelie  Torgersen 39.5           17.4          186        3800    fema… 2007 
+##  3 Adelie  Torgersen 40.3           18            195        3250    fema… 2007 
+##  4 Adelie  Torgersen &amp;lt;NA&amp;gt;           &amp;lt;NA&amp;gt;          &amp;lt;NA&amp;gt;       &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;  2007 
+##  5 Adelie  Torgersen 36.7           19.3          193        3450    fema… 2007 
+##  6 Adelie  Torgersen 39.3           20.6          190        3650    male  2007 
+##  7 Adelie  Torgersen 38.9           17.8          181        3625    fema… 2007 
+##  8 Adelie  Torgersen 39.2           19.6          195        4675    male  2007 
+##  9 Adelie  Torgersen 34.1           18.1          193        3475    &amp;lt;NA&amp;gt;  2007 
+## 10 Adelie  Torgersen 42             20.2          190        4250    &amp;lt;NA&amp;gt;  2007 
+## # … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,
+## #   ²​body_mass_g&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# this works but it shouldn&amp;#39;t and is &amp;quot;deprecated&amp;quot; in dplyr 1.1.0
+# summarize SHOULD return a vector of length 1
+penguins %&amp;gt;% summarize(across(.cols = where(is.numeric), .f = as.character))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in
+## dplyr 1.1.0.
+## ℹ Please use `reframe()` instead.
+## ℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`
+##   always returns an ungrouped data frame and adjust accordingly.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 344 × 5
+##    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g year 
+##    &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;         &amp;lt;chr&amp;gt;             &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;
+##  1 39.1           18.7          181               3750        2007 
+##  2 39.5           17.4          186               3800        2007 
+##  3 40.3           18            195               3250        2007 
+##  4 &amp;lt;NA&amp;gt;           &amp;lt;NA&amp;gt;          &amp;lt;NA&amp;gt;              &amp;lt;NA&amp;gt;        2007 
+##  5 36.7           19.3          193               3450        2007 
+##  6 39.3           20.6          190               3650        2007 
+##  7 38.9           17.8          181               3625        2007 
+##  8 39.2           19.6          195               4675        2007 
+##  9 34.1           18.1          193               3475        2007 
+## 10 42             20.2          190               4250        2007 
+## # … with 334 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;penguins %&amp;gt;% summarize(across(.cols = where(is.numeric), .f = length))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1 × 5
+##   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year
+##            &amp;lt;int&amp;gt;         &amp;lt;int&amp;gt;             &amp;lt;int&amp;gt;       &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;
+## 1            344           344               344         344   344&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mylist &amp;lt;- list(&amp;quot;a&amp;quot;=1:3, &amp;quot;b&amp;quot; = 2, c = penguins) 
+
+# .x can be piped into map or used as an explicit argument
+mylist %&amp;gt;% map(.f = length)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $a
+## [1] 3
+## 
+## $b
+## [1] 1
+## 
+## $c
+## [1] 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;map(.x = mylist, .f = length)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $a
+## [1] 3
+## 
+## $b
+## [1] 1
+## 
+## $c
+## [1] 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# this also works because penguins is a data frame which means it is also a list (columns are elements)
+penguins %&amp;gt;% map(.f = length)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $species
+## [1] 344
+## 
+## $island
+## [1] 344
+## 
+## $bill_length_mm
+## [1] 344
+## 
+## $bill_depth_mm
+## [1] 344
+## 
+## $flipper_length_mm
+## [1] 344
+## 
+## $body_mass_g
+## [1] 344
+## 
+## $sex
+## [1] 344
+## 
+## $year
+## [1] 344&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;map(.x = penguins, .f = length)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $species
+## [1] 344
+## 
+## $island
+## [1] 344
+## 
+## $bill_length_mm
+## [1] 344
+## 
+## $bill_depth_mm
+## [1] 344
+## 
+## $flipper_length_mm
+## [1] 344
+## 
+## $body_mass_g
+## [1] 344
+## 
+## $sex
+## [1] 344
+## 
+## $year
+## [1] 344&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, as we will see in class today, we also can use &lt;code&gt;map()&lt;/code&gt; inside &lt;code&gt;mutate()&lt;/code&gt; when we are using nested data frames, or when we need to “vectorize” a non-vectorized function. In this case, &lt;code&gt;map()&lt;/code&gt; is being applied to a list of data that is inside a column of a data frame….it’s complicated, and we’ll see more today.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clearest-points&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Clearest points&lt;/h1&gt;
+&lt;p&gt;For every topic in the muddy list it was also in the clear list, so at least it’s not all lost. I think more practice will help.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
