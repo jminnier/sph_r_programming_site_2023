@@ -1,6 +1,6 @@
 ---
-title: "Class 11: Finish Part 9 + Part 10: Advanced Functions and Loose Ends"
-linktitle: "Class 11: Finish Part 9 + Part 10: Advanced Functions and Loose Ends"
+title: "Class 11: No Class, Just Office Hours"
+linktitle: "Class 11: No Class, Just Office Hours"
 date: "2022-03-16"
 class_date: "2022-03-16"
 output:
@@ -18,11 +18,15 @@ editor_options:
   chunk_output_type: console
 ---
 
-## R Project files
+# Last year's class video, Part 9: More stats, broom, and tables (gt, gtsummary)
 
-In this class we finished part 9, and covered about half of part 10 in [the dropbox folder](https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0). Be sure to unzip if necessary.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2d-oAKAkkfI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Class Video
+
+View last year's class and materials [here](https://sph-r-programming-2022.netlify.app/class/10-class/).
+
+
+# Last year's class video, Part 10: Advanced Functioning and Loose Ends
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MAgCL61BkH0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

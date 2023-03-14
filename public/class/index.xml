@@ -2215,29 +2215,26 @@ penguins %&amp;gt;%
     </item>
     
     <item>
-      <title>Part 9 (Class 10): More Stats Stuff/Summary Tables</title>
+      <title>(Class 10): Part 8 (contd). Intro to stats/`broom`/More Purrr</title>
       <link>https://sph-r-programming-2023.netlify.app/class/10-class/</link>
-      <pubDate>Wed, 09 Mar 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate>
       <guid>https://sph-r-programming-2023.netlify.app/class/10-class/</guid>
       <description>
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#class-video&#34; id=&#34;toc-class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#last-years-class-video&#34; id=&#34;toc-last-years-class-video&#34;&gt;Last Year’s Class Video&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#post-class&#34; id=&#34;toc-post-class&#34;&gt;Post-Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
 &lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Project files&lt;/h2&gt;
-&lt;p&gt;Please download the part9 sub-folder from &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;this dropbox link&lt;/a&gt;. Be sure to unzip if necessary. Knit the &lt;code&gt;part9.Rmd&lt;/code&gt; to install any required packages.&lt;/p&gt;
+&lt;p&gt;We are continuing with Part 8.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Class Video&lt;/h2&gt;
-&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/2d-oAKAkkfI&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
-&lt;/iframe&gt;
-&lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/class/10-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&#34;last-years-class-video&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Last Year’s Class Video&lt;/h2&gt;
 &lt;/div&gt;
 &lt;div id=&#34;post-class&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Post-Class&lt;/h1&gt;
@@ -2253,7 +2250,7 @@ penguins %&amp;gt;%
     </item>
     
     <item>
-      <title>Class 11: Finish Part 9 &#43; Part 10: Advanced Functions and Loose Ends</title>
+      <title>Class 11: No Class, Just Office Hours</title>
       <link>https://sph-r-programming-2023.netlify.app/class/11-class/</link>
       <pubDate>Wed, 16 Mar 2022 00:00:00 +0000</pubDate>
       <guid>https://sph-r-programming-2023.netlify.app/class/11-class/</guid>
@@ -2261,17 +2258,19 @@ penguins %&amp;gt;%
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#r-project-files&#34; id=&#34;toc-r-project-files&#34;&gt;R Project files&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#class-video&#34; id=&#34;toc-class-video&#34;&gt;Class Video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#last-years-class-video-part-9-more-stats-broom-and-tables-gt-gtsummary&#34; id=&#34;toc-last-years-class-video-part-9-more-stats-broom-and-tables-gt-gtsummary&#34;&gt;Last year’s class video, Part 9: More stats, broom, and tables (gt, gtsummary)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#last-years-class-video-part-10-advanced-functioning-and-loose-ends&#34; id=&#34;toc-last-years-class-video-part-10-advanced-functioning-and-loose-ends&#34;&gt;Last year’s class video, Part 10: Advanced Functioning and Loose Ends&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;div id=&#34;r-project-files&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;R Project files&lt;/h2&gt;
-&lt;p&gt;In this class we finished part 9, and covered about half of part 10 in &lt;a href=&#34;https://www.dropbox.com/sh/q4z72523kl84ywp/AAASb1YIFRpxzrjOeq1FVcXua?dl=0&#34;&gt;the dropbox folder&lt;/a&gt;. Be sure to unzip if necessary.&lt;/p&gt;
+&lt;div id=&#34;last-years-class-video-part-9-more-stats-broom-and-tables-gt-gtsummary&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Last year’s class video, Part 9: More stats, broom, and tables (gt, gtsummary)&lt;/h1&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/2d-oAKAkkfI&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/class/10-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;class-video&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Class Video&lt;/h2&gt;
+&lt;div id=&#34;last-years-class-video-part-10-advanced-functioning-and-loose-ends&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Last year’s class video, Part 10: Advanced Functioning and Loose Ends&lt;/h1&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/MAgCL61BkH0&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;View last year’s class and materials &lt;a href=&#34;https://sph-r-programming-2022.netlify.app/class/11-class/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
