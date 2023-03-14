@@ -46,12 +46,12 @@ lessons:
     class: "07-class"
     reading: "07-reading"
 
-  - title: "**Part 8. More with factors, dates, strings.**"
+  - title: "**Part 7: Functions/batch processing/`purrr**"
     date: "March 1"
     class: "08-class"
     reading: "08-reading"
     
-  - title: "**Part 9. Intro to stats/formulas/`broom`/More Purrr**"
+  - title: "**Part 8. Intro to stats/formulas/`broom`/More Purrr**"
     date: "March 8"
     class: "09-class"
     reading: "09-reading"
@@ -59,12 +59,12 @@ lessons:
   - title: "**Final Project Assigned**"
     date: "March 13"
 
-  - title: "**Part 10. More Stats Stuff/Summary Tables**"
+  - title: "**Part 8. Intro to stats/formulas/`broom`/More Purrr**"
     date: "March 15"
     class: "10-class"
     reading: "10-reading"
 
-  - title: "**Part 11. Advanced Functions and Loose Ends**"
+  - title: "**No Class, Office Hour**"
     date: "March 22"
     class: "11-class"
 
